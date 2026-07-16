@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { 
   ArrowRight, 
   Phone, 
@@ -28,6 +29,7 @@ export default function Home() {
   const controls = useAnimation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (isInView) {
@@ -50,39 +52,43 @@ export default function Home() {
     }
   };
 
+  // Updated partners with actual images
   const partners = [
-    { name: 'Intel', logo: 'https://via.placeholder.com/120x60' },
-    { name: 'AMD', logo: 'https://via.placeholder.com/120x60' },
-    { name: 'NVIDIA', logo: 'https://via.placeholder.com/120x60' },
-    { name: 'Qualcomm', logo: 'https://via.placeholder.com/120x60' },
-    { name: 'Samsung', logo: 'https://via.placeholder.com/120x60' },
-    { name: 'TSMC', logo: 'https://via.placeholder.com/120x60' },
+    { name: 'Micron', logo: '/images/micron.png' },
+    { name: 'SynSense', logo: '/images/synsense.png' },
+    { name: 'Fudan Micron', logo: '/images/Fudan Micron.png' },
+    { name: 'Cadence', logo: '/images/Cadence-Logo.png' },
+    { name: 'Silicon Labs', logo: '/images/silicon_labs.jpg' },
+    { name: 'Boreas Technologies', logo: '/images/boreas_technologies.png' },
   ];
+
+  // Duplicate partners for seamless scrolling
+  const scrollingPartners = [...partners, ...partners, ...partners];
 
   const services = [
     {
       icon: Cpu,
       title: 'RTL Design IP',
       description: 'High-performance RTL design IP for next-generation semiconductor products.',
-      link: '/services/rtl-design-ip'
+      link: '/services'
     },
     {
       icon: Shield,
       title: 'Verification IP',
       description: 'Comprehensive verification IP solutions for complex system-on-chip designs.',
-      link: '/services/verification-ip'
+      link: '/services'
     },
     {
       icon: Zap,
       title: 'RISC-V Solution',
       description: 'End-to-end RISC-V processor solutions for custom and embedded applications.',
-      link: '/services/risc-v-solution'
+      link: '/services'
     },
     {
       icon: Layers,
       title: 'Solutions & Services',
       description: 'Full-stack engineering services from architecture to tape-out and beyond.',
-      link: '/services/solutions'
+      link: '/services'
     }
   ];
 
@@ -103,10 +109,22 @@ export default function Home() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentQuoteIndex((prevIndex) => (prevIndex + 1) % quotes.length);
-    }, 5000); // Change quote every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [quotes.length]);
+
+  const handleLearnMore = () => {
+    navigate('/products');
+  };
+
+  const handleReadMore = () => {
+    navigate('/about/why-us');
+  };
+
+  const handleServiceLearnMore = (link) => {
+    navigate(link);
+  };
 
   return (
     <>
@@ -176,27 +194,30 @@ export default function Home() {
                 MAXVY delivers silicon-proven IP, UVM verification and full-stack engineering services for the world's most demanding semiconductor programs.
               </motion.p>
               <motion.div variants={fadeUp}>
-                <button className="bg-orange-500 hover:bg-orange-600 text-white px-2 py-2 rounded-xl text-base font-semibold transition-all duration-200 hover:shadow-xl hover:scale-105 inline-flex items-center gap-1">
+                <button 
+                  onClick={handleLearnMore}
+                  className="bg-orange-500 hover:bg-orange-600 text-white px-2 py-2 rounded-xl text-base font-semibold transition-all duration-200 hover:shadow-xl hover:scale-105 inline-flex items-center gap-1"
+                >
                   Learn More
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </motion.div>
               <motion.div 
-  className="flex flex-wrap gap-2 pt-4"
-  variants={staggerContainer}
-  initial="hidden"
-  animate="visible"
->
-  {['RTL Design IP', 'Verification IP', 'RISC-V Solution', 'Solutions & Services'].map((badge, index) => (
-    <motion.span
-      key={index}
-      variants={fadeUp}
-      className="px-3 py-1.5 bg-orange-50 text-black-700 rounded-full text-sm font-medium border border-orange-200 shadow-sm whitespace-nowrap"
-    >
-      {badge}
-    </motion.span>
-  ))}
-</motion.div>
+                className="flex flex-wrap gap-2 pt-4"
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+              >
+                {['RTL Design IP', 'Verification IP', 'RISC-V Solution', 'Solutions & Services'].map((badge, index) => (
+                  <motion.span
+                    key={index}
+                    variants={fadeUp}
+                    className="px-3 py-1.5 bg-orange-50 text-black-700 rounded-full text-sm font-medium border border-orange-200 shadow-sm whitespace-nowrap"
+                  >
+                    {badge}
+                  </motion.span>
+                ))}
+              </motion.div>
             </motion.div>
             <motion.div
               className="relative flex justify-center items-center"
@@ -227,7 +248,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===================== ABOUT SECTION - PIXEL PERFECT ===================== */}
+      {/* About Section */}
       <section className="bg-white py-[100px] overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-[60px] items-center">
@@ -288,6 +309,7 @@ export default function Home() {
                 </p>
 
                 <button
+                  onClick={handleReadMore}
                   className="mt-8 h-[54px] w-[170px] rounded-[12px] bg-[#FF6200] text-white font-semibold text-base transition-all duration-300 hover:bg-[#e85b00] inline-flex items-center justify-center gap-2"
                 >
                   Read More
@@ -300,7 +322,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section with Enhanced Animation */}
+      {/* Services Section */}
       <section className="py-24 bg-gray-50 overflow-hidden">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -349,8 +371,8 @@ export default function Home() {
                     transition: { duration: 0.3 }
                   }}
                   className="bg-white rounded-3xl shadow-lg p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 group cursor-pointer relative overflow-hidden"
+                  onClick={() => handleServiceLearnMore(service.link)}
                 >
-                  {/* Animated background gradient */}
                   <motion.div 
                     className="absolute inset-0 bg-gradient-to-br from-orange-50/0 via-orange-50/0 to-orange-100/0"
                     whileHover={{
@@ -359,7 +381,6 @@ export default function Home() {
                     }}
                   />
                   
-                  {/* Icon with enhanced animation */}
                   <motion.div 
                     className="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-orange-500 transition-colors duration-300 relative z-10"
                     whileHover={{
@@ -388,8 +409,7 @@ export default function Home() {
                     {service.description}
                   </motion.p>
                   
-                  <motion.a 
-                    href={service.link} 
+                  <motion.div 
                     className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:text-orange-700 transition-colors duration-200 group relative z-10"
                     whileHover={{ x: 5 }}
                   >
@@ -401,9 +421,8 @@ export default function Home() {
                     >
                       <ArrowRight className="w-4 h-4" />
                     </motion.span>
-                  </motion.a>
+                  </motion.div>
 
-                  {/* Shine effect on hover */}
                   <motion.div
                     className="absolute top-0 -inset-full h-full w-1/2 z-0 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent"
                     initial={{ left: '-100%' }}
@@ -419,7 +438,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= Partners Section ================= */}
+      {/* Partners Section with Auto-Scrolling Logos */}
       <section className="bg-[#FCF8F5] pt-10 pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Heading */}
@@ -454,53 +473,66 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          {/* Logo Grid */}
-          <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5">
-            {partners.map((partner, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: .45,
-                  delay: index * .05
-                }}
-                viewport={{ once: true }}
-                whileHover={{
-                  y: -5,
-                  scale: 1.03
-                }}
-                className="
-                  h-[72px]
-                  rounded-2xl
-                  bg-white
-                  border
-                  border-[#F2E7DF]
-                  shadow-[0_4px_18px_rgba(0,0,0,0.04)]
-                  flex
-                  items-center
-                  justify-center
-                  transition-all
-                  duration-300
-                  hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)]
-                "
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="h-8 object-contain"
-                />
-              </motion.div>
-            ))}
+          {/* Auto-Scrolling Logo Carousel */}
+          <div className="mt-16 relative overflow-hidden">
+            {/* Gradient overlays for smooth fade effect */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#FCF8F5] to-transparent z-10"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#FCF8F5] to-transparent z-10"></div>
+            
+            <div className="flex animate-scroll">
+              {scrollingPartners.map((partner, index) => (
+                <motion.div
+                  key={index}
+                  className="flex-shrink-0 w-[180px] h-[100px] mx-4"
+                  whileHover={{
+                    scale: 1.05,
+                    transition: { duration: 0.2 }
+                  }}
+                >
+                  <div className="
+                    h-full
+                    rounded-2xl
+                    bg-white
+                    border
+                    border-[#F2E7DF]
+                    shadow-[0_4px_18px_rgba(0,0,0,0.04)]
+                    flex
+                    items-center
+                    justify-center
+                    transition-all
+                    duration-300
+                    hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)]
+                    p-4
+                  ">
+                    <img
+                      src={partner.logo}
+                      alt={partner.name}
+                      className="max-h-[60px] w-auto object-contain"
+                      onError={(e) => {
+                        // Fallback if image fails to load
+                        e.currentTarget.style.display = 'none';
+                        const parent = e.currentTarget.parentElement;
+                        if (parent) {
+                          const fallback = document.createElement('span');
+                          fallback.className = 'text-sm font-medium text-gray-600 text-center';
+                          fallback.textContent = partner.name;
+                          parent.appendChild(fallback);
+                        }
+                      }}
+                    />
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Quote/Testimonial Section with Auto-sliding - Increased Height */}
+      {/* Quote/Testimonial Section - Updated to Brown */}
       <section className="py-16 bg-white">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-900 rounded-3xl p-8 md:p-10 relative overflow-hidden h-[280px] md:h-[320px] flex items-center">
-            <Quote className="absolute top-4 right-4 w-10 h-10 text-orange-500/20" />
+          <div className="bg-[#3A3A3A] rounded-3xl p-8 md:p-10 relative overflow-hidden h-[280px] md:h-[320px] flex items-center">
+            <Quote className="absolute top-4 right-4 w-10 h-10 text-white/20" />
             
             {/* Quote Slider */}
             <div className="max-w-4xl mx-auto text-center relative w-full h-full">
@@ -520,11 +552,11 @@ export default function Home() {
                     height: '100%'
                   }}
                 >
-                  <Quote className="w-10 h-10 text-orange-500 mb-3" />
+                  <Quote className="w-10 h-10 text-white/30 mb-3" />
                   <blockquote className="text-base md:text-xl lg:text-2xl font-extrabold text-white leading-tight px-4 max-w-3xl">
                     "{quote.text}"
                   </blockquote>
-                  <p className="text-sm md:text-base text-gray-400 font-medium mt-3">— {quote.author}</p>
+                  <p className="text-sm md:text-base text-white/80 font-medium mt-3">— {quote.author}</p>
                 </motion.div>
               ))}
               
@@ -536,8 +568,8 @@ export default function Home() {
                     onClick={() => setCurrentQuoteIndex(dotIndex)}
                     className={`w-2 h-2 rounded-full transition-all duration-300 ${
                       dotIndex === currentQuoteIndex 
-                        ? 'bg-orange-500 w-6' 
-                        : 'bg-gray-600 hover:bg-gray-500'
+                        ? 'bg-white w-6' 
+                        : 'bg-white/40 hover:bg-white/60'
                     }`}
                   />
                 ))}

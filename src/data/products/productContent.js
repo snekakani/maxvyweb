@@ -1475,7 +1475,7 @@ export const productContent = {
   }
 };
 
-// ==================== EXPORTS ====================
+// ==================== HELPER FUNCTIONS ====================
 
 export const getProductBySlug = (slug) => {
   return productContent[slug] || null;
@@ -1506,9 +1506,6 @@ export const findProduct = (category, slug) => {
   
   return null;
 };
-
-// Also export productContent as default or named export
-export { productContent };
 
 // Default export for convenience
 export default productContent;

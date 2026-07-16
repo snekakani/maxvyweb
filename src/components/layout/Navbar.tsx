@@ -1,3 +1,4 @@
+// Navbar.tsx - Updated to remove services dropdown
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, Search, Cpu } from 'lucide-react';
@@ -5,12 +6,11 @@ import MegaMenu from './MegaMenu';
 import MobileMenu from './MobileMenu';
 import LanguageSelector from './LanguageSelector';
 import SearchBar from './SearchBar';
-import { services } from '../../data/services';
 import { careerPages } from '../../data/careers';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [openMenu, setOpenMenu] = useState<'products' | 'services' | 'about' | 'careers' | null>(null);
+  const [openMenu, setOpenMenu] = useState<'products' | 'about' | 'careers' | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
@@ -58,7 +58,6 @@ export default function Navbar() {
                 open={openMenu === 'about'}
                 onEnter={() => setOpenMenu('about')}
                 items={[
-                  // { label: 'Company Overview', to: '/about/company-overview', blurb: 'Who we are and what we do.' },
                   { label: 'Why Us', to: '/about/why-us', blurb: 'Why leading chipmakers choose MAXVY.' },
                   { label: 'Knowledge Sharing', to: '/about/knowledge-sharing', blurb: 'Papers, talks and technical articles.' },
                   { label: 'Testimonials', to: '/about/testimonials', blurb: 'What our customers say.' },
@@ -85,15 +84,8 @@ export default function Navbar() {
                 {openMenu === 'products' && <MegaMenu />}
               </div>
 
-              {/* Services */}
-              <Dropdown
-                label="Services"
-                open={openMenu === 'services'}
-                onEnter={() => setOpenMenu('services')}
-                items={services.map((s) => ({ label: s.name, to: s.path, blurb: s.tagline }))}
-              />
-
-              
+              {/* Services - Now just a simple link */}
+              <NavItem to="/services" label="Services" />
 
               {/* Careers */}
               <Dropdown

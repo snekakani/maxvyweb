@@ -87,6 +87,16 @@ export default {
           '0%': { backgroundPosition: '-200% 0' },
           '100%': { backgroundPosition: '200% 0' },
         },
+        // Auto-scroll animation for partners logos
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        // Scroll reverse (left to right)
+        'scroll-reverse': {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
       },
       animation: {
         'fade-up': 'fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both',
@@ -95,6 +105,8 @@ export default {
         float: 'float 6s ease-in-out infinite',
         'spin-slow': 'spin-slow 24s linear infinite',
         shimmer: 'shimmer 2.5s linear infinite',
+        scroll: 'scroll 20s linear infinite',
+        'scroll-reverse': 'scroll-reverse 20s linear infinite',
       },
     },
   },

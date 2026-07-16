@@ -313,6 +313,7 @@ export function QSPITargetIP() {
     />
   );
 }
+
 export function OSPITargetIP() {
   return (
     <ProductDetail
@@ -320,6 +321,7 @@ export function OSPITargetIP() {
     />
   );
 }
+
 export function XSpiTargetController() {
   return (
     <ProductDetail
@@ -327,6 +329,7 @@ export function XSpiTargetController() {
     />
   );
 }
+
 export function XSpiHostController() {
   return (
     <ProductDetail
@@ -344,6 +347,7 @@ export function MIPII3CHostTargetIP() {
     />
   );
 }
+
 export function MIPII3CTargetIP() {
   return (
     <ProductDetail
@@ -351,6 +355,7 @@ export function MIPII3CTargetIP() {
     />
   );
 }
+
 export function MIPII3CHostIP() {
   return (
     <ProductDetail
@@ -358,6 +363,7 @@ export function MIPII3CHostIP() {
     />
   );
 }
+
 export function MIPII3CBasicTargetController() {
   return (
     <ProductDetail
@@ -365,6 +371,7 @@ export function MIPII3CBasicTargetController() {
     />
   );
 }
+
 export function MIPII3CBasicHostController() {
   return (
     <ProductDetail
@@ -372,6 +379,7 @@ export function MIPII3CBasicHostController() {
     />
   );
 }
+
 export function MIPII3CHostRISCVSubsystem() {
   return (
     <ProductDetail
@@ -389,6 +397,7 @@ export function SPMIHostController() {
     />
   );
 }
+
 export function SPMITargetController() {
   return (
     <ProductDetail
@@ -396,6 +405,7 @@ export function SPMITargetController() {
     />
   );
 }
+
 export function ETSISSPI3CInterfaceIP() {
   return (
     <ProductDetail
@@ -409,70 +419,109 @@ export function ETSISSPI3CInterfaceIP() {
 export function UCIeVIP() {
   return (
     <ProductDetail
-      {...makeProduct('UCIe VIP', 'UCIe die-to-die verification IP for chiplet protocol compliance and SoC integration verification.')}
+      {...makeProduct(
+        'UCIe VIP',
+        'UCIe die-to-die verification IP for chiplet protocol compliance and SoC integration verification.'
+      )}
     />
   );
 }
+
 export function MIPII3CUVMVIP() {
   return (
     <ProductDetail
-      {...makeProduct('MIPI-I3C UVM VIP', 'MIPI I3C v1.1.1 UVM verification IP with full protocol coverage and constrained-random stimulus.')}
+      {...makeProduct(
+        'MIPI-I3C UVM VIP',
+        'MIPI I3C v1.1.1 UVM verification IP with full protocol coverage and constrained-random stimulus.'
+      )}
     />
   );
 }
+
 export function MIPIDSIVIP() {
   return (
     <ProductDetail
-      {...makeProduct('MIPI DSI VIP', 'MIPI DSI/DSI-2 verification IP with D-PHY and C-PHY support.')}
+      {...makeProduct(
+        'MIPI DSI VIP',
+        'MIPI DSI/DSI-2 verification IP with D-PHY and C-PHY support.'
+      )}
     />
   );
 }
+
 export function MIPICSIVIP() {
   return (
     <ProductDetail
-      {...makeProduct('MIPI CSI VIP', 'MIPI CSI-2/CSI-3 verification IP for camera interface compliance verification.')}
+      {...makeProduct(
+        'MIPI CSI VIP',
+        'MIPI CSI-2/CSI-3 verification IP for camera interface compliance verification.'
+      )}
     />
   );
 }
+
 export function AXIVIP() {
   return (
     <ProductDetail
-      {...makeProduct('AXI VIP', 'AXI4 / AXI4-Lite / AXI4-Stream UVM verification IP with full protocol coverage.')}
+      {...makeProduct(
+        'AXI VIP',
+        'AXI4 / AXI4-Lite / AXI4-Stream UVM verification IP with full protocol coverage.'
+      )}
     />
   );
 }
+
 export function AHBLiteMasterSlaveVIP() {
   return (
     <ProductDetail
-      {...makeProduct('AHB Lite Master/Slave VIP', 'AMBA AHB-Lite master and slave verification IP for bus fabric verification.')}
+      {...makeProduct(
+        'AHB Lite Master/Slave VIP',
+        'AMBA AHB-Lite master and slave verification IP for bus fabric verification.'
+      )}
     />
   );
 }
+
 export function APHYVIP() {
   return (
     <ProductDetail
-      {...makeProduct('A-PHY VIP', 'MIPI A-PHY v2.0 verification IP for automotive SerDes compliance.')}
+      {...makeProduct(
+        'A-PHY VIP',
+        'MIPI A-PHY v2.0 verification IP for automotive SerDes compliance.'
+      )}
     />
   );
 }
+
 export function CPRIVerificationIP() {
   return (
     <ProductDetail
-      {...makeProduct('CPRI Verification IP', 'CPRI front-haul interface verification IP for 4G/5G radio unit testing.')}
+      {...makeProduct(
+        'CPRI Verification IP',
+        'CPRI front-haul interface verification IP for 4G/5G radio unit testing.'
+      )}
     />
   );
 }
+
 export function JESD204BUVMVIP() {
   return (
     <ProductDetail
-      {...makeProduct('JESD204B UVM VIP', 'JESD204B high-speed ADC/DAC serial interface UVM VIP for data converter verification.')}
+      {...makeProduct(
+        'JESD204B UVM VIP',
+        'JESD204B high-speed ADC/DAC serial interface UVM VIP for data converter verification.'
+      )}
     />
   );
 }
+
 export function LPCControllerVIP() {
   return (
     <ProductDetail
-      {...makeProduct('LPC Controller VIP', 'Low Pin Count bus controller verification IP for legacy interface compliance.')}
+      {...makeProduct(
+        'LPC Controller VIP',
+        'Low Pin Count bus controller verification IP for legacy interface compliance.'
+      )}
     />
   );
 }
@@ -486,6 +535,7 @@ export function MAXVYI3CHostIP() {
     />
   );
 }
+
 export function MAXVYI3CTargetIP() {
   return (
     <ProductDetail
@@ -493,6 +543,7 @@ export function MAXVYI3CTargetIP() {
     />
   );
 }
+
 export function MAXVYXSPIHostIP() {
   return (
     <ProductDetail
@@ -500,6 +551,7 @@ export function MAXVYXSPIHostIP() {
     />
   );
 }
+
 export function MAXVYDSI2TransmitterIP() {
   return (
     <ProductDetail
@@ -507,6 +559,7 @@ export function MAXVYDSI2TransmitterIP() {
     />
   );
 }
+
 export function MAXVYCSI2ReceiverIP() {
   return (
     <ProductDetail
@@ -514,6 +567,7 @@ export function MAXVYCSI2ReceiverIP() {
     />
   );
 }
+
 export function MAXVYUARTIP() {
   return (
     <ProductDetail
@@ -521,6 +575,7 @@ export function MAXVYUARTIP() {
     />
   );
 }
+
 export function MAXVYGPIOIP() {
   return (
     <ProductDetail
@@ -528,6 +583,7 @@ export function MAXVYGPIOIP() {
     />
   );
 }
+
 export function MAXVYPWMIP() {
   return (
     <ProductDetail
@@ -545,6 +601,7 @@ export function UCIeControllerIP() {
     />
   );
 }
+
 export function AVSBusHostIP() {
   return (
     <ProductDetail
@@ -552,6 +609,7 @@ export function AVSBusHostIP() {
     />
   );
 }
+
 export function AVSBusTargetIP() {
   return (
     <ProductDetail
@@ -559,6 +617,7 @@ export function AVSBusTargetIP() {
     />
   );
 }
+
 export function GPIOControllerIP() {
   return (
     <ProductDetail
@@ -576,6 +635,7 @@ export function InstructionSet() {
     />
   );
 }
+
 export function CoreDevelopment() {
   return (
     <ProductDetail
@@ -583,6 +643,7 @@ export function CoreDevelopment() {
     />
   );
 }
+
 export function ReferenceModel() {
   return (
     <ProductDetail
@@ -610,3 +671,8 @@ export function MAXVYI3CHostControllerSoftware() {
     />
   );
 }
+
+// ─── Re-export Products and ProductDetail ──────────────────────────────────
+
+export { default as Products } from './Products';
+export { default as ProductDetail } from './ProductDetail';

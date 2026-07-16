@@ -1,3 +1,5 @@
+// src/AppRoutes.tsx
+
 import { Routes, Route } from 'react-router-dom';
 import Home from '../components/pages/Home/Home';
 import CompanyOverview from '../components/pages/About/CompanyOverview';
@@ -60,7 +62,9 @@ import {
   CloudBasedDynamicQRCodeGenerator,
   MAXVYI3CHostControllerSoftware,
 } from '../components/pages/Products/ProductPages';
+// Import the updated Services component
 import Services from '../components/pages/Services/Services';
+// Import Service detail pages (keep if you have individual service detail pages)
 import {
   RTLDesign,
   Verification,
@@ -73,8 +77,11 @@ import {
   WorkCulture,
   InternshipProgram,
   TrainingProgram,
-  CurrentOpenings,
 } from '../components/pages/Careers/CareerPages';
+// Import the new CurrentOpenings component
+import CurrentOpenings from '../components/pages/Careers/currentopening';
+// Import JobDetails component
+import JobDetails from '../components/pages/Careers/job_details';
 import Contact from '../components/pages/Contact/Contact';
 import NotFound from '../components/pages/NotFound';
 
@@ -168,13 +175,14 @@ export default function AppRoutes() {
       {/* MAXVY FPGA */}
       <Route path="/products/maxvy-fpga/maxvy-i3c-host-controller-software" element={<MAXVYI3CHostControllerSoftware />} />
 
-      {/* Services */}
+      {/* Services - Updated: Just the main Services page */}
       <Route path="/services" element={<Services />} />
-      <Route path="/services/rtl-design" element={<RTLDesign />} />
+      {/* Remove individual service detail routes if you don't need them */}
+      {/* <Route path="/services/rtl-design" element={<RTLDesign />} />
       <Route path="/services/verification" element={<Verification />} />
       <Route path="/services/physical-design" element={<PhysicalDesign />} />
       <Route path="/services/engineering-services" element={<EngineeringServices />} />
-      <Route path="/services/consulting" element={<Consulting />} />
+      <Route path="/services/consulting" element={<Consulting />} /> */}
 
       {/* Careers */}
       <Route path="/careers/life-at-maxvy" element={<LifeAtMaxvy />} />
@@ -182,6 +190,7 @@ export default function AppRoutes() {
       <Route path="/careers/internship-program" element={<InternshipProgram />} />
       <Route path="/careers/training-program" element={<TrainingProgram />} />
       <Route path="/careers/current-openings" element={<CurrentOpenings />} />
+      <Route path="/careers/job-details/:id" element={<JobDetails />} />
 
       {/* Contact */}
       <Route path="/contact" element={<Contact />} />

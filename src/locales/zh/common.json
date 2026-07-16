@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "home": "首页",
+    "about": "关于我们",
+    "products": "产品",
+    "services": "服务",
+    "careers": "招聘",
+    "contact": "联系我们",
+    "quote": "获取报价"
+  }
+}

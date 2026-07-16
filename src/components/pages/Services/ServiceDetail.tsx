@@ -1,13 +1,14 @@
+// ServiceDetail.tsx
 import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 import SEO from '../../common/SEO';
-import PageHero from '../../common/PageHero';
 import SectionTitle from '../../common/SectionTitle';
-import Card from '../../common/Card';
 import Timeline from '../../common/Timeline';
 import CTA from '../../common/CTA';
 import { useReveal } from '../../../hooks/useReveal';
 import { findService } from '../../../data/services';
+import aboutBanner from '../../../images/about-us_banner.jpeg';
 
 type Props = {
   slug: string;
@@ -42,49 +43,61 @@ export default function ServiceDetail({ slug }: Props) {
         description={service.tagline}
         canonical={service.path}
       />
-      <PageHero
-        eyebrow="Services"
-        title={service.name}
-        description={service.description}
-        crumbs={crumbs}
-        primaryLabel="Engage MAXVY"
-        primaryTo="/contact"
-        secondaryLabel="View all services"
-        secondaryTo="/services/rtl-design"
-      />
-
-      {/* Overview */}
-      <section className="section-pad bg-white">
-        <div className="container-page">
-          <div className="grid gap-12 lg:grid-cols-[1fr_360px]">
-            <div className="reveal">
-              <SectionTitle
-                align="left"
-                eyebrow="Overview"
-                title="What we do"
-                description={service.overview[0]}
-              />
-              {service.overview.slice(1).map((p, i) => (
-                <p key={i} className="mt-4 text-base leading-relaxed text-muted">
-                  {p}
-                </p>
-              ))}
-            </div>
-            <aside className="reveal" data-reveal-delay="120">
-              <Card className="sticky top-24">
-                <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
-                  <Icon className="h-6 w-6" />
-                </span>
-                <h3 className="mt-4 text-base font-semibold text-navy-800">{service.name}</h3>
-                <p className="mt-1 text-sm text-muted">{service.tagline}</p>
-                <Link to="/contact" className="btn-primary mt-5 w-full">
-                  Engage MAXVY <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Card>
-            </aside>
+      
+      {/* Hero Section - Updated to match About page style */}
+      <div className="relative w-full overflow-hidden">
+        <div
+          className="relative w-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${aboutBanner})`,
+            height: '400px',
+          }}
+        >
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="max-w-4xl mx-auto"
+            >
+              <h1 className="text-[50px] font-extrabold leading-tight tracking-tight">
+                <span className="text-[#0F172A]">{service.name.split(' ')[0]} </span>
+                <span className="text-[#FF6A00]">{service.name.split(' ').slice(1).join(' ')}</span>
+              </h1>
+              <p className="mt-4 text-base text-gray-700 max-w-[780px] mx-auto leading-relaxed">
+                {service.tagline}
+              </p>
+            </motion.div>
           </div>
         </div>
-      </section>
+
+        {/* Floating White Container */}
+        <div className="relative z-20 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 -mt-[90px]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+            className="bg-white rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-10 lg:p-12"
+          >
+            <div className="max-w-4xl mx-auto">
+              <div className="reveal">
+                <SectionTitle
+                  align="left"
+                  eyebrow="Overview"
+                  title="What we do"
+                  description={service.overview[0]}
+                />
+                {service.overview.slice(1).map((p, i) => (
+                  <p key={i} className="mt-4 text-base leading-relaxed text-muted">
+                    {p}
+                  </p>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+        <div className="h-12" />
+      </div>
 
       {/* Process */}
       <section className="section-pad bg-canvas">

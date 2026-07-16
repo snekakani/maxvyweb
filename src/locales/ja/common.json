@@ -1,0 +1,11 @@
+{
+  "navbar": {
+    "home": "ホーム",
+    "about": "会社概要",
+    "products": "製品",
+    "services": "サービス",
+    "careers": "採用",
+    "contact": "お問い合わせ",
+    "quote": "見積もり"
+  }
+}

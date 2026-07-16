@@ -179,7 +179,7 @@ const WhyUs: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.15 }}
               transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
-              className="mt-12 bg-gradient-to-br from-[#101827] to-[#1A2435] rounded-[28px] p-16 text-center"
+              className="mt-12 bg-gradient-to-br from-[#3A3A3A] to-[#3A3A3A] rounded-[28px] p-16 text-center"
             >
              {/* <Badge className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 transform border-0">
   GET STARTED
@@ -187,7 +187,7 @@ const WhyUs: React.FC = () => {
 
               <h2 className="text-[40px] font-extrabold text-white leading-tight tracking-tight">
                 Ready to Build <br />
-                <span className="text-orange-400">Silicon Excellence?</span>
+                <span className="text-white-400">Silicon Excellence?</span>
               </h2>
 
               <p className="mt-4 max-w-[600px] mx-auto text-gray-300 text-base leading-relaxed">

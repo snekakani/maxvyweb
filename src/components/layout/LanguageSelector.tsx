@@ -1,11 +1,23 @@
 import { useEffect, useRef, useState } from 'react';
 import { Globe, ChevronDown } from 'lucide-react';
 import { languages } from '../../data/company';
+import i18n from "../../i18n";
 
 export default function LanguageSelector({ dark = false }: { dark?: boolean }) {
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(languages[0]);
   const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Check if there's a saved language preference
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang) {
+      const matchedLang = languages.find(l => l.code.toLowerCase() === savedLang.toLowerCase());
+      if (matchedLang) {
+        setActive(matchedLang);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     function onClick(e: MouseEvent) {
@@ -14,6 +26,16 @@ export default function LanguageSelector({ dark = false }: { dark?: boolean }) {
     document.addEventListener('mousedown', onClick);
     return () => document.removeEventListener('mousedown', onClick);
   }, []);
+
+  const handleLanguageChange = (language: typeof languages[0]) => {
+    setActive(language);
+    i18n.changeLanguage(language.code.toLowerCase());
+    localStorage.setItem(
+      "preferredLanguage",
+      language.code.toLowerCase()
+    );
+    setOpen(false);
+  };
 
   return (
     <div ref={ref} className="relative">
@@ -39,10 +61,7 @@ export default function LanguageSelector({ dark = false }: { dark?: boolean }) {
             <button
               key={l.code}
               type="button"
-              onClick={() => {
-                setActive(l);
-                setOpen(false);
-              }}
+              onClick={() => handleLanguageChange(l)}
               className={`flex w-full items-center justify-between px-3 py-2 text-sm transition-colors hover:bg-navy-50 ${
                 active.code === l.code ? 'text-primary-600 font-semibold' : 'text-ink'
               }`}

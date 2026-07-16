@@ -1,15 +1,30 @@
+// Contact.tsx
 import { useState } from 'react';
-import { Mail, MapPin, Phone, Clock, Send, Check, Linkedin, Twitter, Youtube, Github } from 'lucide-react';
+import { Mail, MapPin, Phone, Clock, Send, Check, Linkedin, Twitter, Youtube, Github, Building, Navigation, ExternalLink } from 'lucide-react';
+import { motion } from 'framer-motion';
 import SEO from '../../common/SEO';
-import PageHero from '../../common/PageHero';
 import SectionTitle from '../../common/SectionTitle';
 import Accordion from '../../common/Accordion';
 import { useReveal } from '../../../hooks/useReveal';
 import { faqs } from '../../../data/company';
+import aboutBanner from '../../../images/about-us_banner.jpeg';
 
 export default function Contact() {
   useReveal();
   const [submitted, setSubmitted] = useState(false);
+  const [captchaInput, setCaptchaInput] = useState('');
+
+  // Generate random captcha
+  const generateCaptcha = () => {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < 6; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    return result;
+  };
+
+  const [captchaValue, setCaptchaValue] = useState(generateCaptcha);
 
   return (
     <>
@@ -18,172 +33,433 @@ export default function Contact() {
         description="Get in touch with MAXVY Technologies. We respond within one business day."
         canonical="/contact"
       />
-      <PageHero
-        eyebrow="Contact"
-        title="Let's build something"
-        description="Tell us about your program. We will respond within one business day with the right architect on the line."
-        crumbs={[{ label: 'Home', to: '/' }, { label: 'Contact' }]}
-      />
-
-      {/* Contact info + form */}
-      <section className="section-pad bg-white">
-        <div className="container-page">
-          <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
-            {/* Info */}
-            <div className="reveal">
-              <SectionTitle
-                align="left"
-                eyebrow="Contact information"
-                title="Reach us directly"
-                description="Prefer email or phone? Use the channels below — we are here Mon–Fri, 9:00–18:00 IST."
-              />
-              <div className="mt-8 flex flex-col gap-4">
-                {[
-                  { Icon: Mail, label: 'Email', value: 'info@maxvytech.com', href: 'mailto:info@maxvytech.com' },
-                  { Icon: Phone, label: 'Phone', value: '+91 461 200 0000', href: 'tel:+914612000000' },
-                  { Icon: MapPin, label: 'Office', value: 'MAXVY Technologies, Tirunelveli, Tamil Nadu, India', href: '#' },
-                  { Icon: Clock, label: 'Business hours', value: 'Mon–Fri · 9:00–18:00 IST', href: '#' },
-                ].map(({ Icon, label, value, href }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    className="group flex items-start gap-4 rounded-2xl border border-line bg-white p-4 transition-all hover:border-primary-200 hover:shadow-soft"
-                  >
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-50 text-primary-600">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <div>
-                      <div className="text-xs font-semibold uppercase tracking-wider text-muted">
-                        {label}
-                      </div>
-                      <div className="text-sm font-medium text-navy-800">{value}</div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-
-              {/* Social */}
-              <div className="mt-8">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted">
-                  Follow us
-                </p>
-                <div className="mt-3 flex items-center gap-2">
-                  {[Linkedin, Twitter, Youtube, Github].map((Icon, i) => (
-                    <a
-                      key={i}
-                      href="#"
-                      aria-label="social link"
-                      className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-navy-700 transition-colors hover:border-primary-500 hover:bg-primary-500 hover:text-white"
-                    >
-                      <Icon className="h-4 w-4" />
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Form */}
-            <div className="reveal" data-reveal-delay="120">
-              <div className="rounded-3xl border border-line bg-canvas p-6 shadow-soft lg:p-8">
-                {submitted ? (
-                  <div className="flex h-full flex-col items-center justify-center py-16 text-center">
-                    <span className="flex h-16 w-16 items-center justify-center rounded-full bg-success/10 text-success">
-                      <Check className="h-8 w-8" />
-                    </span>
-                    <h3 className="mt-4 text-xl font-semibold text-navy-800">Message sent</h3>
-                    <p className="mt-1 text-sm text-muted">
-                      Thank you. A MAXVY architect will respond within one business day.
-                    </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="btn-ghost mt-6"
-                    >
-                      Send another message
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <h3 className="text-lg font-semibold text-navy-800">Send us a message</h3>
-                    <p className="mt-1 text-sm text-muted">
-                      Fields marked * are required.
-                    </p>
-                    <form
-                      className="mt-6 flex flex-col gap-4"
-                      onSubmit={(e) => {
-                        e.preventDefault();
-                        setSubmitted(true);
-                      }}
-                    >
-                      <div className="grid gap-4 sm:grid-cols-2">
-                        <Field label="First name *" placeholder="Jane" required />
-                        <Field label="Last name *" placeholder="Doe" required />
-                      </div>
-                      <div className="grid gap-4 sm:grid-cols-2">
-                        <Field label="Work email *" placeholder="jane@company.com" type="email" required />
-                        <Field label="Company" placeholder="Company Inc." />
-                      </div>
-                      <div className="grid gap-4 sm:grid-cols-2">
-                        <SelectField
-                          label="Interest"
-                          options={[
-                            'IP licensing',
-                            'Verification services',
-                            'Physical design',
-                            'Engineering services',
-                            'Consulting',
-                            'Careers',
-                            'Other',
-                          ]}
-                        />
-                        <Field label="Phone" placeholder="+91 ..." />
-                      </div>
-                      <div>
-                        <label className="text-xs font-semibold uppercase tracking-wider text-muted">
-                          Message *
-                        </label>
-                        <textarea
-                          required
-                          rows={5}
-                          placeholder="Tell us about your program..."
-                          className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-2.5 text-sm outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
-                        />
-                      </div>
-                      <label className="flex items-start gap-2 text-xs text-muted">
-                        <input type="checkbox" required className="mt-0.5" />
-                        <span>
-                          I agree to be contacted by MAXVY and have read the{' '}
-                          <a href="#" className="text-primary-600 hover:underline">
-                            privacy policy
-                          </a>
-                          .
-                        </span>
-                      </label>
-                      <button type="submit" className="btn-primary w-full">
-                        Send message <Send className="h-4 w-4" />
-                      </button>
-                    </form>
-                  </>
-                )}
-              </div>
-            </div>
+      
+      {/* Hero Section - Updated to match About page style */}
+      <div className="relative w-full overflow-hidden">
+        <div
+          className="relative w-full bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url(${aboutBanner})`,
+            height: '400px',
+          }}
+        >
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: 'easeOut' }}
+              className="max-w-4xl mx-auto"
+            >
+              <h1 className="text-[50px] font-extrabold leading-tight tracking-tight">
+                <span className="text-[#0F172A]">GET IN </span>
+                <span className="text-[#FF6A00]">TOUCH</span>
+              </h1>
+              <p className="mt-4 text-base text-gray-700 max-w-[780px] mx-auto leading-relaxed">
+                We'd love to hear from you. Reach out to us through any of the channels below.
+              </p>
+            </motion.div>
           </div>
         </div>
-      </section>
 
-      {/* Map placeholder */}
-      <section className="bg-canvas pb-20">
-        <div className="container-page">
-          <div className="reveal relative h-80 overflow-hidden rounded-3xl border border-line bg-white shadow-soft">
-            <div className="absolute inset-0 bg-grid-faint [background-size:32px_32px] opacity-40" />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-50 text-primary-600">
-                <MapPin className="h-7 w-7" />
-              </span>
-              <p className="mt-3 text-base font-semibold text-navy-800">Google Map placeholder</p>
-              <p className="mt-1 max-w-md text-sm text-muted">
-                MAXVY Technologies, Tirunelveli, Tamil Nadu, India.
-              </p>
+        {/* Floating White Container */}
+        <div className="relative z-20 max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8 -mt-[90px]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+            className="bg-white rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-10 lg:p-12"
+          >
+            <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
+              {/* Form - Left Side */}
+              <div className="reveal" data-reveal-delay="120">
+                <div className="rounded-3xl border border-line bg-gradient-to-br from-white to-orange-50/20 p-6 shadow-soft lg:p-8">
+                  {submitted ? (
+                    <motion.div 
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="flex h-full flex-col items-center justify-center py-16 text-center"
+                    >
+                      <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-r from-green-400 to-green-500 text-white shadow-lg">
+                        <Check className="h-10 w-10" />
+                      </div>
+                      <h3 className="mt-6 text-2xl font-bold text-navy-800">Message Sent! 🎉</h3>
+                      <p className="mt-2 text-sm text-muted max-w-sm">
+                        Thank you for reaching out. Our team will get back to you within one business day.
+                      </p>
+                      <button
+                        onClick={() => {
+                          setSubmitted(false);
+                          setCaptchaInput('');
+                          setCaptchaValue(generateCaptcha());
+                        }}
+                        className="mt-8 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border-2 border-orange-200 text-orange-600 font-medium hover:bg-orange-50 hover:border-orange-400 transition-all"
+                      >
+                        Send another message
+                      </button>
+                    </motion.div>
+                  ) : (
+                    <>
+                      <div className="mb-6">
+                        <h3 className="text-2xl font-bold text-navy-800">Get In Touch</h3>
+                        <p className="mt-1 text-sm text-muted">
+                          Fill in the form below and we'll get back to you shortly.
+                        </p>
+                      </div>
+                      <form
+                        className="mt-6 flex flex-col gap-4"
+                        onSubmit={(e) => {
+                          e.preventDefault();
+                          if (captchaInput === captchaValue) {
+                            setSubmitted(true);
+                          } else {
+                            alert('Invalid captcha. Please try again.');
+                            setCaptchaInput('');
+                            setCaptchaValue(generateCaptcha());
+                          }
+                        }}
+                      >
+                        <div>
+                          <label className="text-xs font-semibold uppercase tracking-wider text-muted">
+                            Name *
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            placeholder="Your full name"
+                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 hover:border-orange-300"
+                          />
+                        </div>
+                        
+                        <div>
+                          <label className="text-xs font-semibold uppercase tracking-wider text-muted">
+                            Email *
+                          </label>
+                          <input
+                            type="email"
+                            required
+                            placeholder="your@email.com"
+                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 hover:border-orange-300"
+                          />
+                        </div>
+                        
+                        <div>
+                          <label className="text-xs font-semibold uppercase tracking-wider text-muted">
+                            Mobile *
+                          </label>
+                          <input
+                            type="tel"
+                            required
+                            placeholder="+91 9876543210"
+                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 hover:border-orange-300"
+                          />
+                        </div>
+                        
+                        <div>
+                          <label className="text-xs font-semibold uppercase tracking-wider text-muted">
+                            Message *
+                          </label>
+                          <textarea
+                            required
+                            rows={4}
+                            placeholder="Tell us about your inquiry..."
+                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 hover:border-orange-300 resize-none"
+                          />
+                        </div>
+                        
+                        {/* Captcha */}
+                        <div>
+                          <label className="text-xs font-semibold uppercase tracking-wider text-muted">
+                            Enter Captcha - Case Sensitive *
+                          </label>
+                          <div className="mt-1.5 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                            <div className="flex-1">
+                              <input
+                                type="text"
+                                value={captchaInput}
+                                onChange={(e) => setCaptchaInput(e.target.value)}
+                                placeholder="Enter captcha code"
+                                className="w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 hover:border-orange-300"
+                                required
+                              />
+                            </div>
+                            <div className="flex h-12 min-w-[120px] items-center justify-center rounded-xl bg-gradient-to-r from-orange-50 to-orange-100 font-mono text-lg font-bold text-orange-700 select-none border border-orange-200">
+                              {captchaValue}
+                            </div>
+                          </div>
+                          <p className="mt-1 text-xs text-muted">Case sensitive - enter exactly as shown</p>
+                        </div>
+
+                        <button 
+                          type="submit" 
+                          className="group btn-primary w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-orange-500/25 transition-all duration-300"
+                        >
+                          <span>Send Message</span>
+                          <Send className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                        </button>
+                      </form>
+                    </>
+                  )}
+                </div>
+              </div>
+
+              {/* Info - Right Side */}
+              <div className="reveal">
+                {/* <SectionTitle
+                  align="left"
+                  eyebrow="Contact information"
+                  title="Get In Touch"
+                  description="We're here to help and answer any questions you might have. We look forward to hearing from you."
+                /> */}
+                
+                {/* Bengaluru Location */}
+                <motion.div 
+                  className="mt-8"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+                      <Building className="h-4 w-4" />
+                    </div>
+                    <h4 className="text-base font-semibold text-navy-800">Bengaluru Location</h4>
+                    <span className="ml-2 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">Main Office</span>
+                  </div>
+                  <div className="group relative overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-white to-orange-50/30 p-5 transition-all hover:border-orange-200 hover:shadow-soft">
+                    <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-orange-100 opacity-0 transition-opacity group-hover:opacity-50" />
+                    <div className="relative">
+                      <p className="text-sm text-muted leading-relaxed">
+                        MAXVY Technologies Pvt Ltd
+                        <br />
+                        #1197/1, 2nd floor, 22nd Cross(HSR Club Road),
+                        <br />
+                        16th main, 3rd Sector, HSR Layout, Bengaluru - 560102
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-4">
+                        <a href="tel:8970592090" className="flex items-center gap-2 text-sm text-navy-700 hover:text-orange-600 transition-colors">
+                          <Phone className="h-3.5 w-3.5 text-orange-500" />
+                          8970592090
+                        </a>
+                        <a href="mailto:info@maxvytech.com" className="flex items-center gap-2 text-sm text-navy-700 hover:text-orange-600 transition-colors">
+                          <Mail className="h-3.5 w-3.5 text-orange-500" />
+                          info@maxvytech.com
+                        </a>
+                      </div>
+                      <a 
+                        href="https://maps.google.com/?q=HSR+Layout+Bengaluru" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-orange-600 hover:text-orange-700 transition-colors"
+                      >
+                        <Navigation className="h-3 w-3" />
+                        Get Directions
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Tirunelveli Location */}
+                <motion.div 
+                  className="mt-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-blue-500 to-blue-600 text-white">
+                      <Building className="h-4 w-4" />
+                    </div>
+                    <h4 className="text-base font-semibold text-navy-800">Tirunelveli Location</h4>
+                    <span className="ml-2 rounded-full bg-blue-100 px-2 py-0.5 text-xs font-medium text-blue-700">Branch Office</span>
+                  </div>
+                  <div className="group relative overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-white to-blue-50/30 p-5 transition-all hover:border-blue-200 hover:shadow-soft">
+                    <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-blue-100 opacity-0 transition-opacity group-hover:opacity-50" />
+                    <div className="relative">
+                      <p className="text-sm text-muted leading-relaxed">
+                        MAXVY Technologies Pvt Ltd
+                        <br />
+                        #7/3, 2nd Floor, Shop No 6, Jayam Vertical Commercial Complex,
+                        <br />
+                        STC 60 feet Road, Pioneer Kumarasamy Nagar,
+                        <br />
+                        Tirunelveli – 627 007
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-4">
+                        <a href="tel:8682914710" className="flex items-center gap-2 text-sm text-navy-700 hover:text-blue-600 transition-colors">
+                          <Phone className="h-3.5 w-3.5 text-blue-500" />
+                          8682914710
+                        </a>
+                        <a href="tel:04622914710" className="flex items-center gap-2 text-sm text-navy-700 hover:text-blue-600 transition-colors">
+                          <Phone className="h-3.5 w-3.5 text-blue-500" />
+                          0462-2914710
+                        </a>
+                        <a href="mailto:info@maxvytech.com" className="flex items-center gap-2 text-sm text-navy-700 hover:text-blue-600 transition-colors">
+                          <Mail className="h-3.5 w-3.5 text-blue-500" />
+                          info@maxvytech.com
+                        </a>
+                      </div>
+                      <a 
+                        href="https://maps.google.com/?q=Tirunelveli+Tamil+Nadu" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-blue-600 hover:text-blue-700 transition-colors"
+                      >
+                        <Navigation className="h-3 w-3" />
+                        Get Directions
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Business Hours */}
+                <motion.div 
+                  className="mt-4"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="rounded-2xl border border-line bg-gradient-to-br from-navy-50/30 to-white p-5">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-navy-100 text-navy-700">
+                        <Clock className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-semibold text-navy-800">Business Hours</p>
+                        <p className="text-sm text-muted">Mon–Fri · 9:00–18:00 IST</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Social */}
+                <motion.div 
+                  className="mt-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  viewport={{ once: true }}
+                >
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted">
+                    Follow us
+                  </p>
+                  <div className="mt-3 flex items-center gap-2">
+                    {[
+                      { Icon: Linkedin, color: 'hover:bg-[#0A66C2]' },
+                      { Icon: Twitter, color: 'hover:bg-[#1DA1F2]' },
+                      { Icon: Youtube, color: 'hover:bg-[#FF0000]' },
+                      { Icon: Github, color: 'hover:bg-[#333]' }
+                    ].map(({ Icon, color }, i) => (
+                      <a
+                        key={i}
+                        href="#"
+                        aria-label="social link"
+                        className={`flex h-10 w-10 items-center justify-center rounded-full border border-line text-navy-700 transition-all duration-300 ${color} hover:border-transparent hover:text-white hover:scale-110 hover:shadow-lg`}
+                      >
+                        <Icon className="h-4 w-4" />
+                      </a>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
             </div>
+          </motion.div>
+        </div>
+        <div className="h-12" />
+      </div>
+
+      {/* Google Maps Section */}
+      <section className="section-pad bg-canvas">
+        <div className="container-page">
+          <SectionTitle
+            eyebrow="Locations"
+            title="Find us on map"
+            description="Visit our offices in Bengaluru and Tirunelveli."
+          />
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {/* Bengaluru Map */}
+            <motion.div 
+              className="overflow-hidden rounded-2xl border border-line bg-white shadow-soft hover:shadow-xl transition-shadow duration-300"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative h-64 w-full overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.858571285481!2d77.639522!3d12.914478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae149e5a1b3f5f%3A0x9d9d8a0d8a0d8a0d!2sHSR%20Layout%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Bengaluru Office Location"
+                  className="transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-semibold text-navy-800">Bengaluru Office</h4>
+                    <p className="text-xs text-muted">HSR Layout, Bengaluru - 560102</p>
+                  </div>
+                  <a 
+                    href="https://maps.google.com/?q=HSR+Layout+Bengaluru" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-lg bg-orange-50 px-3 py-1.5 text-xs font-medium text-orange-600 hover:bg-orange-100 transition-colors"
+                  >
+                    <Navigation className="h-3 w-3" />
+                    Directions
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Tirunelveli Map */}
+            <motion.div 
+              className="overflow-hidden rounded-2xl border border-line bg-white shadow-soft hover:shadow-xl transition-shadow duration-300"
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="relative h-64 w-full overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.123456789012!2d77.727875!3d8.735497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05a0a0a0a0a0a%3A0x0!2sTirunelveli%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Tirunelveli Office Location"
+                  className="transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+              <div className="p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h4 className="font-semibold text-navy-800">Tirunelveli Office</h4>
+                    <p className="text-xs text-muted">Pioneer Kumarasamy Nagar, Tirunelveli - 627007</p>
+                  </div>
+                  <a 
+                    href="https://maps.google.com/?q=Tirunelveli+Tamil+Nadu" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-lg bg-blue-50 px-3 py-1.5 text-xs font-medium text-blue-600 hover:bg-blue-100 transition-colors"
+                  >
+                    <Navigation className="h-3 w-3" />
+                    Directions
+                  </a>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -202,46 +478,5 @@ export default function Contact() {
         </div>
       </section>
     </>
-  );
-}
-
-function Field({
-  label,
-  placeholder,
-  type = 'text',
-  required = false,
-}: {
-  label: string;
-  placeholder: string;
-  type?: string;
-  required?: boolean;
-}) {
-  return (
-    <div>
-      <label className="text-xs font-semibold uppercase tracking-wider text-muted">
-        {label}
-      </label>
-      <input
-        type={type}
-        required={required}
-        placeholder={placeholder}
-        className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-2.5 text-sm outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
-      />
-    </div>
-  );
-}
-
-function SelectField({ label, options }: { label: string; options: string[] }) {
-  return (
-    <div>
-      <label className="text-xs font-semibold uppercase tracking-wider text-muted">
-        {label}
-      </label>
-      <select className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-2.5 text-sm outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20">
-        {options.map((o) => (
-          <option key={o}>{o}</option>
-        ))}
-      </select>
-    </div>
   );
 }
