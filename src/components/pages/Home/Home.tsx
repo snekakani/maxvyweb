@@ -62,8 +62,8 @@ export default function Home() {
     { name: 'Boreas Technologies', logo: '/images/boreas_technologies.png' },
   ];
 
-  // Duplicate partners for seamless scrolling
-  const scrollingPartners = [...partners, ...partners, ...partners];
+  // Duplicate partners for seamless scrolling - only duplicate twice for performance
+  const scrollingPartners = [...partners, ...partners];
 
   const services = [
     {
@@ -439,7 +439,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Partners Section with Auto-Scrolling Logos */}
+      {/* Partners Section with Optimized Mobile Scrolling */}
       <section className="bg-[#FCF8F5] pt-10 pb-24 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           {/* Heading */}
@@ -474,21 +474,24 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          {/* Auto-Scrolling Logo Carousel */}
+          {/* Auto-Scrolling Logo Carousel - Optimized for mobile */}
           <div className="mt-16 relative overflow-hidden">
             {/* Gradient overlays for smooth fade effect */}
             <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#FCF8F5] to-transparent z-10"></div>
             <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#FCF8F5] to-transparent z-10"></div>
             
-            <div className="flex animate-scroll">
+            {/* Responsive animation speed - faster on mobile */}
+            <div 
+              className="flex"
+              style={{ 
+                animation: 'scroll 12s linear infinite',
+                willChange: 'transform'
+              }}
+            >
               {scrollingPartners.map((partner, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="flex-shrink-0 w-[180px] h-[100px] mx-4"
-                  whileHover={{
-                    scale: 1.05,
-                    transition: { duration: 0.2 }
-                  }}
+                  className="flex-shrink-0 w-[150px] sm:w-[180px] h-[80px] sm:h-[100px] mx-3 sm:mx-4"
                 >
                   <div className="
                     h-full
@@ -503,26 +506,26 @@ export default function Home() {
                     transition-all
                     duration-300
                     hover:shadow-[0_10px_25px_rgba(0,0,0,0.08)]
-                    p-4
+                    p-3 sm:p-4
                   ">
                     <img
                       src={partner.logo}
                       alt={partner.name}
-                      className="max-h-[60px] w-auto object-contain"
+                      className="max-h-[40px] sm:max-h-[60px] w-auto object-contain"
+                      loading="lazy"
                       onError={(e) => {
-                        // Fallback if image fails to load
                         e.currentTarget.style.display = 'none';
                         const parent = e.currentTarget.parentElement;
                         if (parent) {
                           const fallback = document.createElement('span');
-                          fallback.className = 'text-sm font-medium text-gray-600 text-center';
+                          fallback.className = 'text-xs sm:text-sm font-medium text-gray-600 text-center';
                           fallback.textContent = partner.name;
                           parent.appendChild(fallback);
                         }
                       }}
                     />
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
           </div>
@@ -579,6 +582,23 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Add global CSS for scroll animation */}
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        /* Pause animation on hover for better UX */
+        .hover\\:pause-animation:hover {
+          animation-play-state: paused !important;
+        }
+      `}</style>
     </>
   );
 }
