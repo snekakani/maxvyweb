@@ -172,7 +172,7 @@ export default function Home() {
         }}
       >
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
             <motion.div
               initial="hidden"
               animate="visible"
@@ -220,7 +220,7 @@ export default function Home() {
               </motion.div>
             </motion.div>
             <motion.div
-              className="relative flex justify-center items-center"
+              className="relative flex justify-center items-center -mt-10 md:mt-0"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
@@ -240,7 +240,7 @@ export default function Home() {
                 <img 
                   src={chipImage} 
                   alt="Semiconductor Chip" 
-                  className="relative w-[500px] h-[500px] object-contain"
+                  className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] object-contain"
                 />
               </motion.div>
             </motion.div>
@@ -248,40 +248,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Section */}
+      {/* About Section - Image below content on mobile */}
       <section className="bg-white py-[100px] overflow-hidden">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+          {/* Reordered grid for mobile: content first, image second */}
           <div className="grid lg:grid-cols-2 gap-[60px] items-center">
             
-            {/* LEFT SIDE - Image with clip-path */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative flex justify-center"
-            >
-              <div
-                className="w-full max-w-[520px] h-[470px] overflow-hidden"
-                style={{
-                  clipPath: 'polygon(0 0, 100% 8%, 100% 92%, 45% 100%, 0 100%)'
-                }}
-              >
-                <img
-                  src={aboutChip}
-                  alt="Semiconductor Chip"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </motion.div>
-
-            {/* RIGHT SIDE - Content with peach background shape */}
+            {/* RIGHT SIDE - Content (moved to top on mobile) */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
+              className="relative order-1 lg:order-2"
             >
               {/* Soft peach background shape */}
               <div
@@ -315,6 +294,28 @@ export default function Home() {
                   Read More
                   <ArrowRight className="w-4 h-4" />
                 </button>
+              </div>
+            </motion.div>
+
+            {/* LEFT SIDE - Image (moved to bottom on mobile) */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative flex justify-center order-2 lg:order-1"
+            >
+              <div
+                className="w-full max-w-[520px] h-[470px] overflow-hidden"
+                style={{
+                  clipPath: 'polygon(0 0, 100% 8%, 100% 92%, 45% 100%, 0 100%)'
+                }}
+              >
+                <img
+                  src={aboutChip}
+                  alt="Semiconductor Chip"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </motion.div>
 

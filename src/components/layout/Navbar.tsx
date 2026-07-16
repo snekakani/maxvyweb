@@ -7,6 +7,7 @@ import MobileMenu from './MobileMenu';
 import LanguageSelector from './LanguageSelector';
 import SearchBar from './SearchBar';
 import { careerPages } from '../../data/careers';
+import logo from '../../images/maxvy300withR.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,7 +43,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2.5" aria-label="MAXVY home">
               <img 
-                src="/src/images/maxvy300withR.png" 
+                src={logo}
                 alt="MAXVY Logo" 
                 className="h-20 w-auto object-contain lg:h-28"
               />
