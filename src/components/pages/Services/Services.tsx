@@ -33,9 +33,9 @@ const designServices = [
     id: 'rtl-verification',
     title: 'RTL design and Verification Solution',
     icon: Cpu,
-    color: 'from-orange-500 to-orange-600',
-    bgColor: 'bg-orange-50',
-    textColor: 'text-orange-600',
+    color: 'from-[#e34115] to-[#c43a12]',
+    bgColor: 'bg-[#e34115]/10',
+    textColor: 'text-[#e34115]',
     description: 'Complete RTL design and verification solutions for complex SoC designs.'
   },
   {
@@ -208,7 +208,7 @@ export default function Services() {
             >
               <h1 className="text-[50px] font-extrabold leading-tight tracking-tight">
                 <span className="text-[#0F172A]">OUR </span>
-                <span className="text-[#FF6A00]">SERVICES</span>
+                <span className="text-[#e34115]">SERVICES</span>
               </h1>
               <p className="mt-4 text-base text-gray-700 max-w-[780px] mx-auto leading-relaxed">
                 Comprehensive silicon engineering solutions from design to deployment.
@@ -257,7 +257,7 @@ export default function Services() {
                         </div>
                         
                         {/* Title */}
-                        <h3 className="mt-4 text-base font-semibold text-navy-800 group-hover:text-orange-600 transition-colors duration-300">
+                        <h3 className="mt-4 text-base font-semibold text-navy-800 group-hover:text-[#e34115] transition-colors duration-300">
                           {service.title}
                         </h3>
                         
@@ -321,7 +321,7 @@ export default function Services() {
                         </div>
                         
                         {/* Title */}
-                        <h3 className="mt-4 text-base font-semibold text-navy-800 group-hover:text-orange-600 transition-colors duration-300">
+                        <h3 className="mt-4 text-base font-semibold text-navy-800 group-hover:text-[#e34115] transition-colors duration-300">
                           {service.title}
                         </h3>
                         

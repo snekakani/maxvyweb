@@ -1278,7 +1278,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
               </div>
@@ -1289,7 +1289,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
                   type="text"
                   value={formData.companyName}
                   onChange={(e) => setFormData({...formData, companyName: e.target.value})}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.companyName ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.companyName ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.companyName && <p className="text-red-500 text-xs mt-1">{errors.companyName}</p>}
               </div>
@@ -1300,7 +1300,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
@@ -1310,7 +1310,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
                 <select
                   value={formData.country}
                   onChange={(e) => setFormData({...formData, country: e.target.value})}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.country ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.country ? 'border-red-500' : 'border-gray-300'}`}
                 >
                   <option value="">Select Country</option>
                   <option value="IN">India</option>
@@ -1336,7 +1336,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
                   value={formData.contactNumber}
                   onChange={(e) => setFormData({...formData, contactNumber: e.target.value})}
                   placeholder="10-digit number"
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.contactNumber ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.contactNumber ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.contactNumber && <p className="text-red-500 text-xs mt-1">{errors.contactNumber}</p>}
               </div>
@@ -1347,7 +1347,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
                   value={formData.requirement}
                   onChange={(e) => setFormData({...formData, requirement: e.target.value})}
                   rows="3"
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.requirement ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.requirement ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.requirement && <p className="text-red-500 text-xs mt-1">{errors.requirement}</p>}
               </div>
@@ -1361,7 +1361,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
                   <button
                     type="button"
                     onClick={generateCaptcha}
-                    className="text-[#FF8C1A] hover:text-[#f25f00] transition-colors"
+                    className="text-[#e34115] hover:text-[#c43a12] transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -1373,7 +1373,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
                   value={formData.captcha}
                   onChange={(e) => setFormData({...formData, captcha: e.target.value})}
                   placeholder="Enter captcha code"
-                  className={`w-full mt-2 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.captcha ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full mt-2 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.captcha ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.captcha && <p className="text-red-500 text-xs mt-1">{errors.captcha}</p>}
               </div>
@@ -1381,7 +1381,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 bg-[#FF8C1A] text-white rounded-lg font-medium hover:bg-[#f25f00] transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                className="w-full py-3 bg-[#e34115] text-white rounded-lg font-medium hover:bg-[#c43a12] transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -1503,7 +1503,7 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
                   type="text"
                   value={formData.name}
                   onChange={(e) => setFormData({...formData, name: e.target.value})}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.name ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
               </div>
@@ -1514,7 +1514,7 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
                   type="email"
                   value={formData.email}
                   onChange={(e) => setFormData({...formData, email: e.target.value})}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
               </div>
@@ -1525,7 +1525,7 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
                   type="text"
                   value={formData.companyName}
                   onChange={(e) => setFormData({...formData, companyName: e.target.value})}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.companyName ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.companyName ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.companyName && <p className="text-red-500 text-xs mt-1">{errors.companyName}</p>}
               </div>
@@ -1535,7 +1535,7 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
                 <select
                   value={formData.country}
                   onChange={(e) => setFormData({...formData, country: e.target.value})}
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.country ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.country ? 'border-red-500' : 'border-gray-300'}`}
                 >
                   <option value="">Select Country</option>
                   <option value="IN">India</option>
@@ -1561,7 +1561,7 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
                   value={formData.contactNumber}
                   onChange={(e) => setFormData({...formData, contactNumber: e.target.value})}
                   placeholder="10-digit number"
-                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.contactNumber ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.contactNumber ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.contactNumber && <p className="text-red-500 text-xs mt-1">{errors.contactNumber}</p>}
               </div>
@@ -1575,7 +1575,7 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
                   <button
                     type="button"
                     onClick={generateCaptcha}
-                    className="text-[#FF8C1A] hover:text-[#f25f00] transition-colors"
+                    className="text-[#e34115] hover:text-[#c43a12] transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
@@ -1587,7 +1587,7 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
                   value={formData.captcha}
                   onChange={(e) => setFormData({...formData, captcha: e.target.value})}
                   placeholder="Enter captcha code"
-                  className={`w-full mt-2 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF8C1A] ${errors.captcha ? 'border-red-500' : 'border-gray-300'}`}
+                  className={`w-full mt-2 px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${errors.captcha ? 'border-red-500' : 'border-gray-300'}`}
                 />
                 {errors.captcha && <p className="text-red-500 text-xs mt-1">{errors.captcha}</p>}
               </div>
@@ -1595,7 +1595,7 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-3 bg-[#FF8C1A] text-white rounded-lg font-medium hover:bg-[#f25f00] transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                className="w-full py-3 bg-[#e34115] text-white rounded-lg font-medium hover:bg-[#c43a12] transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
                   <>
@@ -1704,7 +1704,7 @@ export default function ProductDetail({
               >
                 <h1 className="text-[50px] font-extrabold leading-tight tracking-tight">
                   <span className="text-[#0F172A]">{restTitle || name}</span>
-                  {lastWord && <span className="text-[#FF6A00]"> {lastWord}</span>}
+                  {lastWord && <span className="text-[#e34115]"> {lastWord}</span>}
                 </h1>
 
                 {tagline && (
@@ -1728,7 +1728,7 @@ export default function ProductDetail({
               <div className="flex-1">
                 <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
                   {/* Product Title */}
-                  <h1 className="text-[26px] font-bold text-[#FF8C1A] mb-6 leading-tight">
+                  <h1 className="text-[26px] font-bold text-[#e34115] mb-6 leading-tight">
                     {productData.title || name}
                   </h1>
 
@@ -1744,14 +1744,14 @@ export default function ProductDetail({
                   {/* Features */}
                   {features && features.length > 0 && (
                     <div className="mb-8">
-                      <h2 className="text-xl font-bold text-[#FF8C1A] mb-4">Key Features</h2>
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Key Features</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {features.map((feature, index) => (
                           <div
                             key={index}
-                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-orange-50/50 transition-colors"
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
                           >
-                            <span className="text-[#FF8C1A] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
                             <span className="text-[14px] text-gray-700">{feature}</span>
                           </div>
                         ))}
@@ -1762,7 +1762,7 @@ export default function ProductDetail({
                   {/* Block Diagram */}
                   {blockDiagram && (
                     <div className="mb-8">
-                      <h2 className="text-xl font-bold text-[#FF8C1A] mb-4">Block Diagram</h2>
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Block Diagram</h2>
                       <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-gray-50">
                         <img
                           src={blockDiagram}
@@ -1783,14 +1783,14 @@ export default function ProductDetail({
                   {/* Applications */}
                   {applications && applications.length > 0 && (
                     <div className="mb-8">
-                      <h2 className="text-xl font-bold text-[#FF8C1A] mb-4">Applications</h2>
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Applications</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {applications.map((app, index) => (
                           <div
                             key={index}
                             className="bg-white border border-gray-100 rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow"
                           >
-                            <span className="text-[#FF8C1A] text-lg font-bold mt-0.5">• </span>
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">• </span>
                             <span className="text-[14px] text-gray-700">{app}</span>
                           </div>
                         ))}
@@ -1801,14 +1801,14 @@ export default function ProductDetail({
                   {/* Deliverables */}
                   {deliverables && deliverables.length > 0 && (
                     <div className="mb-8">
-                      <h2 className="text-xl font-bold text-[#FF8C1A] mb-4">Deliverables</h2>
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Deliverables</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {deliverables.map((item, index) => (
                           <div
                             key={index}
-                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-orange-50/50 transition-colors"
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
                           >
-                            <span className="text-[#FF8C1A] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
                             <span className="text-[14px] text-gray-700">{item}</span>
                           </div>
                         ))}
@@ -1819,7 +1819,7 @@ export default function ProductDetail({
                   {/* Videos */}
                   {videos && videos.length > 0 && (
                     <div className="mb-8">
-                      <h2 className="text-xl font-bold text-[#FF8C1A] mb-4">Videos</h2>
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Videos</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {videos.map((video, index) => {
                           const videoId = video.youtubeId;
@@ -1843,7 +1843,7 @@ export default function ProductDetail({
                                 }}
                               />
                               <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
-                                <div className="w-16 h-16 rounded-full bg-[#FF8C1A] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                                <div className="w-16 h-16 rounded-full bg-[#e34115] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
                                   <Play className="w-7 h-7 text-white ml-1" fill="white" />
                                 </div>
                               </div>
@@ -1864,7 +1864,7 @@ export default function ProductDetail({
                 </section>
 
                 {/* CTA Section with Three Buttons */}
-                <div className="mt-8 bg-gradient-to-r from-orange-50 to-white rounded-2xl border border-gray-200 p-8 text-center">
+                <div className="mt-8 bg-gradient-to-r from-[#e34115]/10 to-white rounded-2xl border border-gray-200 p-8 text-center">
                   <h2 className="text-2xl font-bold text-[#0F172A] mb-2">
                     Ready to evaluate {name}?
                   </h2>
@@ -1874,21 +1874,21 @@ export default function ProductDetail({
                   <div className="flex flex-wrap justify-center gap-4">
                     <button
                       onClick={() => setShowQuoteModal(true)}
-                      className="px-6 py-3 bg-[#FF8C1A] text-white rounded-lg font-semibold hover:bg-[#f25f00] transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
+                      className="px-6 py-3 bg-[#e34115] text-white rounded-lg font-semibold hover:bg-[#c43a12] transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
                     >
                       <Send className="w-4 h-4" />
                       Request For Quote
                     </button>
                     <button
                       onClick={() => setShowDownloadModal(true)}
-                      className="px-6 py-3 bg-[#FF8C1A] text-white rounded-lg font-semibold hover:bg-[#f25f00] transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
+                      className="px-6 py-3 bg-[#e34115] text-white rounded-lg font-semibold hover:bg-[#c43a12] transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
                     >
                       <Download className="w-4 h-4" />
                       Request For Download
                     </button>
                     <Link
                       to="/about/testimonials"
-                      className="px-6 py-3 bg-white text-[#FF8C1A] border-2 border-[#FF8C1A] rounded-lg font-semibold hover:bg-orange-50 transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
+                      className="px-6 py-3 bg-white text-[#e34115] border-2 border-[#e34115] rounded-lg font-semibold hover:bg-[#e34115]/10 transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
                     >
                       <Users className="w-4 h-4" />
                       Testimonials
@@ -1984,7 +1984,7 @@ export default function ProductDetail({
               >
                 <h1 className="text-[50px] font-extrabold leading-tight tracking-tight">
                   <span className="text-[#0F172A]">{restTitle || name}</span>
-                  {lastWord && <span className="text-[#FF6A00]"> {lastWord}</span>}
+                  {lastWord && <span className="text-[#e34115]"> {lastWord}</span>}
                 </h1>
 
                 {tagline && (
@@ -2005,7 +2005,7 @@ export default function ProductDetail({
             >
               <div className="flex-1">
                 <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-                  <h1 className="text-[26px] font-bold text-[#FF8C1A] mb-6 leading-tight">
+                  <h1 className="text-[26px] font-bold text-[#e34115] mb-6 leading-tight">
                     {name}
                   </h1>
 
@@ -2019,14 +2019,14 @@ export default function ProductDetail({
 
                   {features && features.length > 0 && (
                     <div className="mb-8">
-                      <h2 className="text-xl font-bold text-[#FF8C1A] mb-4">Key Features</h2>
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Key Features</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {features.map((feature, index) => (
                           <div
                             key={index}
-                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-orange-50/50 transition-colors"
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
                           >
-                            <span className="text-[#FF8C1A] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
                             <span className="text-[14px] text-gray-700">{feature}</span>
                           </div>
                         ))}
@@ -2037,7 +2037,7 @@ export default function ProductDetail({
                   {/* Block Diagram */}
                   {blockDiagram && (
                     <div className="mb-8">
-                      <h2 className="text-xl font-bold text-[#FF8C1A] mb-4">Block Diagram</h2>
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Block Diagram</h2>
                       <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-gray-50">
                         <img
                           src={blockDiagram}
@@ -2057,14 +2057,14 @@ export default function ProductDetail({
 
                   {applications && applications.length > 0 && (
                     <div className="mb-8">
-                      <h2 className="text-xl font-bold text-[#FF8C1A] mb-4">Applications</h2>
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Applications</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {applications.map((app, index) => (
                           <div
                             key={index}
                             className="bg-white border border-gray-100 rounded-lg p-3 shadow-sm hover:shadow-md transition-shadow"
                           >
-                            <span className="text-[#FF8C1A] text-lg font-bold mt-0.5">• </span>
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">• </span>
                             <span className="text-[14px] text-gray-700">{app}</span>
                           </div>
                         ))}
@@ -2074,14 +2074,14 @@ export default function ProductDetail({
 
                   {deliverables && deliverables.length > 0 && (
                     <div className="mb-8">
-                      <h2 className="text-xl font-bold text-[#FF8C1A] mb-4">Deliverables</h2>
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Deliverables</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {deliverables.map((item, index) => (
                           <div
                             key={index}
-                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-orange-50/50 transition-colors"
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
                           >
-                            <span className="text-[#FF8C1A] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
                             <span className="text-[14px] text-gray-700">{item}</span>
                           </div>
                         ))}
@@ -2090,7 +2090,7 @@ export default function ProductDetail({
                   )}
                 </section>
 
-                <div className="mt-8 bg-gradient-to-r from-orange-50 to-white rounded-2xl border border-gray-200 p-8 text-center">
+                <div className="mt-8 bg-gradient-to-r from-[#e34115]/10 to-white rounded-2xl border border-gray-200 p-8 text-center">
                   <h2 className="text-2xl font-bold text-[#0F172A] mb-2">
                     Ready to evaluate {name}?
                   </h2>
@@ -2100,21 +2100,21 @@ export default function ProductDetail({
                   <div className="flex flex-wrap justify-center gap-4">
                     <button
                       onClick={() => setShowQuoteModal(true)}
-                      className="px-6 py-3 bg-[#FF8C1A] text-white rounded-lg font-semibold hover:bg-[#f25f00] transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
+                      className="px-6 py-3 bg-[#e34115] text-white rounded-lg font-semibold hover:bg-[#c43a12] transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
                     >
                       <Send className="w-4 h-4" />
                       Request For Quote
                     </button>
                     <button
                       onClick={() => setShowDownloadModal(true)}
-                      className="px-6 py-3 bg-[#FF8C1A] text-white rounded-lg font-semibold hover:bg-[#f25f00] transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
+                      className="px-6 py-3 bg-[#e34115] text-white rounded-lg font-semibold hover:bg-[#c43a12] transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
                     >
                       <Download className="w-4 h-4" />
                       Request For Download
                     </button>
                     <Link
                       to="/about/testimonials"
-                      className="px-6 py-3 bg-white text-[#FF8C1A] border-2 border-[#FF8C1A] rounded-lg font-semibold hover:bg-orange-50 transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
+                      className="px-6 py-3 bg-white text-[#e34115] border-2 border-[#e34115] rounded-lg font-semibold hover:bg-[#e34115]/10 transition-colors shadow-md hover:shadow-lg flex items-center gap-2"
                     >
                       <Users className="w-4 h-4" />
                       Testimonials
@@ -2169,7 +2169,7 @@ export default function ProductDetail({
             >
               <h1 className="text-[50px] font-extrabold leading-tight tracking-tight">
                 <span className="text-[#0F172A]">PRODUCT </span>
-                <span className="text-[#FF6A00]">NOT FOUND</span>
+                <span className="text-[#e34115]">NOT FOUND</span>
               </h1>
             </motion.div>
           </div>
@@ -2187,7 +2187,7 @@ export default function ProductDetail({
                 <Package className="w-16 h-16 mx-auto text-gray-300 mb-4" />
                 <h2 className="text-2xl font-bold text-gray-700">Product Not Found</h2>
                 <p className="text-gray-500 mt-2">The product you're looking for doesn't exist.</p>
-                <Link to="/products" className="inline-block mt-4 text-[#FF8C1A] hover:underline font-medium">
+                <Link to="/products" className="inline-block mt-4 text-[#e34115] hover:underline font-medium">
                   View all products
                 </Link>
               </div>

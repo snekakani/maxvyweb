@@ -42,7 +42,7 @@ const KnowledgeCard = ({ title, description, buttonText = 'Read more', onReadMor
       <h3 className="text-lg font-bold text-[#0F172A] mb-2 leading-tight">{title}</h3>
       <p className="text-gray-600 text-sm leading-relaxed flex-grow">{description}</p>
       <button
-        className="group mt-6 inline-flex h-12 min-w-[120px] items-center justify-center gap-2 rounded-lg bg-[#FF6B00] text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-[#f25f00] hover:shadow-lg px-4"
+        className="group mt-6 inline-flex h-12 min-w-[120px] items-center justify-center gap-2 rounded-lg bg-[#e34115] text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:bg-[#c43a12] hover:shadow-lg px-4"
         onClick={handleClick}
       >
         <span>{buttonText}</span>
@@ -90,7 +90,7 @@ const KnowledgeSharing = () => {
             >
               <h1 className="text-[50px] font-extrabold leading-tight tracking-tight">
                 <span className="text-[#0F172A]">KNOWLEDGE </span>
-                <span className="text-[#FF6A00]">SHARING</span>
+                <span className="text-[#e34115]">SHARING</span>
               </h1>
 
               <p className="mt-4 text-base text-gray-700 max-w-[780px] mx-auto leading-relaxed">
@@ -126,7 +126,7 @@ const KnowledgeSharing = () => {
                       placeholder="Search"
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm transition-all"
+                      className="w-full pl-10 pr-4 py-2.5 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] focus:border-transparent text-sm transition-all"
                     />
                   </div>
                   <span className="text-sm font-medium text-gray-600 whitespace-nowrap">

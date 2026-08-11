@@ -11,7 +11,7 @@ const Badge: React.FC<{ children: React.ReactNode; variant?: 'orange' | 'dark' }
   const base =
     'inline-block px-4 py-1.5 text-xs font-semibold uppercase tracking-wider rounded-full border';
   const variants = {
-    orange: 'border-orange-500 text-orange-600 bg-orange-50',
+    orange: 'border-[#e34115] text-[#e34115] bg-[#e34115]/10',
     dark: 'border-gray-700 text-gray-300 bg-gray-800/50',
   };
   return <span className={`${base} ${variants[variant]}`}>{children}</span>;
@@ -25,7 +25,7 @@ const Button: React.FC<{
   const base =
     'inline-flex items-center justify-center px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 text-sm md:text-base';
   const variants = {
-    primary: 'bg-orange-500 text-white hover:bg-orange-600 shadow-lg shadow-orange-200 hover:shadow-xl',
+    primary: 'bg-[#e34115] text-white hover:bg-[#c43a12] shadow-lg shadow-[#e34115]/30 hover:shadow-xl',
     secondary:
       'bg-transparent text-white border border-white/40 hover:bg-white/10 hover:border-white/70 backdrop-blur-sm',
   };
@@ -80,7 +80,7 @@ const WhyUs: React.FC = () => {
             >
               <h1 className="text-[50px] font-extrabold leading-tight tracking-tight">
                 <span className="text-[#0F172A]">WHY </span>
-                <span className="text-[#FF6A00]">US?</span>
+                <span className="text-[#e34115]">US?</span>
               </h1>
 
               <p className="mt-4 text-base text-gray-700 max-w-[780px] mx-auto leading-relaxed">
@@ -113,16 +113,13 @@ const WhyUs: React.FC = () => {
                 variants={cardHover}
                 initial="rest"
                 whileHover="hover"
-                className="bg-white rounded-2xl border border-[#F3E7DD] border-t-4 border-t-orange-500 p-9 transition-shadow duration-300"
+                className="bg-white rounded-2xl border border-[#F3E7DD] border-t-4 border-t-[#e34115] p-9 transition-shadow duration-300"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#FFF5ED] flex items-center justify-center">
-                    <Award className="w-7 h-7 text-orange-500" />
+                    <Award className="w-7 h-7 text-[#e34115]" />
                   </div>
                   <div>
-                    {/* <Badge variant="orange" className="mb-2">
-                      MISSION
-                    </Badge> */}
                     <h3 className="text-[34px] font-bold text-[#0F172A] leading-tight">
                       Our Mission
                     </h3>
@@ -133,10 +130,10 @@ const WhyUs: React.FC = () => {
                   empowering the next generation of semiconductor innovation.
                 </p>
                 <div className="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-sm font-medium text-orange-500 uppercase tracking-wider">
+                  <span className="text-sm font-medium text-[#e34115] uppercase tracking-wider">
                     Silicon Excellence
                   </span>
-                  <ChevronRight className="w-5 h-5 text-orange-300" />
+                  <ChevronRight className="w-5 h-5 text-[#e34115]/60" />
                 </div>
               </motion.div>
 
@@ -145,16 +142,13 @@ const WhyUs: React.FC = () => {
                 variants={cardHover}
                 initial="rest"
                 whileHover="hover"
-                className="bg-white rounded-2xl border border-[#F3E7DD] border-t-4 border-t-orange-500 p-9 transition-shadow duration-300"
+                className="bg-white rounded-2xl border border-[#F3E7DD] border-t-4 border-t-[#e34115] p-9 transition-shadow duration-300"
               >
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-14 h-14 rounded-xl bg-[#FFF5ED] flex items-center justify-center">
-                    <Globe className="w-7 h-7 text-orange-500" />
+                    <Globe className="w-7 h-7 text-[#e34115]" />
                   </div>
                   <div>
-                    {/* <Badge variant="orange" className="mb-2">
-                      VISION
-                    </Badge> */}
                     <h3 className="text-[34px] font-bold text-[#0F172A] leading-tight">
                       Our Vision
                     </h3>
@@ -165,10 +159,10 @@ const WhyUs: React.FC = () => {
                   setting global benchmarks in IP quality and innovation.
                 </p>
                 <div className="mt-6 pt-5 border-t border-gray-100 flex items-center justify-between">
-                  <span className="text-sm font-medium text-orange-500 uppercase tracking-wider">
+                  <span className="text-sm font-medium text-[#e34115] uppercase tracking-wider">
                     Global Leadership
                   </span>
-                  <ChevronRight className="w-5 h-5 text-orange-300" />
+                  <ChevronRight className="w-5 h-5 text-[#e34115]/60" />
                 </div>
               </motion.div>
             </motion.div>
@@ -181,10 +175,6 @@ const WhyUs: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1, ease: 'easeOut' }}
               className="mt-12 bg-gradient-to-br from-[#3A3A3A] to-[#3A3A3A] rounded-[28px] p-16 text-center"
             >
-             {/* <Badge className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 transform border-0">
-  GET STARTED
-</Badge> */}
-
               <h2 className="text-[40px] font-extrabold text-white leading-tight tracking-tight">
                 Ready to Build <br />
                 <span className="text-white-400">Silicon Excellence?</span>
@@ -197,9 +187,9 @@ const WhyUs: React.FC = () => {
 
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Button variant="primary" className="min-w-[180px] shadow-none">
-  Contact Sales
-  <ExternalLink className="ml-2 w-4 h-4" />
-</Button>
+                  Contact Sales
+                  <ExternalLink className="ml-2 w-4 h-4" />
+                </Button>
                 <Button variant="secondary" className="min-w-[160px]">
                   Learn More
                   <ChevronRight className="ml-2 w-4 h-4" />

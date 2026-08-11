@@ -193,7 +193,7 @@ export default function CurrentOpenings() {
             >
               <h1 className="text-[40px] font-extrabold leading-tight tracking-tight">
                 <span className="text-[#0F172A]">CURRENT </span>
-                <span className="text-[#FF6A00]">OPENINGS</span>
+                <span className="text-[#e34115]">OPENINGS</span>
               </h1>
 
               <p className="mt-4 text-base text-gray-700 max-w-[780px] mx-auto leading-relaxed">
@@ -232,11 +232,11 @@ export default function CurrentOpenings() {
                     className="group flex flex-col sm:flex-row sm:items-center justify-between p-5 rounded-2xl border border-gray-100 bg-white shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
                   >
                     <div className="flex items-start sm:items-center gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-[#FF6A00]">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e34115]/10 text-[#e34115]">
                         <Briefcase className="h-5 w-5" />
                       </div>
                       <div>
-                        <h3 className="text-base font-semibold text-[#0F172A] group-hover:text-[#FF6A00] transition-colors">
+                        <h3 className="text-base font-semibold text-[#0F172A] group-hover:text-[#e34115] transition-colors">
                           {job.title}
                         </h3>
                         <div className="mt-1 flex flex-wrap items-center gap-3 text-xs text-gray-500">
@@ -251,7 +251,7 @@ export default function CurrentOpenings() {
                       </div>
                     </div>
                     <div className="mt-4 sm:mt-0 flex items-center gap-2">
-                      <span className="text-sm text-[#FF6A00] font-medium group-hover:translate-x-1 transition-transform duration-300">
+                      <span className="text-sm text-[#e34115] font-medium group-hover:translate-x-1 transition-transform duration-300">
                         View Details →
                       </span>
                     </div>
@@ -263,7 +263,7 @@ export default function CurrentOpenings() {
                 <div className="mt-8 text-center">
                   <button
                     onClick={loadMore}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-50 text-[#0F172A] text-sm font-medium rounded-full hover:bg-orange-100 hover:text-[#FF6A00] transition-all duration-300 hover:shadow-md"
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#e34115]/10 text-[#0F172A] text-sm font-medium rounded-full hover:bg-[#e34115]/20 hover:text-[#e34115] transition-all duration-300 hover:shadow-md"
                   >
                     Load More Opportunities
                     <ChevronDown className="w-4 h-4" />

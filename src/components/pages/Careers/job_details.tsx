@@ -159,7 +159,7 @@ const ApplyModal = ({ isOpen, onClose, jobTitle, jobId }: { isOpen: boolean; onC
               value={formData.email}
               onChange={handleInputChange}
               placeholder="Enter email"
-              className={`w-full px-4 py-2.5 border ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6A00] focus:border-transparent`}
+              className={`w-full px-4 py-2.5 border ${errors.email ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e34115] focus:border-transparent`}
             />
             {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
           </div>
@@ -173,7 +173,7 @@ const ApplyModal = ({ isOpen, onClose, jobTitle, jobId }: { isOpen: boolean; onC
               value={formData.verifyEmail}
               onChange={handleInputChange}
               placeholder="Verify Email"
-              className={`w-full px-4 py-2.5 border ${errors.verifyEmail ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6A00] focus:border-transparent`}
+              className={`w-full px-4 py-2.5 border ${errors.verifyEmail ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e34115] focus:border-transparent`}
             />
             {errors.verifyEmail && <p className="text-red-500 text-xs mt-1">{errors.verifyEmail}</p>}
           </div>
@@ -187,7 +187,7 @@ const ApplyModal = ({ isOpen, onClose, jobTitle, jobId }: { isOpen: boolean; onC
               value={formData.name}
               onChange={handleInputChange}
               placeholder="Enter Your name"
-              className={`w-full px-4 py-2.5 border ${errors.name ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6A00] focus:border-transparent`}
+              className={`w-full px-4 py-2.5 border ${errors.name ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e34115] focus:border-transparent`}
             />
             {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
           </div>
@@ -201,7 +201,7 @@ const ApplyModal = ({ isOpen, onClose, jobTitle, jobId }: { isOpen: boolean; onC
               value={formData.phone}
               onChange={handleInputChange}
               placeholder="Enter Phone Number"
-              className={`w-full px-4 py-2.5 border ${errors.phone ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6A00] focus:border-transparent`}
+              className={`w-full px-4 py-2.5 border ${errors.phone ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e34115] focus:border-transparent`}
             />
             {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
           </div>
@@ -224,7 +224,7 @@ const ApplyModal = ({ isOpen, onClose, jobTitle, jobId }: { isOpen: boolean; onC
               name="experience"
               value={formData.experience}
               onChange={handleInputChange}
-              className={`w-full px-4 py-2.5 border ${errors.experience ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6A00] focus:border-transparent`}
+              className={`w-full px-4 py-2.5 border ${errors.experience ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e34115] focus:border-transparent`}
             >
               <option value="">Select Year of Experience</option>
               <option value="Fresher">Fresher</option>
@@ -247,19 +247,19 @@ const ApplyModal = ({ isOpen, onClose, jobTitle, jobId }: { isOpen: boolean; onC
               onChange={handleInputChange}
               placeholder="Enter Your message"
               rows={3}
-              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6A00] focus:border-transparent"
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e34115] focus:border-transparent"
             />
           </div>
 
           {/* Resume Upload */}
           <div>
             <label className="block text-sm font-medium text-[#0F172A] mb-1">Upload Resume</label>
-            <div className="flex items-center gap-2 p-3 border-2 border-dashed border-gray-300 rounded-xl hover:border-[#FF6A00] transition-colors cursor-pointer">
+            <div className="flex items-center gap-2 p-3 border-2 border-dashed border-gray-300 rounded-xl hover:border-[#e34115] transition-colors cursor-pointer">
               <Upload className="w-5 h-5 text-gray-400" />
               <input
                 type="file"
                 onChange={handleFileChange}
-                className="flex-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-orange-50 file:text-[#FF6A00] hover:file:bg-orange-100"
+                className="flex-1 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-[#e34115]/10 file:text-[#e34115] hover:file:bg-[#e34115]/20"
                 accept=".pdf,.doc,.docx"
               />
             </div>
@@ -279,7 +279,7 @@ const ApplyModal = ({ isOpen, onClose, jobTitle, jobId }: { isOpen: boolean; onC
                   value={formData.captchaInput}
                   onChange={handleInputChange}
                   placeholder="Enter valid Captcha"
-                  className={`w-full px-4 py-2.5 border ${errors.captchaInput ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#FF6A00] focus:border-transparent`}
+                  className={`w-full px-4 py-2.5 border ${errors.captchaInput ? 'border-red-500' : 'border-gray-200'} rounded-xl focus:outline-none focus:ring-2 focus:ring-[#e34115] focus:border-transparent`}
                 />
               </div>
               <div className="flex items-center gap-2">
@@ -302,7 +302,7 @@ const ApplyModal = ({ isOpen, onClose, jobTitle, jobId }: { isOpen: boolean; onC
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full py-3 bg-[#FF6A00] text-white text-sm font-medium rounded-xl hover:bg-orange-600 transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3 bg-[#e34115] text-white text-sm font-medium rounded-xl hover:bg-[#c43a12] transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'Applying...' : 'Apply'}
           </button>
@@ -325,7 +325,7 @@ export default function JobDetails() {
         <div className="text-center">
           <h2 className="text-2xl font-bold text-[#0F172A]">Job Not Found</h2>
           <p className="text-gray-500 mt-2">The job you're looking for doesn't exist.</p>
-          <Link to="/careers/current-openings" className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-[#FF6A00] text-white rounded-xl hover:bg-orange-600 transition-colors">
+          <Link to="/careers/current-openings" className="inline-flex items-center gap-2 mt-4 px-6 py-3 bg-[#e34115] text-white rounded-xl hover:bg-[#c43a12] transition-colors">
             <ArrowLeft className="w-4 h-4" /> Back to Openings
           </Link>
         </div>
@@ -354,7 +354,7 @@ export default function JobDetails() {
             >
               <h1 className="text-[40px] font-extrabold leading-tight tracking-tight">
                 <span className="text-[#0F172A]">JOB </span>
-                <span className="text-[#FF6A00]">DETAILS</span>
+                <span className="text-[#e34115]">DETAILS</span>
               </h1>
 
               <p className="mt-4 text-base text-gray-700 max-w-[780px] mx-auto leading-relaxed">
@@ -375,7 +375,7 @@ export default function JobDetails() {
             {/* Back Button */}
             <button
               onClick={() => navigate('/careers/current-openings')}
-              className="flex items-center gap-2 text-gray-500 hover:text-[#FF6A00] transition-colors mb-6"
+              className="flex items-center gap-2 text-gray-500 hover:text-[#e34115] transition-colors mb-6"
             >
               <ArrowLeft className="w-4 h-4" /> Back to Openings
             </button>
@@ -384,7 +384,7 @@ export default function JobDetails() {
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-2">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-orange-50 text-[#FF6A00]">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#e34115]/10 text-[#e34115]">
                     <Briefcase className="h-7 w-7" />
                   </div>
                   <div>
@@ -402,13 +402,12 @@ export default function JobDetails() {
                         <GraduationCap className="h-4 w-4" /> {job.education}
                       </span>
                       <span className="text-gray-300">|</span>
-                      <span className="flex items-center gap-1 text-[#FF6A00] font-semibold">
+                      <span className="flex items-center gap-1 text-[#e34115] font-semibold">
                         <DollarSign className="h-4 w-4" /> {job.salary}
                       </span>
                     </div>
                   </div>
                 </div>
-                {/* <p className="text-sm text-gray-500">Job ID: {job.jobId}</p> */}
               </div>
             </div>
 
@@ -416,11 +415,11 @@ export default function JobDetails() {
               {/* Role */}
               <div className="mb-8">
                 <h2 className="text-lg font-semibold text-[#0F172A] mb-3">Role</h2>
-                <div className="bg-gray-50 rounded-xl p-5">
+                <div className="bg-[#e34115]/5 rounded-xl p-5">
                   <ul className="space-y-2">
                     {job.role.split('\n').map((item, index) => (
                       <li key={index} className="text-sm text-gray-600 leading-relaxed flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#FF6A00] mt-0.5 shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-[#e34115] mt-0.5 shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -431,11 +430,11 @@ export default function JobDetails() {
               {/* Job Description */}
               <div className="mb-8">
                 <h2 className="text-lg font-semibold text-[#0F172A] mb-3">Job Description</h2>
-                <div className="bg-gray-50 rounded-xl p-5">
+                <div className="bg-[#e34115]/5 rounded-xl p-5">
                   <ul className="space-y-2">
                     {job.jobDescription.split('\n').map((item, index) => (
                       <li key={index} className="text-sm text-gray-600 leading-relaxed flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-[#FF6A00] mt-0.5 shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-[#e34115] mt-0.5 shrink-0" />
                         {item}
                       </li>
                     ))}
@@ -447,7 +446,7 @@ export default function JobDetails() {
               <div className="flex justify-center pt-4 border-t border-gray-200">
                 <button
                   onClick={() => setIsApplyModalOpen(true)}
-                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#FF6A00] text-white text-base font-medium rounded-xl hover:bg-orange-600 transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-0.5"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#e34115] text-white text-base font-medium rounded-xl hover:bg-[#c43a12] transition-all duration-300 shadow-sm hover:shadow-lg hover:-translate-y-0.5"
                 >
                   Apply Now <ArrowRight className="w-5 h-5" />
                 </button>

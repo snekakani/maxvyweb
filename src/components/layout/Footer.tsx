@@ -1,195 +1,126 @@
-import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone, Linkedin, Twitter, Youtube, Github, Send, Facebook } from 'lucide-react';
-import { productCategories } from '../../data/navigation';
-import { services } from '../../data/services';
-import maxvyLogo from '../../images/Maxvy.png';
+import React from 'react';
+import { PhoneCall, Mail, Facebook, Twitter, Linkedin } from 'lucide-react';
+// 1. ADDED: Import the logo the exact same way you did in your Navbar
+import footerLogo from '../../images/maxvy300withR.png';
 
-export default function Footer() {
+const Footer: React.FC = () => {
+  const currentYear = new Date().getFullYear();
+
+  const links = [
+    { label: 'Home', href: '#' },
+    { label: 'About Us', href: '#about' },
+    { label: 'Services', href: '#services' },
+    { label: 'Partners', href: '#partners' },
+    { label: 'FAQs', href: '#faq' },
+    { label: 'Blog', href: '#blog' },
+    { label: 'Get Quote', href: '#inquiry' },
+  ];
+
   return (
-    <footer className="relative overflow-hidden" style={{ backgroundColor: '#007B7B' }}>
-      <div className="pointer-events-none absolute inset-0 bg-grid-faint [background-size:48px_48px] opacity-20" />
-      <div className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[40rem] -translate-x-1/2 rounded-full bg-primary-500/10 blur-3xl" />
-
-      <div className="container-page relative">
-        {/* Newsletter
-        <div className="grid gap-8 border-b border-white/10 py-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h3 className="text-2xl font-bold text-white">Stay ahead of the silicon curve</h3>
-            <p className="mt-2 text-sm text-navy-300">
-              Get MAXVY technical briefs, product launches and engineering insights — monthly, no spam.
-            </p>
-          </div>
-          <form
-            className="flex w-full max-w-md gap-2 lg:ml-auto"
-            onSubmit={(e) => e.preventDefault()}
-          >
-            <input
-              type="email"
-              required
-              placeholder="you@company.com"
-              className="w-full rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-white placeholder:text-navy-300 focus:border-primary-500 focus:outline-none"
-            />
-            <button type="submit" className="btn-primary shrink-0">
-              <Send className="h-4 w-4" />
-              Subscribe
-            </button>
-          </form>
-        </div> */}
-
-        {/* Main columns */}
-        <div className="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
-          {/* Company */}
-          <div>
-            <Link to="/" className="flex items-center gap-2.5">
-              <img 
-                src={maxvyLogo} 
-                alt="MAXVY Technologies" 
-                className="h-10 w-50"
-              />
-            </Link>
-            <p className="mt-4 text-sm leading-relaxed text-white/80">
-              Semiconductor IP design and verification for the world's leading chipmakers. DDR5, MIPI,
-              I3C, RISC-V and beyond.
-            </p>
-            <div className="mt-5 flex items-center gap-2">
-              <a
-                href="https://www.linkedin.com/company/maxvytech/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-orange-400 hover:bg-orange-500 hover:text-white"
-              >
-                <Linkedin className="h-4 w-4" />
-              </a>
-              <a
-                href="https://x.com/LtdMaxvy"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-orange-400 hover:bg-orange-500 hover:text-white"
-              >
-                <Twitter className="h-4 w-4" />
-              </a>
-              <a
-                href="https://www.facebook.com/people/MAXVY-Technologies-Pvt-Ltd/100063595280339/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-orange-400 hover:bg-orange-500 hover:text-white"
-              >
-                <Facebook className="h-4 w-4" />
-              </a>
-              <a
-                href="https://www.youtube.com/@maxvytechnologies"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-orange-400 hover:bg-orange-500 hover:text-white"
-              >
-                <Youtube className="h-4 w-4" />
-              </a>
+    <footer className="w-full bg-white" id="contact">
+      {/* Footer Top Callout */}
+      <div className="w-full bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_240px_1fr] items-stretch w-full">
+          {/* Phone block */}
+          <div className="py-6 md:py-8 flex justify-center items-center px-6 md:px-12" style={{ backgroundColor: '#e34115' }}>
+            <div className="flex items-center gap-4 text-left">
+              <PhoneCall size={32} style={{ color: '#ffffff' }} />
+              <div>
+                <span className="text-white/80 text-xs font-semibold uppercase tracking-wider block">
+                  Contact Us Free
+                </span>
+                <a href="tel:+918970592090" className="text-lg md:text-xl lg:text-2xl font-bold hover:text-white/90 transition-colors whitespace-nowrap" style={{ color: '#ffffff' }}>
+                  +91 89705 92090
+                </a>
+              </div>
             </div>
           </div>
 
-          {/* Quick links */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white">Company</h4>
-            <ul className="mt-4 flex flex-col gap-2.5 text-sm">
-              {[
-                { label: 'Home', to: '/' },
-                { label: 'About', to: '/about/company-overview' },
-                { label: 'Products', to: '/products' },
-                { label: 'Services', to: '/services/rtl-design' },
-                { label: 'Careers', to: '/careers/current-openings' },
-                { label: 'Contact', to: '/contact' },
-              ].map((l) => (
-                <li key={l.to}>
-                  <Link to={l.to} className="text-white/70 transition-colors hover:text-orange-400">
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          {/* Logo block - UPDATED HEIGHT FROM h-10 TO h-14 */}
+          <div className="bg-white flex items-center justify-center py-4 px-6">
+            <a href="#">
+              <img
+                src={footerLogo}
+                alt="MAXVY Technologies"
+                className="h-18 w-auto object-contain"
+              />
+            </a>
           </div>
 
-          {/* Products */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white">Products</h4>
-            <ul className="mt-4 flex flex-col gap-2.5 text-sm">
-              {productCategories.slice(0, 6).map((c) => (
-                <li key={c.id}>
-                  <Link
-                    to={c.items[0].path}
-                    className="text-white/70 transition-colors hover:text-orange-400"
-                  >
-                    {c.name}
-                  </Link>
-                </li>
-              ))}
-              <li>
-                <Link to="/products" className="font-semibold text-orange-400 hover:text-orange-300">
-                  View all →
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-semibold uppercase tracking-wider text-white">Contact</h4>
-            <ul className="mt-4 flex flex-col gap-3 text-sm">
-              <li className="flex items-start gap-2.5">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-orange-400" />
-                <span className="text-white/70 leading-relaxed">
-                  #1197/1, 2nd Floor, 22nd Cross (HSR Club Road),<br />
-                  16th Main, 3rd Sector, HSR Layout,<br />
-                  Bengaluru - 560102
+          {/* Email block */}
+          <div className="py-6 md:py-8 flex justify-center items-center px-6 md:px-12" style={{ backgroundColor: '#e34115' }}>
+            <div className="flex items-center gap-4 text-left">
+              <div className="text-left">
+                <span className="text-white/80 text-xs font-semibold uppercase tracking-wider block">
+                  Contact Us Free
                 </span>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 shrink-0 text-orange-400" />
-                <a href="mailto:info@maxvytech.com" className="text-white/70 hover:text-orange-400">
+                <a href="mailto:info@maxvytech.com" className="text-lg md:text-xl lg:text-2xl font-bold hover:text-white/90 transition-colors whitespace-nowrap" style={{ color: '#ffffff' }}>
                   info@maxvytech.com
                 </a>
-              </li>
-              <li className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 shrink-0 text-orange-400" />
-                <a href="tel:+914612000000" className="text-white/70 hover:text-orange-400">
-                  +91 461 200 0000
-                </a>
-              </li>
-            </ul>
-            {/* <div className="mt-5">
-              <p className="text-xs font-semibold uppercase tracking-wider text-white/60">
-                Business hours
-              </p>
-              <p className="mt-1 text-sm text-white/70">Mon–Fri · 9:00–18:00 IST</p>
-            </div> */}
+              </div>
+              <Mail size={32} style={{ color: '#ffffff' }} />
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Services strip
-        <div className="border-t border-white/10 py-6">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-white/50">
-            <span className="font-semibold uppercase tracking-wider text-white/60">Services:</span>
-            {services.map((s) => (
-              <Link key={s.path} to={s.path} className="hover:text-orange-400">
-                {s.name}
-              </Link>
+      {/* Footer Middle (Links & Socials) */}
+      <div className="bg-white py-12">
+        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-8">
+          {/* Quick links list */}
+          <nav className="flex flex-wrap justify-center gap-x-8 gap-y-3">
+            {links.map((link, idx) => (
+              <a
+                key={idx}
+                href={link.href}
+                className="font-bold text-sm tracking-wide transition-colors hover:text-[#e34115]"
+                style={{ color: '#161b1f' }}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Social icons */}
+          <div className="flex items-center gap-4">
+            {[
+              { icon: <Facebook size={18} />, href: '#', label: 'Facebook' },
+              { icon: <Twitter size={18} />, href: '#', label: 'Twitter' },
+              { icon: <Linkedin size={18} />, href: '#', label: 'LinkedIn' },
+            ].map((social, idx) => (
+              <a
+                key={idx}
+                href={social.href}
+                aria-label={social.label}
+                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 shadow-sm"
+                style={{ 
+                  backgroundColor: 'rgba(227, 65, 21, 0.05)', 
+                  color: '#e34115' 
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#e34115';
+                  e.currentTarget.style.color = '#ffffff';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(227, 65, 21, 0.05)';
+                  e.currentTarget.style.color = '#e34115';
+                }}
+              >
+                {social.icon}
+              </a>
             ))}
           </div>
-        </div> */}
+        </div>
+      </div>
 
-        {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-6 text-xs text-white/50 sm:flex-row">
-          <p>2016 - © {new Date().getFullYear()} MAXVY Technologies. All rights reserved.</p>
-          {/* <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-            <a href="#" className="hover:text-orange-400">Privacy Policy</a>
-            <a href="#" className="hover:text-orange-400">Terms</a>
-            <a href="#" className="hover:text-orange-400">Cookie Policy</a>
-          </div> */}
+      {/* Footer Copyright */}
+      <div className="bg-gray-100/60 py-6 text-center text-sm font-medium text-gray-500">
+        <div className="max-w-7xl mx-auto px-6">
+          <p>© {currentYear} Maxvy Technologies Pvt Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

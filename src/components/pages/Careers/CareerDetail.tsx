@@ -23,7 +23,7 @@ export default function CareerDetail({ slug }: Props) {
     return (
       <div className="container-page py-32 text-center">
         <p className="text-muted">Page not found.</p>
-        <Link to="/careers/current-openings" className="btn-primary mt-4">
+        <Link to="/careers/current-openings" className="mt-4 inline-block bg-[#e34115] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#c43a12] transition-colors">
           Back to careers
         </Link>
       </div>
@@ -63,7 +63,7 @@ export default function CareerDetail({ slug }: Props) {
             >
               <h1 className="text-[50px] font-extrabold leading-tight tracking-tight">
                 <span className="text-[#0F172A]">{page.name.split(' ')[0]} </span>
-                <span className="text-[#FF6A00]">{page.name.split(' ').slice(1).join(' ')}</span>
+                <span className="text-[#e34115]">{page.name.split(' ').slice(1).join(' ')}</span>
               </h1>
               <p className="mt-4 text-base text-gray-700 max-w-[780px] mx-auto leading-relaxed">
                 {page.tagline}
@@ -108,7 +108,7 @@ export default function CareerDetail({ slug }: Props) {
                         className="reveal flex items-start gap-3 rounded-2xl border border-line bg-white p-4 shadow-soft"
                         data-reveal-delay={i * 60}
                       >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary-50 text-primary-600">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#e34115]/10 text-[#e34115]">
                           <Check className="h-4 w-4" />
                         </span>
                         <p className="text-sm leading-relaxed text-ink">{b}</p>
@@ -143,7 +143,7 @@ export default function CareerDetail({ slug }: Props) {
                       {page.positions.map((p, i) => (
                         <li
                           key={i}
-                          className="reveal flex flex-col gap-3 rounded-2xl border border-line bg-white p-4 shadow-soft transition-all hover:border-primary-200 hover:shadow-lift sm:flex-row sm:items-center sm:justify-between"
+                          className="reveal flex flex-col gap-3 rounded-2xl border border-line bg-white p-4 shadow-soft transition-all hover:border-[#e34115]/30 hover:shadow-lift sm:flex-row sm:items-center sm:justify-between"
                           data-reveal-delay={i * 60}
                         >
                           <div>
@@ -157,7 +157,7 @@ export default function CareerDetail({ slug }: Props) {
                               </span>
                             </div>
                           </div>
-                          <Link to="/contact" className="btn-primary shrink-0">
+                          <Link to="/contact" className="shrink-0 bg-[#e34115] hover:bg-[#c43a12] text-white font-semibold px-6 py-2.5 rounded-md transition-colors inline-flex items-center gap-2">
                             Apply <ArrowRight className="h-4 w-4" />
                           </Link>
                         </li>

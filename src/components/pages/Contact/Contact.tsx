@@ -52,7 +52,7 @@ export default function Contact() {
             >
               <h1 className="text-[50px] font-extrabold leading-tight tracking-tight">
                 <span className="text-[#0F172A]">GET IN </span>
-                <span className="text-[#FF6A00]">TOUCH</span>
+                <span className="text-[#e34115]">TOUCH</span>
               </h1>
               <p className="mt-4 text-base text-gray-700 max-w-[780px] mx-auto leading-relaxed">
                 We'd love to hear from you. Reach out to us through any of the channels below.
@@ -72,7 +72,7 @@ export default function Contact() {
             <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
               {/* Form - Left Side */}
               <div className="reveal" data-reveal-delay="120">
-                <div className="rounded-3xl border border-line bg-gradient-to-br from-white to-orange-50/20 p-6 shadow-soft lg:p-8">
+                <div className="rounded-3xl border border-line bg-gradient-to-br from-white to-[#e34115]/10 p-6 shadow-soft lg:p-8">
                   {submitted ? (
                     <motion.div 
                       initial={{ opacity: 0, scale: 0.95 }}
@@ -92,7 +92,7 @@ export default function Contact() {
                           setCaptchaInput('');
                           setCaptchaValue(generateCaptcha());
                         }}
-                        className="mt-8 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border-2 border-orange-200 text-orange-600 font-medium hover:bg-orange-50 hover:border-orange-400 transition-all"
+                        className="mt-8 inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border-2 border-[#e34115]/30 text-[#e34115] font-medium hover:bg-[#e34115]/10 hover:border-[#e34115]/60 transition-all"
                       >
                         Send another message
                       </button>
@@ -126,7 +126,7 @@ export default function Contact() {
                             type="text"
                             required
                             placeholder="Your full name"
-                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 hover:border-orange-300"
+                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-[#e34115] focus:ring-2 focus:ring-[#e34115]/20 hover:border-[#e34115]/50"
                           />
                         </div>
                         
@@ -138,7 +138,7 @@ export default function Contact() {
                             type="email"
                             required
                             placeholder="your@email.com"
-                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 hover:border-orange-300"
+                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-[#e34115] focus:ring-2 focus:ring-[#e34115]/20 hover:border-[#e34115]/50"
                           />
                         </div>
                         
@@ -150,7 +150,7 @@ export default function Contact() {
                             type="tel"
                             required
                             placeholder="+91 9876543210"
-                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 hover:border-orange-300"
+                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-[#e34115] focus:ring-2 focus:ring-[#e34115]/20 hover:border-[#e34115]/50"
                           />
                         </div>
                         
@@ -162,7 +162,7 @@ export default function Contact() {
                             required
                             rows={4}
                             placeholder="Tell us about your inquiry..."
-                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 hover:border-orange-300 resize-none"
+                            className="mt-1.5 w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-[#e34115] focus:ring-2 focus:ring-[#e34115]/20 hover:border-[#e34115]/50 resize-none"
                           />
                         </div>
                         
@@ -178,11 +178,11 @@ export default function Contact() {
                                 value={captchaInput}
                                 onChange={(e) => setCaptchaInput(e.target.value)}
                                 placeholder="Enter captcha code"
-                                className="w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-orange-400 focus:ring-2 focus:ring-orange-400/20 hover:border-orange-300"
+                                className="w-full rounded-xl border border-line bg-white px-4 py-3 text-sm outline-none transition-all focus:border-[#e34115] focus:ring-2 focus:ring-[#e34115]/20 hover:border-[#e34115]/50"
                                 required
                               />
                             </div>
-                            <div className="flex h-12 min-w-[120px] items-center justify-center rounded-xl bg-gradient-to-r from-orange-50 to-orange-100 font-mono text-lg font-bold text-orange-700 select-none border border-orange-200">
+                            <div className="flex h-12 min-w-[120px] items-center justify-center rounded-xl bg-gradient-to-r from-[#e34115]/10 to-[#e34115]/20 font-mono text-lg font-bold text-[#e34115] select-none border border-[#e34115]/30">
                               {captchaValue}
                             </div>
                           </div>
@@ -191,7 +191,7 @@ export default function Contact() {
 
                         <button 
                           type="submit" 
-                          className="group btn-primary w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-orange-500/25 transition-all duration-300"
+                          className="group btn-primary w-full bg-gradient-to-r from-[#e34115] to-[#c43a12] hover:from-[#c43a12] hover:to-[#b0330e] shadow-lg hover:shadow-[#e34115]/25 transition-all duration-300 text-white"
                         >
                           <span>Send Message</span>
                           <Send className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
@@ -204,12 +204,6 @@ export default function Contact() {
 
               {/* Info - Right Side */}
               <div className="reveal">
-                {/* <SectionTitle
-                  align="left"
-                  eyebrow="Contact information"
-                  title="Get In Touch"
-                  description="We're here to help and answer any questions you might have. We look forward to hearing from you."
-                /> */}
                 
                 {/* Bengaluru Location */}
                 <motion.div 
@@ -220,14 +214,14 @@ export default function Contact() {
                   viewport={{ once: true }}
                 >
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-[#e34115] to-[#c43a12] text-white">
                       <Building className="h-4 w-4" />
                     </div>
                     <h4 className="text-base font-semibold text-navy-800">Bengaluru Location</h4>
                     <span className="ml-2 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-700">Main Office</span>
                   </div>
-                  <div className="group relative overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-white to-orange-50/30 p-5 transition-all hover:border-orange-200 hover:shadow-soft">
-                    <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-orange-100 opacity-0 transition-opacity group-hover:opacity-50" />
+                  <div className="group relative overflow-hidden rounded-2xl border border-line bg-gradient-to-br from-white to-[#e34115]/10 p-5 transition-all hover:border-[#e34115]/40 hover:shadow-soft">
+                    <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-[#e34115]/10 opacity-0 transition-opacity group-hover:opacity-50" />
                     <div className="relative">
                       <p className="text-sm text-muted leading-relaxed">
                         MAXVY Technologies Pvt Ltd
@@ -237,12 +231,12 @@ export default function Contact() {
                         16th main, 3rd Sector, HSR Layout, Bengaluru - 560102
                       </p>
                       <div className="mt-3 flex flex-wrap gap-4">
-                        <a href="tel:8970592090" className="flex items-center gap-2 text-sm text-navy-700 hover:text-orange-600 transition-colors">
-                          <Phone className="h-3.5 w-3.5 text-orange-500" />
+                        <a href="tel:8970592090" className="flex items-center gap-2 text-sm text-navy-700 hover:text-[#e34115] transition-colors">
+                          <Phone className="h-3.5 w-3.5 text-[#e34115]" />
                           8970592090
                         </a>
-                        <a href="mailto:info@maxvytech.com" className="flex items-center gap-2 text-sm text-navy-700 hover:text-orange-600 transition-colors">
-                          <Mail className="h-3.5 w-3.5 text-orange-500" />
+                        <a href="mailto:info@maxvytech.com" className="flex items-center gap-2 text-sm text-navy-700 hover:text-[#e34115] transition-colors">
+                          <Mail className="h-3.5 w-3.5 text-[#e34115]" />
                           info@maxvytech.com
                         </a>
                       </div>
@@ -250,7 +244,7 @@ export default function Contact() {
                         href="https://maps.google.com/?q=HSR+Layout+Bengaluru" 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-orange-600 hover:text-orange-700 transition-colors"
+                        className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[#e34115] hover:text-[#c43a12] transition-colors"
                       >
                         <Navigation className="h-3 w-3" />
                         Get Directions
@@ -412,7 +406,7 @@ export default function Contact() {
                     href="https://maps.google.com/?q=HSR+Layout+Bengaluru" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 rounded-lg bg-orange-50 px-3 py-1.5 text-xs font-medium text-orange-600 hover:bg-orange-100 transition-colors"
+                    className="inline-flex items-center gap-1 rounded-lg bg-[#e34115]/10 px-3 py-1.5 text-xs font-medium text-[#e34115] hover:bg-[#e34115]/20 transition-colors"
                   >
                     <Navigation className="h-3 w-3" />
                     Directions

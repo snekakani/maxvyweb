@@ -22,7 +22,7 @@ const TestimonialCard = ({ name, role, content, initials, feedbackImage, onViewF
       <div 
         className="relative rounded-[10px] p-[30px] overflow-visible"
         style={{
-          background: 'linear-gradient(135deg, #FF7A00 0%, #F56A00 100%)',
+          background: 'linear-gradient(135deg, #e34115 0%, #c43a12 100%)',
           boxShadow: '0 8px 24px rgba(0,0,0,0.18)',
           height: '205px',
           width: '100%',
@@ -47,7 +47,7 @@ const TestimonialCard = ({ name, role, content, initials, feedbackImage, onViewF
         <div 
           className="absolute -bottom-[10px] left-[42px] w-[22px] h-[22px] rotate-45"
           style={{
-            background: 'linear-gradient(135deg, #FF7A00 0%, #F56A00 100%)',
+            background: 'linear-gradient(135deg, #e34115 0%, #c43a12 100%)',
           }}
         />
       </div>
@@ -56,7 +56,7 @@ const TestimonialCard = ({ name, role, content, initials, feedbackImage, onViewF
       <div className="flex items-center justify-between mt-[34px]">
         <div className="flex items-center gap-4">
           {/* Avatar - Orange Circle with Initials */}
-          <div className="flex-shrink-0 w-[50px] h-[50px] rounded-full bg-[#FF7A00] flex items-center justify-center text-white font-bold text-base">
+          <div className="flex-shrink-0 w-[50px] h-[50px] rounded-full bg-[#e34115] flex items-center justify-center text-white font-bold text-base">
             {initials}
           </div>
           <div>
@@ -198,7 +198,7 @@ export default function TestimonialsPage() {
             >
               <h1 className="text-[44px] font-extrabold leading-tight tracking-tight uppercase">
                 <span className="text-[#0F172A]">TESTI</span>
-                <span className="text-[#FF6A00]">MONIALS</span>
+                <span className="text-[#e34115]">MONIALS</span>
               </h1>
 
               <p className="mt-4 text-[18px] text-gray-600 max-w-[650px] mx-auto leading-relaxed">
