@@ -1,6 +1,6 @@
 // Contact.tsx
 import { useState } from 'react';
-import { Mail, MapPin, Phone, Clock, Send, Check, Linkedin, Twitter, Youtube, Github, Building, Navigation, ExternalLink } from 'lucide-react';
+import { Mail, MapPin, Phone, Clock, Send, Check, Linkedin, Twitter, Youtube, Github, Building, Navigation, ExternalLink, Facebook } from 'lucide-react';
 import { motion } from 'framer-motion';
 import SEO from '../../common/SEO';
 import SectionTitle from '../../common/SectionTitle';
@@ -342,21 +342,36 @@ export default function Contact() {
                     Follow us
                   </p>
                   <div className="mt-3 flex items-center gap-2">
-                    {[
-                      { Icon: Linkedin, color: 'hover:bg-[#0A66C2]' },
-                      { Icon: Twitter, color: 'hover:bg-[#1DA1F2]' },
-                      { Icon: Youtube, color: 'hover:bg-[#FF0000]' },
-                      { Icon: Github, color: 'hover:bg-[#333]' }
-                    ].map(({ Icon, color }, i) => (
-                      <a
-                        key={i}
-                        href="#"
-                        aria-label="social link"
-                        className={`flex h-10 w-10 items-center justify-center rounded-full border border-line text-navy-700 transition-all duration-300 ${color} hover:border-transparent hover:text-white hover:scale-110 hover:shadow-lg`}
-                      >
-                        <Icon className="h-4 w-4" />
-                      </a>
-                    ))}
+                    {/* Facebook */}
+                    <a
+                      href="https://www.facebook.com/people/MAXVY-Technologies-Pvt-Ltd/100063595280339/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Facebook"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-navy-700 transition-all duration-300 hover:bg-[#1877F2] hover:border-transparent hover:text-white hover:scale-110 hover:shadow-lg"
+                    >
+                      <Facebook className="h-4 w-4" />
+                    </a>
+                    {/* Twitter/X */}
+                    <a
+                      href="https://x.com/LtdMaxvy"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Twitter"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-navy-700 transition-all duration-300 hover:bg-[#000000] hover:border-transparent hover:text-white hover:scale-110 hover:shadow-lg"
+                    >
+                      <Twitter className="h-4 w-4" />
+                    </a>
+                    {/* LinkedIn */}
+                    <a
+                      href="https://www.linkedin.com/company/maxvytech/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-navy-700 transition-all duration-300 hover:bg-[#0A66C2] hover:border-transparent hover:text-white hover:scale-110 hover:shadow-lg"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                    </a>
                   </div>
                 </motion.div>
               </div>

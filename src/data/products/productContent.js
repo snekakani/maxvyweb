@@ -1414,31 +1414,40 @@ export const productContent = {
     heroTitle: 'JESD204B UVM VIP',
     heroDescription: 'JESD204B verification IP for high-speed ADC/DAC interface verification.',
     title: 'JESD204B UVM VIP',
-    overview: 'JESD204B UVM Verification IP provides comprehensive verification of JESD204B interfaces in high-speed data conversion systems.',
+    overview: 'MAXVY\'s provides configurable JESD204B TX/RX verification IP. JESD204B is a Serial Interface for Data Converters which are defined by JEDEC SOLID STATE TECHNOLOGY ASSOCIATION. Our VIP covers Transport and Data link layer functionality of JESD204B. MAXVY\'s VIP provides more flexible configuration to user to select their needs like lane,device configuration, data width.',
     features: [
-      'Compliant with JESD204B Specification',
-      'Support for high-speed serial interfaces',
-      'Multiple lane verification',
-      'Coverage-driven verification',
-      'Error injection',
-      'Protocol checking'
+      'ADC - TX/RX DAC - TX/RX',
+      'Support up to 12.5 Gbps data rate',
+      'Support configurable device classification',
+      'Support configurable subclass 0/1/2',
+      'Support Frame alignment monitor and correction',
+      'Support lane synchronization',
+      'Support Lane alignment monitor and correction',
+      'Support Link configuration',
+      'Support Link re-initialization',
+      'Support Deterministic Latency',
+      'Support 8B/10B encode/decode',
+      'Support Application specific control interface (user specific)'
+    ],
+    advantages: [
+      'Configurable Option like lane,frame,TX/RX',
+      'Supports both multi device configuration',
+      'Simple steps to integrate into customer environment'
     ],
     applications: [
-      'ADC/DAC Interface Verification',
-      'High-speed Data Conversion',
-      'Test and Measurement',
-      'Communications Systems'
+      'Wireless Infrastructure Transceiver',
+      'Software defined Radios',
+      'Medical Imaging Systems',
+      'Radar and Secure Communications'
     ],
     deliverables: [
-      'UVM Environment',
-      'VIP Datasheet',
-      'User Guide',
-      'Verification Test Plan',
-      'Coverage Model',
-      'Sequence Library'
+      'Basic Test Suite',
+      'Random Testbench Environment',
+      'Encrypted Source Code of VIP',
+      'VIP user guide'
     ],
     videos: [],
-    blockDiagram: null,
+    blockDiagram: '/images/jesd204b-uvm-vip.jpg',
     downloadFiles: []
   },
 
@@ -1447,30 +1456,697 @@ export const productContent = {
     category: 'verification-ip',
     heroTitle: 'LPC CONTROLLER VIP',
     heroDescription: 'Low Pin Count controller verification IP for legacy bus protocol verification.',
-    title: 'LPC Controller VIP',
-    overview: 'LPC (Low Pin Count) Controller Verification IP provides comprehensive verification of LPC interfaces in legacy and embedded systems.',
+    title: 'Low Pin Count (LPC) controller verification IP',
+    overview: 'The Low Pin Count (LPC) interface is a low bandwidth bus with up to 33 MHz performance. It is used to connect peripherals around the CPU and to replace the Industry Standard Architecture (ISA) bus which can only run up to 8 MHz. The primary benefit is that signals can be transmitted across a minimum of seven traces for an LPC bus versus 52 traces for an ISA bus. This relieves the pressure of routing on the often-congested motherboard and at the same time improves the overall system integrity.',
     features: [
-      'Compliant with LPC Specification',
-      'Support for master and slave verification',
-      'Protocol checking',
-      'Coverage-driven verification',
-      'Transaction logging'
+      'LPC Interface Increase the memory space from 16MB on the X-bus to 4GB to allow BIOS sizes much greater than 1MB, and other memory devices outside of the traditional 16MB range.',
+      'Synchronous design. Much of the challenge of an X-bus design is meeting the different, and in some cases conflicting, ISA timings. Make the timings synchronous to a reference well known to component designers, such as PCI.',
+      'Perform the same cycle types as the X-bus: Memory, I/O, DMA, and Bus Master.',
+      'Reduce the cost of traditional X-bus devices.',
+      'Support desktop and mobile implementations.',
+      'Ability to support a variable number of wait-states.',
+      'Supports following operations: Memory Read/Write, I/O Read/Write, DMA Read/Write, Bus Master Memory Read/Write, Bus Master I/O Read/Write, Firmware Memory Read/Write'
     ],
     applications: [
-      'Embedded System Verification',
-      'Legacy Bus Verification',
-      'Peripheral Verification'
+      'Desktop Systems',
+      'Mobile Systems',
+      'Embedded Systems',
+      'Legacy Bus Replacement'
     ],
     deliverables: [
-      'UVM Environment',
-      'VIP Datasheet',
-      'User Guide',
-      'Verification Test Plan',
-      'Coverage Model',
-      'Sequence Library'
+      'LPC VIP – UVM Environment',
+      'Userguide',
+      'Regression Script'
+    ],
+    videos: [],
+    blockDiagram: '/images/lpc.jpg',
+    downloadFiles: []
+  },
+
+  // ==================== MAXVY IP INTEGR. W/ VEGA PROCESSOR ====================
+  'maxvy-i3c-host-ip-vega': {
+    slug: 'maxvy-i3c-host-ip-vega',
+    category: 'maxvy-integration',
+    heroTitle: 'MAXVY I3C HOST IP',
+    heroDescription: 'Powering Next-Gen Sensor Connectivity with VEGA processor integration.',
+    title: 'MAXVY MIPI I3C Integrated with VEGA processor',
+    overview: 'MAXVY Technologies brings advanced connectivity to embedded systems with the successful integration of MIPI I3C Host IP into the VEGA SoC (AT1051). This solution bridges next‑generation I3C protocols and legacy I2C devices — enabling faster data transfer, reduced latency, and scalable system design. It is validated on the Arty A7 100T FPGA platform with real‑time I2C/I3C sensors.',
+    features: [
+      'Fully compliant with MIPI I3C Basic v1.2 specification',
+      'Supports Host, Secondary Controller, and Target roles',
+      'Backward compatible with I2C devices for mixed I3C/I2C bus operation',
+      'Supports dynamic and static addressing for I3C and I2C devices',
+      '2-wire interface up to 12.5 MHz with push-pull signaling',
+      'Supports Single Data Rate (SDR) messaging',
+      'Real-time event-driven communication with In-Band Interrupts (IBI)',
+      'Supports standard CCC commands for device management',
+      'Optimized for reduced power consumption',
+      'Designed to support multiple devices on a single bus'
+    ],
+    applications: [
+      'IoT & Smart Devices — efficient multi-sensor communication with reduced latency',
+      'Automotive Electronics — reliable high-speed communication for vehicle systems',
+      'Consumer Electronics — compact, low-power comms for mobile and wearable devices',
+      'Industrial Systems — robust data exchange for automation and control'
+    ],
+    deliverables: [
+      'MIPI I3C Host Controller IP',
+      'Software tool for I3C validation',
+      'FPGA bitfile and test environment',
+      'Architecture documentation',
+      'Integration and user guides'
     ],
     videos: [],
     blockDiagram: null,
+    downloadFiles: []
+  },
+
+  'maxvy-i3c-target-ip-vega': {
+    slug: 'maxvy-i3c-target-ip-vega',
+    category: 'maxvy-integration',
+    heroTitle: 'MAXVY I3C TARGET IP',
+    heroDescription: 'Powering Next-Gen Sensor Connectivity with VEGA processor integration.',
+    title: 'MAXVY MIPI I3C Host/Target Controller integrated with VEGA processor',
+    overview: 'MAXVY Technologies delivers a high-performance MIPI I3C Host/Target Controller integrated with the VEGA SoC (AT1051), enabling scalable and efficient communication for modern embedded systems. Fully compliant with the latest MIPI I3C Basic v1.1.1 specification, the controller provides high bandwidth, low latency, and reduced pin count, making it ideal for connecting multiple sensors and peripherals on a single bus.',
+    features: [
+      'Fully compliant with MIPI I3C Basic v1.2 specification',
+      'Supports both Host and Target modes',
+      'Fully compatible with legacy I2C devices',
+      'Supports dynamic and static addressing',
+      '2-wire interface up to 12.5 MHz (push-pull)',
+      'Supports Single Data Rate (SDR) messaging',
+      'In-Band Interrupts (IBI) for event-driven communication',
+      'Supports broadcast and direct CCC commands',
+      'Hot-Join Support allows dynamic device addition to the bus',
+      'Optimized for efficient and compact designs',
+      'AHB interface for seamless SoC integration'
+    ],
+    applications: [
+      'IoT & Smart Devices - Efficient multi-sensor communication with reduced wiring',
+      'Automotive Systems — High-speed communication for advanced driver systems',
+      'Consumer Electronics — Compact and power-efficient device connectivity',
+      'Industrial Automation — Reliable real-time communication across multiple devices',
+      'AI & Edge Systems - Fast sensor data acquisition for intelligent processing'
+    ],
+    deliverables: [
+      'MIPI I3C Host/Target Controller RTL IP',
+      'Software drivers and APIs',
+      'FPGA bitfile for validation',
+      'Testbench and verification environment',
+      'Integration and user guides',
+      'Example applications and reference designs'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  'maxvy-xspi-host-ip-vega': {
+    slug: 'maxvy-xspi-host-ip-vega',
+    category: 'maxvy-integration',
+    heroTitle: 'MAXVY xSPI HOST IP',
+    heroDescription: 'Powering High-Speed Memory Connectivity with VEGA processor integration.',
+    title: 'MAXVY XSPI Host Controller Integrated with VEGA Processor',
+    overview: 'MAXVY Technologies brings high-performance memory and peripheral connectivity to embedded systems with the integration of its XSPI (eXpanded Serial Peripheral Interface) Host Controller into the VEGA SoC (AT1051). The MAXVY XSPI Host, compliant with JEDEC JESD251 standard, is designed to deliver high data bandwidth with minimal signal count, making it ideal for next-generation embedded and computing applications.',
+    features: [
+      'Compliant with JEDEC JESD251 (xSPI) Version 1.0',
+      'Single master supporting multiple slave devices per interface',
+      'Supports SDR (Single Data Rate) and DDR (Double Data Rate)',
+      'Data rates up to 400 MT/s (200 MHz clock)',
+      'Source Synchronous Clocking ensures reliable high-speed data transfer',
+      'Low Pin Count Interface optimized for reduced signal complexity',
+      'Supports up to 8 IO lines, scalable based on system needs',
+      'Supports NOR Flash, NAND Flash, FRAM, nvSRAM',
+      'Compatible with SRAM, PSRAM, DRAM',
+      'Profile 1.0 & 2.0 commands for flexible device control',
+      'Deep Power Down (DPD) for energy-efficient designs',
+      'Interfaces with FPGAs and register-mapped I/O devices'
+    ],
+    applications: [
+      'Memory‑Intensive Systems — High‑speed interfacing with NOR/NAND Flash and advanced memory devices',
+      'IoT & Embedded Systems — Efficient communication with sensors and peripheral devices',
+      'Automotive Electronics — Reliable, high‑bandwidth communication for real‑time processing',
+      'Consumer Electronics — Optimized performance for compact and high‑speed devices',
+      'Industrial Automation — Robust connectivity for control systems and data acquisition'
+    ],
+    deliverables: [
+      'XSPI Host Controller RTL IP',
+      'Software drivers and configuration support',
+      'FPGA bitfile for validation',
+      'Testbench and verification environment',
+      'Integration documentation and user guide'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  'maxvy-dsi2-transmitter-ip-vega': {
+    slug: 'maxvy-dsi2-transmitter-ip-vega',
+    category: 'maxvy-integration',
+    heroTitle: 'MAXVY DSI-2 TRANSMITTER IP',
+    heroDescription: 'Powering High-Speed Sensor Connectivity with VEGA processor integration.',
+    title: 'MAXVY MIPI DSI-2 Tx Integrated with VEGA Processor',
+    overview: 'MAXVY Technologies offers a high-performance MIPI DSI-2 Transmitter (TX) Controller integrated with the VEGA SoC (AT1051), enabling seamless high-speed data transmission from the processor to display devices. Compliant with MIPI DSI-2 v2.0, the controller provides a robust, scalable, low-power, and cost-effective interface for modern display systems.',
+    features: [
+      'Compliant with MIPI DSI-2 v2.0',
+      'Supports C-PHY 2.0 and D-PHY (v1.2 / v2.0 / v3.0)',
+      'Configurable C-PHY or D-PHY (one active at a time)',
+      'Supports DBI-2 and DPI-2 interfaces',
+      'Supports Command Mode and Video Mode',
+      'Multi-lane data distribution across N lanes',
+      'Connects multiple DSI receivers using sub-links',
+      'Pixel-to-byte conversion and packet formatting',
+      'De-skew, symbol slip detection, sync insertion',
+      'Supports scrambling/descrambling and filler byte insertion',
+      'Supports HS and Escape modes',
+      'Supports AHB-Lite / APB / AXI interfaces'
+    ],
+    applications: [
+      'Consumer Electronics — Smartphones, tablets, and display systems',
+      'Automotive Displays — Infotainment systems, dashboards, and HUDs',
+      'Embedded Systems — Industrial displays and control panels',
+      'IoT Devices — Smart display-enabled edge devices',
+      'AR/VR & Multimedia — High-speed visual processing and rendering'
+    ],
+    deliverables: [
+      'DSI-2 TX Controller RTL IP',
+      'PHY integration support (C-PHY / D-PHY)',
+      'Software drivers and APIs',
+      'FPGA bitfile for validation',
+      'Testbench and verification environment',
+      'Integration and user documentation',
+      'Example applications and reference designs'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  'maxvy-csi2-receiver-ip-vega': {
+    slug: 'maxvy-csi2-receiver-ip-vega',
+    category: 'maxvy-integration',
+    heroTitle: 'MAXVY CSI-2 RECEIVER IP',
+    heroDescription: 'Powering High-Speed Memory Connectivity with VEGA processor integration.',
+    title: 'MAXVY MIPI CSI-2 Rx Integrated with VEGA Processor',
+    overview: 'MAXVY Technologies offers a high-performance MIPI CSI-2 RX Controller integrated with the VEGA SoC (AT1051), designed to enable seamless high-speed data transfer from camera sensors to embedded processing systems. Compliant with MIPI CSI-2 v3.0, the controller delivers a robust, scalable, and low-power interface for a wide range of imaging applications.',
+    features: [
+      'MIPI CSI-2 v3.0 compliant',
+      'C-PHY 2.0 and D-PHY 2.5 (configurable)',
+      'C-PHY / D-PHY / A-PHY / M-PHY (one active at a time)',
+      'AHB Lite / APB / AXI interface',
+      'Lane merging and packet consolidation',
+      '16 (D-PHY) / 32 (C-PHY) Virtual channels',
+      'YUV, RGB, RAW, and generic pixel formats',
+      'I2C and I3C (SDR/DDR) CCI Interface',
+      'Error detection, scrambling/descrambling',
+      'Byte-to-pixel conversion (LLP layer)',
+      'De-skew (D-PHY) and sync word detection (C-PHY)'
+    ],
+    applications: [
+      'Embedded Vision Systems: High-speed image capture and processing',
+      'Automotive Cameras: ADAS, surround view, driver monitoring',
+      'Consumer Electronics: Smart cameras, AR/VR, mobile imaging',
+      'IoT & Smart Devices: Vision-enabled edge devices',
+      'Industrial Inspection: Real-time image processing and automation'
+    ],
+    deliverables: [
+      'CSI-2 RX Controller RTL IP',
+      'PHY Integration Support (C-PHY/D-PHY)',
+      'Software Drivers and APIs',
+      'FPGA Bitfile for Validation',
+      'Testbench and Verification Environment',
+      'Integration and User Documentation',
+      'Example Applications and Reference Designs'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  'maxvy-uart-ip-vega': {
+    slug: 'maxvy-uart-ip-vega',
+    category: 'maxvy-integration',
+    heroTitle: 'MAXVY UART IP',
+    heroDescription: 'Enabling Reliable Serial Communication for Embedded Systems with VEGA processor.',
+    title: 'MAXVY UART Integrated with VEGA Processor',
+    overview: 'MAXVY Technologies delivers a robust and efficient UART Controller solution integrated with the VEGA SoC (AT1051), designed to enable seamless communication between processors and external serial devices. This architecture acts as a high-performance bridge between parallel processor buses and asynchronous serial interfaces, ensuring reliable data transfer with minimal CPU intervention.',
+    features: [
+      'High-Performance Architecture - Efficient bridge between parallel bus and serial communication',
+      'Integrated Read and Write FIFOs for smooth data flow',
+      'Supports AXI4-Lite, APB, AHB4-Lite, and WSB interfaces',
+      'UART TX/RX Control - Automatic frame generation and decoding (start, stop, parity bits)',
+      'Configurable baud rate derived from system clock',
+      'Interrupt Support for efficient handling of communication events',
+      'Data Integrity - Reliable transmission with error handling mechanisms',
+      'Low CPU Overhead - Hardware-driven communication reduces processor load',
+      'Scalable Integration - Easily integrates into complex SoC architectures'
+    ],
+    applications: [
+      'IoT Devices: Reliable communication with sensors and modules',
+      'Industrial Systems: Stable serial communication for control and monitoring',
+      'Debug & Console Interfaces: UART-based debugging and system logging',
+      'Automotive Electronics: Communication between ECUs and peripherals',
+      'Consumer Electronics: Low-cost, efficient serial communication interface'
+    ],
+    deliverables: [
+      'UART Controller RTL IP',
+      'Software drivers and configuration support',
+      'FPGA bitfile for validation',
+      'Testbench and verification environment',
+      'Integration and user documentation',
+      'Example applications and reference designs'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  'maxvy-gpio-ip-vega': {
+    slug: 'maxvy-gpio-ip-vega',
+    category: 'maxvy-integration',
+    heroTitle: 'MAXVY GPIO IP',
+    heroDescription: 'Enabling Intelligent Control and Real-Time Interaction with VEGA processor.',
+    title: 'MAXVY GPIO Integrated with VEGA Processor',
+    overview: 'MAXVY Technologies offers a flexible and efficient GPIO (General Purpose Input/Output) Controller integrated with the VEGA SoC (AT1051), enabling seamless interaction between the processor and external hardware components. The GPIO IP provides a simple yet powerful interface for monitoring external signals and controlling digital outputs through memory-mapped registers.',
+    features: [
+      'Supports 1 to 32 GPIO signals per channel',
+      'Each pin individually configurable as input or output',
+      'Simple memory-mapped interface for read/write operations',
+      'Optional interrupt generation on input events',
+      'Independent direction control using tri-state registers',
+      'User-defined output states after reset',
+      'Optimized for low FPGA resource utilization',
+      'Easily adaptable for different system requirements'
+    ],
+    applications: [
+      'IoT Devices: Interface with sensors, switches, and actuators',
+      'Industrial Automation: Control and monitor external equipment in real-time',
+      'Automotive Systems: Handle digital signals from control units and peripherals',
+      'Consumer Electronics: User inputs, LEDs, and peripheral control',
+      'Embedded Prototyping: Flexible IO control for FPGA-based development'
+    ],
+    deliverables: [
+      'GPIO Controller RTL IP',
+      'Software drivers and APIs',
+      'FPGA bitfile for validation',
+      'Testbench and verification environment',
+      'Integration and user documentation',
+      'Example applications and reference designs'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  'maxvy-pwm-ip-vega': {
+    slug: 'maxvy-pwm-ip-vega',
+    category: 'maxvy-integration',
+    heroTitle: 'MAXVY PWM IP',
+    heroDescription: 'Efficient Pulse Width Modulation for Embedded Control Systems with VEGA processor.',
+    title: 'MAXVY PWM Integrated with VEGA processor',
+    overview: 'MAXVY Technologies provides a high-performance PWM Controller IP integrated with the VEGA SoC (AT1051), designed to generate precise and configurable pulse signals for controlling a wide range of embedded peripherals. This architecture enables seamless interaction between the processor\'s parallel bus and time-critical PWM signal generation.',
+    features: [
+      'High-Precision PWM Generation - Accurate duty cycle and frequency control',
+      'Hardware-Based Operation minimizes CPU intervention',
+      'Fine control over output waveform with configurable duty cycle',
+      'Supports multiple independent PWM outputs',
+      'Programmable Period for flexible timing configuration',
+      'Interrupt Support for event-based notifications for control',
+      'Efficient hardware-driven design for Low Power Operation',
+      'Supports AXI4-Lite, APB, AHB4-Lite, WSB interfaces',
+      'Easily fits into complex SoC designs'
+    ],
+    applications: [
+      'Motor Control Systems: Speed and direction control using PWM signals',
+      'LED Dimming: Brightness control in lighting systems',
+      'Power Electronics: Switching control in DC-DC converters and inverters',
+      'Embedded Automation: Actuator and servo control',
+      'Consumer Electronics: Efficient signal modulation for devices'
+    ],
+    deliverables: [
+      'PWM Controller RTL IP',
+      'Software drivers and APIs',
+      'FPGA bitfile for validation',
+      'Testbench and Verification Environment',
+      'Integration and User Documentation',
+      'Example Applications and Reference Designs'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  // ==================== OTHER RTL IP ====================
+  'ucie-controller-ip': {
+    slug: 'ucie-controller-ip',
+    category: 'other-rtl-ip',
+    heroTitle: 'UCIe CONTROLLER IP',
+    heroDescription: 'High-performance Universal Chiplet Interconnect Express controller IP for die-to-die communication.',
+    title: 'MAXVY UCIe Controller IP',
+    overview: 'MAXVY\'s UCIe IP solution includes D2D Adapter layer which supports streaming/PCIe/CXL/Raw flitformats, supports both standard and advanced mainband links and sideband links.',
+    features: [
+      'ARB/MUX',
+      'CRC Computation',
+      'Link State Management',
+      'Sideband Link training and Parameter Negotiation',
+      'Single/Multiple PHY link',
+      'Flit Retry',
+      'Flow Control'
+    ],
+    applications: [
+      'ML Compute Accelerator',
+      'High performance compute Accelerator',
+      'Automative Compute Accelerator',
+      'Graphics Compute Accelerator',
+      'Network Data Processing Accelerator',
+      'Crypto Compute Accelerator'
+    ],
+    deliverables: [
+      'Verilog Source code',
+      'User Guide',
+      'IP integration Guide',
+      'Simulation Script',
+      'Synthesis Script',
+      'Encrypted UVM Verification Environment',
+      'Basic Testsuite'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  'avs-bus-host-ip': {
+    slug: 'avs-bus-host-ip',
+    category: 'other-rtl-ip',
+    heroTitle: 'AVS BUS HOST IP',
+    heroDescription: 'Adaptive Voltage Scaling bus host controller for dynamic power management.',
+    title: 'MAXVY Adaptive Voltage Scaling (AVS) Bus Host Controller IP',
+    overview: 'The MAXVY\'s AVS Bus Host Controller IP is a highly configurable solution designed to enable efficient, high-speed communication between the SoC processor subsystem and external voltage regulators through the industry-standard AVS Bus protocol. Fully compliant with the AVS Bus specification, the IP plays a critical role in Dynamic Voltage and Frequency Scaling (DVFS) applications, allowing software-controlled voltage adjustments to optimize power consumption and system performance in real time.',
+    features: [
+      'Fully Compliant with AVS Bus protocol specification',
+      'Processor Interface supporting AXI4-Lite, APB, AHB-Lite, Wishbone (WSB)',
+      'Register-based configuration and control interface',
+      'Supports both 2-wire and 3-wire AVS Bus communication modes',
+      'Dedicated Synchronization Module for clock-domain crossing',
+      'Programmable AVS Bus Clock Generator',
+      'AVS Bus Frame Generator for command transmission',
+      'Response Decoder for target status and acknowledgment processing',
+      'Integrated CRC generation and verification engine',
+      'Support for Dynamic Voltage and Frequency Scaling (DVFS)',
+      'Configurable operating parameters for application-specific requirements'
+    ],
+    applications: [
+      'Dynamic Voltage and Frequency Scaling (DVFS)',
+      'Adaptive Voltage Scaling (AVS)',
+      'Processor Core Voltage Management',
+      'Power Optimization and Energy Efficiency',
+      'Thermal Management',
+      'Real-Time Voltage Regulation',
+      'Intelligent Power Delivery Control'
+    ],
+    deliverables: [
+      'Verilog Source code',
+      'User Guide',
+      'IP Integration Guide',
+      'Simulation Script',
+      'Synthesis Script',
+      'Encrypted UVM Verification Environment',
+      'Basic Testsuite',
+      'Firmware code'
+    ],
+    videos: [],
+    blockDiagram: '/images/avs_bus_host_ip.png',
+    downloadFiles: []
+  },
+
+  'avs-bus-target-ip': {
+    slug: 'avs-bus-target-ip',
+    category: 'other-rtl-ip',
+    heroTitle: 'AVS BUS TARGET IP',
+    heroDescription: 'Adaptive Voltage Scaling bus target IP for power management device integration.',
+    title: 'MAXVY Adaptive Voltage Scaling (AVS) Bus Target IP',
+    overview: 'The MAXVY\'s AVS Bus Slave IP is a highly configurable IP that provides full AVS Bus slave functionality compliant with the AVS Bus specification. The IP enables seamless communication between an AVS Bus Master, such as a processor, FPGA, or SoC, and AVS Bus-compliant target devices used in power management applications.',
+    features: [
+      'Full AVS Bus Slave (Target) functionality',
+      'Supports both 2-wire and 3-wire AVS Bus interfaces',
+      'Optional Processor Interface with AXI4-Lite, APB, AHB-Lite, Wishbone, or custom interface',
+      'Synchronization module for clock-domain crossing',
+      'Command Decoder for AVS Bus command processing',
+      'Response Generator for acknowledgment and status frame generation',
+      'Integrated CRC Checker for error detection and frame validation',
+      'Supports slave status response frames',
+      'Positive-edge clocked architecture'
+    ],
+    applications: [
+      'AVS Bus-Compliant Voltage Regulator Control',
+      'Dynamic Voltage Scaling (DVS)',
+      'Dynamic Voltage and Frequency Scaling (DVFS)',
+      'Processor Core Voltage Management',
+      'FPGA Core Voltage Control',
+      'Power Supply Monitoring and Status Reporting',
+      'Fault Detection and Protection Reporting',
+      'Intelligent Power Delivery Systems',
+      'Adaptive Power Management Solutions'
+    ],
+    deliverables: [
+      'Verilog Source code',
+      'User Guide',
+      'IP Integration Guide',
+      'Simulation Script',
+      'Synthesis Script',
+      'Encrypted UVM Verification Environment',
+      'Basic Testsuite',
+      'Firmware code'
+    ],
+    videos: [],
+    blockDiagram: '/images/avs_bus_target_ip.png',
+    downloadFiles: []
+  },
+
+  'gpio-controller-ip': {
+    slug: 'gpio-controller-ip',
+    category: 'other-rtl-ip',
+    heroTitle: 'GPIO CONTROLLER IP',
+    heroDescription: 'General Purpose Input/Output controller IP for flexible embedded system I/O management.',
+    title: 'MAXVY GPIO Controller IP',
+    overview: 'The MAXVY GPIO (General Purpose Input/Output) Controller IP is a highly configurable and scalable peripheral designed to enable seamless communication between processors and external hardware devices. The IP provides a flexible interface for monitoring digital input signals and controlling digital output signals through memory-mapped register architecture.',
+    features: [
+      'Supports Configurable GPIO width from 1 to 32 signals',
+      'Independent input/output configuration for each GPIO',
+      'Memory-mapped register interface for simple software control',
+      'Dynamic software-controlled GPIO operation',
+      'Supports mixed input and output configurations within a single GPIO bank',
+      'Interrupt generation support for GPIO input events',
+      'Per-pin interrupt enable and status indication',
+      'Write-one-to-clear interrupt status registers',
+      'Low FPGA resource utilization',
+      'Scalable architecture for FPGA and SoC designs',
+      'Supports multiple host interfaces'
+    ],
+    applications: [
+      'Embedded Control Systems',
+      'Industrial Automation',
+      'Sensor Monitoring Systems',
+      'Human Machine Interfaces (HMI)',
+      'LED and Display Control',
+      'Communication Equipment',
+      'Test and Measurement Systems',
+      'IoT Devices'
+    ],
+    deliverables: [
+      'Verilog Source code',
+      'User Guide',
+      'IP Integration Guide',
+      'Simulation Script',
+      'Synthesis Script',
+      'Basic Testsuite',
+      'Firmware code'
+    ],
+    videos: [],
+    blockDiagram: '/images/gpio_block_diagram.png',
+    downloadFiles: []
+  },
+
+  // ==================== RISC-V SOLUTION ====================
+  'riscv-instruction-set': {
+    slug: 'riscv-instruction-set',
+    category: 'riscv',
+    heroTitle: 'RISC V INSTRUCTION SET',
+    heroDescription: 'Complete RISC-V RV32I base instruction set for processor development.',
+    title: 'RISC V RV32I - BASE INSTRUCTION SET',
+    overview: 'RISC-V (pronounced "risk-five") is a free and open ISA enabling a new era of processor innovation through open standard collaboration. The RISC-V ISA delivers a new level of free, extensible software and hardware freedom on architecture.',
+    features: [
+      'ADD - Addition',
+      'SUB - Subtraction',
+      'SLL – Logical Left Shift',
+      'SLT – Set Less Than',
+      'SLTU – Set Less Than Unsigned',
+      'XOR – XOR operation',
+      'SRL – Logical Right Shift',
+      'SRA – Arithmetic Right Shift',
+      'OR – OR operation',
+      'AND – AND operation'
+    ],
+    applications: [
+      'Processor Development',
+      'Academic Research',
+      'Custom Accelerator Design',
+      'Embedded Systems'
+    ],
+    deliverables: [
+      'R-FORMAT INSTRUCTION',
+      'Instruction Set Documentation',
+      'Reference Model'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  'riscv-core-development': {
+    slug: 'riscv-core-development',
+    category: 'riscv',
+    heroTitle: 'RISC V CORE DEVELOPMENT',
+    heroDescription: 'Complete RISC-V processor core development solutions.',
+    title: 'RISC V - CORE DEVELOPMENT',
+    overview: 'RISC-V (pronounced "risk-five") is a free and open ISA enabling a new era of processor innovation through open standard collaboration. Founded in 2015, the RISC-V ISA delivers a new level of free, extensible software and hardware freedom on architecture, paving the way for the next 50 years of computing design and innovation.',
+    features: [
+      'A completely open ISA that is freely available to academia and industry',
+      'A real ISA suitable for direct native hardware implementation',
+      'An ISA that avoids over-architecting for a particular micro-architecture style',
+      'An ISA separated into a small base integer ISA and optional standard extensions',
+      'Support for the revised 2008 IEEE-754 floating-point standard',
+      'Both 32-bit and 64-bit address space variants',
+      'Optional variable-length instructions',
+      'A fully virtualizable ISA to ease hypervisor development',
+      'An ISA that simplifies experiments with new supervisor-level and hypervisor-level ISA design'
+    ],
+    applications: [
+      'Processor Design',
+      'System-on-Chip Development',
+      'Custom Accelerator Design',
+      'Academic Research',
+      'Commercial Product Development'
+    ],
+    deliverables: [
+      'RV32I - Immediate',
+      'RV32IM - Immediate',
+      'RV32IMF - Immediate',
+      'RV32IMFD - Under Development',
+      'RV32IMFA - Immediate',
+      'RV64I - On Demand',
+      'RV64IM - On Demand',
+      'RV64IMFA - On Demand',
+      'RV64IMF - On Demand',
+      'RV64IMFD - On Demand'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  'riscv-reference-model': {
+    slug: 'riscv-reference-model',
+    category: 'riscv',
+    heroTitle: 'RISC V REFERENCE MODEL',
+    heroDescription: 'Complete RISC-V reference model for processor verification and development.',
+    title: 'RISC V - REFERENCE MODEL',
+    overview: 'The RISC-V Reference Model provides a complete software and hardware reference implementation for RISC-V processor development and verification.',
+    features: [
+      'Delivers a new level of software and hardware freedom on architecture in an open extensible way',
+      'Open ISA delivers easier support from a broad range of operating systems, software vendors and tool developers',
+      'The open source of hardware, RISC-V does not rely on a single supplier',
+      'No other ISA is architected like the RISC-V ISA, allowing for user extensibility of the architecture'
+    ],
+    advantages: [
+      'RISC architecture is used in high-end applications such as video processing, telecommunications and image processing',
+      'Used in MICROPROCESSORS and MICROCONTROLLERS'
+    ],
+    applications: [
+      'Video Processing',
+      'Telecommunications',
+      'Image Processing',
+      'Microprocessors',
+      'Microcontrollers'
+    ],
+    deliverables: [
+      'System Verilog - RV32I, RV32IM, RV32IMF, RV32IMFD, RV32IMFA',
+      'SystemC - RV32I, RV32IM, RV32IMF, RV32IMFD, RV32IMFA',
+      'Python - RV32I, RV32IM, RV32IMF, RV32IMFD, RV32IMFA',
+      'C, C++ Model - RV32I, RV32IM, RV32IMF, RV32IMFD, RV32IMFA'
+    ],
+    videos: [],
+    blockDiagram: null,
+    downloadFiles: []
+  },
+
+  // ==================== EMBEDDED SYSTEM ====================
+  'cloud-based-qr-generator': {
+    slug: 'cloud-based-qr-generator',
+    category: 'embedded',
+    heroTitle: 'CLOUD BASED DYNAMIC QR CODE GENERATOR',
+    heroDescription: 'RISC-V based embedded application for real-time dynamic QR code generation.',
+    title: 'Cloud Based Dynamic QR code generator',
+    overview: 'A Risc-v core based Embedded application, using Sifive\'s Hifive1 micro-controller and Esp\'s NodeMCU which is able to produce a real time QR code, based on the current data fetched from cloud. It helps in improving the functionalities of QR related applications.',
+    features: [
+      'Risc-V core',
+      'Dynamic generation of QR code',
+      'High Performance'
+    ],
+    prerequisites: [
+      'Arduino IDE version 1.8.7 and above',
+      'MySQL database'
+    ],
+    applications: [
+      'Authorization',
+      'Attendance',
+      'E-Commerce',
+      'For Security',
+      'Validation'
+    ],
+    deliverables: [
+      'Source Code',
+      'Circuit Diagram',
+      'Block Diagram',
+      'User Guide'
+    ],
+    videos: [],
+    blockDiagram: '/images/QR_generator_block_diagram.jpg',
+    downloadFiles: []
+  },
+
+  // ==================== MAXVY IP IN FPGA ====================
+  'maxvy-i3c-host-software': {
+    slug: 'maxvy-i3c-host-software',
+    category: 'maxvy-fpga',
+    heroTitle: 'MAXVY I3C HOST CONTROLLER SOFTWARE',
+    heroDescription: 'Software tool for verifying MIPI I3C features on FPGA platforms.',
+    title: 'MAXVY I3C Host Controller Software',
+    overview: 'MAXVY I3C Host Controller Software helps to verify the MIPI I3C features as per Version 1.11 Specification standards.',
+    features: [
+      'Supports all MIPI I3C Version 1.11 specification standards',
+      'Test suite environment works on SPD5 hub as target controller'
+    ],
+    dependencies: [
+      'Artix-7 CMOD board for I3C Host controller',
+      'JEDEC SPD5 hub as target controller'
+    ],
+    deliverables: [
+      'I3C Host controller IP',
+      'Test suite (CMOD file)',
+      'Document',
+      'I3C Host bit file flash in Artix-7 CMOD FEGA Board',
+      'Maxvy I3C Host controller software tool guide',
+      'Architecture Diagram'
+    ],
+    applications: [
+      'FPGA Verification',
+      'I3C Protocol Testing',
+      'Embedded System Development'
+    ],
+    videos: [],
+    blockDiagram: '/images/I3C_HOST_TARGET_SETUP_BOARD.jpg',
     downloadFiles: []
   }
 };

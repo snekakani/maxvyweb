@@ -7,13 +7,12 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   const links = [
-    { label: 'Home', href: '#' },
-    { label: 'About Us', href: '#about' },
-    { label: 'Services', href: '#services' },
-    { label: 'Partners', href: '#partners' },
-    { label: 'FAQs', href: '#faq' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Get Quote', href: '#inquiry' },
+    { label: 'Home', href: '/' },
+    { label: 'About Us', href: '/about/company-overview' },
+    { label: 'Services', href: '/services' },
+    { label: 'Products', href: '/products' },
+    { label: 'Careers', href: '/careers/current-openings' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -38,7 +37,7 @@ const Footer: React.FC = () => {
 
           {/* Logo block - UPDATED HEIGHT FROM h-10 TO h-14 */}
           <div className="bg-white flex items-center justify-center py-4 px-6">
-            <a href="#">
+            <a href="/">
               <img
                 src={footerLogo}
                 alt="MAXVY Technologies"
@@ -83,32 +82,69 @@ const Footer: React.FC = () => {
 
           {/* Social icons */}
           <div className="flex items-center gap-4">
-            {[
-              { icon: <Facebook size={18} />, href: '#', label: 'Facebook' },
-              { icon: <Twitter size={18} />, href: '#', label: 'Twitter' },
-              { icon: <Linkedin size={18} />, href: '#', label: 'LinkedIn' },
-            ].map((social, idx) => (
-              <a
-                key={idx}
-                href={social.href}
-                aria-label={social.label}
-                className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 shadow-sm"
-                style={{ 
-                  backgroundColor: 'rgba(227, 65, 21, 0.05)', 
-                  color: '#e34115' 
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = '#e34115';
-                  e.currentTarget.style.color = '#ffffff';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(227, 65, 21, 0.05)';
-                  e.currentTarget.style.color = '#e34115';
-                }}
-              >
-                {social.icon}
-              </a>
-            ))}
+            <a
+              href="https://www.facebook.com/people/MAXVY-Technologies-Pvt-Ltd/100063595280339/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 shadow-sm"
+              style={{ 
+                backgroundColor: 'rgba(227, 65, 21, 0.05)', 
+                color: '#e34115' 
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#e34115';
+                e.currentTarget.style.color = '#ffffff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(227, 65, 21, 0.05)';
+                e.currentTarget.style.color = '#e34115';
+              }}
+            >
+              <Facebook size={18} />
+            </a>
+            <a
+              href="https://x.com/LtdMaxvy"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+              className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 shadow-sm"
+              style={{ 
+                backgroundColor: 'rgba(227, 65, 21, 0.05)', 
+                color: '#e34115' 
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#e34115';
+                e.currentTarget.style.color = '#ffffff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(227, 65, 21, 0.05)';
+                e.currentTarget.style.color = '#e34115';
+              }}
+            >
+              <Twitter size={18} />
+            </a>
+            <a
+              href="https://www.linkedin.com/company/maxvytech/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:-translate-y-0.5 shadow-sm"
+              style={{ 
+                backgroundColor: 'rgba(227, 65, 21, 0.05)', 
+                color: '#e34115' 
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#e34115';
+                e.currentTarget.style.color = '#ffffff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(227, 65, 21, 0.05)';
+                e.currentTarget.style.color = '#e34115';
+              }}
+            >
+              <Linkedin size={18} />
+            </a>
           </div>
         </div>
       </div>
@@ -116,7 +152,7 @@ const Footer: React.FC = () => {
       {/* Footer Copyright */}
       <div className="bg-gray-100/60 py-6 text-center text-sm font-medium text-gray-500">
         <div className="max-w-7xl mx-auto px-6">
-          <p>© {currentYear} Maxvy Technologies Pvt Ltd. All rights reserved.</p>
+          <p>© 2016 -{currentYear} Maxvy Technologies Pvt Ltd. All rights reserved.</p>
         </div>
       </div>
     </footer>
