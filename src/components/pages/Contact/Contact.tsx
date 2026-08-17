@@ -14,7 +14,7 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [captchaInput, setCaptchaInput] = useState('');
 
-  // Generate random captcha
+ 
   const generateCaptcha = () => {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
