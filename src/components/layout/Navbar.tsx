@@ -1,7 +1,7 @@
-// Navbar.tsx - Updated to remove services dropdown & add Top Bar
+// Navbar.tsx - Separated Top Bar and Navbar with proper alignment
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { ChevronDown, Menu, Search, Mail, Phone } from 'lucide-react';
+import { ChevronDown, Menu, Search, Mail, Phone, X } from 'lucide-react';
 import MegaMenu from './MegaMenu';
 import MobileMenu from './MobileMenu';
 import LanguageSelector from './LanguageSelector';
@@ -31,10 +31,10 @@ export default function Navbar() {
   return (
     <>
       {/* ========================================================= */}
-      {/* TOP BAR - Added as requested */}
+      {/* TOP BAR - Separate, above navbar */}
       {/* ========================================================= */}
-      <div className="w-full z-50 hidden lg:block" style={{ backgroundColor: '#e34115' }}>
-        <div className="border-b py-2.5 text-sm" style={{ borderColor: '#c43a12' }}>
+      <div className="w-full z-50 hidden lg:block relative" style={{ backgroundColor: '#e34115' }}>
+        <div className="border-b py-2 text-sm" style={{ borderColor: '#c43a12' }}>
           <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
             <div className="flex items-center gap-6">
               <a href="mailto:info@maxvytech.com" className="flex items-center gap-2 hover:text-white/90 transition-colors font-medium" style={{ color: '#ffffff' }}>
@@ -56,33 +56,32 @@ export default function Navbar() {
       </div>
 
       {/* ========================================================= */}
-      {/* MAIN HEADER */}
+      {/* MAIN NAVBAR - Separate, below top bar */}
       {/* ========================================================= */}
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        className={`w-full z-40 transition-all duration-300 relative ${
           scrolled
-            ? 'border-b border-[#eaeaea] bg-white/85 backdrop-blur-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
-            : 'border-b border-transparent bg-transparent'
+            ? 'border-b border-[#eaeaea] bg-white/95 backdrop-blur-xl shadow-[0_4px_12px_rgba(0,0,0,0.04)]'
+            : 'border-b border-transparent bg-white'
         }`}
-        style={{ marginTop: scrolled ? '0px' : '44px' }} /* Adjusts for top bar height */
         onMouseLeave={() => setOpenMenu(null)}
       >
         <div className="container-page">
-          <div className="flex h-16 items-center justify-between lg:h-20">
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-2.5" aria-label="MAXVY home">
+          <div className="flex h-16 md:h-20 items-center justify-between px-4 md:px-6">
+            {/* Logo - Left aligned */}
+            <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="MAXVY home">
               <img 
                 src={logo}
                 alt="MAXVY Logo" 
-                className="h-20 w-auto object-contain lg:h-28"
+                className="h-12 md:h-14 lg:h-16 xl:h-20 w-auto object-contain"
               />
             </Link>
 
-            {/* Desktop nav */}
-            <nav className="hidden items-center gap-1 lg:flex">
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden xl:flex items-center justify-center gap-0.5 lg:gap-1 flex-1 mx-4">
               <NavItem to="/" label="Home" />
               
-              {/* About */}
+              {/* About Dropdown */}
               <Dropdown
                 label="About"
                 open={openMenu === 'about'}
@@ -94,13 +93,13 @@ export default function Navbar() {
                 ]}
               />
 
-              {/* Products */}
+              {/* Products with MegaMenu */}
               <div
                 className="relative"
                 onMouseEnter={() => setOpenMenu('products')}
               >
                 <button
-                  className={`flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium transition-colors ${
+                  className={`flex items-center gap-1 rounded-full px-3 lg:px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap ${
                     openMenu === 'products' ? 'text-[#e34115]' : 'text-[#161b1f] hover:text-[#e34115]'
                   }`}
                 >
@@ -114,10 +113,10 @@ export default function Navbar() {
                 {openMenu === 'products' && <MegaMenu />}
               </div>
 
-              {/* Services - Simple link */}
+              {/* Services */}
               <NavItem to="/services" label="Services" />
 
-              {/* Careers */}
+              {/* Careers Dropdown */}
               <Dropdown
                 label="Careers"
                 open={openMenu === 'careers'}
@@ -128,8 +127,8 @@ export default function Navbar() {
               <NavItem to="/contact" label="Contact" />
             </nav>
 
-            {/* Right actions */}
-            <div className="flex items-center gap-1.5">
+            {/* Right Actions */}
+            <div className="flex items-center gap-1.5 md:gap-2 shrink-0">
               <button
                 onClick={() => setSearchOpen(true)}
                 className="rounded-full p-2 transition-colors hover:bg-[#f9f9f9]"
@@ -138,19 +137,19 @@ export default function Navbar() {
               >
                 <Search className="h-5 w-5" />
               </button>
-              <div className="hidden sm:block">
+              <div className="hidden md:block">
                 <LanguageSelector />
               </div>
               <Link 
                 to="/contact" 
-                className="hidden sm:inline-flex rounded-full px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#c43a12]"
+                className="hidden md:inline-flex rounded-full px-4 md:px-5 py-2 text-sm font-bold text-white transition-colors hover:bg-[#c43a12] whitespace-nowrap"
                 style={{ backgroundColor: '#e34115' }}
               >
                 Get a quote
               </Link>
               <button
                 onClick={() => setMobileOpen(true)}
-                className="rounded-full p-2 hover:bg-[#f9f9f9] lg:hidden"
+                className="rounded-full p-2 hover:bg-[#f9f9f9] xl:hidden"
                 style={{ color: '#161b1f' }}
                 aria-label="Open menu"
               >
@@ -168,14 +167,15 @@ export default function Navbar() {
 }
 
 function NavItem({ to, label }: { to: string; label: string }) {
+  const location = useLocation();
+  const isActive = location.pathname === to || (to !== '/' && location.pathname.startsWith(to));
+  
   return (
     <NavLink
       to={to}
-      className={({ isActive }) =>
-        `rounded-full px-3 py-2 text-sm font-medium transition-colors ${
-          isActive ? 'text-[#e34115]' : 'text-[#161b1f] hover:text-[#e34115]'
-        }`
-      }
+      className={`rounded-full px-3 lg:px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap ${
+        isActive ? 'text-[#e34115]' : 'text-[#161b1f] hover:text-[#e34115]'
+      }`}
     >
       {label}
     </NavLink>
@@ -193,30 +193,40 @@ function Dropdown({
   onEnter: () => void;
   items: { label: string; to: string; blurb: string }[];
 }) {
+  const location = useLocation();
+  const isActive = items.some(item => location.pathname === item.to || location.pathname.startsWith(item.to + '/'));
+  
   return (
     <div className="relative" onMouseEnter={onEnter}>
       <button
-        className={`flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium transition-colors ${
-          open ? 'text-[#e34115]' : 'text-[#161b1f] hover:text-[#e34115]'
+        className={`flex items-center gap-1 rounded-full px-3 lg:px-4 py-2 text-sm font-medium transition-colors whitespace-nowrap ${
+          open || isActive ? 'text-[#e34115]' : 'text-[#161b1f] hover:text-[#e34115]'
         }`}
       >
         {label}
         <ChevronDown className={`h-3.5 w-3.5 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
       {open && (
-        <div className="absolute left-0 top-full z-50 mt-2 w-80 overflow-hidden rounded-2xl bg-white shadow-[0_20px_40px_rgba(0,0,0,0.08)] animate-scale-in" style={{ borderColor: '#eaeaea', borderWidth: '1px' }}>
+        <div className="absolute left-1/2 -translate-x-1/2 top-full z-50 mt-2 w-72 lg:w-80 overflow-hidden rounded-2xl bg-white shadow-[0_20px_40px_rgba(0,0,0,0.08)] animate-scale-in" style={{ borderColor: '#eaeaea', borderWidth: '1px' }}>
           <ul className="p-2">
-            {items.map((i) => (
-              <li key={i.to}>
-                <Link
-                  to={i.to}
-                  className="block rounded-xl p-3 transition-colors hover:bg-[#f8f8f8]"
-                >
-                  <span className="block text-sm font-semibold" style={{ color: '#161b1f' }}>{i.label}</span>
-                  <span className="block text-xs" style={{ color: '#6b7280' }}>{i.blurb}</span>
-                </Link>
-              </li>
-            ))}
+            {items.map((i) => {
+              const isItemActive = location.pathname === i.to || location.pathname.startsWith(i.to + '/');
+              return (
+                <li key={i.to}>
+                  <Link
+                    to={i.to}
+                    className={`block rounded-xl p-3 transition-colors hover:bg-[#f8f8f8] ${
+                      isItemActive ? 'bg-[#f8f8f8]' : ''
+                    }`}
+                  >
+                    <span className={`block text-sm font-semibold ${isItemActive ? 'text-[#e34115]' : 'text-[#161b1f]'}`}>
+                      {i.label}
+                    </span>
+                    <span className="block text-xs" style={{ color: '#6b7280' }}>{i.blurb}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

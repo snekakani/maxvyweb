@@ -374,7 +374,7 @@ export default function Services() {
                     viewport={{ once: true }}
                     className="flex items-start gap-3 rounded-xl bg-white p-3 shadow-soft border border-gray-100"
                   >
-                    <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: '#007B7B' }}>
+                    <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full" style={{ backgroundColor: '#e34115' }}>
                       <svg className="h-3 w-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
@@ -394,7 +394,7 @@ export default function Services() {
             >
               <div 
                 className="rounded-2xl p-6 text-white shadow-lg"
-                style={{ backgroundColor: '#007B7B' }}
+                style={{ backgroundColor: '#e34115' }}
               >
                 <div className="relative z-10">
                   <h3 className="text-xl font-bold">Ready to get started?</h3>
@@ -403,7 +403,7 @@ export default function Services() {
                   </p>
                   <Link
                     to="/contact"
-                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 font-semibold text-[#007B7B] transition-all hover:bg-gray-50 hover:shadow-lg hover:-translate-y-0.5 text-sm"
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-white px-5 py-2.5 font-semibold text-[#e34115] transition-all hover:bg-gray-50 hover:shadow-lg hover:-translate-y-0.5 text-sm"
                   >
                     Contact us
                     <ArrowRight className="h-4 w-4" />
