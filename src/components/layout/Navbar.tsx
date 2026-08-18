@@ -68,12 +68,12 @@ export default function Navbar() {
       >
         <div className="container-page">
           <div className="flex h-16 md:h-20 items-center justify-between px-4 md:px-6">
-            {/* Logo - Left aligned */}
+            {/* Logo - Left aligned - INCREASED SIZE ON MOBILE */}
             <Link to="/" className="flex items-center gap-2 shrink-0" aria-label="MAXVY home">
               <img 
                 src={logo}
                 alt="MAXVY Logo" 
-                className="h-12 md:h-14 lg:h-16 xl:h-20 w-auto object-contain"
+                className="h-16 sm:h-14 md:h-14 lg:h-16 xl:h-20 w-auto object-contain"
               />
             </Link>
 
