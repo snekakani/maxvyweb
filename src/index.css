@@ -1,30 +1,110 @@
+/* =========================================================
+   GOOGLE FONTS
+   ========================================================= */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap');
+
+
+/* =========================================================
+   TAILWIND
+   ========================================================= */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+
+/* =========================================================
+   GLOBAL BASE STYLES
+   ========================================================= */
+
 @layer base {
+
   html {
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
   body {
     @apply bg-white text-ink font-body antialiased;
+
+    /* Global website font */
+    font-family: 'Inter', system-ui, sans-serif;
+
+    margin: 0;
+    padding: 0;
   }
-  h1, h2, h3, h4, h5, h6 {
+
+  /*
+   * All headings use Poppins globally.
+   */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
+
+    font-family: 'Poppins', system-ui, sans-serif;
   }
+
+  /*
+   * Form elements don't always inherit the body font
+   * automatically in every browser.
+   */
+  button,
+  input,
+  textarea,
+  select {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /*
+   * Links inherit the global font.
+   */
+  a {
+    font-family: inherit;
+  }
+
+  /*
+   * Paragraphs and normal text use Inter.
+   */
+  p,
+  span,
+  li,
+  label {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /*
+   * Selection color
+   */
   ::selection {
     @apply bg-primary-500/20 text-primary-700;
   }
 }
 
+
+/* =========================================================
+   COMPONENT STYLES
+   ========================================================= */
+
 @layer components {
+
+  /* -------------------------------------------------------
+     PAGE CONTAINER
+     ------------------------------------------------------- */
+
   .container-page {
     @apply mx-auto w-full max-w-[1600px] px-5 sm:px-8 lg:px-12 xl:px-16;
   }
+
+
+  /* -------------------------------------------------------
+     GLASS EFFECT
+     ------------------------------------------------------- */
 
   .glass {
     @apply bg-white/70 backdrop-blur-xl border border-white/60;
@@ -34,84 +114,194 @@
     @apply bg-navy-800/70 backdrop-blur-xl border border-white/10;
   }
 
+
+  /* -------------------------------------------------------
+     BUTTONS
+     ------------------------------------------------------- */
+
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2;
+
+    font-family: 'Inter', system-ui, sans-serif;
   }
+
   .btn-primary {
     @apply btn bg-primary-500 text-white shadow-glow hover:bg-primary-600 hover:-translate-y-0.5;
   }
+
   .btn-secondary {
     @apply btn bg-navy-800 text-white hover:bg-navy-700 hover:-translate-y-0.5;
   }
+
   .btn-ghost {
     @apply btn bg-white text-ink border border-line hover:border-primary-500 hover:text-primary-600 hover:-translate-y-0.5;
   }
+
   .btn-outline-light {
     @apply btn border border-white/30 text-white hover:bg-white/10 hover:-translate-y-0.5;
   }
 
+
+  /* -------------------------------------------------------
+     CARDS
+     ------------------------------------------------------- */
+
   .card {
     @apply rounded-2xl border border-line bg-white p-6 shadow-soft transition-all duration-300;
   }
+
   .card-hover {
     @apply hover:shadow-lift hover:-translate-y-1 hover:border-primary-200;
   }
+
   .glass-card {
     @apply rounded-2xl border border-white/60 bg-white/70 p-6 backdrop-blur-xl shadow-soft transition-all duration-300;
   }
 
+
+  /* -------------------------------------------------------
+     EYEBROWS
+     ------------------------------------------------------- */
+
   .eyebrow {
     @apply inline-flex items-center gap-2 rounded-full bg-primary-50 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-600;
   }
+
   .eyebrow-dark {
     @apply inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary-300;
   }
+
+
+  /* -------------------------------------------------------
+     SECTION SPACING
+     ------------------------------------------------------- */
 
   .section-pad {
     @apply py-20 lg:py-28;
   }
 
+
+  /* -------------------------------------------------------
+     LINKS
+     ------------------------------------------------------- */
+
   .link-underline {
     @apply relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary-500 after:transition-all hover:after:w-full;
   }
 
+
+  /* -------------------------------------------------------
+     GRADIENT TEXT
+     ------------------------------------------------------- */
+
   .gradient-text {
     @apply bg-gradient-to-r from-primary-500 to-primary-700 bg-clip-text text-transparent;
   }
+
   .gradient-text-light {
     @apply bg-gradient-to-r from-white via-primary-200 to-white bg-clip-text text-transparent;
   }
+
+
+  /* -------------------------------------------------------
+     NAVIGATION
+     ------------------------------------------------------- */
 
   .nav-link {
     @apply relative text-sm font-medium text-navy-800 transition-colors hover:text-primary-600;
   }
 }
 
+
+/* =========================================================
+   CUSTOM UTILITIES
+   ========================================================= */
+
 @layer utilities {
+
+  /*
+   * Better text wrapping for headings and descriptions.
+   */
   .text-balance {
     text-wrap: balance;
   }
+
+
+  /*
+   * Fade mask.
+   */
   .mask-fade-b {
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 70%,
+      transparent 100%
+    );
+
+    mask-image: linear-gradient(
+      to bottom,
+      black 70%,
+      transparent 100%
+    );
   }
+
+
+  /*
+   * Hide scrollbar.
+   */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
 }
 
-/* Reveal-on-scroll */
+
+/* =========================================================
+   REVEAL ON SCROLL
+   ========================================================= */
+
 .reveal {
   opacity: 0;
+
   transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+
   will-change: opacity, transform;
 }
+
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+
+/* =========================================================
+   GLOBAL FONT OVERRIDE
+   ========================================================= */
+
+/*
+ * This prevents components/pages from accidentally using
+ * browser default fonts.
+ *
+ * Normal website content -> Inter
+ * Headings -> Poppins
+ */
+
+#root {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+#root h1,
+#root h2,
+#root h3,
+#root h4,
+#root h5,
+#root h6 {
+  font-family: 'Poppins', system-ui, sans-serif;
 }

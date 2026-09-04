@@ -108,10 +108,10 @@ const KnowledgeSharing = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="bg-white rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-10 lg:p-12"
           >
-            {/* Two Column Layout */}
+            {/* Two Column Layout - Full height */}
             <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-8">
               {/* --- LEFT CONTENT --- */}
-              <div>
+              <div className="flex flex-col">
                 {/* Knowledge Hub Header */}
                 <div className="mb-6">
                   <h2 className="text-2xl font-bold text-[#0F172A]">Knowledge Hub</h2>
@@ -135,7 +135,7 @@ const KnowledgeSharing = () => {
                 </div>
 
                 {/* Knowledge Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
                   {filteredPosts.map((post) => (
                     <KnowledgeCard
                       key={post.id}
@@ -158,15 +158,11 @@ const KnowledgeSharing = () => {
                 )}
               </div>
 
-              {/* --- RIGHT SIDEBAR --- */}
-              <div className="lg:pl-4">
-                <FollowUsCard
-                  title="Follow us"
-                  companyName="Maxvy Tech"
-                  description="Lorem Ipsum is simply dummy text of the printing and typesetting industry"
-                  buttonText="Follow"
-                  facebookImage="/path-to-facebook-preview-image.jpg"
-                />
+              {/* --- RIGHT SIDEBAR - Full Height --- */}
+              <div className="lg:pl-4 flex flex-col h-full min-h-[500px]">
+                <div className="flex-1">
+                  <FollowUsCard />
+                </div>
               </div>
             </div>
           </motion.div>

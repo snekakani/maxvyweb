@@ -7,6 +7,7 @@ export const productContent = {
     heroDescription: 'Accelerating next-generation memory communication with secure and reliable SPD5 connectivity.',
     title: 'DDR5 Serial Presence Detect (SPD) Hub Interface',
     overview: 'The SPD5 Hub Function IP has been developed to interface I3C/I2C Host Bus and it allows an isolation of local devices like Temperature Sensor(TS), from master host bus. This SPD5 has Two wire serial interface like SCL, SDA.',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     features: [
       'Compliance as per JEDEC\'s JESD300-5',
       'Upto 12.5MHz speed supported',
@@ -63,6 +64,7 @@ export const productContent = {
     heroTitle: 'TEMPERATURE SENSOR',
     heroDescription: 'High-accuracy on-die temperature sensing for next-generation memory modules.',
     title: 'Temperature Sensor',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: 'The TS5111 and TS5110 device incorporate thermal sensing capability which is controlled and read over two wire bus. These device operate on I2C and I3C two wire serial bus interface. The TS5 designed for Memory Module Applications. The TS5 device intended to operate up to 12.5 MHz on a I3C Basic Bus or up to 1 MHz on a I2C Bus. All TS5 devices respond to specific pre-defined device select code on the I2C/I3C Bus.',
     features: [
       'Two wire bus serial interface (I2C and I3C Basic operation modes)',
@@ -100,6 +102,7 @@ export const productContent = {
     heroTitle: 'PMIC I3C TARGET CONTROLLER',
     heroDescription: 'Power Management IC I3C interface for DDR5 applications with robust control and monitoring.',
     title: 'Power Management IC - I3C Basic Interface IP',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'Power Management IC (PMIC) is designed for DDR5 RDIMM, DDR5 LRDIMM, DDR5 NVDIMM application. PMIC is used for switching and LDO regulators. PMIC-I3C Interface used to select suitable power fit for various application environment. PMIC device is intended to operate up to 12.5MHz.',
     features: [
       'Compliance as per JEDEC\'s JESD301-1',
@@ -151,6 +154,7 @@ export const productContent = {
     heroTitle: 'DDR5 RCD03',
     heroDescription: 'Advanced registering clock driver for DDR5 RDIMM and LRDIMM with high-speed I3C interface.',
     title: 'DDR5 REGISTERING CLOCK DRIVER (RCD) IP - (DDR5RCD03)',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: 'The DDR5RCD03 is a registering clock driver used on DDR5 RDIMMs and LRDIMMs. Its primary function is to buffer the Command/Address (CA) bus, chip selects, and clock between the host controller and the DRAMs. It also creates a BCOM bus which controls the data buffers for LRDIMMs.',
     features: [
       'Compliance as per JEDEC\'s JESD82-513',
@@ -201,6 +205,7 @@ export const productContent = {
     heroTitle: 'DDR5 RCD01',
     heroDescription: 'High-performance registering clock driver for DDR5 RDIMM and LRDIMM applications.',
     title: 'DDR5 REGISTERING CLOCK DRIVER (RCD) IP - (DDR5RCD01)',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: 'The DDR5RCD01 is a registering clock driver used on DDR5 RDIMMs and LRDIMMs. Its primary function is to buffer the Command/Address (CA) bus, chip selects, and clock between the host controller and the DRAMs. It also creates a BCOM bus which controls the data buffers for LRDIMMs.',
     features: [
       'Compliance as per JEDEC\'s JESD82-511',
@@ -251,6 +256,7 @@ export const productContent = {
     heroTitle: 'CKR5 RCD01',
     heroDescription: 'Clock redriver for CKR5 with advanced PLL and I3C interface for DDR5 modules.',
     title: 'MAXVY DDR5CKD01 Clock Driver',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: 'MAXVY DDR5CKD01 is a registering clock driver used on DDR5 CUDIMMs, CSODIMMs, and CAMM. Its primary function is to buffer the DDR clock between the Host controller and the DRAMs.',
     features: [
       'Compliance as per JEDEC\'s JESD82-531B - Version 1.21',
@@ -299,6 +305,7 @@ export const productContent = {
     heroTitle: 'MIPI DSI2 TRANSMITTER IP',
     heroDescription: 'High-performance display serial interface transmitter for advanced imaging and display applications.',
     title: 'MAXVY MIPI DSI2 Display Transmitter IP',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY MIPI DSI Transmitter IP is designed to transmit the data to the host processor. The MIPI DSI-2 provides the mobile industry a standard, robust, scalable, low-power, high-speed, cost-effective interface that supports a wide range of imaging solutions for mobile devices.',
     features: [
       'Compliance as per MIPI-DSI-2 version2.0',
@@ -351,6 +358,7 @@ export const productContent = {
     heroTitle: 'MIPI DSI2 RECEIVER IP',
     heroDescription: 'Robust display serial interface receiver for seamless video data integration into SoC subsystems.',
     title: 'MAXVY MIPI DSI-2 RX Controller IP',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: "The MAXVY's MIPI DSI-2 RX Controller IP is a fully compliant receive solution designed to interface with MIPI DSI-2 transmitters and deliver display data to SoC video subsystems. The IP supports multi-lane DSI-2 reception over D-PHY and/or C-PHY interfaces through a standard PHY-Protocol Interface (PPI), enabling seamless integration with industry-standard PHY implementations.",
     features: [
       'DSI-2 protocol support - Fully compatible with MIPI DSI-2 V2.2 specification',
@@ -395,6 +403,7 @@ export const productContent = {
     heroTitle: 'MIPI CSI2 V3 TRANSMITTER IP',
     heroDescription: 'Next-generation camera serial interface transmitter for high-bandwidth imaging applications.',
     title: 'MIPI CSI -2 TRANSMITTER IP -V3',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MIPI CSI-2 (Camera Serial Interface) Transmitter IP defines an interface between a peripheral device (camera) and host processor (application engine) for mobile applications. The MIPI CSI-2 Transmitter IP provides the mobile industry a standard, robust, scalable, low-power, high-speed, cost-effective interface that supports a wide range of imaging solutions for mobile devices.',
     features: [
       'Compliance as per MIPI-CSI-2 version3.0',
@@ -442,6 +451,7 @@ export const productContent = {
     heroTitle: 'MIPI CSI2 V3 RECEIVER IP',
     heroDescription: 'High-performance camera serial interface receiver for advanced imaging and vision systems.',
     title: 'MIPI CSI-2 V3 RECEIVER INTERFACE IP',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: 'The MIPI CSI-2 (Camera Serial Interface) defines an interface between a peripheral device (camera) and host processor (application engine) for mobile applications. The MIPI CSI-2 provides the mobile industry a standard, robust, scalable, low-power, high-speed, cost-effective interface that supports a wide range of imaging solutions for mobile devices.',
     features: [
       'Compliance as per MIPI-CSI-2 version3.0',
@@ -487,6 +497,7 @@ export const productContent = {
     heroTitle: 'MIPI D-PHY RECEIVER IP',
     heroDescription: 'High-speed, low-power MIPI physical layer receiver solution for advanced imaging applications.',
     title: 'MAXVY MIPI D-PHY Receiver IP',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: 'The MAXVY MIPI D-PHY Receiver IP is a robust high-speed PHY solution designed for receiving MIPI data streams in advanced imaging, display, automotive, and embedded applications. The IP supports reliable reception for MIPI CSI-2 and MIPI DSI-2 interfaces with optimized low-power operation, high signal integrity, and seamless SoC integration.',
     features: [
       'Compliant with MIPI D-PHY Specification v3.6',
@@ -538,6 +549,7 @@ export const productContent = {
     heroTitle: 'MIPI D-PHY TRANSMITTER IP',
     heroDescription: 'High-performance MIPI physical layer transmitter solution with ultra-low power operation.',
     title: 'MAXVY MIPI D-PHY Transmitter IP',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: 'The MAXVY MIPI D-PHY Transmitter IP is a high-performance PHY solution designed for transmitting highspeed data in modern display, camera, automotive, and embedded applications. The IP enables seamless integration with MIPI DSI-2 and MIPI CSI-2 based systems while delivering optimized power, performance, and signal integrity.',
     features: [
       'Compliant with MIPI D-PHY Specification v3.6',
@@ -591,6 +603,7 @@ export const productContent = {
     heroTitle: 'QSPI TARGET IP',
     heroDescription: 'Quad Serial Peripheral Interface target controller for non-volatile memory devices.',
     title: 'MAXVY\'S Quad Serial Peripheral Interface (QSPI) Target IP',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY Quad Serial Peripheral Interface (QSPI) for Non Volatile Memory Devices, which provides high data throughput, low signal count, and limited backward compatibility with legacy Serial Peripheral Interface (SPI) devices.',
     features: [
       'Support Single Data Rate (SDR) and Double Data Rate (DDR)',
@@ -640,6 +653,7 @@ export const productContent = {
     heroTitle: 'OSPI TARGET IP',
     heroDescription: 'Octal Serial Peripheral Interface target controller with high data throughput for memory devices.',
     title: 'MAXVY\'S Octal Serial Peripheral Interface (OSPI) Target IP',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'Octal Serial Peripheral Interface (OSPI) for Non Volatile Memory Devices, which provides high data throughput, low signal count, and limited backward compatibility with legacy Serial Peripheral Interface (SPI) devices.',
     features: [
       'Support Single Data Rate (SDR) and Double Data Rate (DDR)',
@@ -689,6 +703,7 @@ export const productContent = {
     heroTitle: 'xSPI TARGET CONTROLLER',
     heroDescription: 'Expanded Serial Peripheral Interface target controller with JEDEC compliance for high-performance storage.',
     title: 'Expanded Serial Peripheral Interface (xSPI) Slave Controller',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: "The MAXVY's JESD251 Expanded Serial Peripheral Interface Slave controller provides high data throughput, low signal count, and limited backward compatibility with legacy Serial Peripheral Interface(SPI) devices. It is used to connect xSPI Master devices in computing, automotive, Internet of Things, Embedded system and mobile system processor to non-volatile memories, graphics peripherals, networking peripherals, FPGAs, sensors devices.",
     features: [
       'Compliance of JEDEC standard JESD251 eXpanded Serial Peripheral Interface (xSPI) for Non Volatile Memory Devices, Version1.0',
@@ -735,6 +750,7 @@ export const productContent = {
     heroTitle: 'xSPI HOST CONTROLLER',
     heroDescription: 'Expanded Serial Peripheral Interface host controller for connecting multiple SPI slave devices.',
     title: 'Expanded Serial Peripheral Interface (xSPI) Master Controller',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: "The MAXVY's Expanded Serial Peripheral Interface (JESD251) Master controller is low signal count, high data bandwidth, primarily for use in computing, automotive, Internet of Things, Embedded system and mobile system processor to connect multiple source of Serial Peripheral Interface (xSPI) slave devices like non-volatile memories, graphics peripherals, networking peripherals, FPGAs, sensors devices.",
     features: [
       'Compliance of JEDEC standard JESD251 eXpanded Serial Peripheral Interface (xSPI) for Non Volatile Memory Devices, Version1.0',
@@ -782,6 +798,7 @@ export const productContent = {
     heroTitle: 'MIPI I3C HOST/TARGET IP',
     heroDescription: 'Complete MIPI I3C controller with dual-role host and target capabilities for sensor integration.',
     title: 'MIPI I3C Controller Host/Target IP',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MIPI I3C Controller IP Core is fully compliant with the latest I3C specification and delivers high bandwidth and scalability for integration of multiple sensors into mobile, automotive and IoT system-on-chips (SoCs). The MIPI I3C Controller supports in-band interrupts within the 2-wire interface provides significantly lower pin count, simplifying board design and reducing power and cost of the system.',
     features: [
       'Compliance as per MIPI-I3C Basic v1.1.1',
@@ -823,6 +840,7 @@ export const productContent = {
     heroTitle: 'MIPI I3C TARGET IP',
     heroDescription: 'Single-role MIPI I3C target controller with high-performance sensor interface capabilities.',
     title: 'MIPI-I3C Slave (SDR) RTL Design IP',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: 'MIPI I3C slave Controller IP Core is fully compliant with the latest I3C specification and delivers high bandwidth and scalability for integration of multiple sensors into mobile, automotive and IoT system-on-chips (SoCs). The MIPI I3C slave Controller supports in-band interrupts within the 2-wire interface provides significantly lower pin count, simplifying board design and reducing power and cost of the system.',
     features: [
       'Compliance as per Public Release Edition',
@@ -864,6 +882,7 @@ export const productContent = {
     heroTitle: 'MIPI I3C HOST IP',
     heroDescription: 'High-performance MIPI I3C host controller for multi-sensor systems and peripheral management.',
     title: 'MIPI-I3C Master (SDR) RTL Design IP',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MIPI I3C master Controller IP Core is fully compliant with the latest I3C specification and delivers high bandwidth and scalability for integration of multiple sensors into mobile, automotive and IoT system-on-chips (SoCs). The MIPI I3C master Controller supports in-band interrupts within the 2-wire interface provides significantly lower pin count, simplifying board design and reducing power and cost of the system.',
     features: [
       'Compliance as per Public Release Edition',
@@ -908,6 +927,7 @@ export const productContent = {
     heroTitle: 'MIPI I3C BASIC TARGET CONTROLLER',
     heroDescription: 'Lightweight MIPI I3C basic target controller for legacy and low-power sensor integration.',
     title: 'MIPI I3C Basic Slave Controller',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'MIPI I3C(Improved Inter Integrated Circuit) is a two-wire bidirectional serial Bus for sensors communication. The MIPI I3C interface has been developed to ease sensor system design architectures in mobile sensor and IoT / automotive sensor wireless products by providing a fast, low cost, low power.',
     features: [
       'Compliance as per MIPI I3C Basic v1.0',
@@ -949,6 +969,7 @@ export const productContent = {
     heroTitle: 'MIPI I3C BASIC HOST CONTROLLER',
     heroDescription: 'Lightweight MIPI I3C basic host controller for simple sensor bus management.',
     title: 'MIPI I3C Basic Master Controller',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'MIPI I3C(Improved Inter Integrated Circuit) is a two-wire bidirectional serial Bus for sensors communication. The MIPI I3C interface has been developed to ease sensor system design architectures in mobile sensor and IoT / automotive sensor wireless products by providing a fast, low cost, low power.',
     features: [
       'Compliance as per MIPI I3C Basic v1.0',
@@ -990,6 +1011,7 @@ export const productContent = {
     heroTitle: 'MIPI I3C HOST RISC-V SUBSYSTEM',
     heroDescription: 'Complete MIPI I3C host subsystem with integrated RISC-V processor for autonomous sensor management.',
     title: 'MIPI I3C Master RISC-V based subsystem',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'RISC-V based MAXVY MIPI I3C master interface has been developed to ease sensor system design architectures in mobile wireless products by providing a fast, low cost, low power, two-wire digital interface for sensors. All the basic functionalities of MIPI I3C master has been proved with Microsemi smart fusion 2 creative development board. In addition MAXVY MIPI I3C master supports for both AHB lite and APB Interface.',
     features: [
       'Dynamic address assignment',
@@ -1026,6 +1048,7 @@ export const productContent = {
     heroTitle: 'SPMI HOST CONTROLLER',
     heroDescription: 'System Power Management Interface host controller for efficient power management communication.',
     title: 'SPMI Host Controller',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'SPMI (System Power Management Interface) Host Controller provides a high-speed, low-latency interface for communication between power management ICs and system processors.',
     features: [
       'Compliance with MIPI SPMI Specification',
@@ -1062,6 +1085,7 @@ export const productContent = {
     heroTitle: 'SPMI TARGET CONTROLLER',
     heroDescription: 'System Power Management Interface target controller for PMIC and power management devices.',
     title: 'SPMI Target Controller',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'SPMI (System Power Management Interface) Target Controller enables power management ICs and devices to communicate with system processors over the SPMI bus.',
     features: [
       'Compliance with MIPI SPMI Specification',
@@ -1097,6 +1121,7 @@ export const productContent = {
     heroTitle: 'ETSI SSP I3C INTERFACE IP',
     heroDescription: 'ETSI Secure Service Provider I3C interface for secure sensor and peripheral communication.',
     title: 'ETSI SSP I3C Interface IP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'The ETSI SSP I3C Interface IP enables secure communication between ETSI Secure Service Provider (SSP) devices and I3C-based sensor networks.',
     features: [
       'Compliance with ETSI SSP specification',
@@ -1133,6 +1158,7 @@ export const productContent = {
     heroTitle: 'UCIE VIP',
     heroDescription: 'Universal Chiplet Interconnect Express verification IP for die-to-die communication verification.',
     title: 'UCIe VIP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'UCIe (Universal Chiplet Interconnect Express) Verification IP provides comprehensive verification of die-to-die interfaces in multi-chiplet designs.',
     features: [
       'Compliant with UCIe Specification',
@@ -1170,6 +1196,7 @@ export const productContent = {
     heroTitle: 'MIPI-I3C UVM VIP',
     heroDescription: 'MIPI I3C Universal Verification Methodology VIP for comprehensive I3C protocol verification.',
     title: 'MIPI-I3C UVM VIP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'MIPI I3C UVM VIP provides a complete verification environment for I3C interfaces, enabling thorough functional verification of I3C host and target designs.',
     features: [
       'UVM-based verification environment',
@@ -1207,6 +1234,7 @@ export const productContent = {
     heroTitle: 'MIPI DSI VIP',
     heroDescription: 'MIPI Display Serial Interface verification IP for comprehensive display interface verification.',
     title: 'MIPI DSI VIP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'MIPI DSI (Display Serial Interface) Verification IP provides comprehensive verification of display interfaces in multimedia and mobile SoC designs.',
     features: [
       'Compliant with MIPI DSI Specification',
@@ -1242,6 +1270,7 @@ export const productContent = {
     heroTitle: 'MIPI CSI VIP',
     heroDescription: 'MIPI Camera Serial Interface verification IP for camera and imaging subsystem verification.',
     title: 'MIPI CSI VIP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'MIPI CSI (Camera Serial Interface) Verification IP provides comprehensive verification of camera interfaces in imaging and vision SoC designs.',
     features: [
       'Compliant with MIPI CSI Specification',
@@ -1278,6 +1307,7 @@ export const productContent = {
     heroTitle: 'AXI VIP',
     heroDescription: 'AXI4 protocol verification IP for comprehensive SoC interconnect verification.',
     title: 'AXI VIP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'AXI (Advanced eXtensible Interface) Verification IP provides comprehensive verification of AXI4 protocol interfaces in SoC and FPGA designs.',
     features: [
       'Compliant with AMBA AXI4 Specification',
@@ -1312,6 +1342,7 @@ export const productContent = {
     heroTitle: 'AHB LITE MASTER/SLAVE VIP',
     heroDescription: 'AHB-Lite verification IP for low-power SoC bus protocol verification.',
     title: 'AHB Lite Master/Slave VIP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'AHB-Lite Verification IP provides comprehensive verification of AHB-Lite protocol interfaces in low-power SoC and microcontroller designs.',
     features: [
       'Compliant with AMBA AHB-Lite Specification',
@@ -1346,6 +1377,7 @@ export const productContent = {
     heroTitle: 'A-PHY VIP',
     heroDescription: 'Automotive A-PHY verification IP for high-speed automotive communication verification.',
     title: 'A-PHY VIP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'A-PHY Verification IP provides comprehensive verification of automotive A-PHY interfaces in automotive and ADAS designs.',
     features: [
       'Compliant with MIPI A-PHY Specification',
@@ -1380,6 +1412,7 @@ export const productContent = {
     heroTitle: 'CPRI VERIFICATION IP',
     heroDescription: 'Common Public Radio Interface verification IP for telecom and front-haul applications.',
     title: 'CPRI Verification IP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'CPRI (Common Public Radio Interface) Verification IP provides comprehensive verification of CPRI interfaces in telecom and communications systems.',
     features: [
       'Compliant with CPRI Specification',
@@ -1414,6 +1447,7 @@ export const productContent = {
     heroTitle: 'JESD204B UVM VIP',
     heroDescription: 'JESD204B verification IP for high-speed ADC/DAC interface verification.',
     title: 'JESD204B UVM VIP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'MAXVY\'s provides configurable JESD204B TX/RX verification IP. JESD204B is a Serial Interface for Data Converters which are defined by JEDEC SOLID STATE TECHNOLOGY ASSOCIATION. Our VIP covers Transport and Data link layer functionality of JESD204B. MAXVY\'s VIP provides more flexible configuration to user to select their needs like lane,device configuration, data width.',
     features: [
       'ADC - TX/RX DAC - TX/RX',
@@ -1457,6 +1491,7 @@ export const productContent = {
     heroTitle: 'LPC CONTROLLER VIP',
     heroDescription: 'Low Pin Count controller verification IP for legacy bus protocol verification.',
     title: 'Low Pin Count (LPC) controller verification IP',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'The Low Pin Count (LPC) interface is a low bandwidth bus with up to 33 MHz performance. It is used to connect peripherals around the CPU and to replace the Industry Standard Architecture (ISA) bus which can only run up to 8 MHz. The primary benefit is that signals can be transmitted across a minimum of seven traces for an LPC bus versus 52 traces for an ISA bus. This relieves the pressure of routing on the often-congested motherboard and at the same time improves the overall system integrity.',
     features: [
       'LPC Interface Increase the memory space from 16MB on the X-bus to 4GB to allow BIOS sizes much greater than 1MB, and other memory devices outside of the traditional 16MB range.',
@@ -1490,6 +1525,7 @@ export const productContent = {
     heroTitle: 'MAXVY I3C HOST IP',
     heroDescription: 'Powering Next-Gen Sensor Connectivity with VEGA processor integration.',
     title: 'MAXVY MIPI I3C Integrated with VEGA processor',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY Technologies brings advanced connectivity to embedded systems with the successful integration of MIPI I3C Host IP into the VEGA SoC (AT1051). This solution bridges next‑generation I3C protocols and legacy I2C devices — enabling faster data transfer, reduced latency, and scalable system design. It is validated on the Arty A7 100T FPGA platform with real‑time I2C/I3C sensors.',
     features: [
       'Fully compliant with MIPI I3C Basic v1.2 specification',
@@ -1527,6 +1563,7 @@ export const productContent = {
     heroTitle: 'MAXVY I3C TARGET IP',
     heroDescription: 'Powering Next-Gen Sensor Connectivity with VEGA processor integration.',
     title: 'MAXVY MIPI I3C Host/Target Controller integrated with VEGA processor',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY Technologies delivers a high-performance MIPI I3C Host/Target Controller integrated with the VEGA SoC (AT1051), enabling scalable and efficient communication for modern embedded systems. Fully compliant with the latest MIPI I3C Basic v1.1.1 specification, the controller provides high bandwidth, low latency, and reduced pin count, making it ideal for connecting multiple sensors and peripherals on a single bus.',
     features: [
       'Fully compliant with MIPI I3C Basic v1.2 specification',
@@ -1567,6 +1604,7 @@ export const productContent = {
     heroTitle: 'MAXVY xSPI HOST IP',
     heroDescription: 'Powering High-Speed Memory Connectivity with VEGA processor integration.',
     title: 'MAXVY XSPI Host Controller Integrated with VEGA Processor',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY Technologies brings high-performance memory and peripheral connectivity to embedded systems with the integration of its XSPI (eXpanded Serial Peripheral Interface) Host Controller into the VEGA SoC (AT1051). The MAXVY XSPI Host, compliant with JEDEC JESD251 standard, is designed to deliver high data bandwidth with minimal signal count, making it ideal for next-generation embedded and computing applications.',
     features: [
       'Compliant with JEDEC JESD251 (xSPI) Version 1.0',
@@ -1607,6 +1645,7 @@ export const productContent = {
     heroTitle: 'MAXVY DSI-2 TRANSMITTER IP',
     heroDescription: 'Powering High-Speed Sensor Connectivity with VEGA processor integration.',
     title: 'MAXVY MIPI DSI-2 Tx Integrated with VEGA Processor',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY Technologies offers a high-performance MIPI DSI-2 Transmitter (TX) Controller integrated with the VEGA SoC (AT1051), enabling seamless high-speed data transmission from the processor to display devices. Compliant with MIPI DSI-2 v2.0, the controller provides a robust, scalable, low-power, and cost-effective interface for modern display systems.',
     features: [
       'Compliant with MIPI DSI-2 v2.0',
@@ -1649,6 +1688,7 @@ export const productContent = {
     heroTitle: 'MAXVY CSI-2 RECEIVER IP',
     heroDescription: 'Powering High-Speed Memory Connectivity with VEGA processor integration.',
     title: 'MAXVY MIPI CSI-2 Rx Integrated with VEGA Processor',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY Technologies offers a high-performance MIPI CSI-2 RX Controller integrated with the VEGA SoC (AT1051), designed to enable seamless high-speed data transfer from camera sensors to embedded processing systems. Compliant with MIPI CSI-2 v3.0, the controller delivers a robust, scalable, and low-power interface for a wide range of imaging applications.',
     features: [
       'MIPI CSI-2 v3.0 compliant',
@@ -1690,6 +1730,7 @@ export const productContent = {
     heroTitle: 'MAXVY UART IP',
     heroDescription: 'Enabling Reliable Serial Communication for Embedded Systems with VEGA processor.',
     title: 'MAXVY UART Integrated with VEGA Processor',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY Technologies delivers a robust and efficient UART Controller solution integrated with the VEGA SoC (AT1051), designed to enable seamless communication between processors and external serial devices. This architecture acts as a high-performance bridge between parallel processor buses and asynchronous serial interfaces, ensuring reliable data transfer with minimal CPU intervention.',
     features: [
       'High-Performance Architecture - Efficient bridge between parallel bus and serial communication',
@@ -1728,6 +1769,7 @@ export const productContent = {
     heroTitle: 'MAXVY GPIO IP',
     heroDescription: 'Enabling Intelligent Control and Real-Time Interaction with VEGA processor.',
     title: 'MAXVY GPIO Integrated with VEGA Processor',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY Technologies offers a flexible and efficient GPIO (General Purpose Input/Output) Controller integrated with the VEGA SoC (AT1051), enabling seamless interaction between the processor and external hardware components. The GPIO IP provides a simple yet powerful interface for monitoring external signals and controlling digital outputs through memory-mapped registers.',
     features: [
       'Supports 1 to 32 GPIO signals per channel',
@@ -1765,6 +1807,7 @@ export const productContent = {
     heroTitle: 'MAXVY PWM IP',
     heroDescription: 'Efficient Pulse Width Modulation for Embedded Control Systems with VEGA processor.',
     title: 'MAXVY PWM Integrated with VEGA processor',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY Technologies provides a high-performance PWM Controller IP integrated with the VEGA SoC (AT1051), designed to generate precise and configurable pulse signals for controlling a wide range of embedded peripherals. This architecture enables seamless interaction between the processor\'s parallel bus and time-critical PWM signal generation.',
     features: [
       'High-Precision PWM Generation - Accurate duty cycle and frequency control',
@@ -1804,6 +1847,7 @@ export const productContent = {
     heroTitle: 'UCIe CONTROLLER IP',
     heroDescription: 'High-performance Universal Chiplet Interconnect Express controller IP for die-to-die communication.',
     title: 'MAXVY UCIe Controller IP',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: 'MAXVY\'s UCIe IP solution includes D2D Adapter layer which supports streaming/PCIe/CXL/Raw flitformats, supports both standard and advanced mainband links and sideband links.',
     features: [
       'ARB/MUX',
@@ -1842,6 +1886,7 @@ export const productContent = {
     heroTitle: 'AVS BUS HOST IP',
     heroDescription: 'Adaptive Voltage Scaling bus host controller for dynamic power management.',
     title: 'MAXVY Adaptive Voltage Scaling (AVS) Bus Host Controller IP',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'The MAXVY\'s AVS Bus Host Controller IP is a highly configurable solution designed to enable efficient, high-speed communication between the SoC processor subsystem and external voltage regulators through the industry-standard AVS Bus protocol. Fully compliant with the AVS Bus specification, the IP plays a critical role in Dynamic Voltage and Frequency Scaling (DVFS) applications, allowing software-controlled voltage adjustments to optimize power consumption and system performance in real time.',
     features: [
       'Fully Compliant with AVS Bus protocol specification',
@@ -1886,6 +1931,7 @@ export const productContent = {
     heroTitle: 'AVS BUS TARGET IP',
     heroDescription: 'Adaptive Voltage Scaling bus target IP for power management device integration.',
     title: 'MAXVY Adaptive Voltage Scaling (AVS) Bus Target IP',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'The MAXVY\'s AVS Bus Slave IP is a highly configurable IP that provides full AVS Bus slave functionality compliant with the AVS Bus specification. The IP enables seamless communication between an AVS Bus Master, such as a processor, FPGA, or SoC, and AVS Bus-compliant target devices used in power management applications.',
     features: [
       'Full AVS Bus Slave (Target) functionality',
@@ -1930,6 +1976,7 @@ export const productContent = {
     heroTitle: 'GPIO CONTROLLER IP',
     heroDescription: 'General Purpose Input/Output controller IP for flexible embedded system I/O management.',
     title: 'MAXVY GPIO Controller IP',
+    badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'The MAXVY GPIO (General Purpose Input/Output) Controller IP is a highly configurable and scalable peripheral designed to enable seamless communication between processors and external hardware devices. The IP provides a flexible interface for monitoring digital input signals and controlling digital output signals through memory-mapped register architecture.',
     features: [
       'Supports Configurable GPIO width from 1 to 32 signals',
@@ -1975,6 +2022,7 @@ export const productContent = {
     heroTitle: 'RISC V INSTRUCTION SET',
     heroDescription: 'Complete RISC-V RV32I base instruction set for processor development.',
     title: 'RISC V RV32I - BASE INSTRUCTION SET',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'RISC-V (pronounced "risk-five") is a free and open ISA enabling a new era of processor innovation through open standard collaboration. The RISC-V ISA delivers a new level of free, extensible software and hardware freedom on architecture.',
     features: [
       'ADD - Addition',
@@ -2010,6 +2058,7 @@ export const productContent = {
     heroTitle: 'RISC V CORE DEVELOPMENT',
     heroDescription: 'Complete RISC-V processor core development solutions.',
     title: 'RISC V - CORE DEVELOPMENT',
+    badges: ['Silicon Proven', 'IP Proven'],
     overview: 'RISC-V (pronounced "risk-five") is a free and open ISA enabling a new era of processor innovation through open standard collaboration. Founded in 2015, the RISC-V ISA delivers a new level of free, extensible software and hardware freedom on architecture, paving the way for the next 50 years of computing design and innovation.',
     features: [
       'A completely open ISA that is freely available to academia and industry',
@@ -2052,6 +2101,7 @@ export const productContent = {
     heroTitle: 'RISC V REFERENCE MODEL',
     heroDescription: 'Complete RISC-V reference model for processor verification and development.',
     title: 'RISC V - REFERENCE MODEL',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'The RISC-V Reference Model provides a complete software and hardware reference implementation for RISC-V processor development and verification.',
     features: [
       'Delivers a new level of software and hardware freedom on architecture in an open extensible way',
@@ -2088,6 +2138,7 @@ export const productContent = {
     heroTitle: 'CLOUD BASED DYNAMIC QR CODE GENERATOR',
     heroDescription: 'RISC-V based embedded application for real-time dynamic QR code generation.',
     title: 'Cloud Based Dynamic QR code generator',
+    badges: ['Software IP'],
     overview: 'A Risc-v core based Embedded application, using Sifive\'s Hifive1 micro-controller and Esp\'s NodeMCU which is able to produce a real time QR code, based on the current data fetched from cloud. It helps in improving the functionalities of QR related applications.',
     features: [
       'Risc-V core',
@@ -2123,6 +2174,7 @@ export const productContent = {
     heroTitle: 'MAXVY I3C HOST CONTROLLER SOFTWARE',
     heroDescription: 'Software tool for verifying MIPI I3C features on FPGA platforms.',
     title: 'MAXVY I3C Host Controller Software',
+    badges: ['IP Proven', 'Software IP'],
     overview: 'MAXVY I3C Host Controller Software helps to verify the MIPI I3C features as per Version 1.11 Specification standards.',
     features: [
       'Supports all MIPI I3C Version 1.11 specification standards',
@@ -2151,8 +2203,6 @@ export const productContent = {
   }
 };
 
-// ==================== HELPER FUNCTIONS ====================
-
 export const getProductBySlug = (slug) => {
   return productContent[slug] || null;
 };
@@ -2168,12 +2218,10 @@ export const getProductsByCategory = (categoryId) => {
 };
 
 export const findProduct = (category, slug) => {
-  // First try to find by slug directly
   if (productContent[slug]) {
     return productContent[slug];
   }
   
-  // If not found, search through all products
   for (const key in productContent) {
     if (productContent[key].slug === slug) {
       return productContent[key];
@@ -2183,5 +2231,4 @@ export const findProduct = (category, slug) => {
   return null;
 };
 
-// Default export for convenience
 export default productContent;

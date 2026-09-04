@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Globe, ChevronRight, Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { 
+  Award, Globe, ChevronRight, Mail, Phone, MapPin, ExternalLink, 
+  Building2, Users, Cpu, Lightbulb, Trophy 
+} from 'lucide-react';
 import aboutBanner from '../../../images/about-us_banner.jpeg';
 
 // --- Reusable Components ---
@@ -32,6 +35,52 @@ const Button: React.FC<{
   return <button className={`${base} ${variants[variant]} ${className}`}>{children}</button>;
 };
 
+// --- Journey Step Data ---
+const journeySteps = [
+  {
+    step: 'STEP 01',
+    year: '2021',
+    title: 'Company Foundation',
+    description: 'MAXVY was established with a vision to build innovative semiconductor solutions.',
+    icon: Building2,
+  },
+  {
+    step: 'STEP 02',
+    year: '2022',
+    title: 'Team & Technology Growth',
+    description: 'Expanded the engineering team and strengthened core semiconductor expertise.',
+    icon: Users,
+  },
+  {
+    step: 'STEP 03',
+    year: '2023',
+    title: 'Product Development',
+    description: 'Developed and delivered advanced Design & Verification IP solutions.',
+    icon: Cpu,
+  },
+  {
+    step: 'STEP 04',
+    year: '2024',
+    title: 'Global Expansion',
+    description: 'Expanded customer engagement and established a stronger global presence.',
+    icon: Globe,
+  },
+  {
+    step: 'STEP 05',
+    year: '2025',
+    title: 'Innovation & Excellence',
+    description: 'Strengthened the IP portfolio for complex SoC requirements.',
+    icon: Lightbulb,
+  },
+  {
+    step: 'STEP 06',
+    year: '2026',
+    title: 'Future Ready',
+    description: 'Continuing to scale innovation, partnerships, and semiconductor excellence.',
+    icon: Trophy,
+  },
+];
+
 // --- Page Component ---
 const WhyUs: React.FC = () => {
   // Animation variants
@@ -54,6 +103,75 @@ const WhyUs: React.FC = () => {
   const cardHover = {
     rest: { y: 0, boxShadow: '0 10px 25px rgba(0,0,0,0.05)' },
     hover: { y: -6, boxShadow: '0 20px 40px -12px rgba(0,0,0,0.12)' },
+  };
+
+  // Journey Animations
+  const lineAnimation = {
+    hidden: { scaleX: 0 },
+    visible: { scaleX: 1, transition: { duration: 1.2, ease: 'easeOut', delay: 0.2 } },
+  };
+
+  // Reusable Journey Card Component
+  const JourneyCard: React.FC<{ step: typeof journeySteps[0]; index: number }> = ({ step, index }) => {
+    // Calculate the dynamic height progressively for desktop/tablet (base height + index * 30px)
+    // Ensure the tallest fits the container perfectly
+    const height = `${280 + index * 30}px`;
+    const isLast = index === journeySteps.length - 1;
+    
+    const Icon = step.icon;
+
+    return (
+      <motion.div
+        variants={{ hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="relative flex-1 min-w-[160px] flex justify-center items-end" // Aligns bottom
+      >
+        {/* Connecting Line Segment (Hidden on mobile) */}
+        {!isLast && (
+          <div className="absolute top-1/2 -right-[50%] z-0 h-0.5 bg-gradient-to-r from-[#e34115]/40 to-[#e34115]/20 hidden lg:block w-full pointer-events-none" />
+        )}
+
+        <motion.div
+          initial="rest"
+          whileHover="hover"
+          animate="rest"
+          variants={cardHover}
+          style={{ height }}
+          className="relative z-10 w-full bg-white rounded-[20px] border border-[#F3E7DD] shadow-[0_10px_30px_rgba(0,0,0,0.05)] flex flex-col items-center justify-start pt-6 px-4 overflow-hidden group"
+        >
+          {/* Orange Top Gradient Bar */}
+          <div className="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-[#e34115] to-[#ff7a5c] rounded-t-[20px]" />
+
+          {/* Icon Circle */}
+          <div className="w-12 h-12 rounded-full bg-[#FFF5ED] flex items-center justify-center mb-4 mt-2 transition-transform duration-300 group-hover:scale-110">
+            <Icon className={`w-5 h-5 ${isLast ? 'text-yellow-500' : 'text-[#e34115]'}`} />
+          </div>
+
+          {/* Step & Year */}
+          <span className="text-[10px] font-bold uppercase tracking-wider text-[#e34115] mb-1">
+            {step.step}
+          </span>
+          <span className="text-xs font-semibold text-gray-400 mb-3">
+            {step.year}
+          </span>
+
+          {/* Title */}
+          <h4 className="text-sm font-bold text-[#0F172A] text-center leading-snug mb-2">
+            {step.title}
+          </h4>
+
+          {/* Description (truncated for smaller heights, expand on hover if needed) */}
+          <p className="text-[11px] text-gray-500 text-center leading-relaxed line-clamp-3 opacity-80 group-hover:opacity-100 transition-opacity">
+            {step.description}
+          </p>
+
+          {/* Glow effect for the top milestone */}
+          {isLast && (
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-[#e34115]/10 rounded-full blur-3xl pointer-events-none" />
+          )}
+        </motion.div>
+      </motion.div>
+    );
   };
 
   return (
@@ -100,9 +218,10 @@ const WhyUs: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="bg-white rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-[60px]"
           >
-            {/* Mission & Vision Grid */}
+            
+            {/* --- Mission & Vision Grid (Positioned at the top) --- */}
             <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16"
               variants={staggerContainer}
               initial="hidden"
               whileInView="visible"
@@ -165,6 +284,69 @@ const WhyUs: React.FC = () => {
                   <ChevronRight className="w-5 h-5 text-[#e34115]/60" />
                 </div>
               </motion.div>
+            </motion.div>
+
+            {/* --- NEW SECTION: OUR JOURNEY (Placed below Mission & Vision) --- */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              className="mb-16"
+            >
+              <div className="text-center mb-10">
+                <motion.div variants={fadeUp}>
+                  <h2 className="text-[34px] font-bold text-[#0F172A] leading-tight">
+                    OUR <span className="text-[#e34115]">JOURNEY</span>
+                  </h2>
+                  <p className="text-[#e34115] font-medium uppercase tracking-wider text-sm mt-2">
+                    Growing Through Innovation & Excellence
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Desktop: Horizontal Steps */}
+              <div className="hidden lg:flex items-end justify-center gap-2 mt-8 relative">
+                {/* Background baseline connecting line */}
+                <motion.div 
+                  variants={lineAnimation}
+                  className="absolute bottom-[280px] left-[10%] right-[10%] h-0.5 bg-gray-200 z-0"
+                />
+                
+                {journeySteps.map((step, index) => (
+                  <JourneyCard key={index} step={step} index={index} />
+                ))}
+              </div>
+
+              {/* Mobile & Tablet: Vertical Timeline */}
+              <div className="lg:hidden relative pl-8">
+                {/* Vertical Line */}
+                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-200" />
+                <div className="flex flex-col gap-8">
+                  {journeySteps.map((step, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.4, delay: index * 0.1 }}
+                      className="relative"
+                    >
+                      {/* Dot on timeline */}
+                      <div className="absolute -left-8 top-6 w-4 h-4 rounded-full bg-[#e34115] border-4 border-white shadow-md" />
+                      
+                      <div className="bg-white rounded-[20px] border border-[#F3E7DD] p-5 shadow-sm">
+                        <div className="flex items-center gap-3 mb-2">
+                          <step.icon className="w-5 h-5 text-[#e34115]" />
+                          <span className="text-xs font-bold text-[#e34115] uppercase">{step.step}</span>
+                          <span className="text-xs text-gray-400 font-semibold">{step.year}</span>
+                        </div>
+                        <h4 className="font-bold text-[#0F172A] text-lg mb-1">{step.title}</h4>
+                        <p className="text-sm text-gray-500 leading-relaxed">{step.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
             </motion.div>
 
             {/* --- CTA SECTION --- */}

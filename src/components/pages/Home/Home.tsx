@@ -247,9 +247,9 @@ export default function Home() {
   const blogArticles = [
     {
       id: 1,
-      tag: 'Partnership',
-      date: 'July 15, 2026',
-      title: 'Strategic Alliance with Silicon Verified (SilVer) Inc.',
+      tag: 'Press Release',
+      date: 'Aug 1 2026',
+      title: 'MAXVY Technologies Private Limited Secures Design Win for JEDECs JESD301-4A PMIC-based MIPI I3C Target Controller IP with Top-5 Fabless Semiconductor Company Serving Data Center SSD Manufacturers',
       image: 'images/blog_alliance.png',
       author: {
         name: 'Admin',
@@ -529,121 +529,121 @@ export default function Home() {
       {/* Main container with overflow-x-hidden to remove horizontal scroll */}
       <div className="overflow-x-hidden">
 
-        {/* ============================================================ */}
-        {/* HERO SLIDER SECTION - EXACT TEXT SIZES FROM HEROSLIDER */}
-        {/* ============================================================ */}
-        <section className="relative w-full overflow-hidden bg-white text-heading min-h-[580px] lg:h-[calc(100vh-120px)] lg:min-h-[650px] flex items-center pt-20 lg:pt-0">
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-80 pointer-events-none" 
-            style={{ backgroundImage: "url('/assets/img/bg/banner-bg.jpg')" }}
-          />
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#e34115]/5 blur-[120px] pointer-events-none" />
-          <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-secondary/5 blur-[150px] pointer-events-none" />
+{/* ============================================================ */}
+{/* HERO SLIDER SECTION */}
+{/* ============================================================ */}
+<section className="relative w-full overflow-hidden bg-white font-heading min-h-[580px] lg:h-[calc(100vh-120px)] lg:min-h-[650px] flex items-center pt-4 lg:pt-0">
+  <div 
+    className="absolute inset-0 bg-cover bg-center opacity-80 pointer-events-none" 
+    style={{ backgroundImage: "url('/assets/img/bg/banner-bg.jpg')" }}
+  />
+  <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-[#e34115]/5 blur-[120px] pointer-events-none" />
+  <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full bg-secondary/5 blur-[150px] pointer-events-none" />
 
-          <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
-            <Swiper
-              modules={[Autoplay]}
-              slidesPerView={1}
-              spaceBetween={0}
-              loop={true}
-              autoplay={{
-                delay: 5000,
-                disableOnInteraction: false,
-              }}
-              onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
-              onSwiper={setSwiperInstance}
-              className="w-full hero-swiper"
-            >
-              {heroSlides.map((slide) => (
-                <SwiperSlide key={slide.id}>
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center w-full">
-                    {/* Content Panel - Left */}
-                    <div className="lg:col-span-7 flex flex-col items-start text-left order-last lg:order-first">
-                      <span className="inline-block text-[#e34115] font-bold text-sm lg:text-base uppercase tracking-wider mb-4">
-                        {slide.badge}
-                      </span>
-                      <h1 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold text-heading leading-[1.15] mb-6 whitespace-pre-line tracking-tight">
-                        {slide.title}
-                      </h1>
-                      <p className="text-body text-base sm:text-lg lg:text-[17px] leading-relaxed mb-10 max-w-xl opacity-90">
-                        {slide.desc}
-                      </p>
-                      <div>
-                        <a
-                          href="#inquiry"
-                          className="inline-flex items-center justify-center bg-[#e34115] hover:bg-[#c43a12] text-white font-bold text-base px-8 py-3.5 rounded-md shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
-                        >
-                          Get A Quote
-                        </a>
-                      </div>
-                    </div>
-
-                    {/* Visual Panel - Right */}
-                    <div className="lg:col-span-5 flex justify-center items-center">
-                      <div className="relative group w-full max-w-[450px]">
-                        <div className="absolute inset-0 bg-[#e34115]/10 rounded-3xl blur-2xl group-hover:bg-[#e34115]/20 transition-all duration-500" />
-                        <div className="relative z-10 w-full aspect-square rounded-3xl overflow-hidden border border-gray-200 shadow-premium">
-                          <img
-                            src={slide.image}
-                            alt={slide.badge}
-                            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700 ease-out"
-                            onError={(e) => {
-                              const parent = (e.target as HTMLImageElement).parentElement;
-                              if (parent) {
-                                const fallback = document.createElement('div');
-                                fallback.className = 'w-full h-full flex items-center justify-center bg-gray-100 text-gray-500 text-sm font-medium';
-                                fallback.textContent = slide.badge;
-                                (e.target as HTMLImageElement).style.display = 'none';
-                                parent.appendChild(fallback);
-                              }
-                            }}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
-
-          {/* Thumbnail Selector Tabs */}
-          <div className="hidden lg:block absolute bottom-12 left-1/2 -translate-x-1/2 w-full max-w-7xl px-6 z-30">
-            <div className="flex gap-16">
-              {[
-                { number: '01', title: 'Design IP' },
-                { number: '02', title: 'RISC-V Solution' },
-                { number: '03', title: 'Verification IP' },
-              ].map((tab, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => handleHeroTabClick(idx)}
-                  className={`flex items-center gap-3 text-left pt-4 border-t-2 w-48 transition-all duration-300 group ${
-                    activeSlide === idx ? 'border-[#e34115]' : 'border-gray-200'
-                  }`}
+  <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
+    <Swiper
+      modules={[Autoplay]}
+      slidesPerView={1}
+      spaceBetween={0}
+      loop={true}
+      autoplay={{
+        delay: 5000,
+        disableOnInteraction: false,
+      }}
+      onSlideChange={(swiper) => setActiveSlide(swiper.realIndex)}
+      onSwiper={setSwiperInstance}
+      className="w-full hero-swiper"
+    >
+      {heroSlides.map((slide) => (
+        <SwiperSlide key={slide.id}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-12 lg:gap-8 items-center w-full">
+            {/* Content Panel */}
+            <div className="md:col-span-1 lg:col-span-7 flex flex-col items-start text-left order-first md:order-first lg:order-first">
+              <span className="inline-block text-[#e34115] font-bold text-sm lg:text-base uppercase tracking-wider mb-3 md:mb-4">
+                {slide.badge}
+              </span>
+              <h1 className="text-section font-extrabold text-heading leading-[1.15] mb-4 md:mb-6 whitespace-pre-line tracking-tight">
+                {slide.title}
+              </h1>
+              <p className="font-body text-base sm:text-lg lg:text-[17px] leading-relaxed mb-6 md:mb-10 max-w-xl opacity-90">
+                {slide.desc}
+              </p>
+              <div>
+                <a
+                  href="#inquiry"
+                  className="inline-flex items-center justify-center font-body bg-[#e34115] hover:bg-[#c43a12] text-white font-semibold text-sm md:text-base px-6 md:px-8 py-3 md:py-3.5 rounded-full shadow-sm hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5"
                 >
-                  <span
-                    className={`font-bold text-lg transition-colors ${
-                      activeSlide === idx ? 'text-[#e34115]' : 'text-gray-400 group-hover:text-gray-500'
-                    }`}
-                  >
-                    {tab.number}.
-                  </span>
-                  <span
-                    className={`font-semibold text-base tracking-wide transition-colors ${
-                      activeSlide === idx ? 'text-heading font-bold' : 'text-gray-500 group-hover:text-heading'
-                    }`}
-                  >
-                    {tab.title}
-                  </span>
-                </button>
-              ))}
+                  Get A Quote
+                </a>
+              </div>
+            </div>
+
+            {/* Visual Panel */}
+            <div className="md:col-span-1 lg:col-span-5 flex justify-center items-center order-last md:order-last lg:order-last">
+              <div className="relative group w-full max-w-[350px] md:max-w-[450px]">
+                <div className="absolute inset-0 bg-[#e34115]/10 rounded-3xl blur-2xl group-hover:bg-[#e34115]/20 transition-all duration-500" />
+                <div className="relative z-10 w-full aspect-square rounded-3xl overflow-hidden border border-gray-200 shadow-premium">
+                  <img
+                    src={slide.image}
+                    alt={slide.badge}
+                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700 ease-out"
+                    onError={(e) => {
+                      const parent = (e.target as HTMLImageElement).parentElement;
+                      if (parent) {
+                        const fallback = document.createElement('div');
+                        fallback.className = 'w-full h-full flex items-center justify-center bg-gray-100 text-gray-500 text-sm font-medium';
+                        fallback.textContent = slide.badge;
+                        (e.target as HTMLImageElement).style.display = 'none';
+                        parent.appendChild(fallback);
+                      }
+                    }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
-        </section>
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </div>
+
+  {/* Thumbnail Selector Tabs */}
+  <div className="hidden lg:block absolute bottom-12 left-1/2 -translate-x-1/2 w-full max-w-7xl px-6 z-30">
+    <div className="flex gap-16">
+      {[
+        { number: '01', title: 'Design IP' },
+        { number: '02', title: 'RISC-V Solution' },
+        { number: '03', title: 'Verification IP' },
+      ].map((tab, idx) => (
+        <button
+          key={idx}
+          onClick={() => handleHeroTabClick(idx)}
+          className={`flex items-center gap-3 text-left pt-4 border-t-2 w-48 transition-all duration-300 group ${
+            activeSlide === idx ? 'border-[#e34115]' : 'border-gray-200'
+          }`}
+        >
+          <span
+            className={`font-heading font-bold text-lg transition-colors ${
+              activeSlide === idx ? 'text-[#e34115]' : 'text-gray-400 group-hover:text-gray-500'
+            }`}
+          >
+            {tab.number}.
+          </span>
+          <span
+            className={`font-heading font-semibold text-base tracking-wide transition-colors ${
+              activeSlide === idx ? 'text-heading font-bold' : 'text-gray-500 group-hover:text-heading'
+            }`}
+          >
+            {tab.title}
+          </span>
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* ============================================================ */}
-        {/* FEATURES SECTION - EXACTLY LIKE OLD DESIGN */}
+        {/* FEATURES SECTION */}
         {/* ============================================================ */}
         <section className="relative w-full z-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
@@ -660,7 +660,7 @@ export default function Home() {
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out transform group-hover:scale-110"
                     style={{ backgroundImage: `url('${feature.bgImage}')` }}
                   />
-                  {/* Dark/Orange Color Overlay - Using solid colors like old design */}
+                  {/* Dark/Orange Color Overlay */}
                   <div
                     className={`absolute inset-0 transition-colors duration-500 ${
                       isActive
@@ -671,13 +671,13 @@ export default function Home() {
 
                   {/* Content Container */}
                   <div className="relative z-10 flex flex-col items-start text-white">
-                    <h3 className="text-2xl font-bold mb-3 tracking-wide text-white">{feature.title}</h3>
-                    <p className="text-gray-200 text-sm sm:text-base leading-relaxed mb-6 max-w-sm opacity-90 group-hover:text-white/95">
+                    <h3 className="font-heading text-2xl font-bold mb-3 tracking-wide text-white">{feature.title}</h3>
+                    <p className="font-body text-gray-200 text-sm sm:text-base leading-relaxed mb-6 max-w-sm opacity-90 group-hover:text-white/95">
                       {feature.desc}
                     </p>
                     <a
                       href={feature.href}
-                      className={`inline-flex items-center gap-2 font-bold text-sm tracking-wider uppercase transition-colors duration-300 mt-2 ${
+                      className={`font-body inline-flex items-center gap-2 font-bold text-sm tracking-wider uppercase transition-colors duration-300 mt-2 ${
                         isActive
                           ? 'text-white hover:text-white/70'
                           : 'text-[#e34115] group-hover:text-white'
@@ -697,7 +697,7 @@ export default function Home() {
         </section>
 
         {/* ============================================================ */}
-        {/* ABOUT SECTION - WITH INLINE STYLES AS FALLBACK */}
+        {/* ABOUT SECTION - Section Heading: text-section */}
         {/* ============================================================ */}
         <section className="py-20 lg:py-28 bg-white" id="about">
           <div className="max-w-7xl mx-auto px-6">
@@ -719,22 +719,23 @@ export default function Home() {
               {/* Right Info side */}
               <div className="lg:col-span-6 flex flex-col justify-center">
                 <div className="mb-8">
-                  {/* About Us label with line - using inline styles for reliability */}
+                  {/* About Us label with line */}
                   <div className="flex items-center gap-4 mb-2">
                     <span style={{ color: '#e34115', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
                       About Us
                     </span>
                     <div style={{ height: '2px', width: '48px', backgroundColor: 'rgba(227, 65, 21, 0.3)' }} />
                   </div>
-                  <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-heading mb-6 leading-tight">
+                  {/* Changed to text-section for uniform size */}
+                  <h2 className="font-heading text-section font-bold text-heading mb-6">
                     Maximum Value for Growth & Quality
                   </h2>
-                  <p className="text-heading/90 font-medium text-lg mb-6 leading-relaxed">
+                  <p className="font-body text-heading/90 font-medium text-base mb-6 leading-relaxed">
                     <strong>MAXVY</strong> means providing maximum value to its Employees, Customers,
                     Clients, Vendors and Investors in terms of Growth, Product, Quality, Service, Support,
                     Knowledge Sharing, and ROI.
                   </p>
-                  <p className="text-body text-base mb-0 leading-relaxed">
+                  <p className="font-body text-body text-base mb-0 leading-relaxed">
                     We are a fast-growing fabless semiconductor company currently engaged in the fields of
                     RTL design and Verification IP Solutions. We offer our services to shape your concept
                     into silicon products (Silicon Chips), which includes Embedded Product Design, RTL
@@ -749,10 +750,10 @@ export default function Home() {
                     <PhoneCall size={32} className="transform -rotate-12" style={{ color: '#e34115' }} />
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-body mb-2">
+                    <p className="font-body text-sm font-medium text-body mb-2">
                       Contact us directly. <span className="text-heading font-semibold">We are ready to answer your technical questions.</span>
                     </p>
-                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-bold text-2xl text-heading">
+                    <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 font-bold text-xl text-heading">
                       <a href="tel:+918970592090" style={{ color: '#1a1a2e', transition: 'color 0.3s' }} onMouseEnter={(e) => e.currentTarget.style.color = '#e34115'} onMouseLeave={(e) => e.currentTarget.style.color = '#1a1a2e'}>
                         +91 89705 92090
                       </a>
@@ -774,14 +775,15 @@ export default function Home() {
                       justifyContent: 'center',
                       backgroundColor: '#e34115',
                       color: '#ffffff',
-                      fontWeight: 700,
-                      fontSize: '16px',
-                      padding: '14px 32px',
-                      borderRadius: '6px',
+                      fontWeight: 600,
+                      fontSize: '14px',
+                      padding: '12px 24px',
+                      borderRadius: '9999px',
                       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
                       transition: 'all 0.3s ease',
                       textDecoration: 'none',
-                      gap: '8px'
+                      gap: '8px',
+                      fontFamily: "'Inter', system-ui, sans-serif"
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.backgroundColor = '#c43a12';
@@ -802,7 +804,7 @@ export default function Home() {
         </section>
 
         {/* ============================================================ */}
-        {/* SERVICES SECTION - WITH FORCED STYLES */}
+        {/* SERVICES SECTION - Section Heading: text-section */}
         {/* ============================================================ */}
         <section className="bg-white relative" id="services" style={{ backgroundColor: '#ffffff' }}>
           <div style={{ backgroundColor: '#e34115', position: 'relative', overflow: 'hidden', paddingTop: '80px', paddingBottom: '420px' }}>
@@ -822,12 +824,13 @@ export default function Home() {
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', width: '100%' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '8px', justifyContent: 'center' }}>
                   <div style={{ height: '2px', width: '48px', backgroundColor: 'rgba(255,255,255,0.3)' }} />
-                  <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <span style={{ color: '#ffffff', fontSize: '14px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: "'Inter', system-ui, sans-serif" }}>
                     Services
                   </span>
                   <div style={{ height: '2px', width: '48px', backgroundColor: 'rgba(255,255,255,0.3)' }} />
                 </div>
-                <h2 style={{ fontSize: '40px', fontWeight: 800, color: '#ffffff', lineHeight: '1.2' }}>
+                {/* Changed to text-section for uniform size */}
+                <h2 style={{ fontSize: 'clamp(1.875rem, 3vw, 2.75rem)', fontWeight: 800, color: '#ffffff', lineHeight: '1.2', fontFamily: "'Poppins', system-ui, sans-serif" }}>
                   What We Offer for You
                 </h2>
               </div>
@@ -1001,6 +1004,7 @@ export default function Home() {
                                 fontWeight: 700,
                                 marginBottom: '8px',
                                 color: '#e34115',
+                                fontFamily: "'Poppins', system-ui, sans-serif"
                               }}
                             >
                               {service.title}
@@ -1012,6 +1016,7 @@ export default function Home() {
                                 lineHeight: '1.625',
                                 maxWidth: '320px',
                                 margin: '0 auto',
+                                fontFamily: "'Inter', system-ui, sans-serif"
                               }}
                             >
                               {service.desc}
@@ -1025,7 +1030,8 @@ export default function Home() {
                               width: '100%',
                               backgroundColor: '#e34115',
                               color: '#ffffff',
-                              fontWeight: 700,
+                              fontWeight: 600,
+                              fontSize: '14px',
                               padding: '16px 0',
                               textAlign: 'center',
                               transition: 'background-color 0.3s ease',
@@ -1036,6 +1042,7 @@ export default function Home() {
                               gap: '8px',
                               textDecoration: 'none',
                               marginTop: 'auto',
+                              fontFamily: "'Inter', system-ui, sans-serif"
                             }}
                             onMouseEnter={(e) => {
                               e.currentTarget.style.backgroundColor = '#c43a12';
@@ -1055,7 +1062,7 @@ export default function Home() {
               </Swiper>
             </div>
 
-            <div style={{ marginTop: '64px', textAlign: 'center', color: '#1a1a2e', fontWeight: 500, fontSize: '16px' }}>
+            <div style={{ marginTop: '64px', textAlign: 'center', color: '#1a1a2e', fontWeight: 500, fontSize: '16px', fontFamily: "'Inter', system-ui, sans-serif" }}>
               Innovative Silicon Solutions that Accelerate Chip Development from Concept to Silicon.{" "}
               <a
                 href="#inquiry"
@@ -1081,158 +1088,287 @@ export default function Home() {
         </section>
 
         {/* ============================================================ */}
-        {/* INQUIRY FORM */}
+        {/* PROCESS SECTION - Section Heading: text-section */}
         {/* ============================================================ */}
-        <section className="py-20 lg:py-28 bg-white" id="inquiry">
+        <section className="process__area py-20 lg:py-28 bg-[#fcfbfa]" id="process">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              <div className="lg:col-span-7">
-                <div className="mb-8">
-                  <span className="text-[#e34115] text-sm font-bold uppercase tracking-wider block mb-2">
-                    Inquiry
+            
+            {/* Section Header */}
+            <div className="row mb-12 text-center">
+              <div className="col-xl-12">
+                <div className="section-title-center inline-block relative">
+                  <span className="subtitle-page-two-center text-sm font-bold uppercase tracking-wider block mb-1 text-[#e34115] relative px-16">
+                    Our Process
                   </span>
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-heading">
-                    Request A Quote
+                  {/* Changed to text-section for uniform size */}
+                  <h2 className="font-heading text-section font-extrabold text-heading mt-4" style={{ color: '#161b1f' }}>
+                    From concept to <span style={{ color: '#e34115' }}>creation</span>.
                   </h2>
-                </div>
-
-                {inquirySubmitted ? (
-                  <div className="bg-[#e34115]/5 border border-[#e34115]/20 p-8 rounded-2xl text-center max-w-xl shadow-premium">
-                    <div className="w-16 h-16 rounded-full bg-[#e34115]/10 flex items-center justify-center text-[#e34115] mx-auto mb-6">
-                      <CheckCircle2 size={32} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-heading mb-3">Inquiry Submitted!</h3>
-                    <p className="text-body text-base mb-6 leading-relaxed">
-                      Thank you for reaching out to Maxvy Technologies. We have received your project details and service inquiry. Our engineering team will review it and follow up within 24 hours.
-                    </p>
-                    <button
-                      onClick={handleInquiryReset}
-                      className="bg-[#e34115] hover:bg-[#c43a12] text-white font-bold px-6 py-2.5 rounded-md transition-colors"
-                    >
-                      Submit Another Inquiry
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleInquirySubmit} className="space-y-6 max-w-2xl">
-                    {inquiryError && (
-                      <div className="bg-red-50 text-red-600 text-sm font-semibold p-4 rounded-lg border border-red-100">
-                        {inquiryError}
-                      </div>
-                    )}
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="flex flex-col gap-2">
-                        <label className="text-sm font-bold text-heading">
-                          Your Name / Company Name <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="company"
-                          value={inquiryFormData.company}
-                          onChange={handleInquiryChange}
-                          placeholder="Company Name"
-                          required
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e34115] focus:ring-1 focus:ring-[#e34115] focus:outline-none transition-all duration-200 text-heading placeholder-gray-400"
-                        />
-                      </div>
-
-                      <div className="flex flex-col gap-2">
-                        <label className="text-sm font-bold text-heading">
-                          Service Category <span className="text-red-500">*</span>
-                        </label>
-                        <select
-                          name="category"
-                          value={inquiryFormData.category}
-                          onChange={handleInquiryChange}
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e34115] focus:ring-1 focus:ring-[#e34115] focus:outline-none transition-all duration-200 text-heading bg-white"
-                        >
-                          <option value="1">RTL Design IP</option>
-                          <option value="2">Verification IP</option>
-                          <option value="3">RISC-V Solution</option>
-                          <option value="4">SoC Design / Services</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      <div className="flex flex-col gap-2">
-                        <label className="text-sm font-bold text-heading">
-                          Project Timeline <span className="text-red-500">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          name="timeline"
-                          value={inquiryFormData.timeline}
-                          onChange={handleInquiryChange}
-                          placeholder="e.g. 3 Months, 6 Months"
-                          required
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e34115] focus:ring-1 focus:ring-[#e34115] focus:outline-none transition-all duration-200 text-heading placeholder-gray-400"
-                        />
-                      </div>
-
-                      <div className="flex flex-col gap-2">
-                        <label className="text-sm font-bold text-heading">
-                          Contact Phone
-                        </label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={inquiryFormData.phone}
-                          onChange={handleInquiryChange}
-                          placeholder="Your Phone Number"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e34115] focus:ring-1 focus:ring-[#e34115] focus:outline-none transition-all duration-200 text-heading placeholder-gray-400"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col gap-2">
-                      <label className="text-sm font-bold text-heading">
-                        Email Address <span className="text-red-500">*</span>
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={inquiryFormData.email}
-                        onChange={handleInquiryChange}
-                        placeholder="Your Business Email"
-                        required
-                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e34115] focus:ring-1 focus:ring-[#e34115] focus:outline-none transition-all duration-200 text-heading placeholder-gray-400"
-                      />
-                    </div>
-
-                    <div>
-                      <button
-                        type="submit"
-                        className="inline-flex items-center justify-center bg-[#e34115] hover:bg-[#c43a12] text-white font-bold px-8 py-3.5 rounded-md hover:shadow-glow transition-all duration-300 gap-2 transform active:scale-95"
-                      >
-                        Submit Inquiry
-                        <Send size={16} />
-                      </button>
-                    </div>
-                  </form>
-                )}
-              </div>
-
-              <div className="lg:col-span-5">
-                <div className="relative">
-                  <div className="absolute inset-0 bg-[#e34115]/5 rounded-2xl blur-lg" />
-                  <img
-                    src="images/inquiry_semiconductor.png"
-                    alt="Inquiry Semiconductor Wafer"
-                    className="relative z-10 w-full h-auto object-cover rounded-2xl shadow-premium transform hover:scale-[1.01] transition-transform duration-500"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = 'none';
-                    }}
-                  />
+                  <p className="mx-auto text-gray-500 text-base sm:text-lg leading-relaxed font-medium mt-4 max-w-3xl font-body"
+                    style={{ color: '#2c2c2c', fontSize: '16px', fontWeight: 500, lineHeight: '1.6' }}>
+                    A systematic, quality-focused roadmap that brings cutting-edge silicon architectures to life safely and efficiently.
+                  </p>
                 </div>
               </div>
             </div>
+
+            {/* Process Steps */}
+            <div className="flex flex-wrap justify-center gap-6 process-timeline-row mt-12 relative z-10">
+              
+              {/* Step 01: Research */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[18%] flex flex-col col-timeline-step">
+                <div className="process-step text-center p-8 bg-white rounded-2xl border border-[rgba(227,65,21,0.12)] shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full w-full flex flex-col items-center justify-start transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_20px_40px_rgba(227,65,21,0.15)] hover:border-[#e34115] group">
+                  <div className="process-icon-wrap relative inline-block mb-6">
+                    <div className="process-icon w-20 h-20 rounded-full bg-white border-2 border-[#e34115] text-[#e34115] flex items-center justify-center mx-auto shadow-[0_8px_20px_rgba(227,65,21,0.15)] transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:rotate-5">
+                      <Search size={28} />
+                    </div>
+                    <span className="step-number absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#e34115] text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full shadow-[0_4px_10px_rgba(227,65,21,0.3)] transition-all duration-300 whitespace-nowrap group-hover:bg-[#161b1f] group-hover:shadow-[0_4px_10px_rgba(22,27,31,0.3)]">
+                      STEP 01
+                    </span>
+                  </div>
+                  <h4 className="font-heading step-title text-xl font-bold text-[#161b1f] mt-4 mb-3 transition-colors duration-300 group-hover:text-[#e34115]">Research</h4>
+                  <p className="font-body step-desc text-[15px] text-[#333333] font-medium leading-relaxed px-1">Future-focused technology research and feasibility studies.</p>
+                </div>
+              </div>
+
+              {/* Step 02: Design */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[18%] flex flex-col col-timeline-step">
+                <div className="process-step text-center p-8 bg-white rounded-2xl border border-[rgba(227,65,21,0.12)] shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full w-full flex flex-col items-center justify-start transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_20px_40px_rgba(227,65,21,0.15)] hover:border-[#e34115] group">
+                  <div className="process-icon-wrap relative inline-block mb-6">
+                    <div className="process-icon w-20 h-20 rounded-full bg-white border-2 border-[#e34115] text-[#e34115] flex items-center justify-center mx-auto shadow-[0_8px_20px_rgba(227,65,21,0.15)] transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:rotate-5">
+                      <Pencil size={28} />
+                    </div>
+                    <span className="step-number absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#e34115] text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full shadow-[0_4px_10px_rgba(227,65,21,0.3)] transition-all duration-300 whitespace-nowrap group-hover:bg-[#161b1f] group-hover:shadow-[0_4px_10px_rgba(22,27,31,0.3)]">
+                      STEP 02
+                    </span>
+                  </div>
+                  <h4 className="font-heading step-title text-xl font-bold text-[#161b1f] mt-4 mb-3 transition-colors duration-300 group-hover:text-[#e34115]">Design</h4>
+                  <p className="font-body step-desc text-[15px] text-[#333333] font-medium leading-relaxed px-1">Architecture blueprinting and physical chip layout design.</p>
+                </div>
+              </div>
+
+              {/* Step 03: Fabrication */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[18%] flex flex-col col-timeline-step">
+                <div className="process-step text-center p-8 bg-white rounded-2xl border border-[rgba(227,65,21,0.12)] shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full w-full flex flex-col items-center justify-start transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_20px_40px_rgba(227,65,21,0.15)] hover:border-[#e34115] group">
+                  <div className="process-icon-wrap relative inline-block mb-6">
+                    <div className="process-icon w-20 h-20 rounded-full bg-white border-2 border-[#e34115] text-[#e34115] flex items-center justify-center mx-auto shadow-[0_8px_20px_rgba(227,65,21,0.15)] transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:rotate-5">
+                      <Layers size={28} />
+                    </div>
+                    <span className="step-number absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#e34115] text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full shadow-[0_4px_10px_rgba(227,65,21,0.3)] transition-all duration-300 whitespace-nowrap group-hover:bg-[#161b1f] group-hover:shadow-[0_4px_10px_rgba(22,27,31,0.3)]">
+                      STEP 03
+                    </span>
+                  </div>
+                  <h4 className="font-heading step-title text-xl font-bold text-[#161b1f] mt-4 mb-3 transition-colors duration-300 group-hover:text-[#e34115]">Fabrication</h4>
+                  <p className="font-body step-desc text-[15px] text-[#333333] font-medium leading-relaxed px-1">Advanced foundry manufacturing and physical layering.</p>
+                </div>
+              </div>
+
+              {/* Step 04: Testing */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[18%] flex flex-col col-timeline-step">
+                <div className="process-step text-center p-8 bg-white rounded-2xl border border-[rgba(227,65,21,0.12)] shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full w-full flex flex-col items-center justify-start transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_20px_40px_rgba(227,65,21,0.15)] hover:border-[#e34115] group">
+                  <div className="process-icon-wrap relative inline-block mb-6">
+                    <div className="process-icon w-20 h-20 rounded-full bg-white border-2 border-[#e34115] text-[#e34115] flex items-center justify-center mx-auto shadow-[0_8px_20px_rgba(227,65,21,0.15)] transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:rotate-5">
+                      <HeartPulse size={28} />
+                    </div>
+                    <span className="step-number absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#e34115] text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full shadow-[0_4px_10px_rgba(227,65,21,0.3)] transition-all duration-300 whitespace-nowrap group-hover:bg-[#161b1f] group-hover:shadow-[0_4px_10px_rgba(22,27,31,0.3)]">
+                      STEP 04
+                    </span>
+                  </div>
+                  <h4 className="font-heading step-title text-xl font-bold text-[#161b1f] mt-4 mb-3 transition-colors duration-300 group-hover:text-[#e34115]">Testing</h4>
+                  <p className="font-body step-desc text-[15px] text-[#333333] font-medium leading-relaxed px-1">Rigorous hardware emulation and post-silicon validation.</p>
+                </div>
+              </div>
+
+              {/* Step 05: Deployment */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[18%] flex flex-col col-timeline-step">
+                <div className="process-step text-center p-8 bg-white rounded-2xl border border-[rgba(227,65,21,0.12)] shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full w-full flex flex-col items-center justify-start transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_20px_40px_rgba(227,65,21,0.15)] hover:border-[#e34115] group">
+                  <div className="process-icon-wrap relative inline-block mb-6">
+                    <div className="process-icon w-20 h-20 rounded-full bg-white border-2 border-[#e34115] text-[#e34115] flex items-center justify-center mx-auto shadow-[0_8px_20px_rgba(227,65,21,0.15)] transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:rotate-5">
+                      <Globe size={28} />
+                    </div>
+                    <span className="step-number absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#e34115] text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full shadow-[0_4px_10px_rgba(227,65,21,0.3)] transition-all duration-300 whitespace-nowrap group-hover:bg-[#161b1f] group-hover:shadow-[0_4px_10px_rgba(22,27,31,0.3)]">
+                      STEP 05
+                    </span>
+                  </div>
+                  <h4 className="font-heading step-title text-xl font-bold text-[#161b1f] mt-4 mb-3 transition-colors duration-300 group-hover:text-[#e34115]">Deployment</h4>
+                  <p className="font-body step-desc text-[15px] text-[#333333] font-medium leading-relaxed px-1">Delivering ready-to-scale silicon solutions globally.</p>
+                </div>
+              </div>
+
+            </div>
           </div>
+
+          {/* CSS for the connecting line */}
+          <style dangerouslySetInnerHTML={{ __html: `
+            @media (min-width: 1200px) {
+              .process-timeline-row::before {
+                content: "";
+                position: absolute;
+                top: 55px;
+                left: 8%;
+                right: 8%;
+                height: 3px;
+                background: linear-gradient(90deg, transparent, rgba(227, 65, 21, 0.2) 20%, rgba(227, 65, 21, 0.2) 80%, transparent);
+                z-index: 0;
+              }
+            }
+            .subtitle-page-two-center {
+              display: inline-block;
+              position: relative;
+              font-weight: 700;
+              color: #e34115;
+              text-transform: capitalize;
+              z-index: 1;
+              margin-bottom: 6px;
+              padding: 0 80px;
+            }
+            .subtitle-page-two-center::before {
+              position: absolute;
+              top: 12px;
+              content: "";
+              left: 0;
+              width: 65px;
+              height: 1px;
+              background: #e34115;
+            }
+            .subtitle-page-two-center::after {
+              position: absolute;
+              top: 12px;
+              content: "";
+              right: 0;
+              width: 65px;
+              height: 1px;
+              background: #e34115;
+            }
+          `}} />
         </section>
-             
-     {/* ============================================================ */}
-        {/* CLIENT LOGO SLIDER */}{/* ============================================================ */}
-        {/* ALLIANCE SECTION - EXACTLY MATCHING REFERENCE CSS */}
+
+        {/* ============================================================ */}
+        {/* INDUSTRIES SECTION - Section Heading: text-section */}
+        {/* ============================================================ */}
+        <section className="industries__area py-20 lg:py-28 bg-white overflow-hidden" id="industries">
+          <div className="max-w-7xl mx-auto px-6">
+            
+            {/* Header Title */}
+            <div className="row mb-12 text-center">
+              <div className="col-xl-12">
+                <div className="section-title-center inline-block relative">
+                  <span className="subtitle-page-two-center text-sm font-bold uppercase tracking-wider block mb-1 text-[#e34115] relative px-16">
+                    Industries We Serve
+                  </span>
+                  {/* Changed to text-section for uniform size */}
+                  <h2 className="font-heading text-section font-extrabold text-heading mt-4" style={{ color: '#161b1f' }}>
+                    Technology that empowers <span style={{ color: '#e34115' }}>every industry</span>.
+                  </h2>
+                  <p className="mx-auto text-gray-500 text-base sm:text-lg leading-relaxed font-medium mt-4 max-w-3xl font-body"
+                    style={{ color: '#2c2c2c', fontSize: '16px', fontWeight: 500, lineHeight: '1.6' }}>
+                    From high-performance smart mobility to secure medical applications and next-gen AI processing.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Industry Cards Grid */}
+            <div className="flex flex-wrap justify-center gap-6 mt-12">
+              
+              {/* 1. Automotive */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
+                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
+                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
+                    <Car size={26} />
+                  </div>
+                  <h5 className="font-heading industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Automotive</h5>
+                </div>
+              </div>
+
+              {/* 2. Healthcare */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
+                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
+                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
+                    <HeartPulse size={26} />
+                  </div>
+                  <h5 className="font-heading industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Healthcare</h5>
+                </div>
+              </div>
+
+              {/* 3. Industrial Automation */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
+                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
+                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
+                    <Bot size={26} />
+                  </div>
+                  <h5 className="font-heading industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Industrial Automation</h5>
+                </div>
+              </div>
+
+              {/* 4. Consumer Tech */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
+                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
+                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
+                    <Smartphone size={26} />
+                  </div>
+                  <h5 className="font-heading industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Consumer Tech</h5>
+                </div>
+              </div>
+
+              {/* 5. Telecom */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
+                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
+                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
+                    <Radio size={26} />
+                  </div>
+                  <h5 className="font-heading industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Telecom</h5>
+                </div>
+              </div>
+
+              {/* 6. Artificial Intelligence */}
+              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
+                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
+                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
+                    <Cpu size={26} />
+                  </div>
+                  <h5 className="font-heading industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Artificial Intelligence</h5>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* CSS for the header lines exactly from your code */}
+          <style dangerouslySetInnerHTML={{ __html: `
+            .subtitle-page-two-center {
+              display: inline-block;
+              position: relative;
+              font-weight: 700;
+              color: #e34115;
+              text-transform: capitalize;
+              z-index: 1;
+              margin-bottom: 6px;
+              padding: 0 80px;
+            }
+            .subtitle-page-two-center::before {
+              position: absolute;
+              top: 13px;
+              content: "";
+              left: 0;
+              width: 65px;
+              height: 1px;
+              background: #e34115;
+            }
+            .subtitle-page-two-center::after {
+              position: absolute;
+              top: 13px;
+              content: "";
+              right: 0;
+              width: 65px;
+              height: 1px;
+              background: #e34115;
+            }
+          `}} />
+        </section>
+     
+        {/* ============================================================ */}
+        {/* STRATEGIC ALLIANCE SECTION */}
         {/* ============================================================ */}
         <section 
           className="py-20 lg:py-28 relative z-10" 
@@ -1285,14 +1421,15 @@ export default function Home() {
                 <div className="flex items-center justify-center gap-4 mb-1">
                   <div className="h-[2px] w-12 bg-[rgba(227,65,21,0.3)]" />
                   <span 
-                    className="font-bold uppercase tracking-wider text-sm"
+                    className="font-heading font-bold uppercase tracking-wider text-sm"
                     style={{ color: '#e34115' }}
                   >
                     Strategic Alliance
                   </span>
                   <div className="h-[2px] w-12 bg-[rgba(227,65,21,0.3)]" />
                 </div>
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mt-2" style={{ color: '#161b1f' }}>
+                {/* Changed to text-section for uniform size */}
+                <h2 className="font-heading text-section font-extrabold mt-2" style={{ color: '#161b1f' }}>
                   Silicon Verified (SilVer) Alliance
                 </h2>
               </div>
@@ -1391,13 +1528,13 @@ export default function Home() {
                       style={{ background: '#ffffff', transition: 'all 0.4s ease-out 0s' }}
                     >
                       <p 
-                        className="font-bold text-sm uppercase tracking-[0.5px] m-0 transition-all duration-[0.4s] group-hover:text-white"
+                        className="font-heading font-bold text-sm uppercase tracking-[0.5px] m-0 transition-all duration-[0.4s] group-hover:text-white"
                         style={{ color: '#e34115' }}
                       >
                         {item.group}
                       </p>
                       <h4 
-                        className="text-xl font-bold mt-1 transition-all duration-[0.4s] group-hover:text-white"
+                        className="font-heading text-xl font-bold mt-1 transition-all duration-[0.4s] group-hover:text-white"
                         style={{ color: '#161b1f', transition: 'all 0.4s ease-out 0s' }}
                       >
                         <a 
@@ -1417,7 +1554,7 @@ export default function Home() {
             {/* Bottom Callout */}
             <div className="text-center mt-16">
               <h3 
-                className="text-[28px] leading-[1.4] font-bold mb-6"
+                className="font-heading text-[28px] leading-[1.4] font-bold mb-6"
                 style={{ color: '#161b1f' }}
               >
                 Interested in partnering or joining our VLSI engineering team?
@@ -1426,7 +1563,7 @@ export default function Home() {
                 <li className="pr-5 border-r-2 border-[#ededed]">
                   <a 
                     href="#contact"
-                    className="font-bold text-[15px] transition-colors duration-300 hover:text-[#343a40]"
+                    className="font-body font-bold text-[15px] transition-colors duration-300 hover:text-[#343a40]"
                     style={{ color: '#e34115' }}
                   >
                     Get In Touch
@@ -1435,7 +1572,7 @@ export default function Home() {
                 <li className="p-0 border-0">
                   <a 
                     href="#contact"
-                    className="font-bold text-[15px] transition-colors duration-300 hover:text-[#343a40]"
+                    className="font-body font-bold text-[15px] transition-colors duration-300 hover:text-[#343a40]"
                     style={{ color: '#e34115' }}
                   >
                     Explore Careers
@@ -1533,21 +1670,25 @@ export default function Home() {
             }
           `}} />
         </section>
+
+        {/* ============================================================ */}
+        {/* ASSOCIATIONS SECTION */}
         {/* ============================================================ */}
         <section className="py-20 bg-white" id="associations">
           <div className="max-w-7xl mx-auto px-6">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
               <div className="lg:col-span-4">
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-[#e34115] text-sm font-bold uppercase tracking-wider block font-sans">
+                  <span className="text-[#e34115] text-sm font-bold uppercase tracking-wider block font-body">
                     Associations
                   </span>
                   <div className="h-[2px] w-10 bg-[#e34115]" />
                 </div>
-                <h2 className="text-3xl font-extrabold text-heading mb-4 leading-tight">
+                {/* Changed to text-section for uniform size */}
+                <h2 className="font-heading text-section font-extrabold text-heading mb-4 leading-tight">
                   Trusted by Leading Semiconductor & System Companies
                 </h2>
-                <p className="text-body text-base leading-relaxed">
+                <p className="font-body text-body text-base leading-relaxed">
                   Maxvy is a trusted partner of top semiconductor players worldwide, delivering high-performance silicon IPs and expert design/verification support.
                 </p>
               </div>
@@ -1618,18 +1759,16 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ============================================================ */}
-            {/* UPDATED BOTTOM SECTION TO MATCH 2ND REFERENCE EXACTLY */}
-            {/* ============================================================ */}
+            {/* Bottom section */}
             <div className="mt-20 text-center">
-              <h3 className="text-2xl font-bold text-heading mb-6">
+              <h3 className="font-heading text-2xl font-bold text-heading mb-6">
                 Interested in partnering or joining our VLSI engineering team?
               </h3>
               
               <div className="flex items-center justify-center gap-5">
                 <a 
                   href="#contact" 
-                  className="text-[#e34115] font-semibold hover:text-heading transition-colors duration-300"
+                  className="font-body text-[#e34115] font-semibold hover:text-heading transition-colors duration-300"
                 >
                   Get In Touch
                 </a>
@@ -1639,7 +1778,7 @@ export default function Home() {
                 
                 <a 
                   href="#contact" 
-                  className="text-[#e34115] font-semibold hover:text-heading transition-colors duration-300"
+                  className="font-body text-[#e34115] font-semibold hover:text-heading transition-colors duration-300"
                 >
                   Explore Careers
                 </a>
@@ -1648,7 +1787,158 @@ export default function Home() {
           </div>
         </section>
 
-     {/* ============================================================ */}
+        {/* ============================================================ */}
+        {/* INQUIRY FORM */}
+        {/* ============================================================ */}
+        <section className="py-20 lg:py-28 bg-white" id="inquiry">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+              <div className="lg:col-span-7">
+                <div className="mb-8">
+                  <span className="text-[#e34115] text-sm font-bold uppercase tracking-wider block mb-2 font-body">
+                    Inquiry
+                  </span>
+                  {/* Changed to text-section for uniform size */}
+                  <h2 className="font-heading text-section font-extrabold text-heading">
+                    Request A Quote
+                  </h2>
+                </div>
+
+                {inquirySubmitted ? (
+                  <div className="bg-[#e34115]/5 border border-[#e34115]/20 p-8 rounded-2xl text-center max-w-xl shadow-premium">
+                    <div className="w-16 h-16 rounded-full bg-[#e34115]/10 flex items-center justify-center text-[#e34115] mx-auto mb-6">
+                      <CheckCircle2 size={32} />
+                    </div>
+                    <h3 className="font-heading text-2xl font-bold text-heading mb-3">Inquiry Submitted!</h3>
+                    <p className="font-body text-body text-base mb-6 leading-relaxed">
+                      Thank you for reaching out to Maxvy Technologies. We have received your project details and service inquiry. Our engineering team will review it and follow up within 24 hours.
+                    </p>
+                    <button
+                      onClick={handleInquiryReset}
+                      className="font-body bg-[#e34115] hover:bg-[#c43a12] text-white font-semibold px-6 py-3 rounded-full transition-colors"
+                    >
+                      Submit Another Inquiry
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleInquirySubmit} className="space-y-6 max-w-2xl">
+                    {inquiryError && (
+                      <div className="bg-red-50 text-red-600 text-sm font-semibold p-4 rounded-lg border border-red-100 font-body">
+                        {inquiryError}
+                      </div>
+                    )}
+                    
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div className="flex flex-col gap-2">
+                        <label className="text-sm font-bold text-heading font-body">
+                          Your Name / Company Name <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="company"
+                          value={inquiryFormData.company}
+                          onChange={handleInquiryChange}
+                          placeholder="Company Name"
+                          required
+                          className="font-body w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e34115] focus:ring-1 focus:ring-[#e34115] focus:outline-none transition-all duration-200 text-heading placeholder-gray-400"
+                        />
+                      </div>
+
+                      <div className="flex flex-col gap-2">
+                        <label className="text-sm font-bold text-heading font-body">
+                          Service Category <span className="text-red-500">*</span>
+                        </label>
+                        <select
+                          name="category"
+                          value={inquiryFormData.category}
+                          onChange={handleInquiryChange}
+                          className="font-body w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e34115] focus:ring-1 focus:ring-[#e34115] focus:outline-none transition-all duration-200 text-heading bg-white"
+                        >
+                          <option value="1">RTL Design IP</option>
+                          <option value="2">Verification IP</option>
+                          <option value="3">RISC-V Solution</option>
+                          <option value="4">SoC Design / Services</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div className="flex flex-col gap-2">
+                        <label className="text-sm font-bold text-heading font-body">
+                          Project Timeline <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          name="timeline"
+                          value={inquiryFormData.timeline}
+                          onChange={handleInquiryChange}
+                          placeholder="e.g. 3 Months, 6 Months"
+                          required
+                          className="font-body w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e34115] focus:ring-1 focus:ring-[#e34115] focus:outline-none transition-all duration-200 text-heading placeholder-gray-400"
+                        />
+                      </div>
+
+                      <div className="flex flex-col gap-2">
+                        <label className="text-sm font-bold text-heading font-body">
+                          Contact Phone
+                        </label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={inquiryFormData.phone}
+                          onChange={handleInquiryChange}
+                          placeholder="Your Phone Number"
+                          className="font-body w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e34115] focus:ring-1 focus:ring-[#e34115] focus:outline-none transition-all duration-200 text-heading placeholder-gray-400"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2">
+                      <label className="text-sm font-bold text-heading font-body">
+                        Email Address <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={inquiryFormData.email}
+                        onChange={handleInquiryChange}
+                        placeholder="Your Business Email"
+                        required
+                        className="font-body w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-[#e34115] focus:ring-1 focus:ring-[#e34115] focus:outline-none transition-all duration-200 text-heading placeholder-gray-400"
+                      />
+                    </div>
+
+                    <div>
+                      <button
+                        type="submit"
+                        className="font-body inline-flex items-center justify-center bg-[#e34115] hover:bg-[#c43a12] text-white font-semibold px-6 py-3 rounded-full hover:shadow-glow transition-all duration-300 gap-2 transform active:scale-95"
+                      >
+                        Submit Inquiry
+                        <Send size={16} />
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </div>
+
+              <div className="lg:col-span-5">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-[#e34115]/5 rounded-2xl blur-lg" />
+                  <img
+                    src="images/inquiry_semiconductor.png"
+                    alt="Inquiry Semiconductor Wafer"
+                    className="relative z-10 w-full h-auto object-cover rounded-2xl shadow-premium transform hover:scale-[1.01] transition-transform duration-500"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================ */}
         {/* FAQ */}
         {/* ============================================================ */}
         <section className="py-20 lg:py-28 bg-[#f8f9fa] relative overflow-hidden" id="faq">
@@ -1679,12 +1969,13 @@ export default function Home() {
               <div className="lg:col-span-7">
                 <div className="mb-8">
                   <div className="flex items-center gap-4 mb-2">
-                    <span className="text-[#e34115] text-sm font-bold uppercase tracking-wider">
+                    <span className="text-[#e34115] text-sm font-bold uppercase tracking-wider font-body">
                       FAQ
                     </span>
                     <div className="h-[2px] w-12 bg-[#e34115]/30" />
                   </div>
-                  <h2 className="text-3xl sm:text-4xl font-extrabold text-heading">
+                  {/* Changed to text-section for uniform size */}
+                  <h2 className="font-heading text-section font-extrabold text-heading">
                     Some Questions & Answers
                   </h2>
                 </div>
@@ -1699,7 +1990,7 @@ export default function Home() {
                       >
                         <button
                           onClick={() => toggleFaq(index)}
-                          className="w-full flex items-center justify-between p-5 text-left font-bold text-base sm:text-lg text-heading hover:text-[#e34115] transition-colors focus:outline-none"
+                          className="w-full flex items-center justify-between p-5 text-left font-heading font-bold text-base sm:text-lg text-heading hover:text-[#e34115] transition-colors focus:outline-none"
                         >
                           <span className="max-w-[90%]">{faq.question}</span>
                           {isOpen ? (
@@ -1713,7 +2004,7 @@ export default function Home() {
                             isOpen ? 'max-h-[300px]' : 'max-h-0 overflow-hidden'
                           }`}
                         >
-                          <div className="p-5 pt-0 text-body text-sm sm:text-base leading-relaxed bg-white">
+                          <div className="p-5 pt-0 text-body text-sm sm:text-base leading-relaxed bg-white font-body">
                             {faq.answer}
                           </div>
                         </div>
@@ -1722,17 +2013,12 @@ export default function Home() {
                   })}
                 </div>
 
-                {/* =============================================== */}
-                {/* UPDATED BOTTOM PROMPT SECTION */}
-                {/* =============================================== */}
-                <div className="mt-8 mb-4 flex items-center gap-4 text-heading font-semibold text-sm sm:text-base">
-                  {/* Made the black circle slightly larger and darker (bg-black) */}
+                <div className="mt-8 mb-4 flex items-center gap-4 text-heading font-semibold text-sm sm:text-base font-body">
                   <div className="w-11 h-11 rounded-full bg-black text-white flex items-center justify-center flex-shrink-0 select-none shadow-sm">
                     <span className="font-bold text-lg">?</span>
                   </div>
                   <p>
                     If you have more questions{' '}
-                    {/* Changed to orange text, hover color to dark */}
                     <a href="#contact" className="text-[#e34115] hover:text-heading transition-colors font-bold ml-1">
                       Contact Us
                     </a>
@@ -1743,7 +2029,7 @@ export default function Home() {
           </div>
         </section>
 
-  {/* ============================================================ */}
+        {/* ============================================================ */}
         {/* BLOG */}
         {/* ============================================================ */}
         <section className="blog__two py-20 lg:py-28 bg-white" id="blog">
@@ -1754,7 +2040,8 @@ export default function Home() {
                   <span className="subtitle-page-two-center text-sm font-bold uppercase tracking-wider block mb-2 font-sans text-[#e34115]">
                     News
                   </span>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-heading mt-2" style={{ color: '#161b1f' }}>
+                  {/* Changed to text-section for uniform size */}
+                  <h2 className="font-heading text-section font-extrabold text-heading mt-2" style={{ color: '#161b1f' }}>
                     Maxvy Insights & Announcements
                   </h2>
                 </div>
@@ -1776,44 +2063,23 @@ export default function Home() {
                         (e.target as HTMLImageElement).style.display = 'none';
                       }}
                     />
-                    <span className="absolute top-0 left-3 bg-[#e34115] text-white text-xs font-bold px-3 py-1.5 rounded-md">
+                    <span className="absolute top-0 left-3 bg-[#e34115] text-white text-xs font-bold px-3 py-1.5 rounded-md font-body">
                       <a href="#inquiry" className="text-white hover:text-white/80">{article.tag}</a>
                     </span>
                   </div>
 
                   <div className="blog__two-item-content p-5">
                     <div>
-                      {/* UPDATED DATE: Forcefully applied orange hex color */}
-                      <span className="blog-date text-sm font-medium" style={{ color: '#e34115' }}>
+                      <span className="blog-date text-sm font-medium font-body" style={{ color: '#e34115' }}>
                         {article.date}
                       </span>
-                      <h4 className="font-bold text-heading text-lg my-2">
+                      <h4 className="font-heading font-bold text-heading text-lg my-2">
                         <a href="#inquiry" className="hover:text-[#e34115] transition-colors">{article.title}</a>
                       </h4>
-                      <a href="#inquiry" className="simple-btn inline-flex items-center gap-1 text-[#e34115] font-bold hover:text-[#c43a12] transition-colors group">
+                      <a href="https://maxvytech.com/news/news.html" className="simple-btn inline-flex items-center gap-1 text-[#e34115] font-bold hover:text-[#c43a12] transition-colors group font-body">
                         Read More
                         <ArrowRight size={14} className="transform group-hover:translate-x-1 transition-transform" />
                       </a>
-                    </div>
-
-                    <div className="blog__two-item-content-post flex items-center gap-3 mt-4 pt-4 border-t border-gray-100">
-                      <div className="blog__two-item-content-post-image relative flex items-center justify-center w-10 h-10 bg-gray-50 border border-gray-100 rounded-full overflow-hidden">
-                        <img
-                          src={article.author.avatar}
-                          alt={article.author.name}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            (e.target as HTMLImageElement).style.display = 'none';
-                          }}
-                        />
-                        <User size={16} className="text-gray-400 absolute z-0" />
-                      </div>
-                      <div className="blog__two-item-content-post-title">
-                        <span className="text-xs text-body">
-                          <a href="#" className="hover:text-[#e34115]">Posted By</a>
-                        </span>
-                        <h5 className="font-semibold text-heading text-sm">{article.author.name}</h5>
-                      </div>
                     </div>
                   </div>
                 </article>
@@ -1821,284 +2087,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* ============================================================ */}
-        {/* PROCESS SECTION */}
-        {/* ============================================================ */}
-        <section className="process__area py-20 lg:py-28 bg-[#fcfbfa]" id="process">
-          <div className="max-w-7xl mx-auto px-6">
-            
-            {/* Section Header */}
-            <div className="row mb-12 text-center">
-              <div className="col-xl-12">
-                <div className="section-title-center inline-block relative">
-                  <span className="subtitle-page-two-center text-sm font-bold uppercase tracking-wider block mb-1 text-[#e34115] relative px-16">
-                    Our Process
-                  </span>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-heading mt-4" style={{ color: '#161b1f' }}>
-                    From concept to <span style={{ color: '#e34115' }}>creation</span>.
-                  </h2>
-                  <p className="mx-auto text-gray-500 text-base sm:text-lg leading-relaxed font-medium mt-4 max-w-3xl"
-                    style={{ color: '#2c2c2c', fontSize: '16px', fontWeight: 500, lineHeight: '1.6' }}>
-                    A systematic, quality-focused roadmap that brings cutting-edge silicon architectures to life safely and efficiently.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Process Steps */}
-            <div className="flex flex-wrap justify-center gap-6 process-timeline-row mt-12 relative z-10">
-              
-              {/* Step 01: Research */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[18%] flex flex-col col-timeline-step">
-                <div className="process-step text-center p-8 bg-white rounded-2xl border border-[rgba(227,65,21,0.12)] shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full w-full flex flex-col items-center justify-start transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_20px_40px_rgba(227,65,21,0.15)] hover:border-[#e34115] group">
-                  <div className="process-icon-wrap relative inline-block mb-6">
-                    <div className="process-icon w-20 h-20 rounded-full bg-white border-2 border-[#e34115] text-[#e34115] flex items-center justify-center mx-auto shadow-[0_8px_20px_rgba(227,65,21,0.15)] transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:rotate-5">
-                      <Search size={28} />
-                    </div>
-                    <span className="step-number absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#e34115] text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full shadow-[0_4px_10px_rgba(227,65,21,0.3)] transition-all duration-300 whitespace-nowrap group-hover:bg-[#161b1f] group-hover:shadow-[0_4px_10px_rgba(22,27,31,0.3)]">
-                      STEP 01
-                    </span>
-                  </div>
-                  <h4 className="step-title text-xl font-bold text-[#161b1f] mt-4 mb-3 transition-colors duration-300 group-hover:text-[#e34115]">Research</h4>
-                  <p className="step-desc text-[15px] text-[#333333] font-medium leading-relaxed px-1">Future-focused technology research and feasibility studies.</p>
-                </div>
-              </div>
-
-              {/* Step 02: Design */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[18%] flex flex-col col-timeline-step">
-                <div className="process-step text-center p-8 bg-white rounded-2xl border border-[rgba(227,65,21,0.12)] shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full w-full flex flex-col items-center justify-start transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_20px_40px_rgba(227,65,21,0.15)] hover:border-[#e34115] group">
-                  <div className="process-icon-wrap relative inline-block mb-6">
-                    <div className="process-icon w-20 h-20 rounded-full bg-white border-2 border-[#e34115] text-[#e34115] flex items-center justify-center mx-auto shadow-[0_8px_20px_rgba(227,65,21,0.15)] transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:rotate-5">
-                      <Pencil size={28} />
-                    </div>
-                    <span className="step-number absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#e34115] text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full shadow-[0_4px_10px_rgba(227,65,21,0.3)] transition-all duration-300 whitespace-nowrap group-hover:bg-[#161b1f] group-hover:shadow-[0_4px_10px_rgba(22,27,31,0.3)]">
-                      STEP 02
-                    </span>
-                  </div>
-                  <h4 className="step-title text-xl font-bold text-[#161b1f] mt-4 mb-3 transition-colors duration-300 group-hover:text-[#e34115]">Design</h4>
-                  <p className="step-desc text-[15px] text-[#333333] font-medium leading-relaxed px-1">Architecture blueprinting and physical chip layout design.</p>
-                </div>
-              </div>
-
-              {/* Step 03: Fabrication (NORMAL DEFAULT STATE NOW) */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[18%] flex flex-col col-timeline-step">
-                <div className="process-step text-center p-8 bg-white rounded-2xl border border-[rgba(227,65,21,0.12)] shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full w-full flex flex-col items-center justify-start transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_20px_40px_rgba(227,65,21,0.15)] hover:border-[#e34115] group">
-                  <div className="process-icon-wrap relative inline-block mb-6">
-                    <div className="process-icon w-20 h-20 rounded-full bg-white border-2 border-[#e34115] text-[#e34115] flex items-center justify-center mx-auto shadow-[0_8px_20px_rgba(227,65,21,0.15)] transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:rotate-5">
-                      <Layers size={28} />
-                    </div>
-                    <span className="step-number absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#e34115] text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full shadow-[0_4px_10px_rgba(227,65,21,0.3)] transition-all duration-300 whitespace-nowrap group-hover:bg-[#161b1f] group-hover:shadow-[0_4px_10px_rgba(22,27,31,0.3)]">
-                      STEP 03
-                    </span>
-                  </div>
-                  <h4 className="step-title text-xl font-bold text-[#161b1f] mt-4 mb-3 transition-colors duration-300 group-hover:text-[#e34115]">Fabrication</h4>
-                  <p className="step-desc text-[15px] text-[#333333] font-medium leading-relaxed px-1">Advanced foundry manufacturing and physical layering.</p>
-                </div>
-              </div>
-
-              {/* Step 04: Testing */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[18%] flex flex-col col-timeline-step">
-                <div className="process-step text-center p-8 bg-white rounded-2xl border border-[rgba(227,65,21,0.12)] shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full w-full flex flex-col items-center justify-start transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_20px_40px_rgba(227,65,21,0.15)] hover:border-[#e34115] group">
-                  <div className="process-icon-wrap relative inline-block mb-6">
-                    <div className="process-icon w-20 h-20 rounded-full bg-white border-2 border-[#e34115] text-[#e34115] flex items-center justify-center mx-auto shadow-[0_8px_20px_rgba(227,65,21,0.15)] transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:rotate-5">
-                      <HeartPulse size={28} />
-                    </div>
-                    <span className="step-number absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#e34115] text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full shadow-[0_4px_10px_rgba(227,65,21,0.3)] transition-all duration-300 whitespace-nowrap group-hover:bg-[#161b1f] group-hover:shadow-[0_4px_10px_rgba(22,27,31,0.3)]">
-                      STEP 04
-                    </span>
-                  </div>
-                  <h4 className="step-title text-xl font-bold text-[#161b1f] mt-4 mb-3 transition-colors duration-300 group-hover:text-[#e34115]">Testing</h4>
-                  <p className="step-desc text-[15px] text-[#333333] font-medium leading-relaxed px-1">Rigorous hardware emulation and post-silicon validation.</p>
-                </div>
-              </div>
-
-              {/* Step 05: Deployment */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[18%] flex flex-col col-timeline-step">
-                <div className="process-step text-center p-8 bg-white rounded-2xl border border-[rgba(227,65,21,0.12)] shadow-[0_10px_30px_rgba(0,0,0,0.03)] h-full w-full flex flex-col items-center justify-start transition-all duration-300 hover:-translate-y-2.5 hover:shadow-[0_20px_40px_rgba(227,65,21,0.15)] hover:border-[#e34115] group">
-                  <div className="process-icon-wrap relative inline-block mb-6">
-                    <div className="process-icon w-20 h-20 rounded-full bg-white border-2 border-[#e34115] text-[#e34115] flex items-center justify-center mx-auto shadow-[0_8px_20px_rgba(227,65,21,0.15)] transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:rotate-5">
-                      <Globe size={28} />
-                    </div>
-                    <span className="step-number absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#e34115] text-white text-[10px] font-bold tracking-wider px-3 py-1 rounded-full shadow-[0_4px_10px_rgba(227,65,21,0.3)] transition-all duration-300 whitespace-nowrap group-hover:bg-[#161b1f] group-hover:shadow-[0_4px_10px_rgba(22,27,31,0.3)]">
-                      STEP 05
-                    </span>
-                  </div>
-                  <h4 className="step-title text-xl font-bold text-[#161b1f] mt-4 mb-3 transition-colors duration-300 group-hover:text-[#e34115]">Deployment</h4>
-                  <p className="step-desc text-[15px] text-[#333333] font-medium leading-relaxed px-1">Delivering ready-to-scale silicon solutions globally.</p>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          {/* CSS for the connecting line */}
-          <style dangerouslySetInnerHTML={{ __html: `
-            @media (min-width: 1200px) {
-              .process-timeline-row::before {
-                content: "";
-                position: absolute;
-                top: 55px;
-                left: 8%;
-                right: 8%;
-                height: 3px;
-                background: linear-gradient(90deg, transparent, rgba(227, 65, 21, 0.2) 20%, rgba(227, 65, 21, 0.2) 80%, transparent);
-                z-index: 0;
-              }
-            }
-            .subtitle-page-two-center {
-              display: inline-block;
-              position: relative;
-              font-weight: 700;
-              color: #e34115;
-              text-transform: capitalize;
-              z-index: 1;
-              margin-bottom: 6px;
-              padding: 0 80px;
-            }
-            .subtitle-page-two-center::before {
-              position: absolute;
-              top: 12px;
-              content: "";
-              left: 0;
-              width: 65px;
-              height: 1px;
-              background: #e34115;
-            }
-            .subtitle-page-two-center::after {
-              position: absolute;
-              top: 12px;
-              content: "";
-              right: 0;
-              width: 65px;
-              height: 1px;
-              background: #e34115;
-            }
-          `}} />
-        </section>
-       {/* ============================================================ */}
-        {/* INDUSTRIES SECTION - MATCHING REFERENCE IMAGE */}
-        {/* ============================================================ */}
-        <section className="industries__area py-20 lg:py-28 bg-white overflow-hidden" id="industries">
-          <div className="max-w-7xl mx-auto px-6">
-            
-            {/* Header Title */}
-            <div className="row mb-12 text-center">
-              <div className="col-xl-12">
-                <div className="section-title-center inline-block relative">
-                  <span className="subtitle-page-two-center text-sm font-bold uppercase tracking-wider block mb-1 text-[#e34115] relative px-16">
-                    Industries We Serve
-                  </span>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-heading mt-4" style={{ color: '#161b1f' }}>
-                    Technology that empowers <span style={{ color: '#e34115' }}>every industry</span>.
-                  </h2>
-                  <p className="mx-auto text-gray-500 text-base sm:text-lg leading-relaxed font-medium mt-4 max-w-3xl"
-                    style={{ color: '#2c2c2c', fontSize: '16px', fontWeight: 500, lineHeight: '1.6' }}>
-                    From high-performance smart mobility to secure medical applications and next-gen AI processing.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Industry Cards Grid */}
-            <div className="flex flex-wrap justify-center gap-6 mt-12">
-              
-              {/* 1. Automotive */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
-                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
-                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
-                    <Car size={26} />
-                  </div>
-                  <h5 className="industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Automotive</h5>
-                </div>
-              </div>
-
-              {/* 2. Healthcare */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
-                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
-                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
-                    <HeartPulse size={26} />
-                  </div>
-                  <h5 className="industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Healthcare</h5>
-                </div>
-              </div>
-
-              {/* 3. Industrial Automation */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
-                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
-                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
-                    <Bot size={26} />
-                  </div>
-                  <h5 className="industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Industrial Automation</h5>
-                </div>
-              </div>
-
-              {/* 4. Consumer Tech */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
-                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
-                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
-                    <Smartphone size={26} />
-                  </div>
-                  <h5 className="industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Consumer Tech</h5>
-                </div>
-              </div>
-
-              {/* 5. Telecom */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
-                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
-                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
-                    <Radio size={26} />
-                  </div>
-                  <h5 className="industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Telecom</h5>
-                </div>
-              </div>
-
-              {/* 6. Artificial Intelligence */}
-              <div className="w-full md:w-[45%] lg:w-[30%] xl:w-[15%] flex flex-col">
-                <div className="industry-card bg-white border border-[rgba(0,0,0,0.06)] rounded-2xl p-10 shadow-[0_5px_20px_rgba(0,0,0,0.02)] h-full w-full flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_45px_rgba(227,65,21,0.12)] hover:border-[#e34115] group">
-                  <div className="industry-icon-wrap w-[75px] h-[75px] rounded-full bg-[rgba(227,65,21,0.06)] text-[#e34115] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#e34115] group-hover:text-white group-hover:scale-110 group-hover:-rotate-6 group-hover:shadow-[0_10px_20px_rgba(227,65,21,0.25)]">
-                    <Cpu size={26} />
-                  </div>
-                  <h5 className="industry-title text-[19px] font-bold text-[#161b1f] text-center transition-colors duration-300 group-hover:text-[#e34115]">Artificial Intelligence</h5>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          {/* CSS for the header lines exactly from your code */}
-          <style dangerouslySetInnerHTML={{ __html: `
-            .subtitle-page-two-center {
-              display: inline-block;
-              position: relative;
-              font-weight: 700;
-              color: #e34115;
-              text-transform: capitalize;
-              z-index: 1;
-              margin-bottom: 6px;
-              padding: 0 80px;
-            }
-            .subtitle-page-two-center::before {
-              position: absolute;
-              top: 13px;
-              content: "";
-              left: 0;
-              width: 65px;
-              height: 1px;
-              background: #e34115;
-            }
-            .subtitle-page-two-center::after {
-              position: absolute;
-              top: 13px;
-              content: "";
-              right: 0;
-              width: 65px;
-              height: 1px;
-              background: #e34115;
-            }
-          `}} />
-        </section>
-
-    
         
       </div>
     </>

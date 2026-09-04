@@ -31,11 +31,14 @@ export default function CareerDetail({ slug }: Props) {
   }
 
   const Icon = page.icon;
-  const crumbs = [
-    { label: 'Home', to: '/' },
-    { label: 'Careers', to: '/careers/current-openings' },
-    { label: page.name },
-  ];
+
+  // Check if sections should be hidden
+  const showBenefits = page.slug === 'life-at-maxvy' || page.slug === 'current-openings';
+  const showTestimonials = page.slug === 'current-openings';
+  const showPositions = page.slug === 'current-openings';
+
+  // Get the page title without the eyebrow
+  const pageTitle = page.name;
 
   return (
     <>
@@ -85,86 +88,84 @@ export default function CareerDetail({ slug }: Props) {
               {/* --- LEFT CONTENT --- */}
               <div>
                 <div className="reveal">
-                  <SectionTitle
-                    align="left"
-                    eyebrow="About this program"
-                    title="What it is"
-                    description={page.hero}
-                  />
-                </div>
-
-                {/* Benefits */}
-                <div className="mt-10">
-                  <SectionTitle
-                    align="left"
-                    eyebrow="Benefits"
-                    title="What you get"
-                    description="The benefits of joining MAXVY through this program."
-                  />
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                    {page.benefits.map((b, i) => (
-                      <div
-                        key={b}
-                        className="reveal flex items-start gap-3 rounded-2xl border border-line bg-white p-4 shadow-soft"
-                        data-reveal-delay={i * 60}
-                      >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#e34115]/10 text-[#e34115]">
-                          <Check className="h-4 w-4" />
-                        </span>
-                        <p className="text-sm leading-relaxed text-ink">{b}</p>
-                      </div>
+                  <h2 className="text-[32px] font-bold text-[#0F172A] mb-4">{pageTitle}</h2>
+                  <div className="prose prose-lg max-w-none">
+                    {page.hero.split('\n').map((paragraph, index) => (
+                      paragraph.trim() && (
+                        <p key={index} className="text-gray-700 leading-relaxed mb-4">
+                          {paragraph}
+                        </p>
+                      )
                     ))}
                   </div>
                 </div>
 
-                {/* Testimonials */}
-                <div className="mt-10">
-                  <SectionTitle
-                    align="left"
-                    eyebrow="Employee testimonials"
-                    title="What our people say"
-                    description="Hear from the engineers who work at MAXVY."
-                  />
-                  <div className="mt-6">
-                    <Testimonials items={page.testimonials} />
-                  </div>
-                </div>
-
-                {/* Open positions */}
-                <div className="mt-10">
-                  <SectionTitle
-                    align="left"
-                    eyebrow="Open positions"
-                    title="Apply today"
-                    description="Browse current openings and apply with your resume."
-                  />
-                  <div className="mt-6">
-                    <ul className="flex flex-col gap-3">
-                      {page.positions.map((p, i) => (
-                        <li
-                          key={i}
-                          className="reveal flex flex-col gap-3 rounded-2xl border border-line bg-white p-4 shadow-soft transition-all hover:border-[#e34115]/30 hover:shadow-lift sm:flex-row sm:items-center sm:justify-between"
+                {/* Benefits - Only show for Life at MAXVY and Current Openings */}
+                {showBenefits && page.benefits.length > 0 && (
+                  <div className="mt-10">
+                    <h3 className="text-2xl font-bold text-[#0F172A] mb-2">Benefits</h3>
+                    <p className="text-gray-600 mb-6">The benefits of joining MAXVY through this program.</p>
+                    <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                      {page.benefits.map((b, i) => (
+                        <div
+                          key={b}
+                          className="reveal flex items-start gap-3 rounded-2xl border border-line bg-white p-4 shadow-soft"
                           data-reveal-delay={i * 60}
                         >
-                          <div>
-                            <h3 className="text-base font-semibold text-navy-800">{p.title}</h3>
-                            <div className="mt-1 flex flex-wrap items-center gap-3 text-xs text-muted">
-                              <span className="flex items-center gap-1">
-                                <MapPin className="h-3.5 w-3.5" /> {p.location}
-                              </span>
-                              <span className="flex items-center gap-1">
-                                <Briefcase className="h-3.5 w-3.5" /> {p.type}
-                              </span>
-                            </div>
-                          </div>
-                          <Link to="/contact" className="shrink-0 bg-[#e34115] hover:bg-[#c43a12] text-white font-semibold px-6 py-2.5 rounded-md transition-colors inline-flex items-center gap-2">
-                            Apply <ArrowRight className="h-4 w-4" />
-                          </Link>
-                        </li>
+                          <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#e34115]/10 text-[#e34115]">
+                            <Check className="h-4 w-4" />
+                          </span>
+                          <p className="text-sm leading-relaxed text-ink">{b}</p>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
-                </div>
+                )}
+
+                {/* Testimonials - Only show for Current Openings */}
+                {showTestimonials && page.testimonials.length > 0 && (
+                  <div className="mt-10">
+                    <h3 className="text-2xl font-bold text-[#0F172A] mb-2">Employee testimonials</h3>
+                    <p className="text-gray-600 mb-6">What our people say</p>
+                    <div className="mt-6">
+                      <Testimonials items={page.testimonials} />
+                    </div>
+                  </div>
+                )}
+
+                {/* Open positions - Only show for Current Openings */}
+                {showPositions && page.positions.length > 0 && (
+                  <div className="mt-10">
+                    <h3 className="text-2xl font-bold text-[#0F172A] mb-2">Open positions</h3>
+                    <p className="text-gray-600 mb-6">Apply today</p>
+                    <div className="mt-6">
+                      <ul className="flex flex-col gap-3">
+                        {page.positions.map((p, i) => (
+                          <li
+                            key={i}
+                            className="reveal flex flex-col gap-3 rounded-2xl border border-line bg-white p-4 shadow-soft transition-all hover:border-[#e34115]/30 hover:shadow-lift sm:flex-row sm:items-center sm:justify-between"
+                            data-reveal-delay={i * 60}
+                          >
+                            <div>
+                              <h3 className="text-base font-semibold text-navy-800">{p.title}</h3>
+                              <div className="mt-1 flex flex-wrap items-center gap-3 text-xs text-muted">
+                                <span className="flex items-center gap-1">
+                                  <MapPin className="h-3.5 w-3.5" /> {p.location}
+                                </span>
+                                <span className="flex items-center gap-1">
+                                  <Briefcase className="h-3.5 w-3.5" /> {p.type}
+                                </span>
+                              </div>
+                            </div>
+                            <Link to="/contact" className="shrink-0 bg-[#e34115] hover:bg-[#c43a12] text-white font-semibold px-6 py-2.5 rounded-md transition-colors inline-flex items-center gap-2">
+                              Apply <ArrowRight className="h-4 w-4" />
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* --- RIGHT SIDEBAR --- */}
