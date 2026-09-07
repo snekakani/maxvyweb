@@ -1,9 +1,7 @@
-// ProductDetail.tsx
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useParams, useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Check, ChevronLeft, ChevronRight, Package, Play, X, Send, Download, Users } from 'lucide-react';
-import ReCAPTCHA from 'react-google-recaptcha';
 import SEO from '../../common/SEO';
 import CTA from '../../common/CTA';
 import { useReveal } from '../../../hooks/useReveal';
@@ -17,10 +15,7 @@ import aboutBanner from '../../../images/about-us_banner.jpeg';
 import productContentData from '../../../data/products/productContent';
 
 // Import product enquiry API
-import { submitProductEnquiry, ProductEnquiryData, ProductEnquiryResponse } from '../../../api/product-enquiry';
-
-// Google reCAPTCHA v2 site key
-const RECAPTCHA_SITE_KEY = '6Lc4yaQtAAAAAEx4xJN8Bl54Zr2Rg_QwvU9OLhmH';
+import { submitProductEnquiry, ProductEnquiryData, ProductEnquiryResponse, getCaptcha, CaptchaResponse } from '../../../api/product-enquiry';
 
 type Props = {
   name?: string;
@@ -31,6 +26,127 @@ type Props = {
   specifications?: { label: string; value: string }[];
   benefits?: string[];
   faqs?: { q: string; a: string }[];
+};
+
+// ============================================================
+// CAPTCHA INPUT COMPONENT
+// ============================================================
+const CaptchaInput = ({ onCaptchaChange, onCaptchaError, captchaError }) => {
+  const [captchaData, setCaptchaData] = useState<CaptchaResponse | null>(null);
+  const [captchaInput, setCaptchaInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [captchaId, setCaptchaId] = useState<string | null>(null);
+
+  const loadCaptcha = async () => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const response = await getCaptcha();
+      if (response.success) {
+        setCaptchaData(response);
+        setCaptchaId(response.captcha_id);
+        setCaptchaInput('');
+        onCaptchaChange('', response.captcha_id);
+        if (onCaptchaError) {
+          onCaptchaError(null);
+        }
+      } else {
+        setError('Failed to load captcha. Please try again.');
+      }
+    } catch (err) {
+      setError('Failed to load captcha. Please refresh.');
+      console.error('Captcha load error:', err);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadCaptcha();
+  }, []);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setCaptchaInput(value);
+    if (captchaId) {
+      onCaptchaChange(value, captchaId);
+    }
+    // Clear error when user starts typing
+    if (captchaError) {
+      onCaptchaError(null);
+    }
+  };
+
+  const handleRefresh = () => {
+    loadCaptcha();
+  };
+
+  return (
+    <div className="space-y-3">
+      {isLoading ? (
+        <div className="flex items-center justify-center p-4 bg-gray-50 rounded-lg">
+          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-[#e34115]"></div>
+          <span className="ml-2 text-gray-500 text-sm">Loading captcha...</span>
+        </div>
+      ) : error ? (
+        <div className="flex items-center justify-between p-4 bg-red-50 rounded-lg border border-red-200">
+          <span className="text-red-600 text-sm">{error}</span>
+          <button
+            onClick={handleRefresh}
+            className="text-sm text-[#e34115] hover:underline font-medium"
+          >
+            Retry
+          </button>
+        </div>
+      ) : captchaData ? (
+        <div>
+          <div className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <div className="flex-1">
+              <img
+                src={captchaData.captcha_image}
+                alt="CAPTCHA"
+                className="h-12 w-auto object-contain bg-white rounded-md border border-gray-300 p-1"
+                style={{ imageRendering: 'pixelated' }}
+              />
+              <div className="text-xs text-gray-400 mt-1">
+                Expires in {Math.floor(captchaData.expires_in / 60)} min
+              </div>
+            </div>
+            <button
+              onClick={handleRefresh}
+              className="p-2 text-gray-500 hover:text-[#e34115] transition-colors"
+              type="button"
+              title="Refresh captcha"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+              </svg>
+            </button>
+          </div>
+          <div className="mt-2">
+            <input
+              type="text"
+              value={captchaInput}
+              onChange={handleInputChange}
+              placeholder="Enter the text shown above"
+              className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#e34115] ${
+                captchaError ? 'border-red-500' : 'border-gray-300'
+              }`}
+              maxLength={10}
+              autoComplete="off"
+            />
+            {captchaError && (
+              <p className="text-red-500 text-xs mt-1">{captchaError}</p>
+            )}
+          </div>
+          <p className="text-xs text-gray-400 mt-1">
+            Enter the exact text shown in the image (case sensitive)
+          </p>
+        </div>
+      ) : null}
+    </div>
+  );
 };
 
 // ============================================================
@@ -48,14 +164,15 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaValue, setCaptchaValue] = useState('');
+  const [captchaId, setCaptchaId] = useState('');
   const [captchaError, setCaptchaError] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   // Reset when modal closes
   useEffect(() => {
     if (!isOpen) {
-      setCaptchaToken(null);
+      setCaptchaValue('');
+      setCaptchaId('');
       setCaptchaError(null);
       setIsSuccess(false);
       setIsSubmitting(false);
@@ -68,9 +185,6 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
         contactNumber: '',
         requirement: '',
       });
-      if (recaptchaRef.current) {
-        recaptchaRef.current.reset();
-      }
     }
   }, [isOpen]);
 
@@ -101,7 +215,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
     }
 
     // Check if CAPTCHA is completed
-    if (!captchaToken) {
+    if (!captchaValue || !captchaId) {
       setCaptchaError('Please complete the CAPTCHA.');
       return;
     }
@@ -109,7 +223,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
     setIsSubmitting(true);
 
     try {
-      // Prepare API payload
+      // Prepare API payload with new captcha fields
       const payload: ProductEnquiryData = {
         name: formData.name,
         email: formData.email,
@@ -118,7 +232,8 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
         contact_number: formData.contactNumber,
         note: formData.requirement,
         requested_for: productName || 'Product Enquiry',
-        captcha_token: captchaToken,
+        captcha_id: captchaId,
+        captcha: captchaValue,
       };
 
       console.log('Submitting enquiry with payload:', payload);
@@ -143,10 +258,8 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
           });
           setErrors({});
           setCaptchaError(null);
-          setCaptchaToken(null);
-          if (recaptchaRef.current) {
-            recaptchaRef.current.reset();
-          }
+          setCaptchaValue('');
+          setCaptchaId('');
         }, 2000);
       } else {
         // Handle validation errors
@@ -177,17 +290,15 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
           setErrors(fieldErrors);
           
           // Check for captcha errors
-          if (backendErrors.captcha_token) {
+          if (backendErrors.captcha || backendErrors.captcha_id) {
             setCaptchaError('CAPTCHA verification failed. Please try again.');
-            if (recaptchaRef.current) {
-              recaptchaRef.current.reset();
-            }
+            setCaptchaValue('');
+            setCaptchaId('');
           }
         } else if (response.captcha_error) {
           setCaptchaError('CAPTCHA verification failed. Please try again.');
-          if (recaptchaRef.current) {
-            recaptchaRef.current.reset();
-          }
+          setCaptchaValue('');
+          setCaptchaId('');
         } else {
           // Generic error
           setErrors({ general: response.message || 'Something went wrong. Please try again.' });
@@ -321,33 +432,22 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
                 {errors.requirement && <p className="text-red-500 text-xs mt-1">{errors.requirement}</p>}
               </div>
 
-              {/* reCAPTCHA v2 */}
-              <div className="mt-4">
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey={RECAPTCHA_SITE_KEY}
-                  onChange={(token) => {
-                    setCaptchaToken(token);
-                    setCaptchaError(null);
+              {/* Custom CAPTCHA */}
+              <div>
+                <label className="text-sm font-medium text-gray-700">CAPTCHA <span className="text-red-500">*</span></label>
+                <CaptchaInput
+                  onCaptchaChange={(value, id) => {
+                    setCaptchaValue(value);
+                    setCaptchaId(id);
                   }}
-                  onExpired={() => {
-                    setCaptchaToken(null);
-                    setCaptchaError('CAPTCHA expired. Please try again.');
-                  }}
-                  onErrored={() => {
-                    setCaptchaToken(null);
-                    setCaptchaError('CAPTCHA failed to load. Please try again.');
-                  }}
+                  onCaptchaError={(error) => setCaptchaError(error)}
+                  captchaError={captchaError}
                 />
-              </div>
-
-              <div className="text-xs text-gray-500 text-center">
-                This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting || !captchaToken}
+                disabled={isSubmitting || !captchaValue || !captchaId}
                 className="w-full py-3 bg-[#e34115] text-white rounded-lg font-medium hover:bg-[#c43a12] transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
@@ -384,14 +484,15 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaValue, setCaptchaValue] = useState('');
+  const [captchaId, setCaptchaId] = useState('');
   const [captchaError, setCaptchaError] = useState<string | null>(null);
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   // Reset when modal closes
   useEffect(() => {
     if (!isOpen) {
-      setCaptchaToken(null);
+      setCaptchaValue('');
+      setCaptchaId('');
       setCaptchaError(null);
       setIsSuccess(false);
       setIsSubmitting(false);
@@ -403,9 +504,6 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
         country: '',
         contactNumber: '',
       });
-      if (recaptchaRef.current) {
-        recaptchaRef.current.reset();
-      }
     }
   }, [isOpen]);
 
@@ -432,7 +530,7 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
       return;
     }
 
-    if (!captchaToken) {
+    if (!captchaValue || !captchaId) {
       setCaptchaError('Please complete the CAPTCHA.');
       return;
     }
@@ -448,7 +546,8 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
         contact_number: formData.contactNumber,
         note: `Download request for: ${productName}`,
         requested_for: productName || 'Product Download',
-        captcha_token: captchaToken,
+        captcha_id: captchaId,
+        captcha: captchaValue,
       };
 
       console.log('Submitting download request with payload:', payload);
@@ -470,10 +569,8 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
           });
           setErrors({});
           setCaptchaError(null);
-          setCaptchaToken(null);
-          if (recaptchaRef.current) {
-            recaptchaRef.current.reset();
-          }
+          setCaptchaValue('');
+          setCaptchaId('');
         }, 2000);
       } else {
         if (response.errors) {
@@ -497,17 +594,15 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
           
           setErrors(fieldErrors);
           
-          if (response.errors.captcha_token) {
+          if (response.errors.captcha || response.errors.captcha_id) {
             setCaptchaError('CAPTCHA verification failed. Please try again.');
-            if (recaptchaRef.current) {
-              recaptchaRef.current.reset();
-            }
+            setCaptchaValue('');
+            setCaptchaId('');
           }
         } else if (response.captcha_error) {
           setCaptchaError('CAPTCHA verification failed. Please try again.');
-          if (recaptchaRef.current) {
-            recaptchaRef.current.reset();
-          }
+          setCaptchaValue('');
+          setCaptchaId('');
         } else {
           setErrors({ general: response.message || 'Something went wrong. Please try again.' });
         }
@@ -629,33 +724,22 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
                 {errors.contactNumber && <p className="text-red-500 text-xs mt-1">{errors.contactNumber}</p>}
               </div>
 
-              {/* reCAPTCHA v2 */}
-              <div className="mt-4">
-                <ReCAPTCHA
-                  ref={recaptchaRef}
-                  sitekey={RECAPTCHA_SITE_KEY}
-                  onChange={(token) => {
-                    setCaptchaToken(token);
-                    setCaptchaError(null);
+              {/* Custom CAPTCHA */}
+              <div>
+                <label className="text-sm font-medium text-gray-700">CAPTCHA <span className="text-red-500">*</span></label>
+                <CaptchaInput
+                  onCaptchaChange={(value, id) => {
+                    setCaptchaValue(value);
+                    setCaptchaId(id);
                   }}
-                  onExpired={() => {
-                    setCaptchaToken(null);
-                    setCaptchaError('CAPTCHA expired. Please try again.');
-                  }}
-                  onErrored={() => {
-                    setCaptchaToken(null);
-                    setCaptchaError('CAPTCHA failed to load. Please try again.');
-                  }}
+                  onCaptchaError={(error) => setCaptchaError(error)}
+                  captchaError={captchaError}
                 />
-              </div>
-
-              <div className="text-xs text-gray-500 text-center">
-                This site is protected by reCAPTCHA and the Google Privacy Policy and Terms of Service apply.
               </div>
 
               <button
                 type="submit"
-                disabled={isSubmitting || !captchaToken}
+                disabled={isSubmitting || !captchaValue || !captchaId}
                 className="w-full py-3 bg-[#e34115] text-white rounded-lg font-medium hover:bg-[#c43a12] transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
               >
                 {isSubmitting ? (
