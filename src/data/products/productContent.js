@@ -831,7 +831,16 @@ export const productContent = {
     ],
     videos: [{ title: 'MIPI I3C Overview', thumbnail: '', youtubeId: 'k5fT-jtyUyI' }],
     blockDiagram: '/images/Rtl_I3C_master_slave.png',
-    downloadFiles: []
+    downloadFiles: [],
+    showMipiI3cFeatures: true,
+    resourceDeliverables: [
+      'Verilog Source Code.',
+      'User Guide.',
+      'IP Integration Guide.',
+      'Run and Synthesis Script.',
+      'Encrypted Verification Test-bench Environment.',
+      'Basic Test-suite.'
+    ]
   },
 
   'mipi-i3c-target-ip': {
@@ -873,7 +882,24 @@ export const productContent = {
     ],
     videos: [],
     blockDiagram: '/images/rtl_mipi_i3c.jpg',
-    downloadFiles: []
+    downloadFiles: [],
+    showMipiI3cTable: true,
+    mipiI3cTableData: {
+      headers: ['S.No', 'MIPI-I3C Features', 'Evaluation Version', 'Full Version'],
+      rows: [
+        ['1', 'Dynamic address assignment', 'YES', 'YES'],
+        ['2', 'SDA Arbitration', 'YES', 'YES'],
+        ['3', 'Inband Interrupt', 'NO', 'YES'],
+        ['4', 'Hotjoin Request', 'NO', 'YES'],
+        ['5', 'HDR Capable', 'NO', 'YES'],
+        ['6', 'CCC Command Features', 'YES', 'YES'],
+        ['7', 'Private READ and WRITE', 'YES', 'YES'],
+        ['8', 'Data transfer with & without Broadcast', 'YES', 'YES'],
+        ['9', 'Secondary Master Capable', 'NO', 'YES'],
+        ['10', 'Legacy I2C Slave', 'YES', 'YES'],
+        ['11', 'Processor Interface', 'AHB Lite', 'Custom Interface']
+      ]
+    }
   },
 
   'mipi-i3c-host-ip': {
@@ -918,7 +944,23 @@ export const productContent = {
       { title: 'MIPI I3C Master Deep Dive', thumbnail: '', youtubeId: '8PDbysQUhXA' }
     ],
     blockDiagram: '/images/rtl_mipi_i3c_master.png',
-    downloadFiles: []
+    downloadFiles: [],
+    showMipiI3cTable: true,
+    mipiI3cTableData: {
+      headers: ['S.No', 'MIPI-I3C Features', 'Evaluation Version', 'Full Version'],
+      rows: [
+        ['1', 'Dynamic address assignment', 'YES', 'YES'],
+        ['2', 'SDA Arbitration', 'YES', 'YES'],
+        ['3', 'Inband Interrupt', 'NO', 'YES'],
+        ['4', 'Hotjoin Request', 'NO', 'YES'],
+        ['5', 'HDR Capable', 'NO', 'YES'],
+        ['6', 'CCC Command Features', 'YES', 'YES'],
+        ['7', 'Private READ and WRITE', 'YES', 'YES'],
+        ['8', 'Data transfer with & without Broadcast', 'YES', 'YES'],
+        ['9', 'Secondary Master Capable', 'NO', 'YES'],
+        ['10', 'Processor Interface', 'AHB Lite', 'Custom Interface']
+      ]
+    }
   },
 
   'mipi-i3c-basic-target-controller': {
@@ -960,7 +1002,23 @@ export const productContent = {
     ],
     videos: [],
     blockDiagram: '/images/rtl_mipi_i3c.jpg',
-    downloadFiles: []
+    downloadFiles: [],
+    showMipiI3cTable: true,
+    mipiI3cTableData: {
+      headers: ['S.No', 'MIPI-I3C Features', 'Evaluation Version', 'Full Version'],
+      rows: [
+        ['1', 'Dynamic address assignment', 'YES', 'YES'],
+        ['2', 'SDA Arbitration', 'YES', 'YES'],
+        ['3', 'Inband Interrupt', 'YES', 'YES'],
+        ['4', 'Hotjoin Request', 'YES', 'YES'],
+        ['5', 'CCC Command Features', 'YES', 'YES'],
+        ['6', 'Private READ and WRITE', 'YES', 'YES'],
+        ['7', 'Data transfer with & without Broadcast', 'YES', 'YES'],
+        ['8', 'Secondary Master Capable', 'NO', 'YES'],
+        ['9', 'Legacy I2C Slave', 'YES', 'YES'],
+        ['10', 'Processor Interface', 'AHB Lite', 'Custom Interface']
+      ]
+    }
   },
 
   'mipi-i3c-basic-host-controller': {
@@ -1002,7 +1060,22 @@ export const productContent = {
     ],
     videos: [],
     blockDiagram: '/images/rtl_mipi_i3c.jpg',
-    downloadFiles: []
+    downloadFiles: [],
+    showMipiI3cTable: true,
+    mipiI3cTableData: {
+      headers: ['S.No', 'MIPI-I3C Features', 'Evaluation Version', 'Full Version'],
+      rows: [
+        ['1', 'Dynamic address assignment', 'YES', 'YES'],
+        ['2', 'SDA Arbitration', 'YES', 'YES'],
+        ['3', 'Inband Interrupt', 'YES', 'YES'],
+        ['4', 'Hotjoin Request', 'YES', 'YES'],
+        ['5', 'CCC Command Features', 'YES', 'YES'],
+        ['6', 'Private READ and WRITE', 'YES', 'YES'],
+        ['7', 'Data transfer with & without Broadcast', 'YES', 'YES'],
+        ['8', 'Secondary Master Capable', 'NO', 'YES'],
+        ['9', 'Processor Interface', 'AHB Lite', 'Custom Interface']
+      ]
+    }
   },
 
   'mipi-i3c-host-riscv-subsystem': {
@@ -1038,7 +1111,25 @@ export const productContent = {
     ],
     videos: [],
     blockDiagram: '/images/risc_v_based_i3c.jpg',
-    downloadFiles: []
+    downloadFiles: [],
+    fpgaBoardDetails: {
+      title: 'FPGA Board details',
+      items: [
+        'Name of the board: Microsemi creative development board',
+        'Family name: Smart fusion2',
+        'Part number: M2S025-VF0256'
+      ]
+    },
+    prerequisite: {
+      title: 'Prerequisite',
+      items: [
+        'Hardware tool : Micrsoemi- Libero SOC 11.9',
+        'Software tool: Soft console 6.0'
+      ]
+    },
+    usageImage: '/images/risc_v_based_i3c/risc_v_based_i3c_useage_details.jpg',
+    pinsUsedImage: '/images/risc_v_based_i3c/risc_v_based_i3c_pindetail.jpg',
+    boardImage: '/images/risc_v_based_i3c/risc_v_based_i3c_board.jpg'
   },
 
   // ==================== I3C SUPPORT PROTOCOL IP ====================
@@ -1075,7 +1166,7 @@ export const productContent = {
       'Basic Testsuite'
     ],
     videos: [],
-    blockDiagram: null,
+    blockDiagram: '/images/spmi_host_block_diagram.png',
     downloadFiles: []
   },
 
@@ -1111,7 +1202,7 @@ export const productContent = {
       'Basic Testsuite'
     ],
     videos: [],
-    blockDiagram: null,
+    blockDiagram: '/images/spmi_target_block_diagram.png',
     downloadFiles: []
   },
 
@@ -1147,7 +1238,7 @@ export const productContent = {
       'Basic Testsuite'
     ],
     videos: [],
-    blockDiagram: null,
+    blockDiagram: '/images/etsi_ssp_i3c.png',
     downloadFiles: []
   },
 
@@ -1169,24 +1260,46 @@ export const productContent = {
       'Performance monitoring',
       'Debug and logging capabilities'
     ],
-    applications: [
-      'Multi-Chiplet SoCs',
-      'HPC Systems',
-      'AI/ML Accelerators',
-      'High-performance Computing',
-      'Heterogeneous Integration'
-    ],
+    applications: [],
+    applicationsTable: {
+      headers: ['SL.NO', 'Application', 'DESCRIPTION'],
+      rows: [
+        [
+          '1',
+          'High Performance Computing (HPC)',
+          'UCIe can be used to connect various chiplets that perform specialized functions, such as compute, memory, I/O, and AI acceleration, to create powerful and efficient HPC systems. UCIe can also enable 3D stacking of chiplets for higher bandwidth and density.'
+        ],
+        [
+          '2',
+          'Cloud Computing',
+          'UCIe can be used to create heterogeneous and disaggregated cloud servers that can dynamically allocate resources according to the workload demand. UCIe can also support resource pooling and rack-scale designs with low latency and high performance.'
+        ],
+        [
+          '3',
+          'Mobile Devices',
+          'UCIe can be used to create modular and customizable mobile SoCs that can optimize performance, power consumption, and functionality. UCIe can also support integration of different types of chiplets, such as CPU, GPU, memory, RF, and analog.'
+        ],
+        [
+          '4',
+          'Automotive Systems',
+          'UCIe can be used to connect various compute blocks and application specific accelators chiplets for automotive applications.'
+        ]
+      ]
+    },
+    customerBenefits: {
+      title: 'MAXVY customer Benifits :',
+      items: [
+        'VIP integration support.',
+        'Customer specific sequences , Customer specific scoreboard.'
+      ]
+    },
+    blockDiagram: '/images/product/uci_vip_block_diagram.png',
     deliverables: [
-      'UVM Environment',
-      'VIP Datasheet',
-      'User Guide',
-      'Verification Test Plan',
-      'Coverage Model',
-      'Assertions',
-      'Sequence Library'
+      'Basic Test Suite.',
+      'Encrypted MAXVY UCIe VIP package.',
+      'VIP integration guide, user guide.'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1199,21 +1312,34 @@ export const productContent = {
     badges: ['IP Proven', 'Software IP'],
     overview: 'MIPI I3C UVM VIP provides a complete verification environment for I3C interfaces, enabling thorough functional verification of I3C host and target designs.',
     features: [
-      'UVM-based verification environment',
-      'Compliant with MIPI I3C Specification',
-      'Support for I3C and I2C modes',
-      'Configurable parameterization',
-      'Complete verification sequence library',
-      'Coverage-driven verification',
-      'Error injection capabilities',
-      'Protocol checking'
+      'Device can configurable as Master/ Slave/ Secondary Master.',
+      'Dynamic addressing.',
+      'Secondary Master Capable.',
+      'Broadcast and Direct Address support.',
+      'Support Single Data Rate (SDR) Mode.',
+      'Support High Data Rate (HDR) Mode.',
+      'I2C legacy device support.',
+      'Hot join.',
+      'In-band interrupts.',
+      'Mastership request.'
+    ],
+    advantages: [
+      'Configurable Option like Master/Slave/SM.',
+      'Supports both Dynamic and Static address.',
+      'Simple steps to integrate into customer environment.'
     ],
     applications: [
-      'SoC Verification',
-      'I3C Controller Verification',
-      'IP Qualification',
-      'System-Level Verification'
+      'Consumer electronics.',
+      'Defense',
+      'Aerospace',
+      'Virtual Reality',
+      'Augmented Reality',
+      'Medical',
+      'Biometrics (Finger prints, etc)',
+      'Automotive Devices',
+      'Sensor Devices'
     ],
+    blockDiagram: '/images/mipi-i3c-uvm-vip.jpg',
     deliverables: [
       'UVM Environment',
       'VIP Datasheet',
@@ -1224,7 +1350,6 @@ export const productContent = {
       'Assertions'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1246,21 +1371,20 @@ export const productContent = {
       'Protocol checking'
     ],
     applications: [
-      'Display Controller Verification',
-      'Mobile SoC Verification',
-      'Automotive Display Systems',
-      'AR/VR Display Verification'
+      'DSI-2 is designed to support a wide range of display types, including:',
+      'Smartphone and tablet displays',
+      'Automotive displays (e.g., infotainment, instrument clusters)',
+      'AR/VR headsets',
+      'Industrial and medical displays'
     ],
+    blockDiagram: '/images/product/dsi2_vip_blockdiagram.jpg',
     deliverables: [
-      'UVM Environment',
-      'VIP Datasheet',
-      'User Guide',
-      'Verification Test Plan',
-      'Coverage Model',
-      'Sequence Library'
+      'Basic test-suite for reference',
+      'basic testbench setup',
+      'Encrypted source code of DSI-2 VIP',
+      'User-guide for setup'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1282,22 +1406,24 @@ export const productContent = {
       'Protocol checking'
     ],
     applications: [
-      'Camera Controller Verification',
-      'Mobile SoC Verification',
-      'Automotive Vision Systems',
-      'Industrial Imaging',
-      'AI Vision Systems'
+      'Imaging',
+      'Surveillance',
+      'Gaming',
+      'Sensor devices',
+      'Internet of Things (IoT)',
+      'Wearable devices',
+      'Virtual Reality',
+      'Augmented Reality',
+      'Automotive Systems'
     ],
+    blockDiagram: '/images/product/csi2_vip_block_diagram.jpg',
     deliverables: [
-      'UVM Environment',
-      'VIP Datasheet',
-      'User Guide',
-      'Verification Test Plan',
-      'Coverage Model',
-      'Sequence Library'
+      'Basic test-suite for reference',
+      'basic testbench setup',
+      'Encrypted source code of CSI-2 VIP',
+      'User-guide for setup'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1308,31 +1434,38 @@ export const productContent = {
     heroDescription: 'AXI4 protocol verification IP for comprehensive SoC interconnect verification.',
     title: 'AXI VIP',
     badges: ['IP Proven', 'Software IP'],
-    overview: 'AXI (Advanced eXtensible Interface) Verification IP provides comprehensive verification of AXI4 protocol interfaces in SoC and FPGA designs.',
+    overview: 'The MAXVY\'S AMBA-AXI VIP provides a complete solution for verification of AMBA-AXI protocol version 2.0. MAXVY\'S AXI verification IP is fully compatible with standard AXI 3 protocol. This VIP is supported natively in System Verilog UVM.',
     features: [
-      'Compliant with AMBA AXI4 Specification',
-      'Support for AXI4, AXI4-Lite, and AXI4-Stream',
-      'Coverage-driven verification',
-      'Protocol checking',
-      'Performance monitoring',
-      'Error injection'
+      'Separate address/control and data phases',
+      'Support for unaligned data transfers using byte strobes',
+      'Burst-based transactions with only start address issued',
+      'separate read and write data channels to enable low-cost Direct Memory Access (DMA)',
+      'Ability to issue multiple outstanding addresses',
+      'Out-of-order transaction completion',
+      'Easy addition of register stages to provide timing closure'
     ],
-    applications: [
-      'SoC Verification',
-      'Interconnect Verification',
-      'Memory Controller Verification',
-      'IP Qualification'
+    keyBenefits: [
+      'Availability in pure System Verilog and UVM',
+      'Unique development to ensure highest level of quality',
+      'Availability of Compliance & Regression test suites',
+      'Unique and customizable licensing models'
     ],
     deliverables: [
-      'UVM Environment',
-      'VIP Datasheet',
-      'User Guide',
-      'Verification Test Plan',
-      'Coverage Model',
-      'Sequence Library'
+      'VIPuser guide',
+      'AXI VIP encrypted source code',
+      'Sample Testbench top',
+      'Sample scoreboard',
+      'Assertions and coverage model'
     ],
+    extendedCapabilities: [
+      'Supports directed random and fully random tests',
+      'Supports environment configuration of VIP based on DUT',
+      'Monitors and Checkers for protocol violation',
+      'Coverage model for functional coverage'
+    ],
+    blockDiagram: '/images/axi-vip.png',
+    applications: [],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1343,31 +1476,53 @@ export const productContent = {
     heroDescription: 'AHB-Lite verification IP for low-power SoC bus protocol verification.',
     title: 'AHB Lite Master/Slave VIP',
     badges: ['IP Proven', 'Software IP'],
-    overview: 'AHB-Lite Verification IP provides comprehensive verification of AHB-Lite protocol interfaces in low-power SoC and microcontroller designs.',
+    overview: 'Maxvy Technologies AHB Verification IP provides a complete solution for Verification of AMBA 3.0 AHB-Lite protocol v1.0 component of a SOC or ASIC. Maxvy AHB-Lite Verification IP is fully compliant with standard AMBA 3 AHB-Lite Specification. AMBA 3.0 AHB-Lite VIP is supported natively in SystemVerilog and UVM.',
     features: [
-      'Compliant with AMBA AHB-Lite Specification',
-      'Support for master and slave verification',
-      'Configurable address and data widths',
-      'Protocol checking',
-      'Coverage-driven verification',
-      'Transaction logging'
+      'Fully compliant with AMBA 3.0 AHB-Lite / AHB3 of the ARM specification.',
+      'Supports AHB Lite Operation.',
+      'Configurable as a full AHB Lite Master, Slave.',
+      'Supports Multi-Master and Multi-Slave System(Optional).',
+      'Supports pipelined operation.',
+      'Parameterized data and address widths.',
+      'Supports all transfer types (IDLE, BUSY, NONSEQ & SEQ) and burst transfers (4, 8, 16 bit incrementing and wrapping).',
+      'Ability to controll the wait states and secondary response types',
+      'Supports early burst termination.',
+      'Supports insertion of delays by slave and master.',
+      'Configuration of lock and unlock transfer.',
+      'Supports big endian and little endian mode.',
+      'Supports various error injection and detection.',
+      'Supports Configurable memory in slave operation.',
+      'All the channel states are visible through waveform debugger'
     ],
-    applications: [
-      'SoC Verification',
-      'Microcontroller Verification',
-      'Peripheral Verification',
-      'IP Qualification'
+    usageModel: 'An AHB Lite DUT in any mode can be verified with single instance of AHB Lite VIP. User needs to configure AHB Lite VIP in appropriate mode depending on the DUT. For AHB Lite Master DUT, Maxvy\'s AHB VIP can be configured to behave like either AHB system with multiple masters and slaves or a single slave. Similarly for AHB Slave DUT, it can be configured to behave like AHB system with multiple masters and slaves or a single master.',
+    keyBenefits: [
+      'Available in Pure System Verilog and with UVM methodology Support.',
+      'Unique development methodology to ensure highest levels of quality.',
+      'Availability of Compliance & Regression Test Suites.',
+      '24X5 customer support.',
+      'Unique and customizable licensing models.',
+      'Exhaustive set of assertions and coverage points with connectivity example for all the components.',
+      'Consistency of interface, installation ,operation and documentation across all our VIPs.',
+      'Runs on all major simulators'
+    ],
+    extendedCapabilities: [
+      'Supports directed random & fully random tests.',
+      'Supports Environment configuration of VIP based on the DUT.',
+      'Includes scoreboard for end to end data integrity check.',
+      'Monitors & checkers for protocol violations.',
+      'Coverage model for functional coverage.'
     ],
     deliverables: [
-      'UVM Environment',
-      'VIP Datasheet',
-      'User Guide',
-      'Verification Test Plan',
-      'Coverage Model',
-      'Sequence Library'
+      'VIP User\'s guide.',
+      'AHB Lite VIP Encrypted source code.',
+      'Sample Test bench Top.',
+      'Sample Scoreboard& Sanity test.',
+      'Assertions and coverage model.'
     ],
+    blockDiagram: '/images/ahb-lite2.jpg',
+    usageModelImage: '/images/ahb-lite1.jpg',
+    applications: [],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1380,29 +1535,65 @@ export const productContent = {
     badges: ['IP Proven', 'Software IP'],
     overview: 'A-PHY Verification IP provides comprehensive verification of automotive A-PHY interfaces in automotive and ADAS designs.',
     features: [
-      'Compliant with MIPI A-PHY Specification',
-      'Support for automotive communication',
-      'High-speed data verification',
-      'Coverage-driven verification',
-      'Error injection',
-      'Protocol checking'
+      'Supports MIPI A-PHY specification 1.0 and 1.1',
+      'Supports single lane and dual lane, point-to-point and serial communication technology',
+      'Supports PHY layer and Data link layer features',
+      'Provides a main unidirectional data stream and a bi-directional low-throughput command and control data stream',
+      'Rich set of configuration parameters to control MIPI A-PHY functionality',
+      'Supports APPI interface between MIPI A-PHY',
+      'Supports multiple speed gears ranging from 2Gbps up to 32 Gbps',
+      'Supports 5 discrete Downlink Gears: G1, G2, G3, G4, and G5 and Uplink shall be 200Mbps at U1 and U2 gears',
+      'Supports two types of profiles: Profile 1 (P1-NRZ 8B/10B) and Profile 2 (P2-PAM 4, 8, 16)',
+      'Supports clock recovery to reach the proper port rate',
+      'Supports Re-transmission request/ACK types',
+      'Supports Scrambler as per specs',
+      'Supports two types of Startup Procedure: Mission Mode startup and Unidirectional startup',
+      'Supports Wake-Up protocol and below Mode of operation: Non-active Mode and Active Mode',
+      'Supports below Data Link feature: Link service, Local function, Multi-port function, and Network function',
+      'Monitors, detects, and notifies the test bench of significant events such as transactions, warnings, timing, and protocol violations',
+      'Supports constraints Randomization',
+      'MIPI A-PHY Verification IP comes with a complete test suite to test every feature of MIPI A-PHY specification',
+      'Functional coverage for complete MIPI A-PHY features'
     ],
-    applications: [
-      'Automotive SoC Verification',
-      'ADAS System Verification',
-      'Sensor Interface Verification',
-      'Autonomous Driving Systems'
-    ],
+    applicationsTable: {
+      headers: ['SL.NO', 'Application', 'DESCRIPTION'],
+      rows: [
+        [
+          '1',
+          'Advanced Driver Assistance Systems (ADAS)',
+          'A-PHY can be used to connect various sensors, such as radar, lidar, and cameras, to enable real-time data collection and analysis for ADAS features like automatic emergency braking, lane departure warning, and adaptive cruise control.'
+        ],
+        [
+          '2',
+          'Infotainment Systems',
+          'A-PHY can be used for telematics applications, such as vehicle tracking, remote diagnostics, and over-the-air software updates.'
+        ],
+        [
+          '3',
+          'Electric Vehicle Systems',
+          'A-PHY can enable communication between various systems in electric vehicles, such as battery management, charging systems, and electric motor controllers.'
+        ],
+        [
+          '4',
+          'Autonomous Driving',
+          'A-PHY can be used to connect sensors and other components in autonomous driving systems, allowing for real-time data processing and decision-making.'
+        ],
+        [
+          '5',
+          'Vehicle-to-Vehicle Communication (V2V)',
+          'A-PHY can facilitate communication between vehicles for V2V applications, such as collision avoidance, traffic management, and platooning .'
+        ]
+      ]
+    },
+    applicationsImage: '/images/product/ADAS_APP.png',
+    blockDiagram: '/images/product/block_diagram_a_phy.jpg',
     deliverables: [
-      'UVM Environment',
-      'VIP Datasheet',
-      'User Guide',
-      'Verification Test Plan',
-      'Coverage Model',
-      'Sequence Library'
+      'Basic Test Suite.',
+      'Random Testbench Environment.',
+      'Encrypted Source Code of A-PHY VIP.',
+      'VIP user guide.'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1411,33 +1602,56 @@ export const productContent = {
     category: 'verification-ip',
     heroTitle: 'CPRI VERIFICATION IP',
     heroDescription: 'Common Public Radio Interface verification IP for telecom and front-haul applications.',
-    title: 'CPRI Verification IP',
+    title: 'CPRI verification IP',
     badges: ['IP Proven', 'Software IP'],
-    overview: 'CPRI (Common Public Radio Interface) Verification IP provides comprehensive verification of CPRI interfaces in telecom and communications systems.',
+    overview: 'MAXVY provides configurable CPRI TX/RX verification IP. MAXVY\'s CPRI verification IP is fully compatible with CPRI version v7.0 with backward compatibility to previous versions and provides an efficient and effective way to verify the component interfacing with CPRI interface of an IP.',
     features: [
-      'Compliant with CPRI Specification',
-      'Support for front-haul applications',
-      'High-speed serial verification',
-      'Coverage-driven verification',
-      'Error injection',
-      'Protocol checking'
+      'Compatible with CPRI version v7.0 as well as previous versions.',
+      'Transmitter/Receiver function',
+      'Supports line bit rates of CPRI specification',
+      'Supports 8B/10B & 64B/66bB line coding.',
+      'Supports scrambling/descrambling.',
+      'Supports both layers (i.e. PHY & Data link)and Service Access Point(SAP) for data link layer.',
+      'Supports Fast C&M channel and slow C&M channel',
+      'Supports L1 inband protocol and Performs L1 synchronization.',
+      'Supports RS-FEC and its features',
+      'Performs hyperframe framing.',
+      'Supports interface for vendor specific data into CPRI Frame.',
+      'Supports different IQ data sampling width and oversampling ratio',
+      'Error detection and reporting',
+      'Supports constraint randomization'
     ],
-    applications: [
-      'Telecom System Verification',
-      'Front-haul Interface Verification',
-      'Communications SoC Verification',
-      '5G Infrastructure'
+    keyBenefits: [
+      'Available in Pure System Verilog and with UVM methodology Support.',
+      'Unique development methodology to ensure highest levels of quality.',
+      'Availability of Compliance & Regression Test Suites.',
+      '24X5 customer support.',
+      'Unique and customizable licensing models.',
+      'Exhaustive set of assertions and coverage points with connectivity example for all the components.',
+      'Consistency of interface, installation ,operation and documentation across all our VIPs.'
     ],
+    advantages: [
+      'Simple steps to integrate into customer environment',
+      'Fast,reusable and accurate',
+      'Supported on all industry-standard simulators',
+      'Complete verification plan, protocol coverage and checking',
+      'Availability in pure system verilog and UVM',
+      'Unique development to ensure highest level of quality',
+      'Configurable options like TX/RX.'
+    ],
+    blockDiagram: '/images/marketing.png',
     deliverables: [
-      'UVM Environment',
-      'VIP Datasheet',
-      'User Guide',
-      'Verification Test Plan',
-      'Coverage Model',
-      'Sequence Library'
+      'VIP user guide',
+      'Complete documentation of all class, task , function etc used in verification env.',
+      'CPRI VIP encrypted code',
+      'Sample Testbench Top',
+      'Built-in verification test plan includes-',
+      'Basic Protocol Tests',
+      'Random Tests',
+      'Assertions & Coverage model'
     ],
+    applications: [],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1450,38 +1664,38 @@ export const productContent = {
     badges: ['IP Proven', 'Software IP'],
     overview: 'MAXVY\'s provides configurable JESD204B TX/RX verification IP. JESD204B is a Serial Interface for Data Converters which are defined by JEDEC SOLID STATE TECHNOLOGY ASSOCIATION. Our VIP covers Transport and Data link layer functionality of JESD204B. MAXVY\'s VIP provides more flexible configuration to user to select their needs like lane,device configuration, data width.',
     features: [
-      'ADC - TX/RX DAC - TX/RX',
-      'Support up to 12.5 Gbps data rate',
-      'Support configurable device classification',
-      'Support configurable subclass 0/1/2',
-      'Support Frame alignment monitor and correction',
-      'Support lane synchronization',
-      'Support Lane alignment monitor and correction',
-      'Support Link configuration',
-      'Support Link re-initialization',
-      'Support Deterministic Latency',
-      'Support 8B/10B encode/decode',
-      'Support Application specific control interface (user specific)'
+      'ADC - TX/RX DAC - TX/RX.',
+      'Support up to 12.5 Gbps data rate.',
+      'Support configurable device classification.',
+      'Support configurable subclass 0/1/2.',
+      'Support Frame alignment monitor and correction.',
+      'Support lane synchronization.',
+      'Support Lane alignment monitor and correction.',
+      'Support Link configuration.',
+      'Support Link re-initialization.',
+      'Support Deterministic Latency.',
+      'Support 8B/10B encode/decode.',
+      'Support Application specific control interface (user specific).'
     ],
     advantages: [
-      'Configurable Option like lane,frame,TX/RX',
-      'Supports both multi device configuration',
+      'Configurable Option like lane,frame,TX/RX.',
+      'Supports both multi device configuration.',
       'Simple steps to integrate into customer environment'
     ],
     applications: [
-      'Wireless Infrastructure Transceiver',
-      'Software defined Radios',
-      'Medical Imaging Systems',
+      'Wireless Infrastructure Transceiver.',
+      'Software defined Radios.',
+      'Medical Imaging Systems.',
       'Radar and Secure Communications'
     ],
+    blockDiagram: '/images/jesd204b-uvm-vip.jpg',
     deliverables: [
-      'Basic Test Suite',
-      'Random Testbench Environment',
-      'Encrypted Source Code of VIP',
-      'VIP user guide'
+      'Basic Test Suite.',
+      'Random Testbench Environment.',
+      'Encrypted Source Code of VIP.',
+      'VIP user guide.'
     ],
     videos: [],
-    blockDiagram: '/images/jesd204b-uvm-vip.jpg',
     downloadFiles: []
   },
 
@@ -1527,18 +1741,38 @@ export const productContent = {
     title: 'MAXVY MIPI I3C Integrated with VEGA processor',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
     overview: 'MAXVY Technologies brings advanced connectivity to embedded systems with the successful integration of MIPI I3C Host IP into the VEGA SoC (AT1051). This solution bridges next‑generation I3C protocols and legacy I2C devices — enabling faster data transfer, reduced latency, and scalable system design. It is validated on the Arty A7 100T FPGA platform with real‑time I2C/I3C sensors.',
-    features: [
-      'Fully compliant with MIPI I3C Basic v1.2 specification',
-      'Supports Host, Secondary Controller, and Target roles',
-      'Backward compatible with I2C devices for mixed I3C/I2C bus operation',
-      'Supports dynamic and static addressing for I3C and I2C devices',
-      '2-wire interface up to 12.5 MHz with push-pull signaling',
-      'Supports Single Data Rate (SDR) messaging',
-      'Real-time event-driven communication with In-Band Interrupts (IBI)',
-      'Supports standard CCC commands for device management',
-      'Optimized for reduced power consumption',
-      'Designed to support multiple devices on a single bus'
-    ],
+    featuresTable: {
+      headers: ['Feature', 'Specification'],
+      rows: [
+        ['Standards Compliance', 'Fully compliant with MIPI I3C Basic v1.2 specification'],
+        ['Multi-Role Operation', 'Supports Host, Secondary Controller, and Target roles'],
+        ['Legacy Compatibility', 'Backward compatible with I2C devices for mixed I3C/I2C bus operation'],
+        ['Addressing', 'Supports dynamic and static addressing for I3C and I2C devices'],
+        ['High-Speed Serial Interface', '2-wire interface up to 12.5 MHz with push-pull signaling'],
+        ['Data Transfer Modes', 'Supports Single Data Rate (SDR) messaging'],
+        ['In-Band Interrupts (IBI)', 'Real-time event-driven communication without extra interrupt lines'],
+        ['Common Command Codes (CCC)', 'Supports standard CCC commands for device management'],
+        ['Low Power', 'Optimized for reduced power consumption'],
+        ['Scalability', 'Designed to support multiple devices on a single bus']
+      ]
+    },
+    solutionArchitecture: {
+      title: 'Solution Architecture',
+      subtitle: 'Integrated components and flow',
+      components: [
+        'VEGA SoC (AT1051) – Processing core',
+        'MAXVY MIPI I3C Host IP – Communication engine',
+        'Arty A7 100T FPGA – Hardware platform',
+        'I2C/I3C Target Devices – Sensor/actuator endpoints'
+      ],
+      howItWorks: [
+        'I3C Host initializes and configures the bus',
+        'Dynamic addressing enables multi-device communication',
+        'Data is transmitted using I2C/I3C protocols to target devices',
+        'Verification ensures protocol compliance (validation on Arty A7)'
+      ]
+    },
+    blockDiagram: '/images/product/mx_ip_i3c_host_target_vega_processor.png',
     applications: [
       'IoT & Smart Devices — efficient multi-sensor communication with reduced latency',
       'Automotive Electronics — reliable high-speed communication for vehicle systems',
@@ -1553,7 +1787,6 @@ export const productContent = {
       'Integration and user guides'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1564,20 +1797,35 @@ export const productContent = {
     heroDescription: 'Powering Next-Gen Sensor Connectivity with VEGA processor integration.',
     title: 'MAXVY MIPI I3C Host/Target Controller integrated with VEGA processor',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
-    overview: 'MAXVY Technologies delivers a high-performance MIPI I3C Host/Target Controller integrated with the VEGA SoC (AT1051), enabling scalable and efficient communication for modern embedded systems. Fully compliant with the latest MIPI I3C Basic v1.1.1 specification, the controller provides high bandwidth, low latency, and reduced pin count, making it ideal for connecting multiple sensors and peripherals on a single bus.',
-    features: [
-      'Fully compliant with MIPI I3C Basic v1.2 specification',
-      'Supports both Host and Target modes',
-      'Fully compatible with legacy I2C devices',
-      'Supports dynamic and static addressing',
-      '2-wire interface up to 12.5 MHz (push-pull)',
-      'Supports Single Data Rate (SDR) messaging',
-      'In-Band Interrupts (IBI) for event-driven communication',
-      'Supports broadcast and direct CCC commands',
-      'Hot-Join Support allows dynamic device addition to the bus',
-      'Optimized for efficient and compact designs',
-      'AHB interface for seamless SoC integration'
-    ],
+    overview: 'MAXVY Technologies delivers a high-performance MIPI I3C Host/Target Controller integrated with the VEGA SoC (AT1051), enabling scalable and efficient communication for modern embedded systems\n\nFully compliant with the latest MIPI I3C Basic v1.1.1 specification, the controller provides high bandwidth, low latency, and reduced pin count, making it ideal for connecting multiple sensors and peripherals on a single bus. Its advanced architecture supports both Host and Target modes, allowing flexible system configurations and multi-device communication\n\nThe controller also supports in-band interrupts (IBI) and hot-join capability, enabling dynamic and event-driven communication without additional hardware lines. With backward compatibility to I2C, it ensures seamless integration with existing devices while enabling migration to next-generation interfaces.\n\nIntegrated with the VEGA AT1051 RISC-V processor and standard AHB interface, the solution offers easy SoC integration, low power consumption, and optimized performance for IoT, automotive, and consumer electronics applications.',
+    featuresTable: {
+      headers: ['Feature', 'Specification'],
+      rows: [
+        ['Standards Compliance', 'Fully compliant with MIPI I3C Basic v1.2 specification'],
+        ['Dual Mode Operation', 'Supports both Host and Target modes'],
+        ['Backward Compatibility', 'Fully compatible with legacy I2C devices'],
+        ['Dynamic Addressing', 'Supports dynamic and static addressing'],
+        ['High-Speed Interface', '2-wire interface up to 12.5 MHz (push-pull)'],
+        ['Data Transfer Modes', 'Supports Single Data Rate (SDR) messaging'],
+        ['In-Band Interrupts (IBI)', 'Enables event-driven communication'],
+        ['Common Command Codes (CCC)', 'Supports broadcast and direct CCC commands'],
+        ['Hot-Join Support', 'Allows dynamic device addition to the bus'],
+        ['Low Power & Pin Count', 'Optimized for efficient and compact designs'],
+        ['Standard Bus Interface', 'AHB interface for seamless SoC integration']
+      ]
+    },
+    solutionArchitecture: {
+      title: 'Solution Architecture',
+      subtitle: 'Core Components',
+      components: [
+        'VEGA SoC (AT1051) – RISC-V processing unit',
+        'MAXVY I3C Host/Target Controller IP',
+        'AHB Interface – Standard SoC integration',
+        'I3C Bus (2-wire interface)',
+        'I3C/I2C Devices – Sensors, peripherals, legacy devices'
+      ]
+    },
+    blockDiagram: '/images/product/mx_ip_i3c_host_target_vega_processor.png',
     applications: [
       'IoT & Smart Devices - Efficient multi-sensor communication with reduced wiring',
       'Automotive Systems — High-speed communication for advanced driver systems',
@@ -1594,7 +1842,6 @@ export const productContent = {
       'Example applications and reference designs'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1605,21 +1852,36 @@ export const productContent = {
     heroDescription: 'Powering High-Speed Memory Connectivity with VEGA processor integration.',
     title: 'MAXVY XSPI Host Controller Integrated with VEGA Processor',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
-    overview: 'MAXVY Technologies brings high-performance memory and peripheral connectivity to embedded systems with the integration of its XSPI (eXpanded Serial Peripheral Interface) Host Controller into the VEGA SoC (AT1051). The MAXVY XSPI Host, compliant with JEDEC JESD251 standard, is designed to deliver high data bandwidth with minimal signal count, making it ideal for next-generation embedded and computing applications.',
-    features: [
-      'Compliant with JEDEC JESD251 (xSPI) Version 1.0',
-      'Single master supporting multiple slave devices per interface',
-      'Supports SDR (Single Data Rate) and DDR (Double Data Rate)',
-      'Data rates up to 400 MT/s (200 MHz clock)',
-      'Source Synchronous Clocking ensures reliable high-speed data transfer',
-      'Low Pin Count Interface optimized for reduced signal complexity',
-      'Supports up to 8 IO lines, scalable based on system needs',
-      'Supports NOR Flash, NAND Flash, FRAM, nvSRAM',
-      'Compatible with SRAM, PSRAM, DRAM',
-      'Profile 1.0 & 2.0 commands for flexible device control',
-      'Deep Power Down (DPD) for energy-efficient designs',
-      'Interfaces with FPGAs and register-mapped I/O devices'
-    ],
+    overview: 'MAXVY Technologies brings high-performance memory and peripheral connectivity to embedded systems with the integration of its XSPI (eXpanded Serial Peripheral Interface) Host Controller into the VEGA SoC (AT1051).\n\nThe MAXVY XSPI Host, compliant with JEDEC JESD251 standard, is designed to deliver high data bandwidth with minimal signal count, making it ideal for next-generation embedded and computing applications. It enables seamless communication between the processor and multiple xSPI slave devices such as non-volatile memories, sensors, FPGAs, and high-speed peripherals.\n\nPowered by the VEGA AT1051 RISC-V processor, the solution ensures efficient data handling, faster execution, and scalable system integration. The combination of XSPI high-speed capability and VEGA\'s processing power provides a robust platform for memory-intensive and performance-critical applications.\n\nValidated on FPGA platforms, this integration demonstrates reliable high-speed data transfer and flexible interfacing.',
+    featuresTable: {
+      headers: ['Feature', 'Specification'],
+      rows: [
+        ['Standards Compliance', 'Compliant with JEDEC JESD251 (xSPI) Version 1.0'],
+        ['Multi-Slave Support', 'Single master supporting multiple slave devices per interface'],
+        ['Data Transfer Modes', 'Supports SDR (Single Data Rate) and DDR (Double Data Rate)'],
+        ['High-Speed Performance', 'Data rates up to 400 MT/s (200 MHz clock)'],
+        ['Source Synchronous Clocking', 'Ensures reliable high-speed data transfer'],
+        ['Low Pin Count Interface', 'Optimized for reduced signal complexity'],
+        ['Wide IO Support', 'Supports up to 8 IO lines, scalable based on system needs'],
+        ['Memory Compatibility', 'Supports NOR Flash, NAND Flash, FRAM, nvSRAM'],
+        ['Volatile Memory Support', 'Compatible with SRAM, PSRAM, DRAM'],
+        ['Advanced Command Support', 'Profile 1.0 & 2.0 commands for flexible device control'],
+        ['Deep Power Down (DPD)', 'Supports power-saving modes for energy-efficient designs'],
+        ['Programmable Device Support', 'Interfaces with FPGAs and register-mapped I/O devices']
+      ]
+    },
+    solutionArchitecture: {
+      title: 'Solution Architecture',
+      subtitle: 'Core Components',
+      components: [
+        'VEGA SoC (AT1051) – RISC‑V based processing unit',
+        'MAXVY XSPI Host Controller IP – High‑speed communication engine',
+        'AXI/AHB Interface – Standard bus for seamless SoC integration',
+        'xSPI Slave Devices – NOR Flash, NAND Flash, PSRAM, FRAM, etc.',
+        'FPGA Platform (Arty A7 100T) – Prototyping and validation platform'
+      ]
+    },
+    blockDiagram: '/images/product/mx_ip_i3c_host_target_vega_processor.png',
     applications: [
       'Memory‑Intensive Systems — High‑speed interfacing with NOR/NAND Flash and advanced memory devices',
       'IoT & Embedded Systems — Efficient communication with sensors and peripheral devices',
@@ -1635,7 +1897,6 @@ export const productContent = {
       'Integration documentation and user guide'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1646,21 +1907,37 @@ export const productContent = {
     heroDescription: 'Powering High-Speed Sensor Connectivity with VEGA processor integration.',
     title: 'MAXVY MIPI DSI-2 Tx Integrated with VEGA Processor',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
-    overview: 'MAXVY Technologies offers a high-performance MIPI DSI-2 Transmitter (TX) Controller integrated with the VEGA SoC (AT1051), enabling seamless high-speed data transmission from the processor to display devices. Compliant with MIPI DSI-2 v2.0, the controller provides a robust, scalable, low-power, and cost-effective interface for modern display systems.',
-    features: [
-      'Compliant with MIPI DSI-2 v2.0',
-      'Supports C-PHY 2.0 and D-PHY (v1.2 / v2.0 / v3.0)',
-      'Configurable C-PHY or D-PHY (one active at a time)',
-      'Supports DBI-2 and DPI-2 interfaces',
-      'Supports Command Mode and Video Mode',
-      'Multi-lane data distribution across N lanes',
-      'Connects multiple DSI receivers using sub-links',
-      'Pixel-to-byte conversion and packet formatting',
-      'De-skew, symbol slip detection, sync insertion',
-      'Supports scrambling/descrambling and filler byte insertion',
-      'Supports HS and Escape modes',
-      'Supports AHB-Lite / APB / AXI interfaces'
-    ],
+    overview: 'MAXVY Technologies offers a high-performance MIPI DSI-2 Transmitter (TX) Controller integrated with the VEGA SoC (AT1051), enabling seamless high-speed data transmission from the processor to display devices.\n\nCompliant with MIPI DSI-2 v2.0, the controller provides a robust, scalable, low-power, and cost-effective interface for modern display systems. It supports multiple PHY configurations including C-PHY and D-PHY, offering flexibility to meet diverse performance and system requirements.\n\nPowered by the VEGA AT1051 RISC-V processor, the solution ensures efficient graphics data handling and smooth display output. With support for both Command Mode and Video Mode, advanced packet handling, and multi-lane distribution, it enables high-quality and high-resolution display transmission.\n\nThis solution is ideal for applications requiring high-speed display interfaces, real-time graphics output, and scalable visual systems, including consumer electronics, automotive displays, and embedded visualization platforms.',
+    featuresTable: {
+      headers: ['Feature', 'Specification'],
+      rows: [
+        ['Standards Compliance', 'Compliant with MIPI DSI-2 v2.0'],
+        ['PHY Support', 'Supports C-PHY 2.0 and D-PHY (v1.2 / v2.0 / v3.0)'],
+        ['Flexible PHY Selection', 'Configurable C-PHY or D-PHY (one active at a time)'],
+        ['Display Interfaces', 'Supports DBI-2 and DPI-2 interfaces'],
+        ['Transmission Modes', 'Supports Command Mode and Video Mode'],
+        ['Lane Distribution', 'Multi-lane data distribution across N lanes'],
+        ['Split Link Support', 'Connects multiple DSI receivers using sub-links'],
+        ['Data Processing', 'Pixel-to-byte conversion and packet formatting'],
+        ['Error & Sync Handling', 'De-skew, symbol slip detection, sync insertion'],
+        ['Data Integrity', 'Supports scrambling/descrambling and filler byte insertion'],
+        ['High-Speed Transmission', 'Supports HS and Escape modes'],
+        ['Processor Interface', 'Supports AHB-Lite / APB / AXI interfaces']
+      ]
+    },
+    solutionArchitecture: {
+      title: 'Solution Architecture',
+      subtitle: 'Core Components',
+      components: [
+        'VEGA SoC (AT1051) – RISC‑V processing unit',
+        'MAXVY DSI-2 TX Controller IP – Transmitter engine and packet handler',
+        'PHY Layer (C-PHY / D-PHY) – Physical interface for high-speed lanes',
+        'Display Panel (DSI Receiver) – Target display or sensor receiver',
+        'AHB/APB/AXI Interface – Configuration and control bus interfaces',
+        'LLP (Low-Level Protocol) Layer – Packet handling and transmission'
+      ]
+    },
+    blockDiagram: '/images/product/mx_dsi2_tx_vega_processor.png',
     applications: [
       'Consumer Electronics — Smartphones, tablets, and display systems',
       'Automotive Displays — Infotainment systems, dashboards, and HUDs',
@@ -1678,7 +1955,6 @@ export const productContent = {
       'Example applications and reference designs'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1689,20 +1965,36 @@ export const productContent = {
     heroDescription: 'Powering High-Speed Memory Connectivity with VEGA processor integration.',
     title: 'MAXVY MIPI CSI-2 Rx Integrated with VEGA Processor',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
-    overview: 'MAXVY Technologies offers a high-performance MIPI CSI-2 RX Controller integrated with the VEGA SoC (AT1051), designed to enable seamless high-speed data transfer from camera sensors to embedded processing systems. Compliant with MIPI CSI-2 v3.0, the controller delivers a robust, scalable, and low-power interface for a wide range of imaging applications.',
-    features: [
-      'MIPI CSI-2 v3.0 compliant',
-      'C-PHY 2.0 and D-PHY 2.5 (configurable)',
-      'C-PHY / D-PHY / A-PHY / M-PHY (one active at a time)',
-      'AHB Lite / APB / AXI interface',
-      'Lane merging and packet consolidation',
-      '16 (D-PHY) / 32 (C-PHY) Virtual channels',
-      'YUV, RGB, RAW, and generic pixel formats',
-      'I2C and I3C (SDR/DDR) CCI Interface',
-      'Error detection, scrambling/descrambling',
-      'Byte-to-pixel conversion (LLP layer)',
-      'De-skew (D-PHY) and sync word detection (C-PHY)'
-    ],
+    overview: 'MAXVY Technologies offers a high-performance MIPI CSI-2 RX Controller integrated with the VEGA SoC (AT1051), designed to enable seamless high-speed data transfer from camera sensors to embedded processing systems.\n\nCompliant with MIPI CSI-2 v3.0, the controller delivers a robust, scalable, and low-power interface for a wide range of imaging applications. It supports multiple PHY configurations including C-PHY and D-PHY, providing flexibility to adapt to different system requirements and performance needs.\n\nIntegrated with the VEGA AT1051 RISC-V processor, the solution ensures efficient image data handling, fast processing, and smooth system integration. With support for multiple pixel formats, virtual channels, and advanced error handling, it enables reliable and high-quality image capture for modern embedded vision systems.\n\nThis solution is ideal for applications requiring high-speed video input, real-time processing, and scalable imaging architectures, including automotive, IoT, and consumer electronics.',
+    featuresTable: {
+      headers: ['Feature', 'Specification'],
+      rows: [
+        ['Standards Compliance', 'MIPI CSI-2 v3.0 compliant'],
+        ['PHY Support', 'C-PHY 2.0 and D-PHY 2.5 (configurable)'],
+        ['Flexible PHY Options', 'C-PHY / D-PHY / A-PHY / M-PHY (one active at a time)'],
+        ['Processor Interface', 'AHB Lite / APB / AXI'],
+        ['Lane Management', 'Lane merging and packet consolidation'],
+        ['Virtual Channels', '16 (D-PHY) / 32 (C-PHY)'],
+        ['Pixel Formats', 'YUV, RGB, RAW, and generic formats'],
+        ['CCI Interface', 'I2C and I3C (SDR/DDR) compatible'],
+        ['Error Handling', 'Error detection, scrambling/descrambling'],
+        ['Data Processing', 'Byte-to-pixel conversion (LLP layer)'],
+        ['Synchronization', 'De-skew (D-PHY) and sync word detection (C-PHY)']
+      ]
+    },
+    solutionArchitecture: {
+      title: 'Solution Architecture',
+      subtitle: 'Core Components',
+      components: [
+        'VEGA SoC (AT1051) – RISC-V processing unit',
+        'MAXVY CSI-2 RX Controller IP',
+        'PHY Layer (C-PHY / D-PHY)',
+        'Camera Sensor (CSI-2 Transmitter)',
+        'AHB/APB/AXI Interface – Configuration and control',
+        'LLP (Low-Level Protocol) Layer – Packet handling and data conversion'
+      ]
+    },
+    blockDiagram: '/images/product/mx_csi2_rx_vega_processor.png',
     applications: [
       'Embedded Vision Systems: High-speed image capture and processing',
       'Automotive Cameras: ADAS, surround view, driver monitoring',
@@ -1720,7 +2012,6 @@ export const productContent = {
       'Example Applications and Reference Designs'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1731,18 +2022,36 @@ export const productContent = {
     heroDescription: 'Enabling Reliable Serial Communication for Embedded Systems with VEGA processor.',
     title: 'MAXVY UART Integrated with VEGA Processor',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
-    overview: 'MAXVY Technologies delivers a robust and efficient UART Controller solution integrated with the VEGA SoC (AT1051), designed to enable seamless communication between processors and external serial devices. This architecture acts as a high-performance bridge between parallel processor buses and asynchronous serial interfaces, ensuring reliable data transfer with minimal CPU intervention.',
-    features: [
-      'High-Performance Architecture - Efficient bridge between parallel bus and serial communication',
-      'Integrated Read and Write FIFOs for smooth data flow',
-      'Supports AXI4-Lite, APB, AHB4-Lite, and WSB interfaces',
-      'UART TX/RX Control - Automatic frame generation and decoding (start, stop, parity bits)',
-      'Configurable baud rate derived from system clock',
-      'Interrupt Support for efficient handling of communication events',
-      'Data Integrity - Reliable transmission with error handling mechanisms',
-      'Low CPU Overhead - Hardware-driven communication reduces processor load',
-      'Scalable Integration - Easily integrates into complex SoC architectures'
-    ],
+    overview: 'MAXVY Technologies delivers a robust and efficient UART Controller solution integrated with the VEGA SoC (AT1051), designed to enable seamless communication between processors and external serial devices.\n\nThis architecture acts as a high-performance bridge between parallel processor buses and asynchronous serial interfaces, ensuring reliable data transfer with minimal CPU intervention. By incorporating hardware FIFOs, intelligent control logic, and configurable communication parameters, the UART controller offloads real-time data handling from the processor, improving system efficiency and throughput.\n\nPowered by the VEGA AT1051 RISC-V processor, the solution supports scalable embedded applications requiring stable and continuous communication. Its flexible design and standardized bus interfaces make it ideal for integration into modern IoT, industrial, and consumer electronic systems.',
+    featuresTable: {
+      headers: ['Feature', 'Specification'],
+      rows: [
+        ['High-Performance Architecture', 'Efficient bridge between parallel bus and serial communication'],
+        ['FIFO-Based Data Handling', 'Integrated Read and Write FIFOs for smooth data flow'],
+        ['Multi-Bus Interface Support', 'Supports AXI4-Lite, APB, AHB4-Lite, and WSB interfaces'],
+        ['UART TX/RX Control', 'Automatic frame generation and decoding (start, stop, parity bits)'],
+        ['Baud Rate Generator', 'Configurable baud rate derived from system clock'],
+        ['Interrupt Support', 'Efficient handling of communication events'],
+        ['Data Integrity', 'Reliable transmission with error handling mechanisms'],
+        ['Low CPU Overhead', 'Hardware-driven communication reduces processor load'],
+        ['Scalable Integration', 'Easily integrates into complex SoC architectures']
+      ]
+    },
+    solutionArchitecture: {
+      title: 'Solution Architecture',
+      subtitle: 'Core Components',
+      components: [
+        'VEGA SoC (AT1051) – RISC-V processing unit',
+        'Processor Interface – Control, status, and interrupt coordination',
+        'Write FIFO – Buffers outgoing data for efficient transmission',
+        'Read FIFO – Stores incoming data to prevent loss',
+        'UART TX Control – Formats outgoing serial frames',
+        'UART RX Control – Handles data reception and decoding',
+        'Baud Rate Generator – Controls communication speed',
+        'BUS Interface – Supports AXI/APB/AHB/WSB protocols'
+      ]
+    },
+    blockDiagram: '/images/product/mx_uart_vega_processor.png',
     applications: [
       'IoT Devices: Reliable communication with sensors and modules',
       'Industrial Systems: Stable serial communication for control and monitoring',
@@ -1759,7 +2068,6 @@ export const productContent = {
       'Example applications and reference designs'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1770,17 +2078,33 @@ export const productContent = {
     heroDescription: 'Enabling Intelligent Control and Real-Time Interaction with VEGA processor.',
     title: 'MAXVY GPIO Integrated with VEGA Processor',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
-    overview: 'MAXVY Technologies offers a flexible and efficient GPIO (General Purpose Input/Output) Controller integrated with the VEGA SoC (AT1051), enabling seamless interaction between the processor and external hardware components. The GPIO IP provides a simple yet powerful interface for monitoring external signals and controlling digital outputs through memory-mapped registers.',
-    features: [
-      'Supports 1 to 32 GPIO signals per channel',
-      'Each pin individually configurable as input or output',
-      'Simple memory-mapped interface for read/write operations',
-      'Optional interrupt generation on input events',
-      'Independent direction control using tri-state registers',
-      'User-defined output states after reset',
-      'Optimized for low FPGA resource utilization',
-      'Easily adaptable for different system requirements'
-    ],
+    overview: 'MAXVY Technologies offers a flexible and efficient GPIO (General Purpose Input/Output) Controller integrated with the VEGA SoC (AT1051), enabling seamless interaction between the processor and external hardware components.\n\nThe GPIO IP provides a simple yet powerful interface for monitoring external signals and controlling digital outputs through memory-mapped registers. With support for configurable pin directions and interrupt-driven event handling, it allows embedded systems to respond quickly and efficiently to real-world inputs.\n\nPowered by the VEGA AT1051 RISC-V processor, this solution ensures reliable performance and easy scalability for a wide range of applications. Its lightweight design and low resource utilization make it ideal for FPGA-based prototyping as well as production-ready embedded systems.',
+    featuresTable: {
+      headers: ['Feature', 'Specification'],
+      rows: [
+        ['Flexible GPIO Width', 'Supports 1 to 32 GPIO signals per channel'],
+        ['Per-Pin Configuration', 'Each pin individually configurable as input or output'],
+        ['Register-Based Control', 'Simple memory-mapped interface for read/write operations'],
+        ['Interrupt Support', 'Optional interrupt generation on input events'],
+        ['Tri-State Direction Control', 'Independent direction control using tri-state registers'],
+        ['Custom Default Values', 'User-defined output states after reset'],
+        ['Efficient Resource Usage', 'Optimized for low FPGA resource utilization'],
+        ['Scalable Design', 'Easily adaptable for different system requirements']
+      ]
+    },
+    solutionArchitecture: {
+      title: 'Solution Architecture',
+      subtitle: 'Core Components',
+      components: [
+        'VEGA SoC (AT1051) – RISC-V processing unit',
+        'GPIO Controller IP – Digital input/output management',
+        'Data Register – Stores input/output values',
+        'Direction Register – Controls pin direction (input/output)',
+        'Interrupt Control & Status Registers – Handles event-driven signals',
+        'AXI/AHB Interface – Enables seamless SoC integration'
+      ]
+    },
+    blockDiagram: '/images/product/mx_gpio_vega_processor.png',
     applications: [
       'IoT Devices: Interface with sensors, switches, and actuators',
       'Industrial Automation: Control and monitor external equipment in real-time',
@@ -1797,7 +2121,6 @@ export const productContent = {
       'Example applications and reference designs'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1808,18 +2131,35 @@ export const productContent = {
     heroDescription: 'Efficient Pulse Width Modulation for Embedded Control Systems with VEGA processor.',
     title: 'MAXVY PWM Integrated with VEGA processor',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
-    overview: 'MAXVY Technologies provides a high-performance PWM Controller IP integrated with the VEGA SoC (AT1051), designed to generate precise and configurable pulse signals for controlling a wide range of embedded peripherals. This architecture enables seamless interaction between the processor\'s parallel bus and time-critical PWM signal generation.',
-    features: [
-      'High-Precision PWM Generation - Accurate duty cycle and frequency control',
-      'Hardware-Based Operation minimizes CPU intervention',
-      'Fine control over output waveform with configurable duty cycle',
-      'Supports multiple independent PWM outputs',
-      'Programmable Period for flexible timing configuration',
-      'Interrupt Support for event-based notifications for control',
-      'Efficient hardware-driven design for Low Power Operation',
-      'Supports AXI4-Lite, APB, AHB4-Lite, WSB interfaces',
-      'Easily fits into complex SoC designs'
-    ],
+    overview: 'MAXVY Technologies provides a high-performance PWM Controller IP integrated with the VEGA SoC (AT1051), designed to generate precise and configurable pulse signals for controlling a wide range of embedded peripherals\n\nThis architecture enables seamless interaction between the processor\'s parallel bus and time-critical PWM signal generation. By incorporating dedicated hardware counters, duty cycle control logic, and programmable timing registers, the PWM controller ensures accurate waveform generation with minimal CPU involvement\n\nThe solution is optimized for applications requiring fine-grained control of power delivery, motor speed, brightness, and signal modulation. With its scalable and flexible design, it integrates easily into modern SoC environments while maintaining high efficiency and timing accuracy',
+    featuresTable: {
+      headers: ['Feature', 'Specification'],
+      rows: [
+        ['High-Precision PWM Generation', 'Accurate duty cycle and frequency control'],
+        ['Hardware-Based Operation', 'Minimizes CPU intervention'],
+        ['Configurable Duty Cycle', 'Fine control over output waveform'],
+        ['Multi-Channel Support', 'Supports multiple independent PWM outputs'],
+        ['Programmable Period', 'Flexible timing configuration'],
+        ['Interrupt Support', 'Event-based notifications for control'],
+        ['Low Power Operation', 'Efficient hardware-driven design'],
+        ['Multi-Bus Interface', 'Supports AXI4-Lite, APB, AHB4-Lite, WSB'],
+        ['Scalable Integration', 'Easily fits into complex SoC designs']
+      ]
+    },
+    solutionArchitecture: {
+      title: 'Solution Architecture',
+      subtitle: 'Core Components',
+      components: [
+        'VEGA SoC (AT1051) – RISC-V processing unit',
+        'Processor Interface – Handles configuration, status, and interrupts',
+        'PWM Counter/Timer – Generates timing base for PWM signals',
+        'Duty Cycle Register – Controls ON/OFF ratio of output waveform',
+        'Control Logic – Manages PWM modes and signal generation',
+        'Output Driver – Produces final PWM signal to external devices',
+        'BUS Interface – Supports AXI/APB/AHB/WSB protocols'
+      ]
+    },
+    blockDiagram: '/images/product/mx_pwm_vega_processor.png',
     applications: [
       'Motor Control Systems: Speed and direction control using PWM signals',
       'LED Dimming: Brightness control in lighting systems',
@@ -1836,7 +2176,6 @@ export const productContent = {
       'Example Applications and Reference Designs'
     ],
     videos: [],
-    blockDiagram: null,
     downloadFiles: []
   },
 
@@ -1876,7 +2215,7 @@ export const productContent = {
       'Basic Testsuite'
     ],
     videos: [],
-    blockDiagram: null,
+    blockDiagram: '/images/UCIe_blockdiagram.png',
     downloadFiles: []
   },
 
@@ -1887,7 +2226,7 @@ export const productContent = {
     heroDescription: 'Adaptive Voltage Scaling bus host controller for dynamic power management.',
     title: 'MAXVY Adaptive Voltage Scaling (AVS) Bus Host Controller IP',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
-    overview: 'The MAXVY\'s AVS Bus Host Controller IP is a highly configurable solution designed to enable efficient, high-speed communication between the SoC processor subsystem and external voltage regulators through the industry-standard AVS Bus protocol. Fully compliant with the AVS Bus specification, the IP plays a critical role in Dynamic Voltage and Frequency Scaling (DVFS) applications, allowing software-controlled voltage adjustments to optimize power consumption and system performance in real time.',
+    overview: 'The MAXVY\'s AVS Bus Host Controller IP is a highly configurable solution designed to enable efficient, high-speed communication between the SoC processor subsystem and external voltage regulators through the industry-standard AVS Bus protocol. Fully compliant with the AVS Bus specification, the IP plays a critical role in Dynamic Voltage and Frequency Scaling (DVFS) applications, allowing software-controlled voltage adjustments to optimize power consumption and system performance in real time.\n\nThe controller integrates a flexible Processor Interface that enables seamless communication with the SoC. It supports multiple industry-standard bus protocols, including AXI4-Lite, APB, AHB-Lite, and Wishbone (WSB), providing easy register access for configuration, control, status monitoring, and interrupt handling.\n\nThe MAXVY\'s AVS Bus Controller IP incorporates a comprehensive set of functional blocks to efficiently manage AVS Bus transactions. A dedicated Synchronization Module ensures safe clock-domain crossing between the processor interface and AVS Bus domains, while a programmable Clock Generator produces the AVS Bus clock required for protocol-compliant communication with the target voltage regulator.\n\nA configurable Frame Generator constructs AVS Bus command frames based on software requests, and the Response Decoder processes acknowledgments, status information, and responses received from the AVS Bus target device. An integrated CRC Engine provides cyclic redundancy check generation and verification to ensure reliable communication and robust error detection, enabling secure and efficient processor-controlled voltage management.\n\nThe architecture supports voltage programming, status monitoring, fault reporting, and protocol error handling, making it well-suited for advanced power management applications that require fast and reliable regulator control.',
     features: [
       'Fully Compliant with AVS Bus protocol specification',
       'Processor Interface supporting AXI4-Lite, APB, AHB-Lite, Wishbone (WSB)',
@@ -1932,7 +2271,7 @@ export const productContent = {
     heroDescription: 'Adaptive Voltage Scaling bus target IP for power management device integration.',
     title: 'MAXVY Adaptive Voltage Scaling (AVS) Bus Target IP',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
-    overview: 'The MAXVY\'s AVS Bus Slave IP is a highly configurable IP that provides full AVS Bus slave functionality compliant with the AVS Bus specification. The IP enables seamless communication between an AVS Bus Master, such as a processor, FPGA, or SoC, and AVS Bus-compliant target devices used in power management applications.',
+    overview: 'The MAXVY\'s AVS Bus Slave IP is a highly configurable IP that provides full AVS Bus slave functionality compliant with the AVS Bus specification. The IP enables seamless communication between an AVS Bus Master, such as a processor, FPGA, or SoC, and AVS Bus-compliant target devices used in power management applications.\n\nDesigned for both FPGA and ASIC implementations, the MAXVY\'s AVS Bus Slave IP supports both 2-wire and 3-wire AVS Bus communication modes, providing flexibility for integration with a wide range of AVS Bus-based systems. The IP can operate as an AVS Bus target device, receiving commands from an AVS Bus master and generating protocol-compliant responses.\n\nThe architecture consists of an optional Processor Interface for configuration, status monitoring, and register access. The processor interface can be implemented using AXI4-Lite, APB, AHB-Lite, Wishbone, or a custom register interface based on system requirements. A dedicated Synchronization Module ensures reliable clock-domain crossing between the processor interface and the AVS Bus domain.\n\nThe AVS Target subsystem incorporates a Command Decoder that receives and interprets incoming AVS Bus command frames, a Response Generator that creates protocol-compliant acknowledgment and status response frames, and a CRC Checker that performs cyclic redundancy check verification to ensure data integrity and robust error detection. Together, these blocks enable reliable command processing and communication with the AVS Bus master.\n\nThe IP supports protocol error handling, status reporting, interrupt generation, clock resynchronization, and timeout detection, making it suitable for Dynamic Voltage and Frequency Scaling (DVFS), power management, industrial, automotive, networking, and high-performance computing applications.',
     features: [
       'Full AVS Bus Slave (Target) functionality',
       'Supports both 2-wire and 3-wire AVS Bus interfaces',
@@ -1977,7 +2316,7 @@ export const productContent = {
     heroDescription: 'General Purpose Input/Output controller IP for flexible embedded system I/O management.',
     title: 'MAXVY GPIO Controller IP',
     badges: ['Silicon Proven', 'IP Proven', 'Software IP'],
-    overview: 'The MAXVY GPIO (General Purpose Input/Output) Controller IP is a highly configurable and scalable peripheral designed to enable seamless communication between processors and external hardware devices. The IP provides a flexible interface for monitoring digital input signals and controlling digital output signals through memory-mapped register architecture.',
+    overview: 'The MAXVY GPIO (General Purpose Input/Output) Controller IP is a highly configurable and scalable peripheral designed to enable seamless communication between processors and external hardware devices. The IP provides a flexible interface for monitoring digital input signals and controlling digital output signals a simple through memory-mapped register architecture.\n\nThe GPIO Controller allows software to read external signals and drive output signals using dedicated control and status registers. Each GPIO can be independently configured as either an input or output, enabling flexible system-level connectivity and control. When configured as an input, the GPIO captures external signal states that can be read by software. When configured as an output, the GPIO drives user-programmed values onto external pins.\n\nThe IP includes configurable interrupt generation capabilities for responsive event handling. Interrupts can be generated on rising-edge, falling-edge, active-high, or active-low input conditions. Interrupt status information is maintained through dedicated status registers and can be cleared by software using a write-one-to-clear mechanism.\n\nThe modular architecture supports integration into FPGA and SoC designs through multiple industry-standard interfaces, including APB, AHB-Lite, AXI4-Lite, Wishbone (WSB), and UART2BUS. Designed for low resource utilization and high reliability, the MAXVY GPIO Controller IP is suitable for a wide range of embedded and industrial applications.',
     features: [
       'Supports Configurable GPIO width from 1 to 32 signals',
       'Independent input/output configuration for each GPIO',
@@ -2059,7 +2398,22 @@ export const productContent = {
     heroDescription: 'Complete RISC-V processor core development solutions.',
     title: 'RISC V - CORE DEVELOPMENT',
     badges: ['Silicon Proven', 'IP Proven'],
-    overview: 'RISC-V (pronounced "risk-five") is a free and open ISA enabling a new era of processor innovation through open standard collaboration. Founded in 2015, the RISC-V ISA delivers a new level of free, extensible software and hardware freedom on architecture, paving the way for the next 50 years of computing design and innovation.',
+    overview: 'RISC-V (pronounced “risk-five”) is a free and open ISA enabling a new era of processor innovation through open standard collaboration. Founded in 2015, the RISC-V ISA delivers a new level of free, extensible software and hardware freedom on architecture, paving the way for the next 50 years of computing design and innovation.\n\nIn contrast to most ISAs, the RISC-V ISA can be freely used for any purpose, permitting anyone to design, manufacture and sell RISC-V chips and software. While not the first open architecture ISA, it is significant because it is designed to be useful in modern computerized devices such as warehouse-scale cloud computers, high-end mobile phones and the smallest embedded systems. Such uses demand that the designers consider both performance and power efficiency. The instruction set also has a substantial body of supporting software, which avoids a usual weakness of new instruction sets. The RISC-V ISA has been designed with small, fast, and low-power real-world implementations in mind, but without over-architecting for a particular micro architecture style.\n\nGoals in defining RISC-V\n\nA completely open ISA that is freely available to academia and industry.\nA real ISA suitable for direct native hardware implementation, not just simulation or binary translation.\nAn ISA that avoids over-architecting" for a particular micro-architecture style (e.g.,micro-coded, in-order, decoupled, out-of-order) or implementation technology (e.g.,full-custom, ASIC, FPGA), but which allows efficient implementation in any of these.\nAn ISA separated into a small base integer ISA, usable by itself as a base for customized accelerators or for educational purposes, and optional standard extensions, to support general-purpose software development.\nSupport for the revised 2008 IEEE-754 floating-point standard.\nBoth 32-bit and 64-bit address space variants for applications, operating system kernels, and hardware implementations.\nOptional variable-length instructions to both expand available instruction encoding space and to support an optional dense instruction encoding for improved performance, static code size, and energy efficiency.\nA fully virtualizable ISA to ease hypervisor development.\nAn ISA that simplifies experiments with new supervisor-level and hypervisor-level ISA design.',
+    featuresTable: {
+      headers: ['S.No', 'Instruction Formats', 'Availability'],
+      rows: [
+        ['1', 'RV32I', 'Immediate'],
+        ['2', 'RV32IM', 'Immediate'],
+        ['3', 'RV32IMF', 'Immediate'],
+        ['4', 'RV32IMFD', 'Under Development'],
+        ['5', 'RV32IMFA', 'Immediate'],
+        ['6', 'RV64I', 'On Demand'],
+        ['7', 'RV64IM', 'On Demand'],
+        ['8', 'RV64IMFA', 'On Demand'],
+        ['9', 'RV64IMF', 'On Demand'],
+        ['10', 'RV64IMFD', 'On Demand']
+      ]
+    },
     features: [
       'A completely open ISA that is freely available to academia and industry',
       'A real ISA suitable for direct native hardware implementation',
@@ -2103,15 +2457,36 @@ export const productContent = {
     title: 'RISC V - REFERENCE MODEL',
     badges: ['IP Proven', 'Software IP'],
     overview: 'The RISC-V Reference Model provides a complete software and hardware reference implementation for RISC-V processor development and verification.',
+    keyFeatures: [
+      'Delivers a new level of software and hardware freedom on architecture in an open extensible way.',
+      'Open ISA delivers easier support from a broad range of operating systems, software vendors and tool developers.',
+      'The open source of hardware, RISC-V does not rely on a single supplier – offers multiple suppliers, therefore, supports unlimited potential for future growth.',
+      'No other ISA is architected like the RISC-V ISA, allowing for user extensibility of the architecture without breaking existing extensions or incurring software fragmentation.'
+    ],
+    advantages: [
+      'RISC architecture is used in high-end applications such as video processing, telecommunications and image processing.',
+      'Used in MICROPROCESSORS and MICROCONTROLLERS.'
+    ],
+    featuresTable: {
+      headers: ['S.No', 'Instruction Formats', 'System Verilog', 'SystemC', 'Python', 'C, C++ Model'],
+      rows: [
+        ['1', 'RV32I', 'Immediate', 'Under Development', 'Under Development', 'Under Development'],
+        ['2', 'RV32IM', 'Immediate', 'Under Development', 'Under Development', 'On Demand'],
+        ['3', 'RV32IMF', 'Immediate', 'Under Development', 'Under Development', 'On Demand'],
+        ['4', 'RV32IMFD', 'Immediate', 'Under Development', 'Under Development', 'On Demand'],
+        ['5', 'RV32IMFA', 'Under Development', 'Under Development', 'Under Development', 'Under Development'],
+        ['6', 'RV64I', 'On Demand', 'On Demand', 'On Demand', 'On Demand'],
+        ['7', 'RV64IM', 'On Demand', 'On Demand', 'On Demand', 'On Demand'],
+        ['8', 'RV64IMFA', 'On Demand', 'On Demand', 'On Demand', 'On Demand'],
+        ['9', 'RV64IMF', 'On Demand', 'On Demand', 'On Demand', 'On Demand'],
+        ['10', 'RV64IMFD', 'On Demand', 'On Demand', 'On Demand', 'On Demand']
+      ]
+    },
     features: [
       'Delivers a new level of software and hardware freedom on architecture in an open extensible way',
       'Open ISA delivers easier support from a broad range of operating systems, software vendors and tool developers',
       'The open source of hardware, RISC-V does not rely on a single supplier',
       'No other ISA is architected like the RISC-V ISA, allowing for user extensibility of the architecture'
-    ],
-    advantages: [
-      'RISC architecture is used in high-end applications such as video processing, telecommunications and image processing',
-      'Used in MICROPROCESSORS and MICROCONTROLLERS'
     ],
     applications: [
       'Video Processing',
@@ -2164,6 +2539,7 @@ export const productContent = {
     ],
     videos: [],
     blockDiagram: '/images/QR_generator_block_diagram.jpg',
+    circuitDiagram: '/images/QR_generator_circuit_diagram.jpg',
     downloadFiles: []
   },
 
@@ -2192,6 +2568,13 @@ export const productContent = {
       'Maxvy I3C Host controller software tool guide',
       'Architecture Diagram'
     ],
+    boardPurchaseLinks: {
+      title: 'Board Purchase Link',
+      links: [
+        { label: 'Artix-7 CMOD', url: 'https://in.element14.com/digilent/410-328-35/development-kit-artix-7-fpga/dp/2614574?CMP=KNC-GIN-DSA-PMAX-SEARCH&mckv=_dc|pcrid||pkw||pmt||slid||product||pgrid||ptaid||&gad_source=1&gclid=Cj0KCQiAj_CrBhD-ARIsAIiMxT-B-tEmn0dNYIfthAIIdjWnLxgUkhM4tYxeLqpOBOPqfxPiGe8uwxwaAs2WEALw_wcB' },
+        { label: 'Arty A7-100T', url: 'http://in.element14.com/digilent/410-319-1/development-kit-artix-7-fpga/dp/3050772?CMP=KNC-GIN-DSA-PMAX-SEARCH&mckv=_dc|pcrid||pkw||pmt||slid||product||pgrid||ptaid||&gad_source=1&gclid=Cj0KCQiAj_CrBhD-ARIsAIiMxT8XgirQ3MaHQVQHXQ471O0-4EYXnwLeZ9kFqNbFhJ7fBvoSgb0FzDoaAreBEALw_wcB' }
+      ]
+    },
     applications: [
       'FPGA Verification',
       'I3C Protocol Testing',

@@ -762,6 +762,308 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
   );
 };
 
+// ============================================================
+// MIPI I3C FEATURES DELIVERABLE SECTION
+// ============================================================
+const MipiI3cFeaturesDeliverable = () => (
+  <div className="mb-8">
+    <h2 className="text-xl font-bold text-[#e34115] mb-4">MIPI I3C FEATURES DELIVERABLE</h2>
+    <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-gray-50">
+      <img
+        src="/images/future.png"
+        alt="MIPI I3C Features Deliverable"
+        className="w-full h-auto max-h-[400px] object-contain"
+        onError={(e) => {
+          (e.target as HTMLImageElement).style.display = 'none';
+          const parent = e.target.parentElement;
+          if (parent) {
+            parent.innerHTML = `<p class="text-gray-400 text-center py-8">Image not available</p>`;
+          }
+        }}
+      />
+    </div>
+  </div>
+);
+
+// ============================================================
+// RESOURCE DELIVERABLES SECTION
+// ============================================================
+const ResourceDeliverables = ({ items }: { items: string[] }) => (
+  <div className="mb-8">
+    <h2 className="text-xl font-bold text-[#e34115] mb-4">RESOURCE DELIVERABLES</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      {items.map((item, index) => (
+        <div
+          key={index}
+          className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
+        >
+          <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+          <span className="text-[14px] text-gray-700">{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+// ============================================================
+// MIPI I3C TABLE COMPONENT
+// ============================================================
+const MipiI3cTable = ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
+  <div className="mb-8">
+    <h2 className="text-xl font-bold text-[#e34115] mb-4">MIPI I3C FEATURES</h2>
+    <div className="overflow-x-auto rounded-lg border border-gray-200">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="bg-[#e34115]/10">
+            {data.headers.map((header, index) => (
+              <th key={index} className="px-4 py-3 text-left font-semibold text-gray-800 border-b border-gray-200">
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.rows.map((row, rowIndex) => (
+            <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex} className="px-4 py-3 text-gray-700 border-b border-gray-100">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+);
+
+// ============================================================
+// FEATURES TABLE COMPONENT
+// ============================================================
+const FeaturesTable = ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
+  <div className="mb-8">
+    <h2 className="text-xl font-bold text-[#e34115] mb-4">Features</h2>
+    <div className="overflow-x-auto rounded-lg border border-gray-200">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="bg-[#e34115]/10">
+            {data.headers.map((header, index) => (
+              <th key={index} className="px-4 py-3 text-left font-semibold text-gray-800 border-b border-gray-200">
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.rows.map((row, rowIndex) => (
+            <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex} className="px-4 py-3 text-gray-700 border-b border-gray-100">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+);
+
+// ============================================================
+// APPLICATIONS TABLE COMPONENT
+// ============================================================
+const ApplicationsTable = ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
+  <div className="mb-8">
+    <h2 className="text-xl font-bold text-[#e34115] mb-4">Application</h2>
+    <div className="overflow-x-auto rounded-lg border border-gray-200">
+      <table className="w-full text-sm">
+        <thead>
+          <tr className="bg-[#e34115]/10">
+            {data.headers.map((header, index) => (
+              <th key={index} className="px-4 py-3 text-left font-semibold text-gray-800 border-b border-gray-200">
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {data.rows.map((row, rowIndex) => (
+            <tr key={rowIndex} className={rowIndex % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+              {row.map((cell, cellIndex) => (
+                <td key={cellIndex} className="px-4 py-3 text-gray-700 border-b border-gray-100">
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+);
+
+// ============================================================
+// SOLUTION ARCHITECTURE COMPONENT
+// ============================================================
+const SolutionArchitecture = ({ data }: { data: { title: string; subtitle: string; components: string[]; howItWorks?: string[] } }) => (
+  <div className="mb-8">
+    <h2 className="text-xl font-bold text-[#e34115] mb-4">{data.title}</h2>
+    {data.subtitle && <p className="text-gray-600 mb-3">{data.subtitle}</p>}
+    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+      <ul className="space-y-2">
+        {data.components.map((item, index) => (
+          <li key={index} className="flex items-start gap-2">
+            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+            <span className="text-[14px] text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+      {data.howItWorks && (
+        <div className="mt-4 pt-4 border-t border-gray-200">
+          <h4 className="font-semibold text-gray-800 mb-2">How it works:</h4>
+          <ul className="space-y-1">
+            {data.howItWorks.map((item, index) => (
+              <li key={index} className="flex items-start gap-2">
+                <span className="text-[#e34115] text-sm mt-0.5">›</span>
+                <span className="text-[13px] text-gray-600">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  </div>
+);
+
+// ============================================================
+// CUSTOMER BENEFITS COMPONENT
+// ============================================================
+const CustomerBenefits = ({ data }: { data: { title: string; items: string[] } }) => (
+  <div className="mb-8">
+    <h2 className="text-xl font-bold text-[#e34115] mb-4">{data.title}</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+      {data.items.map((item, index) => (
+        <div
+          key={index}
+          className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
+        >
+          <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+          <span className="text-[14px] text-gray-700">{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+// ============================================================
+// FPGA BOARD DETAILS COMPONENT
+// ============================================================
+const FpgaBoardDetails = ({ data, boardImage, usageImage, pinsUsedImage, prerequisite }: { data: { title: string; items: string[] }; boardImage?: string; usageImage?: string; pinsUsedImage?: string; prerequisite?: { title: string; items: string[] } }) => (
+  <div className="mb-8">
+    <h2 className="text-xl font-bold text-[#e34115] mb-4">{data.title}</h2>
+    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200 mb-4">
+      <ul className="space-y-2">
+        {data.items.map((item, index) => (
+          <li key={index} className="flex items-start gap-2">
+            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+            <span className="text-[14px] text-gray-700">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+    
+    {boardImage && (
+      <div className="mb-4 border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-gray-50">
+        <img
+          src={boardImage}
+          alt="FPGA Board"
+          className="w-full h-auto max-h-[400px] object-contain"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = 'none';
+          }}
+        />
+      </div>
+    )}
+
+    {prerequisite && (
+      <div className="mb-4">
+        <h3 className="text-lg font-semibold text-[#e34115] mb-3">{prerequisite.title}</h3>
+        <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+          <ul className="space-y-2">
+            {prerequisite.items.map((item, index) => (
+              <li key={index} className="flex items-start gap-2">
+                <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+                <span className="text-[14px] text-gray-700">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    )}
+
+    <h3 className="text-lg font-semibold text-[#e34115] mb-3">MIPI I3C Resource Usage</h3>
+    
+    {usageImage && (
+      <div className="mb-4 border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-gray-50">
+        <img
+          src={usageImage}
+          alt="Resource Usage"
+          className="w-full h-auto max-h-[400px] object-contain"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = 'none';
+          }}
+        />
+      </div>
+    )}
+
+    <h3 className="text-lg font-semibold text-[#e34115] mb-3">Pins used</h3>
+    
+    {pinsUsedImage && (
+      <div className="mb-4 border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-gray-50">
+        <img
+          src={pinsUsedImage}
+          alt="Pins Used"
+          className="w-full h-auto max-h-[400px] object-contain"
+          onError={(e) => {
+            (e.target as HTMLImageElement).style.display = 'none';
+          }}
+        />
+      </div>
+    )}
+  </div>
+);
+
+// ============================================================
+// BOARD PURCHASE LINKS COMPONENT
+// ============================================================
+const BoardPurchaseLinks = ({ data }: { data: { title: string; links: { label: string; url: string }[] } }) => (
+  <div className="mb-8">
+    <h2 className="text-xl font-bold text-[#e34115] mb-4">{data.title}</h2>
+    <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+      <ul className="space-y-2">
+        {data.links.map((link, index) => (
+          <li key={index} className="flex items-start gap-2">
+            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+            <a
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[14px] text-[#e34115] hover:underline font-medium"
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+);
+
+// ============================================================
+// MAIN PRODUCT DETAIL COMPONENT
+// ============================================================
 export default function ProductDetail({
   name: propName,
   tagline: propTagline,
@@ -891,13 +1193,15 @@ export default function ProductDetail({
                   {/* Overview */}
                   {overview && overview.length > 0 && (
                     <div className="mb-8">
-                      <p className="text-[15px] text-gray-700 leading-[1.9]">
-                        {overview[0]}
-                      </p>
+                      {overview[0].split('\n\n').map((para, index) => (
+                        <p key={index} className="text-[15px] text-gray-700 leading-[1.9] mb-3">
+                          {para}
+                        </p>
+                      ))}
                     </div>
                   )}
 
-                  {/* Badges - Display above Key Features - No "Specialities:" text */}
+                  {/* Badges */}
                   {badges.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-6">
                       {badges.map((badge, index) => (
@@ -911,8 +1215,19 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Features */}
-                  {features && features.length > 0 && (
+                  {/* MIPI I3C Features Deliverable Section */}
+                  {productData.showMipiI3cFeatures && <MipiI3cFeaturesDeliverable />}
+
+                  {/* MIPI I3C Table */}
+                  {productData.showMipiI3cTable && productData.mipiI3cTableData && (
+                    <MipiI3cTable data={productData.mipiI3cTableData} />
+                  )}
+
+                  {/* Features Table (for VEGA integration products) */}
+                  {productData.featuresTable && <FeaturesTable data={productData.featuresTable} />}
+
+                  {/* Features List */}
+                  {features && features.length > 0 && !productData.featuresTable && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Key Features</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -927,6 +1242,30 @@ export default function ProductDetail({
                         ))}
                       </div>
                     </div>
+                  )}
+
+                  {/* Features Table (from featuresTable) */}
+                  {productData.featuresTable && <FeaturesTable data={productData.featuresTable} />}
+
+                  {/* Solution Architecture */}
+                  {productData.solutionArchitecture && (
+                    <SolutionArchitecture data={productData.solutionArchitecture} />
+                  )}
+
+                  {/* Resource Deliverables */}
+                  {productData.resourceDeliverables && (
+                    <ResourceDeliverables items={productData.resourceDeliverables} />
+                  )}
+
+                  {/* FPGA Board Details */}
+                  {productData.fpgaBoardDetails && (
+                    <FpgaBoardDetails
+                      data={productData.fpgaBoardDetails}
+                      boardImage={productData.boardImage}
+                      usageImage={productData.usageImage}
+                      pinsUsedImage={productData.pinsUsedImage}
+                      prerequisite={productData.prerequisite}
+                    />
                   )}
 
                   {/* Block Diagram */}
@@ -950,8 +1289,29 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Applications */}
-                  {applications && applications.length > 0 && (
+                  {/* Applications Table */}
+                  {productData.applicationsTable && (
+                    <ApplicationsTable data={productData.applicationsTable} />
+                  )}
+
+                  {/* Applications Image */}
+                  {productData.applicationsImage && (
+                    <div className="mb-8">
+                      <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-gray-50">
+                        <img
+                          src={productData.applicationsImage}
+                          alt="Applications"
+                          className="w-full h-auto max-h-[400px] object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Applications List */}
+                  {applications && applications.length > 0 && !productData.applicationsTable && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Applications</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -966,6 +1326,184 @@ export default function ProductDetail({
                         ))}
                       </div>
                     </div>
+                  )}
+
+                  {/* Customer Benefits */}
+                  {productData.customerBenefits && (
+                    <CustomerBenefits data={productData.customerBenefits} />
+                  )}
+
+                  {/* Advantages */}
+                  {productData.advantages && productData.advantages.length > 0 && (
+                    <div className="mb-8">
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Advantages</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {productData.advantages.map((adv, index) => (
+                          <div
+                            key={index}
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
+                          >
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[14px] text-gray-700">{adv}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Key Benefits */}
+                  {productData.keyBenefits && productData.keyBenefits.length > 0 && (
+                    <div className="mb-8">
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Key Benefits</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {productData.keyBenefits.map((benefit, index) => (
+                          <div
+                            key={index}
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
+                          >
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[14px] text-gray-700">{benefit}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Extended Capabilities */}
+                  {productData.extendedCapabilities && productData.extendedCapabilities.length > 0 && (
+                    <div className="mb-8">
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Extended Capabilities</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {productData.extendedCapabilities.map((item, index) => (
+                          <div
+                            key={index}
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
+                          >
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[14px] text-gray-700">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Usage Model */}
+                  {productData.usageModel && (
+                    <div className="mb-8">
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Usage Model</h2>
+                      <p className="text-[15px] text-gray-700 leading-[1.9] mb-4">
+                        {productData.usageModel}
+                      </p>
+                      {productData.usageModelImage && (
+                        <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-gray-50">
+                          <img
+                            src={productData.usageModelImage}
+                            alt="Usage Model"
+                            className="w-full h-auto max-h-[400px] object-contain"
+                            onError={(e) => {
+                              (e.target as HTMLImageElement).style.display = 'none';
+                            }}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Key Features (for riscv-reference-model) */}
+                  {productData.keyFeatures && productData.keyFeatures.length > 0 && (
+                    <div className="mb-8">
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Key Features of the RISC-V ISA</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {productData.keyFeatures.map((feature, index) => (
+                          <div
+                            key={index}
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
+                          >
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[14px] text-gray-700">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Advantages (for riscv-reference-model) */}
+                  {productData.advantages && productData.advantages.length > 0 && !productData.keyBenefits && (
+                    <div className="mb-8">
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Advantages of RISC</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {productData.advantages.map((adv, index) => (
+                          <div
+                            key={index}
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
+                          >
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[14px] text-gray-700">{adv}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Features Table (for riscv-reference-model) */}
+                  {productData.featuresTable && <FeaturesTable data={productData.featuresTable} />}
+
+                  {/* Circuit Diagram */}
+                  {productData.circuitDiagram && (
+                    <div className="mb-8">
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Circuit Diagram</h2>
+                      <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-gray-50">
+                        <img
+                          src={productData.circuitDiagram}
+                          alt="Circuit Diagram"
+                          className="w-full h-auto max-h-[400px] object-contain"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).style.display = 'none';
+                          }}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Prerequisites */}
+                  {productData.prerequisites && productData.prerequisites.length > 0 && (
+                    <div className="mb-8">
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Prerequisite</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {productData.prerequisites.map((item, index) => (
+                          <div
+                            key={index}
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
+                          >
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[14px] text-gray-700">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Dependencies */}
+                  {productData.dependencies && productData.dependencies.length > 0 && (
+                    <div className="mb-8">
+                      <h2 className="text-xl font-bold text-[#e34115] mb-4">Dependencies</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        {productData.dependencies.map((item, index) => (
+                          <div
+                            key={index}
+                            className="flex items-start gap-2 p-3 bg-gray-50 rounded-lg hover:bg-[#e34115]/10 transition-colors"
+                          >
+                            <span className="text-[#e34115] text-lg font-bold mt-0.5">•</span>
+                            <span className="text-[14px] text-gray-700">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Board Purchase Links */}
+                  {productData.boardPurchaseLinks && (
+                    <BoardPurchaseLinks data={productData.boardPurchaseLinks} />
                   )}
 
                   {/* Deliverables */}
