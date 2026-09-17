@@ -1136,6 +1136,10 @@ export default function ProductDetail({
       return colors[badge] || 'bg-gray-100 text-gray-800 border-gray-300';
     };
 
+    // Determine if we should show the Key Features list
+    // Hide it when showMipiI3cTable is true (MIPI I3C FEATURES table is enough)
+    const shouldShowKeyFeatures = features && features.length > 0 && !productData.featuresTable && !productData.showMipiI3cTable;
+
     return (
       <>
         <SEO
@@ -1223,11 +1227,11 @@ export default function ProductDetail({
                     <MipiI3cTable data={productData.mipiI3cTableData} />
                   )}
 
-                  {/* Features Table (for VEGA integration products) */}
+                  {/* Features Table (only rendered ONCE) */}
                   {productData.featuresTable && <FeaturesTable data={productData.featuresTable} />}
 
-                  {/* Features List */}
-                  {features && features.length > 0 && !productData.featuresTable && (
+                  {/* Features List - Only show if no featuresTable and no showMipiI3cTable */}
+                  {shouldShowKeyFeatures && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Key Features</h2>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -1243,9 +1247,6 @@ export default function ProductDetail({
                       </div>
                     </div>
                   )}
-
-                  {/* Features Table (from featuresTable) */}
-                  {productData.featuresTable && <FeaturesTable data={productData.featuresTable} />}
 
                   {/* Solution Architecture */}
                   {productData.solutionArchitecture && (
@@ -1444,9 +1445,6 @@ export default function ProductDetail({
                       </div>
                     </div>
                   )}
-
-                  {/* Features Table (for riscv-reference-model) */}
-                  {productData.featuresTable && <FeaturesTable data={productData.featuresTable} />}
 
                   {/* Circuit Diagram */}
                   {productData.circuitDiagram && (
