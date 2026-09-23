@@ -185,9 +185,11 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="Services — MAXVY Technologies"
-        description="Full-stack silicon engineering services from RTL design to software solutions."
+        title="Our Services — MAXVY Technologies"
+        description="Silicon engineering services: RTL design, GLS verification, and full-stack IP development."
+        keywords="RTL Design and Verification Solution, RTL Design and Verification Services, GLS Verification Solution, Gate-Level Simulation Verification Services"
         canonical="/services"
+        type="website"
       />
       
       {/* Hero Section */}

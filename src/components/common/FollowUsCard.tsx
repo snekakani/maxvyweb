@@ -19,7 +19,7 @@ const FollowUsCard = () => {
     {
       id: 2,
       title: 'Christmas Celebration at MAXVY',
-      image: 'https://media.licdn.com/dms/image/v2/D5622AQHF920SYtZ48w/feedshare-shrink_800/B56Zs7gMpJIAAg-/0/1766229855349?e=1785369600&v=beta&t=hdJYkHdp0_zYHMy-5iP3stFEaQUsqeHGdPQFhVK3faU',
+      image: 'https://media.licdn.com/dms/image/v2/D5622AQHF920SYtZ48w/feedshare-shrink-800/B56Zs7gMpJIAAg-/0/1766229855349?e=1785369600&v=beta&t=hdJYkHdp0_zYHMy-5iP3stFEaQUsqeHGdPQFhVK3faU',
       time: '4 months ago',
       url: 'https://www.linkedin.com/posts/maxvytech_teammaxvy-christmascelebration-workplacejoy-activity-7408104957624840192-hk_H'
     },
@@ -51,12 +51,12 @@ const FollowUsCard = () => {
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: 0.1 }}
-      className="w-full h-full flex flex-col"
+      className="w-full h-full relative"
     >
-      {/* Main Card - Full Height */}
-      <div className="bg-white rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.08)] border border-gray-200 overflow-hidden flex flex-col h-full">
-        
-        {/* Header Section - Fixed */}
+      {/* Card absolutely fills parent — parent determines height */}
+      <div className="absolute inset-0 bg-white rounded-xl shadow-[0_2px_12px_rgba(0,0,0,0.08)] border border-gray-200 overflow-hidden flex flex-col">
+
+        {/* Header — fixed, does not scroll */}
         <div className="p-4 border-b border-gray-200 flex-shrink-0">
           <div className="flex items-center gap-3">
             <div className="flex-shrink-0">
@@ -67,12 +67,11 @@ const FollowUsCard = () => {
               />
             </div>
           </div>
-          
+
           <button
             onClick={handleFollowClick}
             className="mt-3 w-full flex items-center overflow-hidden rounded-md border border-[#0A66C2]"
           >
-            {/* LinkedIn Logo */}
             <div className="bg-white px-4 py-2 border-r border-[#0A66C2] flex items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -82,20 +81,17 @@ const FollowUsCard = () => {
                 <path d="M100.28 448H7.4V148.9h92.88zm-46.44-341C24.09 107 0 82.91 0 53.64A53.64 53.64 0 0 1 53.84 0a53.64 53.64 0 0 1 53.84 53.64c0 29.27-24.09 53.36-53.84 53.36zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
               </svg>
             </div>
-
-            {/* Follow */}
             <div className="flex-1 bg-[#0A66C2] hover:bg-[#004182] text-white font-semibold py-2 text-center transition-colors">
               +Follow
             </div>
           </button>
         </div>
 
-        {/* Feed Section - Flexible height */}
-        <div className="flex-1 overflow-y-auto p-4">
+        {/* Feed — internal scroll if content exceeds card height */}
+        <div className="flex-1 overflow-y-auto p-4 min-h-0">
           {posts.map((post, index) => (
             <React.Fragment key={post.id}>
               <div className="hover:bg-gray-50/50 transition-colors duration-200 pb-4">
-                {/* Post Header */}
                 <div className="flex items-start gap-3 mb-3">
                   <div className="flex-shrink-0">
                     <img
@@ -106,14 +102,11 @@ const FollowUsCard = () => {
                   </div>
                 </div>
 
-                {/* Post Content */}
                 <div className="space-y-3">
-                  {/* Post Title */}
                   <p className="text-sm text-[#0F172A] font-medium leading-relaxed">
                     {post.title}
                   </p>
 
-                  {/* Post Image */}
                   <div className="relative rounded-lg overflow-hidden bg-gray-100">
                     <img 
                       src={post.image} 
@@ -123,7 +116,6 @@ const FollowUsCard = () => {
                     />
                   </div>
 
-                  {/* Post Actions */}
                   <div className="flex items-center justify-between pt-2 border-t border-gray-100">
                     <div className="flex items-center gap-4">
                       <button className="flex items-center gap-1.5 text-gray-500 hover:text-blue-600 transition-colors text-xs">
@@ -145,8 +137,7 @@ const FollowUsCard = () => {
                   </div>
                 </div>
               </div>
-              
-              {/* Separator between posts */}
+
               {index < posts.length - 1 && (
                 <div className="border-b border-gray-200 mb-4" />
               )}

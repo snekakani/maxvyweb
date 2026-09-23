@@ -83,10 +83,10 @@ export default function CareerDetail({ slug }: Props) {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="bg-white rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-10 lg:p-12"
           >
-            {/* Two Column Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-8">
-              {/* --- LEFT CONTENT --- */}
-              <div>
+            {/* Two Column Layout — auto-rows-fr + items-stretch forces equal heights */}
+            <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-8 lg:auto-rows-fr lg:items-stretch">
+              {/* --- LEFT CONTENT (drives row height) --- */}
+              <div className="min-h-0">
                 <div className="reveal">
                   <h2 className="text-[32px] font-bold text-[#0F172A] mb-4">{pageTitle}</h2>
                   <div className="prose prose-lg max-w-none">
@@ -169,17 +169,15 @@ export default function CareerDetail({ slug }: Props) {
               </div>
 
               {/* --- RIGHT SIDEBAR --- */}
-              <div className="lg:pl-4">
-                <div className="sticky top-24">
-                  {/* Follow Us Card - Only this remains */}
-                  <FollowUsCard
-                    title="Follow us"
-                    companyName="Maxvy Tech"
-                    description="Stay connected with us for the latest updates, career opportunities, and insights."
-                    buttonText="Follow"
-                    facebookImage="/path-to-facebook-preview-image.jpg"
-                  />
-                </div>
+              {/* relative + h-full so the absolute FollowUsCard fills this cell exactly */}
+              <div className="lg:pl-4 relative h-full min-h-0">
+                <FollowUsCard
+                  title="Follow us"
+                  companyName="Maxvy Tech"
+                  description="Stay connected with us for the latest updates, career opportunities, and insights."
+                  buttonText="Follow"
+                  facebookImage="/path-to-facebook-preview-image.jpg"
+                />
               </div>
             </div>
           </motion.div>

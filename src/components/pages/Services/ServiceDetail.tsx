@@ -36,12 +36,19 @@ export default function ServiceDetail({ slug }: Props) {
     { label: service.name },
   ];
 
+  // Use data-driven keywords if present, else fall back to top-level service keywords.
+  const serviceKeywords =
+    service.seoKeywords ||
+    'RTL Design and Verification Solution, RTL Design and Verification Services, GLS Verification Solution, Gate-Level Simulation Verification Services';
+
   return (
     <>
       <SEO
-        title={`${service.name} — MAXVY Technologies`}
+        title={service.name}
         description={service.tagline}
+        keywords={serviceKeywords}
         canonical={service.path}
+        type="website"
       />
       
       {/* Hero Section - Updated to match About page style */}

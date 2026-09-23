@@ -18,7 +18,6 @@ const TestimonialCard = ({ name, role, content, initials, feedbackImage, onViewF
       whileHover={{ y: -6, transition: { duration: 0.3 } }}
       className="group max-w-[510px] w-full"
     >
-      {/* Card with Gradient Background */}
       <div 
         className="relative rounded-[10px] p-[30px] overflow-visible"
         style={{
@@ -28,22 +27,18 @@ const TestimonialCard = ({ name, role, content, initials, feedbackImage, onViewF
           width: '100%',
         }}
       >
-        {/* Hover Shadow */}
         <div className="absolute inset-0 rounded-[10px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" 
              style={{ boxShadow: '0 18px 40px rgba(0,0,0,0.25)' }} 
         />
         
-        {/* Quote Icon */}
         <div className="relative z-10">
           <Quote className="w-8 h-8 text-white/55" />
         </div>
         
-        {/* Testimonial Text - Truncated to fit inside card */}
         <p className="relative z-10 text-white text-[15px] font-medium leading-[1.8] mt-[18px] line-clamp-4 overflow-hidden">
           {content}
         </p>
         
-        {/* Speech Bubble Pointer - Diamond Shape */}
         <div 
           className="absolute -bottom-[10px] left-[42px] w-[22px] h-[22px] rotate-45"
           style={{
@@ -52,10 +47,8 @@ const TestimonialCard = ({ name, role, content, initials, feedbackImage, onViewF
         />
       </div>
       
-      {/* Author Info - Below Card */}
       <div className="flex items-center justify-between mt-[34px]">
         <div className="flex items-center gap-4">
-          {/* Avatar - Orange Circle with Initials */}
           <div className="flex-shrink-0 w-[50px] h-[50px] rounded-full bg-[#e34115] flex items-center justify-center text-white font-bold text-base">
             {initials}
           </div>
@@ -69,7 +62,6 @@ const TestimonialCard = ({ name, role, content, initials, feedbackImage, onViewF
           </div>
         </div>
         
-        {/* View Feedback Button */}
        <button
   onClick={() => onViewFeedback(feedbackImage)}
   className="flex items-center gap-2 px-4 py-2 bg-[#0A66C2] hover:bg-[#004182] text-white text-sm font-semibold rounded-lg transition-all duration-300 shadow-sm hover:shadow-md flex-shrink-0"
@@ -95,7 +87,6 @@ const FeedbackModal = ({ isOpen, image, onClose }) => {
         className="relative max-w-4xl w-full bg-white rounded-2xl shadow-2xl overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/50 hover:bg-black/70 text-white rounded-full flex items-center justify-center transition-colors duration-200"
@@ -105,7 +96,6 @@ const FeedbackModal = ({ isOpen, image, onClose }) => {
           </svg>
         </button>
         
-        {/* Image */}
         <div className="w-full">
           <img 
             src={image} 
@@ -123,7 +113,6 @@ export default function TestimonialsPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Testimonial data - Shortened to fit inside cards
   const testimonials = [
     {
       id: 1,
@@ -151,7 +140,6 @@ export default function TestimonialsPage() {
     setSelectedImage(null);
   };
 
-  // Animation variants
   const fadeUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } }
@@ -185,10 +173,8 @@ export default function TestimonialsPage() {
             height: '360px',
           }}
         >
-          {/* Light White Overlay */}
           <div className="absolute inset-0 bg-white/70" />
 
-          {/* Centered Content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <motion.div
               initial="hidden"
@@ -217,10 +203,10 @@ export default function TestimonialsPage() {
             transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
             className="bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-12"
           >
-            {/* Two Column Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-10">
-              {/* --- LEFT CONTENT - Testimonials Grid --- */}
-              <div>
+            {/* Two Column Layout — auto-rows-fr + items-stretch forces equal heights */}
+            <div className="grid grid-cols-1 lg:grid-cols-[70%_30%] gap-10 lg:auto-rows-fr lg:items-stretch">
+              {/* LEFT: Testimonials (drives row height) */}
+              <div className="min-h-0">
                 <motion.div
                   variants={staggerContainer}
                   initial="hidden"
@@ -242,13 +228,13 @@ export default function TestimonialsPage() {
                 </motion.div>
               </div>
 
-              {/* --- RIGHT SIDEBAR - Follow Us Card --- */}
+              {/* RIGHT: FollowUsCard — parent must be `relative` so card fills it absolutely */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="lg:pl-4"
+                className="lg:pl-4 relative min-h-0"
               >
                 <FollowUsCard />
               </motion.div>
@@ -256,11 +242,9 @@ export default function TestimonialsPage() {
           </motion.div>
         </div>
 
-        {/* Bottom spacer */}
         <div className="h-12" />
       </div>
 
-      {/* Feedback Modal */}
       <FeedbackModal 
         isOpen={modalOpen}
         image={selectedImage}

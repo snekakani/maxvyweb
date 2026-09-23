@@ -1,0 +1,32 @@
+# robots.txt — MAXVY Technologies
+# Production domain: https://www.maxvytech.com
+
+User-agent: *
+Allow: /
+
+# Do NOT block CSS, JS, images — required for rendering
+Allow: /assets/
+Allow: /images/
+Allow: /static/
+Allow: *.css
+Allow: *.js
+Allow: *.jpg
+Allow: *.jpeg
+Allow: *.png
+Allow: *.svg
+Allow: *.webp
+Allow: *.avif
+
+# Block private / non-indexable areas
+Disallow: /admin
+Disallow: /admin/
+Disallow: /login
+Disallow: /signup
+Disallow: /register
+Disallow: /dashboard
+Disallow: /account
+Disallow: /private
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://www.maxvytech.com/sitemap.xml

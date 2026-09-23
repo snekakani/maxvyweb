@@ -17,6 +17,16 @@ import productContentData from '../../../data/products/productContent';
 // Import product enquiry API
 import { submitProductEnquiry, ProductEnquiryData, ProductEnquiryResponse, getCaptcha, CaptchaResponse } from '../../../api/product-enquiry';
 
+// ─── NEW IMPORTS (SEO / structured data) ───
+import {
+  buildOrganizationSchema,
+  buildWebSiteSchema,
+  buildBreadcrumbSchema,
+  buildProductSchema,
+  graph,
+} from '../../../seo/StructuredData';
+import { SITE_URL, PRODUCT_CATEGORIES } from '../../../seo/seoConfig';
+
 type Props = {
   name?: string;
   tagline?: string;
@@ -72,7 +82,6 @@ const CaptchaInput = ({ onCaptchaChange, onCaptchaError, captchaError }) => {
     if (captchaId) {
       onCaptchaChange(value, captchaId);
     }
-    // Clear error when user starts typing
     if (captchaError) {
       onCaptchaError(null);
     }
@@ -168,7 +177,6 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
   const [captchaId, setCaptchaId] = useState('');
   const [captchaError, setCaptchaError] = useState<string | null>(null);
 
-  // Reset when modal closes
   useEffect(() => {
     if (!isOpen) {
       setCaptchaValue('');
@@ -205,16 +213,13 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Reset previous errors
     setErrors({});
     setCaptchaError(null);
     
-    // Validate form
     if (!validate()) {
       return;
     }
 
-    // Check if CAPTCHA is completed
     if (!captchaValue || !captchaId) {
       setCaptchaError('Please complete the CAPTCHA.');
       return;
@@ -223,7 +228,6 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
     setIsSubmitting(true);
 
     try {
-      // Prepare API payload with new captcha fields
       const payload: ProductEnquiryData = {
         name: formData.name,
         email: formData.email,
@@ -242,9 +246,7 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
       console.log('API Response:', response);
       
       if (response.success) {
-        // Success
         setIsSuccess(true);
-        // Reset form after success
         setTimeout(() => {
           onClose();
           setIsSuccess(false);
@@ -262,13 +264,10 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
           setCaptchaId('');
         }, 2000);
       } else {
-        // Handle validation errors
         if (response.errors) {
-          // Map backend validation errors to form fields
           const fieldErrors = {};
           const backendErrors = response.errors;
           
-          // Map backend field names to frontend field names
           const fieldMapping = {
             'name': 'name',
             'email': 'email',
@@ -289,7 +288,6 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
           
           setErrors(fieldErrors);
           
-          // Check for captcha errors
           if (backendErrors.captcha || backendErrors.captcha_id) {
             setCaptchaError('CAPTCHA verification failed. Please try again.');
             setCaptchaValue('');
@@ -300,7 +298,6 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
           setCaptchaValue('');
           setCaptchaId('');
         } else {
-          // Generic error
           setErrors({ general: response.message || 'Something went wrong. Please try again.' });
         }
       }
@@ -432,7 +429,6 @@ const QuoteRequestModal = ({ isOpen, onClose, productName }) => {
                 {errors.requirement && <p className="text-red-500 text-xs mt-1">{errors.requirement}</p>}
               </div>
 
-              {/* Custom CAPTCHA */}
               <div>
                 <label className="text-sm font-medium text-gray-700">CAPTCHA <span className="text-red-500">*</span></label>
                 <CaptchaInput
@@ -488,7 +484,6 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
   const [captchaId, setCaptchaId] = useState('');
   const [captchaError, setCaptchaError] = useState<string | null>(null);
 
-  // Reset when modal closes
   useEffect(() => {
     if (!isOpen) {
       setCaptchaValue('');
@@ -724,7 +719,6 @@ const DownloadRequestModal = ({ isOpen, onClose, productName }) => {
                 {errors.contactNumber && <p className="text-red-500 text-xs mt-1">{errors.contactNumber}</p>}
               </div>
 
-              {/* Custom CAPTCHA */}
               <div>
                 <label className="text-sm font-medium text-gray-700">CAPTCHA <span className="text-red-500">*</span></label>
                 <CaptchaInput
@@ -1080,7 +1074,6 @@ export default function ProductDetail({
   const [showQuoteModal, setShowQuoteModal] = useState(false);
   const [showDownloadModal, setShowDownloadModal] = useState(false);
   
-  // Get the slug from the URL path if useParams doesn't provide it
   const getSlugFromPath = () => {
     const pathParts = location.pathname.split('/');
     for (let i = pathParts.length - 1; i >= 0; i--) {
@@ -1093,18 +1086,14 @@ export default function ProductDetail({
     return null;
   };
 
-  // Use the slug from params or extract from path
   const effectiveSlug = slug || getSlugFromPath() || propName?.toLowerCase().replace(/\s+/g, '-') || '';
   
-  // Get product data from productContent using the effective slug
   const productData = effectiveSlug ? productContentData[effectiveSlug] : null;
   
-  // Generate YouTube thumbnail URL
   const getYouTubeThumbnail = (videoId: string) => {
     return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
   };
 
-  // If we have productData from productContent, use it (this takes priority)
   if (productData) {
     const name = productData.heroTitle || productData.title || effectiveSlug;
     const tagline = productData.heroDescription || '';
@@ -1115,18 +1104,28 @@ export default function ProductDetail({
     const videos = productData.videos || [];
     const blockDiagram = productData.blockDiagram;
     const badges = productData.badges || [];
-    
-    // Get category from product data
+    const seoKeywords = productData.seoKeywords || '';
+
+    // Short browser title (≤ 60 chars): prefer explicit metaTitle,
+    // else trim productData.title at the first " - " boundary.
+    const rawTitle = productData.metaTitle || productData.title || name;
+    const seoTitle =
+      typeof rawTitle === 'string' && rawTitle.length > 60
+        ? (rawTitle.split(' - ')[0] || rawTitle).slice(0, 60).trim()
+        : rawTitle;
+
+    // Short meta description: prefer explicit metaDescription, else heroDescription.
+    const metaDescription =
+      productData.metaDescription || productData.heroDescription || '';
+
     const categoryName = productData.category || 'Product';
     const sidebarGroup = getSidebarGroupForProduct(`/products/${categoryName}/${effectiveSlug}`);
     const groupLabel = sidebarGroup?.label || categoryName || 'Product';
 
-    // Split title for hero
     const titleParts = name.split(' ');
     const lastWord = titleParts.pop() || '';
     const restTitle = titleParts.join(' ');
 
-    // Badge color mapping
     const getBadgeColor = (badge: string) => {
       const colors = {
         'Silicon Proven': 'bg-green-100 text-green-800 border-green-300',
@@ -1136,17 +1135,52 @@ export default function ProductDetail({
       return colors[badge] || 'bg-gray-100 text-gray-800 border-gray-300';
     };
 
-    // Determine if we should show the Key Features list
-    // Hide it when showMipiI3cTable is true (MIPI I3C FEATURES table is enough)
     const shouldShowKeyFeatures = features && features.length > 0 && !productData.featuresTable && !productData.showMipiI3cTable;
 
     return (
       <>
-        <SEO
-          title={`${name} — MAXVY Technologies`}
-          description={tagline}
-          canonical={`/products/${categoryName}/${effectiveSlug}`}
-        />
+        {(() => {
+          const canonicalPath = `/products/${categoryName}/${effectiveSlug}`;
+          const ogImage = productData.blockDiagram
+            ? (productData.blockDiagram.startsWith('http')
+                ? productData.blockDiagram
+                : `${SITE_URL}${productData.blockDiagram}`)
+            : undefined;
+
+          const categoryLabel = (PRODUCT_CATEGORIES as readonly string[]).includes(categoryName)
+            ? categoryName.replace(/-/g, ' ').replace(/\b\w/g, (m) => m.toUpperCase())
+            : 'Products';
+
+          const structured = graph(
+            buildOrganizationSchema(),
+            buildWebSiteSchema(),
+            buildBreadcrumbSchema([
+              { name: 'Home', url: '/' },
+              { name: 'Products', url: '/products' },
+              { name: categoryLabel, url: `/products/${categoryName}` },
+              { name: productData.title || name, url: canonicalPath },
+            ]),
+            buildProductSchema({
+              name: productData.title || name,
+              description: tagline,
+              url: canonicalPath,
+              image: ogImage,
+              category: categoryLabel,
+            })
+          );
+
+          return (
+            <SEO
+              title={seoTitle}
+              description={metaDescription}
+              keywords={seoKeywords}
+              image={ogImage}
+              canonical={canonicalPath}
+              type="website"
+              jsonLd={structured}
+            />
+          );
+        })()}
         
         {/* Hero Section with Floating Container */}
         <div className="relative w-full overflow-hidden">
@@ -1186,15 +1220,13 @@ export default function ProductDetail({
               transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
               className="bg-white rounded-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.08)] p-10 lg:p-12"
             >
-              {/* Main Content - Full Width (no sidebar) */}
               <div className="flex-1">
                 <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-                  {/* Product Title */}
-                  <h1 className="text-[26px] font-bold text-[#e34115] mb-6 leading-tight">
+                  {/* SEO: only ONE H1 per page — hero above. Use H2 here. */}
+                  <h2 className="text-[26px] font-bold text-[#e34115] mb-6 leading-tight">
                     {productData.title || name}
-                  </h1>
+                  </h2>
 
-                  {/* Overview */}
                   {overview && overview.length > 0 && (
                     <div className="mb-8">
                       {overview[0].split('\n\n').map((para, index) => (
@@ -1205,7 +1237,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Badges */}
                   {badges.length > 0 && (
                     <div className="flex flex-wrap gap-2 mb-6">
                       {badges.map((badge, index) => (
@@ -1219,18 +1250,14 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* MIPI I3C Features Deliverable Section */}
                   {productData.showMipiI3cFeatures && <MipiI3cFeaturesDeliverable />}
 
-                  {/* MIPI I3C Table */}
                   {productData.showMipiI3cTable && productData.mipiI3cTableData && (
                     <MipiI3cTable data={productData.mipiI3cTableData} />
                   )}
 
-                  {/* Features Table (only rendered ONCE) */}
                   {productData.featuresTable && <FeaturesTable data={productData.featuresTable} />}
 
-                  {/* Features List - Only show if no featuresTable and no showMipiI3cTable */}
                   {shouldShowKeyFeatures && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Key Features</h2>
@@ -1248,17 +1275,14 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Solution Architecture */}
                   {productData.solutionArchitecture && (
                     <SolutionArchitecture data={productData.solutionArchitecture} />
                   )}
 
-                  {/* Resource Deliverables */}
                   {productData.resourceDeliverables && (
                     <ResourceDeliverables items={productData.resourceDeliverables} />
                   )}
 
-                  {/* FPGA Board Details */}
                   {productData.fpgaBoardDetails && (
                     <FpgaBoardDetails
                       data={productData.fpgaBoardDetails}
@@ -1269,7 +1293,6 @@ export default function ProductDetail({
                     />
                   )}
 
-                  {/* Block Diagram */}
                   {blockDiagram && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Block Diagram</h2>
@@ -1290,12 +1313,10 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Applications Table */}
                   {productData.applicationsTable && (
                     <ApplicationsTable data={productData.applicationsTable} />
                   )}
 
-                  {/* Applications Image */}
                   {productData.applicationsImage && (
                     <div className="mb-8">
                       <div className="border border-gray-200 rounded-lg shadow-sm overflow-hidden bg-gray-50">
@@ -1311,7 +1332,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Applications List */}
                   {applications && applications.length > 0 && !productData.applicationsTable && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Applications</h2>
@@ -1329,12 +1349,10 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Customer Benefits */}
                   {productData.customerBenefits && (
                     <CustomerBenefits data={productData.customerBenefits} />
                   )}
 
-                  {/* Advantages */}
                   {productData.advantages && productData.advantages.length > 0 && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Advantages</h2>
@@ -1352,7 +1370,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Key Benefits */}
                   {productData.keyBenefits && productData.keyBenefits.length > 0 && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Key Benefits</h2>
@@ -1370,7 +1387,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Extended Capabilities */}
                   {productData.extendedCapabilities && productData.extendedCapabilities.length > 0 && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Extended Capabilities</h2>
@@ -1388,7 +1404,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Usage Model */}
                   {productData.usageModel && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Usage Model</h2>
@@ -1410,7 +1425,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Key Features (for riscv-reference-model) */}
                   {productData.keyFeatures && productData.keyFeatures.length > 0 && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Key Features of the RISC-V ISA</h2>
@@ -1428,7 +1442,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Advantages (for riscv-reference-model) */}
                   {productData.advantages && productData.advantages.length > 0 && !productData.keyBenefits && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Advantages of RISC</h2>
@@ -1446,7 +1459,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Circuit Diagram */}
                   {productData.circuitDiagram && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Circuit Diagram</h2>
@@ -1463,7 +1475,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Prerequisites */}
                   {productData.prerequisites && productData.prerequisites.length > 0 && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Prerequisite</h2>
@@ -1481,7 +1492,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Dependencies */}
                   {productData.dependencies && productData.dependencies.length > 0 && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Dependencies</h2>
@@ -1499,12 +1509,10 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Board Purchase Links */}
                   {productData.boardPurchaseLinks && (
                     <BoardPurchaseLinks data={productData.boardPurchaseLinks} />
                   )}
 
-                  {/* Deliverables */}
                   {deliverables && deliverables.length > 0 && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Deliverables</h2>
@@ -1522,7 +1530,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Videos */}
                   {videos && videos.length > 0 && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Videos</h2>
@@ -1569,7 +1576,6 @@ export default function ProductDetail({
                   )}
                 </section>
 
-                {/* CTA Section with Three Buttons */}
                 <div className="mt-8 bg-gradient-to-r from-[#e34115]/10 to-white rounded-2xl border border-gray-200 p-8 text-center">
                   <h2 className="text-2xl font-bold text-[#0F172A] mb-2">
                     Ready to evaluate {name}?
@@ -1605,18 +1611,15 @@ export default function ProductDetail({
             </motion.div>
           </div>
 
-          {/* Bottom spacer */}
           <div className="h-12" />
         </div>
 
-        {/* Quote Request Modal */}
         <QuoteRequestModal
           isOpen={showQuoteModal}
           onClose={() => setShowQuoteModal(false)}
           productName={name}
         />
 
-        {/* Download Request Modal */}
         <DownloadRequestModal
           isOpen={showDownloadModal}
           onClose={() => setShowDownloadModal(false)}
@@ -1626,7 +1629,6 @@ export default function ProductDetail({
     );
   }
 
-  // If we have propName and propTagline (for verification IP products that don't have data in productContent)
   if (propName && propTagline) {
     const name = propName;
     const tagline = propTagline;
@@ -1667,11 +1669,29 @@ export default function ProductDetail({
 
     return (
       <>
-        <SEO
-          title={`${name} — MAXVY Technologies`}
-          description={tagline}
-          canonical={`/products/verification-ip/${effectiveSlug}`}
-        />
+        {(() => {
+          const canonicalPath = `/products/verification-ip/${effectiveSlug}`;
+          const structured = graph(
+            buildOrganizationSchema(),
+            buildWebSiteSchema(),
+            buildBreadcrumbSchema([
+              { name: 'Home', url: '/' },
+              { name: 'Products', url: '/products' },
+              { name: 'Verification IP', url: '/products/verification-ip' },
+              { name, url: canonicalPath },
+            ])
+          );
+
+          return (
+            <SEO
+              title={name}
+              description={tagline}
+              canonical={canonicalPath}
+              type="website"
+              jsonLd={structured}
+            />
+          );
+        })()}
         
         <div className="relative w-full overflow-hidden">
           <div
@@ -1711,9 +1731,10 @@ export default function ProductDetail({
             >
               <div className="flex-1">
                 <section className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 md:p-8">
-                  <h1 className="text-[26px] font-bold text-[#e34115] mb-6 leading-tight">
+                  {/* SEO: only ONE H1 per page — hero above. Use H2 here. */}
+                  <h2 className="text-[26px] font-bold text-[#e34115] mb-6 leading-tight">
                     {name}
-                  </h1>
+                  </h2>
 
                   {overview && overview.length > 0 && (
                     <div className="mb-8">
@@ -1740,7 +1761,6 @@ export default function ProductDetail({
                     </div>
                   )}
 
-                  {/* Block Diagram */}
                   {blockDiagram && (
                     <div className="mb-8">
                       <h2 className="text-xl font-bold text-[#e34115] mb-4">Block Diagram</h2>
@@ -1849,13 +1869,13 @@ export default function ProductDetail({
     );
   }
 
-  // Fallback for when product is not found
   return (
     <>
       <SEO
-        title={`${propName || 'Product'} — MAXVY Technologies`}
-        description={propTagline || ''}
+        title="Product Not Found"
+        description="The requested product page could not be found."
         canonical={`/products/${category}/${effectiveSlug}`}
+        noIndex={true}
       />
       
       <div className="relative w-full overflow-hidden">
@@ -1926,12 +1946,10 @@ export const getProductsByCategory = (categoryId) => {
 };
 
 export const findProduct = (category, slug) => {
-  // First try to find by slug directly
   if (productContentData[slug]) {
     return productContentData[slug];
   }
   
-  // If not found, search through all products
   for (const key in productContentData) {
     if (productContentData[key].slug === slug) {
       return productContentData[key];

@@ -14,6 +14,8 @@ export type ServiceItem = {
   icon: LucideIcon;
   tagline: string;
   description: string;
+  /** SEO keywords for this service page (used by <SEO keywords="..." />) */
+  seoKeywords?: string;
   overview: string[];
   process: { title: string; description: string }[];
   stack: string[];
@@ -30,6 +32,8 @@ export const services: ServiceItem[] = [
     tagline: 'Production-grade RTL for next-generation silicon.',
     description:
       'Architect and implement synthesizable RTL for compute, memory and connectivity subsystems with power, performance and area (PPA) targets baked in from day one.',
+    seoKeywords:
+      'RTL Design and Verification Solution, RTL Design and Verification Services',
     overview: [
       'MAXVY RTL engineers have taped out dozens of SoC subsystems across DDR5, MIPI, I3C and RISC-V. We design for clean timing closure, reusable verification and seamless integration into customer flows.',
       'Our design methodology emphasizes micro-architecture exploration, clock and power domain partitioning, and lint-clean synthesizable code from the first commit.',
@@ -62,6 +66,8 @@ export const services: ServiceItem[] = [
     tagline: 'UVM, formal and system-level verification that finds bugs silicon cannot.',
     description:
       'Constrained-random UVM, formal property verification and system-level test plans that close coverage with confidence and ship bug-free RTL.',
+    seoKeywords:
+      'GLS Verification Solution, Gate-Level Simulation Verification Services',
     overview: [
       'Verification is where MAXVY started. Our UVM VIP portfolio and reference models power first-pass success on DDR5, MIPI and I3C programs worldwide.',
       'We build reusable testbenches, protocol-aware VIPs and regression infrastructure that scale from IP to full SoC.',
