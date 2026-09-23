@@ -645,7 +645,7 @@ export default function Home() {
         {/* ============================================================ */}
         {/* FEATURES SECTION */}
         {/* ============================================================ */}
-        <section className="relative w-full z-20">
+        <section className="relative w-full z-20 mt-8 md:mt-0">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
             {features.map((feature, idx) => {
               const isActive = idx === activeFeatureIndex;
